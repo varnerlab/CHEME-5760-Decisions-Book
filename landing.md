@@ -3,9 +3,10 @@
 ## Description
 Decision-making is essential to almost everything facet of life. However, are you making the best possible decisions? This course introduces quantitative decision-making tools and strategies that will give students a framework to make the best possible decisions in life, love, and finance. Students will be introduced to concepts such as utility maximization using personalized happiness functions. Students will also be introduced to modern machine learning and artificial intelligence approaches to decision-making, such as Markov Decisions Processes (MDP), Reinforcement Learning (RL), Imitation Learning (IL), and Multiagent decision-making tools and methods. 
 
-### Time, place and website
+### Times, places and websites
 * __Credits__: 3-credits
-* __Lectures and discussions__: Lecture TuTh 11:15 AM - 12:05 PM and Discussion Fr 1:25 PM - 2:15 PM in XXX
+* __Lectures__: Lectures on TuTh 11:15 AM - 12:05 PM in XXX
+* __Discussion__: Discussion on Fr 1:25 PM - 2:15 PM in XXX
 * __Website__: Canvas and GitHub. Examples, labs, and other codes used throughout the course are available on our GitHub repository: [https://github.com/varnerlab/CHEME-5760-Course-Repository-F23](https://github.com/varnerlab/CHEME-5760-Course-Repository-F23).
 
 ### Outcomes
