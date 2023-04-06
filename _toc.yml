@@ -8,7 +8,8 @@ chapters:
 - file: unit-1-simpledecisions/simpledecisions-landing
   title: Unit 1. Utility and Simple Decisions
   sections:
-  - file: unit-1-simpledecisions/utility
+  - file: unit-1-simpledecisions/utilityfunctions
+  - file: unit-1-simpledecisions/utlitymaximization
 - file: unit-2-uncertainty/uncertainty-landing
   title: Unit 2. Uncertain Decisions
   sections:

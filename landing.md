@@ -17,10 +17,10 @@ In this course, students will:
 
 ### Topics
 Lectures are organized into units, each having roughly four weeks of class time
-* [Unit 1: Simple decisions](./unit-1-simpledecisions/simpledecisions-landing.md)
+* [Unit 1: Making simple decisions](./unit-1-simpledecisions/simpledecisions-landing.md)
 * [Unit 2: Decisions in uncertain situations](./unit-2-uncertainty/uncertainty-landing.md)
 * [Unit 3: The best laid plans](./unit-3-planning/planning-landing.md)
-* [Unit 4: Decision making by doing](./unit-4-learning/learning-landing.md)
+* [Unit 4: Making decisions by doing](./unit-4-learning/learning-landing.md)
 
 ### Schedule
 The lecture, lab and problem set schedule can be viewed at (requires Cornell login): [https://cornell.box.com/s/t28fw49opylf5kdfwwwmdg5pgtgy0kc3](https://cornell.box.com/s/t28fw49opylf5kdfwwwmdg5pgtgy0kc3)
