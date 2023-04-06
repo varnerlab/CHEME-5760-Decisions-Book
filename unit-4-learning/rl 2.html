@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Sequential Planning Methods &#8212; CHEME 5760</title>
+    <title>Reinforcement Learning &#8212; CHEME 5760</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,11 +51,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-3-planning/planning-landing.html" />
+    <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-4-learning/rl.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Markov Decision Processes" href="mdp.html" />
-    <link rel="prev" title="Multiagent Reasoning and Game Thoery" href="../unit-2-uncertainty/games.html" />
+    <link rel="next" title="References" href="../References.html" />
+    <link rel="prev" title="Reinforcement and Imitation Learning" href="learning-landing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -135,13 +135,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">
-     Utility Functions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">
-     Maximizing Utility
+    <a class="reference internal" href="../unit-1-simpledecisions/utility.html">
+     Utility and Utility Maximization
     </a>
    </li>
   </ul>
@@ -161,47 +156,37 @@ const thebe_selector_output = ".output, .cell_output"
      Discrete and Continuous Probability
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../unit-2-uncertainty/risk.html">
-     Risk and Rick Aversion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../unit-2-uncertainty/games.html">
-     Multiagent Reasoning and Game Thoery
-    </a>
-   </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../unit-3-planning/planning-landing.html">
    Unit 3. Planning
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="mdp.html">
+    <a class="reference internal" href="../unit-3-planning/mdp.html">
      Markov Decision Processes
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../unit-4-learning/learning-landing.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="learning-landing.html">
    Unit 4. Learning
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../unit-4-learning/rl.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Reinforcement Learning
     </a>
    </li>
@@ -302,7 +287,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book/issues/new?title=Issue%20on%20page%20%2Funit-3-planning/planning-landing.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book/issues/new?title=Issue%20on%20page%20%2Funit-4-learning/rl.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -330,7 +315,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/unit-3-planning/planning-landing.md"
+        <a href="../_sources/unit-4-learning/rl.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -379,7 +364,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Sequential Planning Methods</h1>
+                <h1>Reinforcement Learning</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -391,11 +376,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="sequential-planning-methods">
-<h1>Sequential Planning Methods<a class="headerlink" href="#sequential-planning-methods" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="reinforcement-learning">
+<h1>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Permalink to this headline">#</a></h1>
 <p>Fill me in.</p>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -411,7 +394,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./unit-3-planning"
+            path: "./unit-4-learning"
         },
         predefinedOutput: true
     }
@@ -425,17 +408,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../unit-2-uncertainty/games.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="learning-landing.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Multiagent Reasoning and Game Thoery</p>
+            <p class="prev-next-title">Reinforcement and Imitation Learning</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="mdp.html" title="next page">
+    <a class='right-next' id="next-link" href="../References.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Markov Decision Processes</p>
+        <p class="prev-next-title">References</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
