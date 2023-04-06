@@ -14,6 +14,8 @@ chapters:
   title: Unit 2. Uncertain Decisions
   sections:
   - file: unit-2-uncertainty/probability
+  - file: unit-2-uncertainty/risk
+  - file: unit-2-uncertainty/games
 - file: unit-3-planning/planning-landing
   title: Unit 3. Planning
   sections: 
