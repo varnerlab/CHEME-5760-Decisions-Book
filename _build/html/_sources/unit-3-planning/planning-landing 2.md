@@ -1,2 +1,6 @@
-# Planning methods
-Fill me in.
+# Sequential Planning Methods
+Sequential planning methods solve decision-making problems where actions are taken over time and future states are uncertain. Sequential planning approaches are widely used in areas such as robotics, artificial intelligence, and operations research to solve problems that involve uncertainty and sequential decision-making. The central approach that we'll discuss is the Markov decision process, which is based on modeling decisions as Markov processes: 
+
+* [A Markov process](markov.md) is a mathematical model describing a system where the next state depends only on the current state and not the past. It's like a game where the outcome of the next move depends only on the game’s current state, not on previous states. Markov processes have many applications, such as predicting the weather, modeling financial markets, and understanding how diseases spread.
+
+* [A Markov decision process (MDP)](./mdp.md) is a mathematical framework for modeling decision-making in situations where the outcomes are uncertain. It consists of a set of states, actions, and rewards and a probabilistic transition function that determines the next state given the current state and action. MDPs are used to model and solve optimization problems where an agent must make decisions to maximize some reward or utility. They are commonly used in artificial intelligence and control theory to design optimal policies for decision-making problems.

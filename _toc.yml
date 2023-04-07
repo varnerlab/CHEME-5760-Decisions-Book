@@ -18,11 +18,13 @@ chapters:
   - file: unit-2-uncertainty/games
 - file: unit-3-planning/planning-landing
   title: Unit 3. Sequential Decisions
-  sections: 
+  sections:
+  - file: unit-3-planning/markov 
   - file: unit-3-planning/mdp
 - file: unit-4-learning/learning-landing
   title: Unit 4. Learning
   sections:
   - file: unit-4-learning/rl
+  - file: unit-4-learning/imitation
 
 - file: References

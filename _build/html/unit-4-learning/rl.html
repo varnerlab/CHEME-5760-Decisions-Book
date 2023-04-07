@@ -51,10 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-4-learning/rl.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="References" href="../References.html" />
+    <link rel="next" title="Imitation Learning" href="imitation.html" />
     <link rel="prev" title="Reinforcement and Imitation Learning" href="learning-landing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -163,19 +165,19 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../unit-2-uncertainty/risk.html">
-     Risk and Rick Aversion
+     Risk and Risk Aversion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../unit-2-uncertainty/games.html">
-     Multiagent Reasoning and Game Thoery
+     Multiagent Reasoning and Game Theory
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../unit-3-planning/planning-landing.html">
-   Unit 3. Planning
+   Unit 3. Sequential Decisions
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -183,6 +185,11 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unit-3-planning/markov.html">
+     Markov Chains
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../unit-3-planning/mdp.html">
      Markov Decision Processes
@@ -203,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Reinforcement Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="imitation.html">
+     Imitation Learning
     </a>
    </li>
   </ul>
@@ -367,12 +379,43 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-concepts-of-reinforcement-learning">
+   Basic concepts of reinforcement learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exploration-exploitation-and-bandit-problems">
+     Exploration, exploitation and bandit problems
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -384,6 +427,26 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-concepts-of-reinforcement-learning">
+   Basic concepts of reinforcement learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exploration-exploitation-and-bandit-problems">
+     Exploration, exploitation and bandit problems
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -393,7 +456,105 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="reinforcement-learning">
 <h1>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Permalink to this headline">#</a></h1>
-<p>Fill me in.</p>
+<p>In our discussion of <a class="reference internal" href="../unit-3-planning/mdp.html"><span class="doc std std-doc">Markov decision process (MDPs)</span></a>, we assumed that the transition and reward models were known precisely. However, these models may not be discovered in many actual problems. In these cases, the agent must learn to act through experience, e.g., by observing the outcomes of its actions. Then the agent chooses actions that maximize its long-term accumulation of reward.</p>
+<p>Several challenges must be addressed in cases of uncertain models. First, agents must balance between exploring the world and exploiting knowledge gained through experience. Second, rewards may be received long after decisions have been made. Finally, agents must generalize from limited experience.</p>
+<hr class="docutils" />
+<section id="basic-concepts-of-reinforcement-learning">
+<span id="content-references-basic-concepts-reinforcement-learning"></span><h2>Basic concepts of reinforcement learning<a class="headerlink" href="#basic-concepts-of-reinforcement-learning" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Reinforcement_learning">Reinforcement Learning (RL)</a> agents learn by performing actions in the world and then analyzing the rewards they receive (<code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-rl-schematic</span></code>). Thus, reinforcement learning differs from other machine learning approaches, e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/Supervised_learning">supervised learning</a> because labeled input/output pairs, e.g., what actions lead to positive rewards are not presented to the agent <em>a priori</em>.  Instead, reinforcement learning agents learn what is good or bad by trying different actions.</p>
+<p>Reinforcement learning agents learn optimal choices in different situations by balancing the exploration of their environment, e.g., by taking random actions and watching what happens, with the exploitation of the knowledge they have built up so far, i.e., choosing what the agent thinks is an optimal action based upon previous experience. The balance between exploration and exploitation is one of the critical concepts in reinforcement learning.</p>
+<section id="exploration-exploitation-and-bandit-problems">
+<span id="content-references-exploration-versus-exploitation"></span><h3>Exploration, exploitation and bandit problems<a class="headerlink" href="#exploration-exploitation-and-bandit-problems" title="Permalink to this headline">#</a></h3>
+<p>Reinforcement learning agents must balance exploration of the environment, e.g., taking random actions with exploiting knowledge already obtained through interacting with the world. Pure exploration allows agents to construct a comprehensive model of their environment, but likely at the expense of positive reward. On the other hand, pure exploitation has the agent continually choosing the action it thinks best to accumulate reward, but different, better actions could be taken.</p>
+<p>A classic approach to understanding the exploration and exploitation tradeoff, which itself has many real-world applications, is the <a class="reference external" href="https://en.wikipedia.org/wiki/Multi-armed_bandit">multi arm bandit problem</a>. A general bandit problem is a sequential game played between an agent and the environment. The game is played over <span class="math notranslate nohighlight">\(n\)</span> rounds called the <em>horizon</em>. In each round the agent chooses an action <span class="math notranslate nohighlight">\(a\in\mathcal{A}\)</span> and the environment then reveals a reward <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p>Let’s look at a particular sub-type of multi-arm bandit problem, namely, the Bernoulli bandit problem and Thompson sampling, a particular solution approach to this class of problem <span id="id1">[<a class="reference internal" href="../References.html#id3" title="Daniel Russo, Benjamin Van Roy, Abbas Kazerouni, Ian Osband, and Zheng Wen. A tutorial on thompson sampling. Foundations and Trends in Machine Learning, 11(1):1-96, 2017. URL: https://arxiv.org/abs/1707.02038, doi:10.48550/ARXIV.1707.02038.">Russo <em>et al.</em>, 2017</a>]</span>:</p>
+<div class="proof definition admonition" id="defn-multi-arm-bernoulli-bandit-problem">
+<p class="admonition-title"><span class="caption-number">Definition 3 </span> (Binary Bernoulli bandit problem)</p>
+<section class="definition-content" id="proof-content">
+<p>Suppose an agent has a choice between <span class="math notranslate nohighlight">\(K\)</span> possible actions <span class="math notranslate nohighlight">\(\mathcal{A}=\left\{a_{1},a_{2},\dots,a_{K}\right\}\)</span>. Further, the success or failure of any action <span class="math notranslate nohighlight">\(a_{i}\in\mathcal{A}\)</span> is governed by a Bernoulli random variable (see <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">defn-pmf-bernouli</span></code>).</p>
+<p>The agent receives a reward of <span class="math notranslate nohighlight">\(R_{a_{i}} = 1\)</span> (success) with probability <span class="math notranslate nohighlight">\(p_{a_{i}}\)</span>, and <span class="math notranslate nohighlight">\(R_{a_{i}} = 0\)</span> (failure) otherwise.</p>
+<p>The success probabilities of any action <span class="math notranslate nohighlight">\(p_{a_{i}}\)</span>, while static over the horizon of the game, are unknown to the agent, but they can be learned by experimentation. The agent’s objective is to maximize the cumulative number of successes over the game horizon, e.g., T-periods, where <span class="math notranslate nohighlight">\(T\gg{K}\)</span>.</p>
+</section>
+</div><p>There are multiple heuristic strategies to solve the Binary Bernoulli bandit problem described in <a class="reference internal" href="#defn-multi-arm-bernoulli-bandit-problem">Definition 3</a>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Thompson_sampling">Thompson sampling</a> which is shown in <a class="reference internal" href="#algo-thompson-sampling">Algorithm 1</a> consists of choosing the action that maximizes the expected reward with respect to a randomly drawn belief, where the belief distribution follows a <a class="reference external" href="https://en.wikipedia.org/wiki/Beta_distribution">Beta distribution</a>.</p></li>
+</ul>
+<div class="proof algorithm dropdown admonition" id="algo-thompson-sampling">
+<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Thompson-sampling)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Inputs</strong>  number of time periods in the horizon <span class="math notranslate nohighlight">\(T\)</span>, the dimension of the action space <span class="math notranslate nohighlight">\(K = |\mathcal{A}|\)</span>, and
+<span class="math notranslate nohighlight">\(\alpha_{1},\dots,\alpha_{K}\)</span> and <span class="math notranslate nohighlight">\(\beta_{1},\dots,\beta_{K}\)</span> the initial values (prior) for the parameters that appear in the
+Beta-distribution for each action</p>
+<p><strong>Outputs</strong> posterior values for the parameters <span class="math notranslate nohighlight">\(\alpha_{1},\dots,\alpha_{K}\)</span> and <span class="math notranslate nohighlight">\(\beta_{1},\dots,\beta_{K}\)</span> that appear in the Beta-distributions for each action</p>
+<p><strong>Initialize</strong>
+a Beta-distribution for each action using initial values <span class="math notranslate nohighlight">\((\alpha,\beta)\)</span>.</p>
+<p><strong>Main</strong></p>
+<ol class="simple">
+<li><p>for t <span class="math notranslate nohighlight">\(\in\)</span> 1 to T</p>
+<ol class="simple">
+<li><p>for k <span class="math notranslate nohighlight">\(\in\)</span> 1 to K</p>
+<ol class="simple">
+<li><p>sample <span class="math notranslate nohighlight">\(\hat{\theta}_{k} \sim \beta(\alpha_{k}, \beta_{k})\)</span></p></li>
+</ol>
+</li>
+<li><p>Select action: <span class="math notranslate nohighlight">\(a_{t} = \text{arg}\max_{k}\hat{\theta}_{k}\)</span></p></li>
+<li><p>Apply <span class="math notranslate nohighlight">\(a_{t}\)</span> and observe <span class="math notranslate nohighlight">\(r_{t}\)</span>.</p></li>
+<li><p>Update distribution parameters:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\((\alpha_{t},\beta_{t})\leftarrow\left(\alpha_{t}+r_{t},\beta_{t}+(1-r_{t})\right)\)</span></p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Return</strong>
+<span class="math notranslate nohighlight">\((\alpha_{1},\dots,\alpha_{K})\)</span> and <span class="math notranslate nohighlight">\((\beta_{1},\dots,\beta_{K})\)</span></p>
+</section>
+</div><ul class="simple">
+<li><p>An obvious (but naive) alternative approach is to allocate a fixed fraction of the time steps in the time horizon, say <span class="math notranslate nohighlight">\(\epsilon\)</span>, to explore purely random actions. In contrast, in the remaining periods, only successful actions are chosen via <a class="reference external" href="https://en.wikipedia.org/wiki/Thompson_sampling">Thompson sampling</a> or another exploitation approach. This strategy, called <span class="math notranslate nohighlight">\(\epsilon\)</span>-greedy exploration, is shown in <a class="reference internal" href="#algo-e-greedy">Algorithm 2</a> with a <a class="reference external" href="https://en.wikipedia.org/wiki/Thompson_sampling">Thompson sampling</a> exploitation step:</p></li>
+</ul>
+<div class="proof algorithm dropdown admonition" id="algo-e-greedy">
+<p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (<span class="math notranslate nohighlight">\(\epsilon\)</span>-greedy exploration)</p>
+<section class="algorithm-content" id="proof-content">
+<p><strong>Inputs</strong>  the pure exploration parameter <span class="math notranslate nohighlight">\(\epsilon\)</span>, the number of time periods in the horizon <span class="math notranslate nohighlight">\(T\)</span>, the dimension of the action space <span class="math notranslate nohighlight">\(K = |\mathcal{A}|\)</span>, and
+<span class="math notranslate nohighlight">\(\alpha_{1},\dots,\alpha_{K}\)</span> and <span class="math notranslate nohighlight">\(\beta_{1},\dots,\beta_{K}\)</span> the initial values (prior) for the parameters that appear in the
+Beta-distribution for each action</p>
+<p><strong>Outputs</strong> posterior values for the parameters <span class="math notranslate nohighlight">\(\alpha_{1},\dots,\alpha_{K}\)</span> and <span class="math notranslate nohighlight">\(\beta_{1},\dots,\beta_{K}\)</span> that appear in the Beta-distributions for each action</p>
+<p><strong>Initialize</strong>
+A Beta-distribution for each action using initial values <span class="math notranslate nohighlight">\((\alpha,\beta)\)</span>.</p>
+<p><strong>Main</strong></p>
+<ol class="simple">
+<li><p>for t <span class="math notranslate nohighlight">\(\in\)</span> 1 to T</p>
+<ol class="simple">
+<li><p>if rand() <span class="math notranslate nohighlight">\(&lt;\epsilon\)</span></p>
+<ol class="simple">
+<li><p>Select random action: <span class="math notranslate nohighlight">\(a_{t}\sim\text{Uniform}(\mathcal{A})\)</span></p></li>
+</ol>
+</li>
+<li><p>else</p>
+<ol class="simple">
+<li><p>for k <span class="math notranslate nohighlight">\(\in\)</span> 1 to K</p>
+<ol class="simple">
+<li><p>sample <span class="math notranslate nohighlight">\(\hat{\theta}_{k} \sim \beta(\alpha_{k}, \beta_{k})\)</span></p></li>
+</ol>
+</li>
+<li><p>Select action: <span class="math notranslate nohighlight">\(a_{t} = \text{arg}\max_{k}\hat{\theta}_{k}\)</span></p></li>
+</ol>
+</li>
+<li><p>Apply <span class="math notranslate nohighlight">\(a_{t}\)</span> and observe <span class="math notranslate nohighlight">\(r_{t}\)</span>.</p></li>
+<li><p>Update distribution parameters:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\((\alpha_{t},\beta_{t})\leftarrow\left(\alpha_{t}+r_{t},\beta_{t}+(1-r_{t})\right)\)</span></p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Return</strong>
+<span class="math notranslate nohighlight">\((\alpha_{1},\dots,\alpha_{K})\)</span> and <span class="math notranslate nohighlight">\((\beta_{1},\dots,\beta_{K})\)</span></p>
+</section>
+</div></section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -430,10 +591,10 @@ title="Print to PDF"
             <p class="prev-next-title">Reinforcement and Imitation Learning</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../References.html" title="next page">
+    <a class='right-next' id="next-link" href="imitation.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">References</p>
+        <p class="prev-next-title">Imitation Learning</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

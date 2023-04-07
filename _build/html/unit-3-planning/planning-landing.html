@@ -54,8 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-3-planning/planning-landing.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Markov Decision Processes" href="mdp.html" />
-    <link rel="prev" title="Multiagent Reasoning and Game Thoery" href="../unit-2-uncertainty/games.html" />
+    <link rel="next" title="Markov Chains" href="markov.html" />
+    <link rel="prev" title="Multiagent Reasoning and Game Theory" href="../unit-2-uncertainty/games.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -163,19 +163,19 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../unit-2-uncertainty/risk.html">
-     Risk and Rick Aversion
+     Risk and Risk Aversion
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../unit-2-uncertainty/games.html">
-     Multiagent Reasoning and Game Thoery
+     Multiagent Reasoning and Game Theory
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Unit 3. Planning
+   Unit 3. Sequential Decisions
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -183,6 +183,11 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="markov.html">
+     Markov Chains
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="mdp.html">
      Markov Decision Processes
@@ -203,6 +208,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../unit-4-learning/rl.html">
      Reinforcement Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unit-4-learning/imitation.html">
+     Imitation Learning
     </a>
    </li>
   </ul>
@@ -393,7 +403,11 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="sequential-planning-methods">
 <h1>Sequential Planning Methods<a class="headerlink" href="#sequential-planning-methods" title="Permalink to this headline">#</a></h1>
-<p>Fill me in.</p>
+<p>Sequential planning methods solve decision-making problems where actions are taken over time and future states are uncertain. Sequential planning approaches are widely used in areas such as robotics, artificial intelligence, and operations research to solve problems that involve uncertainty and sequential decision-making. The central approach that we’ll discuss is the Markov decision process, which is based on modeling decisions as Markov processes:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="markov.html"><span class="doc std std-doc">A Markov process</span></a> is a mathematical model describing a system where the next state depends only on the current state and not the past. It’s like a game where the outcome of the next move depends only on the game’s current state, not on previous states. Markov processes have many applications, such as predicting the weather, modeling financial markets, and understanding how diseases spread.</p></li>
+<li><p><a class="reference internal" href="mdp.html"><span class="doc std std-doc">A Markov decision process (MDP)</span></a> is a mathematical framework for modeling decision-making in situations where the outcomes are uncertain. It consists of a set of states, actions, and rewards and a probabilistic transition function that determines the next state given the current state and action. MDPs are used to model and solve optimization problems where an agent must make decisions to maximize some reward or utility. They are commonly used in artificial intelligence and control theory to design optimal policies for decision-making problems.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -429,13 +443,13 @@ title="Print to PDF"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Multiagent Reasoning and Game Thoery</p>
+            <p class="prev-next-title">Multiagent Reasoning and Game Theory</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="mdp.html" title="next page">
+    <a class='right-next' id="next-link" href="markov.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Markov Decision Processes</p>
+        <p class="prev-next-title">Markov Chains</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -5,8 +5,7 @@ Decision-making is essential to almost everything facet of life. However, are yo
 
 ### Times, places and websites
 * __Credits__: 3-credits
-* __Lectures__: Lectures on TuTh 11:15 AM - 12:05 PM in XXX
-* __Discussion__: Discussion on Fr 1:25 PM - 2:15 PM in XXX
+* __Lectures and discussions__: Lectures TuTh 11:15 AM - 12:05 PM in XXX, and Discussions on Fr 1:25 PM - 2:15 PM in XXX
 * __Website__: Canvas and GitHub. Examples, labs, and other codes used throughout the course are available on our GitHub repository: [https://github.com/varnerlab/CHEME-5760-Course-Repository-F23](https://github.com/varnerlab/CHEME-5760-Course-Repository-F23).
 
 ### Outcomes
