@@ -1,2 +1,0 @@
-# Utility Functions
-A utility function is a mathematical expression that represents an individual's preferences over different choices or outcomes. It assigns a numerical value, called "utility," to each possible choice or outcome, based on how much the individual values it. A utility function is subjective and can vary from person to person, as different individuals may have different preferences.

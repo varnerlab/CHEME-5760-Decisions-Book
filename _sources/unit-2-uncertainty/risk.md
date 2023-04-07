@@ -1,2 +1,2 @@
-# Risk and Rick Aversion
+# Risk and Risk Aversion
 Fill me in.
