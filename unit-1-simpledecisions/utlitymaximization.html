@@ -420,6 +420,13 @@ title="Print to PDF"
       <a class="reference internal nav-link" href="#lagrange-multipliers">
        Lagrange multipliers
       </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#karush-kuhn-tucker-kkt-conditions">
+         Karush-Kuhn-Tucker (KKT) conditions
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#penalty-and-barrier-methods">
@@ -495,6 +502,13 @@ title="Print to PDF"
       <a class="reference internal nav-link" href="#lagrange-multipliers">
        Lagrange multipliers
       </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#karush-kuhn-tucker-kkt-conditions">
+         Karush-Kuhn-Tucker (KKT) conditions
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toc-h3 nav-item toc-entry">
       <a class="reference internal nav-link" href="#penalty-and-barrier-methods">
@@ -587,7 +601,18 @@ Lagrangian function with respect to <span class="math notranslate nohighlight">\
 \end{eqnarray}\end{split}\]</div>
 <p>The system of equations defined by Eqn. <a class="reference internal" href="#equation-eqn-first-order-condition-lagrange">(4)</a> callled the Lagrange equations, can be solved to find the critical points and, thus, the maximum or minimum value of the objective function.</p>
 </section>
-</div></section>
+</div><section id="karush-kuhn-tucker-kkt-conditions">
+<h4>Karush-Kuhn-Tucker (KKT) conditions<a class="headerlink" href="#karush-kuhn-tucker-kkt-conditions" title="Permalink to this headline">#</a></h4>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions">Karush-Kuhn-Tucker (KKT) conditions</a> are necessary conditions for finding the optimal solution to an optimization problem with constraints. The conditions are as follows:</p>
+<ul class="simple">
+<li><p><strong>Stationarity condition</strong>: The gradient of the objective function at the optimal point is orthogonal to the feasible region, taking into account the constraints.</p></li>
+<li><p><strong>Primal feasibility condition</strong>: The optimal solution must satisfy the constraints of the optimization problem.</p></li>
+<li><p><strong>Dual feasibility condition</strong>: The Lagrange multipliers associated with the constraints must be non-negative.</p></li>
+<li><p><strong>Complementary slackness condition</strong>: The product of the Lagrange multipliers and the difference between the left-hand side and right-hand side of each constraint must be zero.</p></li>
+</ul>
+<p>These conditions provide a necessary condition for optimality, which means that if a solution satisfies these conditions, it may be a candidate for the optimal solution. However, it is not guaranteed that the optimal solution satisfies all these conditions, and additional analysis may be necessary to confirm the optimality of a candidate solution.</p>
+</section>
+</section>
 <section id="penalty-and-barrier-methods">
 <h3>Penalty and Barrier methods<a class="headerlink" href="#penalty-and-barrier-methods" title="Permalink to this headline">#</a></h3>
 <p>A penalty method transforms a constrained least squares problem into an unconstrained problem that can be solved. In a penalty method, a penalty is added to the loss function to encourage specific desirable properties of the solution.</p>
