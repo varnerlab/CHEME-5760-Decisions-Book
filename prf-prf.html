@@ -140,12 +140,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="unit-1-simpledecisions/utilityfunctions.html">
-     Utility Functions
+     Utility Functions and Rational Choices
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="unit-1-simpledecisions/utlitymaximization.html">
-     Maximizing Utility
+     Maximizing Utility Subject to Constraints
     </a>
    </li>
   </ul>
@@ -162,7 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="unit-2-uncertainty/probability.html">
-     Discrete and Continuous Probability
+     Rational Uncertain Decisions
     </a>
    </li>
    <li class="toctree-l2">
@@ -365,9 +365,31 @@ title="Open an issue"
    <div class="modindex-jumpbox">
    <a href="#cap-algo-e-greedy"><strong>algo-e-greedy</strong></a> | 
    <a href="#cap-algo-thompson-sampling"><strong>algo-thompson-sampling</strong></a> | 
+   <a href="#cap-axiom-probability"><strong>axiom-probability</strong></a> | 
+   <a href="#cap-bayes-theorem"><strong>bayes-theorem</strong></a> | 
+   <a href="#cap-defn-discrete-random-variable-expectation"><strong>defn-discrete-random-variable-expectation</strong></a> | 
+   <a href="#cap-defn-discrete-random-variable-variance"><strong>defn-discrete-random-variable-variance</strong></a> | 
+   <a href="#cap-defn-expected-utility-hypothesis"><strong>defn-expected-utility-hypothesis</strong></a> | 
    <a href="#cap-defn-formal-mdp"><strong>defn-formal-mdp</strong></a> | 
+   <a href="#cap-defn-independence"><strong>defn-independence</strong></a> | 
+   <a href="#cap-defn-individual-utility"><strong>defn-individual-utility</strong></a> | 
+   <a href="#cap-defn-law-total-probability"><strong>defn-law-total-probability</strong></a> | 
+   <a href="#cap-defn-method-l-multipliers"><strong>defn-method-l-multipliers</strong></a> | 
    <a href="#cap-defn-multi-arm-bernoulli-bandit-problem"><strong>defn-multi-arm-bernoulli-bandit-problem</strong></a> | 
-   <a href="#cap-defn-policy-evalution"><strong>defn-policy-evalution</strong></a>
+   <a href="#cap-defn-pmf"><strong>defn-pmf</strong></a> | 
+   <a href="#cap-defn-pmf-bernouli"><strong>defn-pmf-bernouli</strong></a> | 
+   <a href="#cap-defn-pmf-binomial"><strong>defn-pmf-binomial</strong></a> | 
+   <a href="#cap-defn-pmf-geometric"><strong>defn-pmf-geometric</strong></a> | 
+   <a href="#cap-defn-pmf-poisson"><strong>defn-pmf-poisson</strong></a> | 
+   <a href="#cap-defn-policy-evalution"><strong>defn-policy-evalution</strong></a> | 
+   <a href="#cap-eqn-budget-constraint"><strong>eqn-budget-constraint</strong></a> | 
+   <a href="#cap-ex-event-card-suits"><strong>ex-event-card-suits</strong></a> | 
+   <a href="#cap-ex-sample-space-dice"><strong>ex-sample-space-dice</strong></a> | 
+   <a href="#cap-obs-barrier-method-lambda-policy"><strong>obs-barrier-method-lambda-policy</strong></a> | 
+   <a href="#cap-obs-expectation-props"><strong>obs-expectation-props</strong></a> | 
+   <a href="#cap-obs-lambda-policy"><strong>obs-lambda-policy</strong></a> | 
+   <a href="#cap-obs-variances-var"><strong>obs-variances-var</strong></a> | 
+   <a href="#cap-remark-barrier-method"><strong>remark-barrier-method</strong></a>
    </div>
 
    <table class="indextable modindextable">
@@ -388,12 +410,84 @@ title="Open an issue"
        <a href="unit-4-learning/rl.html#algo-thompson-sampling"><code class="xref">algo-thompson-sampling</code></a> <em>(unit-4-learning/rl)</em></td><td>
        <em>algorithm</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-axiom-probability"><td></td><td>
+       <strong>axiom-probability</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#axiom-probability"><code class="xref">axiom-probability</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>axiom</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-bayes-theorem"><td></td><td>
+       <strong>bayes-theorem</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#bayes-theorem"><code class="xref">bayes-theorem</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-discrete-random-variable-expectation"><td></td><td>
+       <strong>defn-discrete-random-variable-expectation</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#defn-discrete-random-variable-expectation"><code class="xref">defn-discrete-random-variable-expectation</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-discrete-random-variable-variance"><td></td><td>
+       <strong>defn-discrete-random-variable-variance</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#defn-discrete-random-variable-variance"><code class="xref">defn-discrete-random-variable-variance</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-expected-utility-hypothesis"><td></td><td>
+       <strong>defn-expected-utility-hypothesis</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#defn-expected-utility-hypothesis"><code class="xref">defn-expected-utility-hypothesis</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-formal-mdp"><td></td><td>
        <strong>defn-formal-mdp</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
        <a href="unit-3-planning/mdp.html#defn-formal-mdp"><code class="xref">defn-formal-mdp</code></a> <em>(unit-3-planning/mdp)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-independence"><td></td><td>
+       <strong>defn-independence</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#defn-independence"><code class="xref">defn-independence</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-individual-utility"><td></td><td>
+       <strong>defn-individual-utility</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-1-simpledecisions/utilityfunctions.html#defn-individual-utility"><code class="xref">defn-individual-utility</code></a> <em>(unit-1-simpledecisions/utilityfunctions)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-law-total-probability"><td></td><td>
+       <strong>defn-law-total-probability</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#defn-law-total-probability"><code class="xref">defn-law-total-probability</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-method-l-multipliers"><td></td><td>
+       <strong>defn-method-l-multipliers</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-1-simpledecisions/utlitymaximization.html#defn-method-l-multipliers"><code class="xref">defn-method-l-multipliers</code></a> <em>(unit-1-simpledecisions/utlitymaximization)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-multi-arm-bernoulli-bandit-problem"><td></td><td>
@@ -404,6 +498,46 @@ title="Open an issue"
        <a href="unit-4-learning/rl.html#defn-multi-arm-bernoulli-bandit-problem"><code class="xref">defn-multi-arm-bernoulli-bandit-problem</code></a> <em>(unit-4-learning/rl)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-pmf"><td></td><td>
+       <strong>defn-pmf</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#defn-pmf"><code class="xref">defn-pmf</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-pmf-bernouli"><td></td><td>
+       <strong>defn-pmf-bernouli</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#defn-pmf-bernouli"><code class="xref">defn-pmf-bernouli</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-pmf-binomial"><td></td><td>
+       <strong>defn-pmf-binomial</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#defn-pmf-binomial"><code class="xref">defn-pmf-binomial</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-pmf-geometric"><td></td><td>
+       <strong>defn-pmf-geometric</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#defn-pmf-geometric"><code class="xref">defn-pmf-geometric</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-pmf-poisson"><td></td><td>
+       <strong>defn-pmf-poisson</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#defn-pmf-poisson"><code class="xref">defn-pmf-poisson</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-policy-evalution"><td></td><td>
        <strong>defn-policy-evalution</strong></td><td></td></tr>
      <tr>
@@ -411,6 +545,70 @@ title="Open an issue"
        <td>
        <a href="unit-3-planning/mdp.html#defn-policy-evalution"><code class="xref">defn-policy-evalution</code></a> <em>(unit-3-planning/mdp)</em></td><td>
        <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-eqn-budget-constraint"><td></td><td>
+       <strong>eqn-budget-constraint</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-1-simpledecisions/utlitymaximization.html#eqn-budget-constraint"><code class="xref">eqn-budget-constraint</code></a> <em>(unit-1-simpledecisions/utlitymaximization)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-event-card-suits"><td></td><td>
+       <strong>ex-event-card-suits</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#ex-event-card-suits"><code class="xref">ex-event-card-suits</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-sample-space-dice"><td></td><td>
+       <strong>ex-sample-space-dice</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#ex-sample-space-dice"><code class="xref">ex-sample-space-dice</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-obs-barrier-method-lambda-policy"><td></td><td>
+       <strong>obs-barrier-method-lambda-policy</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-1-simpledecisions/utlitymaximization.html#obs-barrier-method-lambda-policy"><code class="xref">obs-barrier-method-lambda-policy</code></a> <em>(unit-1-simpledecisions/utlitymaximization)</em></td><td>
+       <em>observation</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-obs-expectation-props"><td></td><td>
+       <strong>obs-expectation-props</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#obs-expectation-props"><code class="xref">obs-expectation-props</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>observation</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-obs-lambda-policy"><td></td><td>
+       <strong>obs-lambda-policy</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-1-simpledecisions/utlitymaximization.html#obs-lambda-policy"><code class="xref">obs-lambda-policy</code></a> <em>(unit-1-simpledecisions/utlitymaximization)</em></td><td>
+       <em>observation</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-obs-variances-var"><td></td><td>
+       <strong>obs-variances-var</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/probability.html#obs-variances-var"><code class="xref">obs-variances-var</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <em>observation</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-remark-barrier-method"><td></td><td>
+       <strong>remark-barrier-method</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-1-simpledecisions/utlitymaximization.html#remark-barrier-method"><code class="xref">remark-barrier-method</code></a> <em>(unit-1-simpledecisions/utlitymaximization)</em></td><td>
+       <em>remark</em></td></tr>
    </table>
 
 

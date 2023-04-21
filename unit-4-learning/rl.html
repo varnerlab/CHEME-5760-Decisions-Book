@@ -138,12 +138,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">
-     Utility Functions
+     Utility Functions and Rational Choices
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">
-     Maximizing Utility
+     Maximizing Utility Subject to Constraints
     </a>
    </li>
   </ul>
@@ -160,7 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../unit-2-uncertainty/probability.html">
-     Discrete and Continuous Probability
+     Rational Uncertain Decisions
     </a>
    </li>
    <li class="toctree-l2">
@@ -467,15 +467,15 @@ title="Print to PDF"
 <span id="content-references-exploration-versus-exploitation"></span><h3>Exploration, exploitation and bandit problems<a class="headerlink" href="#exploration-exploitation-and-bandit-problems" title="Permalink to this headline">#</a></h3>
 <p>Reinforcement learning agents must balance exploration of the environment, e.g., taking random actions with exploiting knowledge already obtained through interacting with the world. Pure exploration allows agents to construct a comprehensive model of their environment, but likely at the expense of positive reward. On the other hand, pure exploitation has the agent continually choosing the action it thinks best to accumulate reward, but different, better actions could be taken.</p>
 <p>A classic approach to understanding the exploration and exploitation tradeoff, which itself has many real-world applications, is the <a class="reference external" href="https://en.wikipedia.org/wiki/Multi-armed_bandit">multi arm bandit problem</a>. A general bandit problem is a sequential game played between an agent and the environment. The game is played over <span class="math notranslate nohighlight">\(n\)</span> rounds called the <em>horizon</em>. In each round the agent chooses an action <span class="math notranslate nohighlight">\(a\in\mathcal{A}\)</span> and the environment then reveals a reward <span class="math notranslate nohighlight">\(r\)</span>.</p>
-<p>Let’s look at a particular sub-type of multi-arm bandit problem, namely, the Bernoulli bandit problem and Thompson sampling, a particular solution approach to this class of problem <span id="id1">[<a class="reference internal" href="../References.html#id3" title="Daniel Russo, Benjamin Van Roy, Abbas Kazerouni, Ian Osband, and Zheng Wen. A tutorial on thompson sampling. Foundations and Trends in Machine Learning, 11(1):1-96, 2017. URL: https://arxiv.org/abs/1707.02038, doi:10.48550/ARXIV.1707.02038.">Russo <em>et al.</em>, 2017</a>]</span>:</p>
+<p>Let’s look at a particular sub-type of multi-arm bandit problem, namely, the Bernoulli bandit problem and Thompson sampling, a particular solution approach to this class of problem <span id="id1">[<a class="reference internal" href="../References.html#id4" title="Daniel Russo, Benjamin Van Roy, Abbas Kazerouni, Ian Osband, and Zheng Wen. A tutorial on thompson sampling. Foundations and Trends in Machine Learning, 11(1):1-96, 2017. URL: https://arxiv.org/abs/1707.02038, doi:10.48550/ARXIV.1707.02038.">Russo <em>et al.</em>, 2017</a>]</span>:</p>
 <div class="proof definition admonition" id="defn-multi-arm-bernoulli-bandit-problem">
-<p class="admonition-title"><span class="caption-number">Definition 3 </span> (Binary Bernoulli bandit problem)</p>
+<p class="admonition-title"><span class="caption-number">Definition 15 </span> (Binary Bernoulli bandit problem)</p>
 <section class="definition-content" id="proof-content">
-<p>Suppose an agent has a choice between <span class="math notranslate nohighlight">\(K\)</span> possible actions <span class="math notranslate nohighlight">\(\mathcal{A}=\left\{a_{1},a_{2},\dots,a_{K}\right\}\)</span>. Further, the success or failure of any action <span class="math notranslate nohighlight">\(a_{i}\in\mathcal{A}\)</span> is governed by a Bernoulli random variable (see <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">defn-pmf-bernouli</span></code>).</p>
+<p>Suppose an agent has a choice between <span class="math notranslate nohighlight">\(K\)</span> possible actions <span class="math notranslate nohighlight">\(\mathcal{A}=\left\{a_{1},a_{2},\dots,a_{K}\right\}\)</span>. Further, the success or failure of any action <span class="math notranslate nohighlight">\(a_{i}\in\mathcal{A}\)</span> is governed by a Bernoulli random variable (see <a class="reference internal" href="../unit-2-uncertainty/probability.html#defn-pmf-bernouli">Definition 7</a>).</p>
 <p>The agent receives a reward of <span class="math notranslate nohighlight">\(R_{a_{i}} = 1\)</span> (success) with probability <span class="math notranslate nohighlight">\(p_{a_{i}}\)</span>, and <span class="math notranslate nohighlight">\(R_{a_{i}} = 0\)</span> (failure) otherwise.</p>
 <p>The success probabilities of any action <span class="math notranslate nohighlight">\(p_{a_{i}}\)</span>, while static over the horizon of the game, are unknown to the agent, but they can be learned by experimentation. The agent’s objective is to maximize the cumulative number of successes over the game horizon, e.g., T-periods, where <span class="math notranslate nohighlight">\(T\gg{K}\)</span>.</p>
 </section>
-</div><p>There are multiple heuristic strategies to solve the Binary Bernoulli bandit problem described in <a class="reference internal" href="#defn-multi-arm-bernoulli-bandit-problem">Definition 3</a>:</p>
+</div><p>There are multiple heuristic strategies to solve the Binary Bernoulli bandit problem described in <a class="reference internal" href="#defn-multi-arm-bernoulli-bandit-problem">Definition 15</a>:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Thompson_sampling">Thompson sampling</a> which is shown in <a class="reference internal" href="#algo-thompson-sampling">Algorithm 1</a> consists of choosing the action that maximizes the expected reward with respect to a randomly drawn belief, where the belief distribution follows a <a class="reference external" href="https://en.wikipedia.org/wiki/Beta_distribution">Beta distribution</a>.</p></li>
 </ul>
