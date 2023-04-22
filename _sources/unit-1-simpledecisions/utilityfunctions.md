@@ -52,7 +52,7 @@ There are many different classes of utility functions, let's look at a few examp
 * __Exponential utility function__ assumes that an individual's utility is proportional to the exponential of the quantity consumed, and is represented by the equation $U(x) = e^{ax}$, where $a>0$ is a positive constant.
 * __Linear utility function__ assumes that an individual's utility is directly proportional to the quantity consumed, and is represented by the equation $U(x) = \sum{a_{i}x_{i}}$, where $a_{i}>0$ is a positive constant.
 * __Cobb-Douglas utility function__ is commonly used in economics and assumes that an individual's utility is a function of the quantity of two or more goods consumed, and is represented by the equation $U(x_{1},\dots,x_{n}) = \prod{x_{i}^{\alpha_{i}}}$, where $\alpha_{i}>0$ are positive constants.
-* __Leontief utility function__ assumes that an individual's utility is based on the minimum amount of each attribute or variable required to achieve a certain level of satisfaction. The function is represented by the equation $U(x_{1},\dots, x_{n}) = \min\left\{\alpha_{1}x_{1},\dots,\alpha_{n}x_{n}\right\}$, where $\alpha_{i}$ are the minimum amounts required for each variable, and $x_{i}$ are the quantities consumed.
+* __Leontief utility function__ assumes that an individual's utility is based on the minimum amount of each attribute or variable required to achieve a certain level of satisfaction. The function is represented by the equation $U(x_{1},\dots, x_{n}) = \min\left\{\alpha_{1}x_{1},\dots,\alpha_{n}x_{n}\right\}$, where $\alpha_{i}$ are the minimum amounts required for each variable, and $x_{i}$ are the quantities consumed for variable $i$.
 
 (content:references:indifference-curves)=
 ## Indifference curves
