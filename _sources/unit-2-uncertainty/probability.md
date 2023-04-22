@@ -401,7 +401,7 @@ The [expectation](https://en.wikipedia.org/wiki/Expected_value) of a discrete ra
 ````{prf:definition} Expectation discrete random variable
 :label: defn-discrete-random-variable-expectation
 
-Let $X$ denote a discere random variable with the probability space $\left(\Omega,\mathcal{F},P\right)$, where $\Omega$ denotes the sample space, $\mathcal{F}$ denotes the event space, and $P$ denotes the probability measure. Then, the expected value of the random variable $X$ is given by:
+Let $X$ denote a discrete random variable with the probability space $\left(\Omega,\mathcal{F}, P\right)$, where $\Omega$ denotes the sample space, $\mathcal{F}$ denotes the event space, and $P$ denotes the probability measure. Then, the expected value of the random variable $X$ is given by:
 
 ```{math}
 :label: eqn-expectation
@@ -429,7 +429,7 @@ The expectation of a random variable $X$ has several useful (and important) prop
 The [variance](https://en.wikipedia.org/wiki/Variance) measures the expected dispersion for
 individual values of a random variable $X$, i.e., the average distance that values of $X$ are spread out from their expected value ({prf:ref}`defn-discrete-random-variable-variance`):
 
-````{prf:definition} Expectation discrete random variable
+````{prf:definition} Variance discrete random variable
 :label: defn-discrete-random-variable-variance
 
 Let $X$ denote a discrete random variable with the probability space $\left(\Omega,\mathcal{F},P\right)$, where $\Omega$ denotes the sample space, $\mathcal{F}$ denotes the event space, and $P$ denotes the probability measure. Then, the variance of the random variable $X$ is given by:
