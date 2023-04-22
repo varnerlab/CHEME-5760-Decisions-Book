@@ -62,6 +62,16 @@ Lagrangian function with respect to $x$ and $\lambda$ vanish:
 The system of equations defined by Eqn. {eq}`eqn-first-order-condition-lagrange` callled the Lagrange equations, can be solved to find the critical points and, thus, the maximum or minimum value of the objective function.
 ````
 
+#### Karush-Kuhn-Tucker (KKT) conditions
+The [Karush-Kuhn-Tucker (KKT) conditions](https://en.wikipedia.org/wiki/Karush–Kuhn–Tucker_conditions) are necessary conditions for finding the optimal solution to an optimization problem with constraints. The conditions are as follows:
+
+* __Stationarity condition__: The gradient of the objective function at the optimal point is orthogonal to the feasible region, taking into account the constraints.
+* __Primal feasibility condition__: The optimal solution must satisfy the constraints of the optimization problem.
+* __Dual feasibility condition__: The Lagrange multipliers associated with the constraints must be non-negative.
+* __Complementary slackness condition__: The product of the Lagrange multipliers and the difference between the left-hand side and right-hand side of each constraint must be zero.
+
+These conditions provide a necessary condition for optimality, which means that if a solution satisfies these conditions, it may be a candidate for the optimal solution. However, it is not guaranteed that the optimal solution satisfies all these conditions, and additional analysis may be necessary to confirm the optimality of a candidate solution.
+
 ### Penalty and Barrier methods
 A penalty method transforms a constrained least squares problem into an unconstrained problem that can be solved. In a penalty method, a penalty is added to the loss function to encourage specific desirable properties of the solution. 
 

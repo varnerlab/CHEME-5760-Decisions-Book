@@ -44,6 +44,15 @@ A utility function is a mathematical representation of a person's preferences ov
 
 These properties help ensure that a utility function accurately represents a person's preferences and can be used to make rational choices between alternatives.
 
+### Example utility functions
+There are many different classes of utility functions, let's look at a few examples and examine there properties:
+
+* __Logarithmic utility function__ assumes that an individual's utility is a function of the logarithm of the quantity consumed, and is represented by the equation $U(x) = ln(x)$.
+* __Quadratic utility function__ assumes that an individual's utility is proportional to the square of the quantity consumed, and is represented by the equation $U(x) = ax^{2}$, where $a>0$ is a positive constant.
+* __Exponential utility function__ assumes that an individual's utility is proportional to the exponential of the quantity consumed, and is represented by the equation $U(x) = e^{ax}$, where $a>0$ is a positive constant.
+* __Linear utility function__ assumes that an individual's utility is directly proportional to the quantity consumed, and is represented by the equation $U(x) = \sum{a_{i}x_{i}}$, where $a_{i}>0$ is a positive constant.
+* __Cobb-Douglas utility function__ is commonly used in economics and assumes that an individual's utility is a function of the quantity of two or more goods consumed, and is represented by the equation $U(x_{1},\dots,x_{n}) = \prod{x_{i}^{\alpha_{i}}}$, where $\alpha_{i}>0$ are positive constants.
+* __Leontief utility function__ assumes that an individual's utility is based on the minimum amount of each attribute or variable required to achieve a certain level of satisfaction. The function is represented by the equation $U(x_{1},\dots, x_{n}) = \min\left\{\alpha_{1}x_{1},\dots,\alpha_{n}x_{n}\right\}$, where $\alpha_{i}$ are the minimum amounts required for each variable, and $x_{i}$ are the quantities consumed for variable $i$.
 
 (content:references:indifference-curves)=
 ## Indifference curves
@@ -101,4 +110,8 @@ end
 ---
 
 # Summary
-Fill me in.
+In this lecture, we'll developed tools to compute rational choices and explored some mathematical and philosophical properties of utility functions:
+
+* {ref}`content:references:rational-choice-theory` is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.
+
+* {ref}`content:references:indifference-curves` are a tool used in microeconomics to analyze consumers’ preferences. They represent a graphical depiction of different combinations of two goods that provide the same level of satisfaction, or utility, to a consumer. Indifference curves can be used to understand how consumers make choices when faced with trade-offs between goods and how they may respond to changes in prices or income.
