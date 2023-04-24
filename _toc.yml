@@ -13,7 +13,7 @@ chapters:
 - file: unit-2-uncertainty/uncertainty-landing
   title: Unit 2. Rational Uncertain Optimal Decisions
   sections:
-  - file: unit-2-uncertainty/probability
+  - file: unit-2-uncertainty/expected-utility
   - file: unit-2-uncertainty/risk
   - file: unit-2-uncertainty/games
 - file: unit-3-planning/planning-landing
@@ -26,5 +26,9 @@ chapters:
   sections:
   - file: unit-4-learning/rl
   - file: unit-4-learning/imitation
+- file: appendix/appendix-landing
+  title: Appendices
+  sections:
+  - file: appendix/random
 
 - file: References

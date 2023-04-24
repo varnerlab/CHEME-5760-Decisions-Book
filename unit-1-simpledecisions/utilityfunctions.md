@@ -11,19 +11,19 @@ In this lecture, we'll develop tools to compute rational choices and explore som
 
 (content:references:rational-choice-theory)=
 ## Rational choice theory
-[Rational choice theory](https://en.wikipedia.org/wiki/Rational_choice_theory) assumes individuals make rational decisions based on their preferences and available information. [Rational choice theory](https://en.wikipedia.org/wiki/Rational_choice_theory) is based on computing the utility of actions or outcomes. Thus, utility functions are a crucial component of this theory, as they describe how individuals assign values to different results or choices ({prf:ref}`defn-individual-utility`):
+[Rational choice theory](https://en.wikipedia.org/wiki/Rational_choice_theory) assumes individuals make rational decisions based on their preferences and available information. [Rational choice theory](https://en.wikipedia.org/wiki/Rational_choice_theory) is based on computing the utility of competing actions or outcomes. Thus, utility functions are a crucial component of this theory, as they describe how individuals assign numerical values to different choices ({prf:ref}`defn-individual-utility`):
 
 ````{prf:definition} Ordinal utility function
 :label: defn-individual-utility
 
-An individual decision-making agent is presented with a bundle of $n$ objects $x_{1},\dots,x_{n}$. A utility function represents the preference of the agent for combinations of these $n$ objects:
+An individual decision-making agent is presented with a bundle of $n$ objects $X=\left\{x_{1},\dots,x_{n}\right\}$. A utility function represents the preference of the agent for combinations of these $n$ objects:
 
 ```{math}
 :label: eqn-utility-function-generic
 U(x_{1},x_{2},\dots,x_{n})
 ```
 
-The utility function $U(\dots)$ is unique only up to an order-preserving transformation in period $t\rightarrow{t+dt}$. Further, utility functions are ordinal, i.e., they rank-order bundles but do not indicate how much better a bundle is compared to another.
+The utility function $U:X\rightarrow\mathbb{R}$ is unique only up to an order-preserving transformation in period $t\rightarrow{t+dt}$. Further, utility functions are ordinal, i.e., they rank-order bundles but do not indicate how much better a bundle is compared to another.
 
 ````
 
@@ -44,10 +44,10 @@ A utility function is a mathematical representation of a person's preferences ov
 
 These properties help ensure that a utility function accurately represents a person's preferences and can be used to make rational choices between alternatives.
 
-### Example utility functions
+#### Example utility functions
 There are many different classes of utility functions, let's look at a few examples and examine there properties:
 
-* __Logarithmic utility function__ assumes that an individual's utility is a function of the logarithm of the quantity consumed, and is represented by the equation $U(x) = ln(x)$.
+* __Logarithmic utility function__ assumes that an individual's utility is a function of the logarithm of the quantity consumed, and is represented by the equation $U(x) = ln(x+1)$.
 * __Quadratic utility function__ assumes that an individual's utility is proportional to the square of the quantity consumed, and is represented by the equation $U(x) = ax^{2}$, where $a>0$ is a positive constant.
 * __Exponential utility function__ assumes that an individual's utility is proportional to the exponential of the quantity consumed, and is represented by the equation $U(x) = e^{ax}$, where $a>0$ is a positive constant.
 * __Linear utility function__ assumes that an individual's utility is directly proportional to the quantity consumed, and is represented by the equation $U(x) = \sum{a_{i}x_{i}}$, where $a_{i}>0$ is a positive constant.

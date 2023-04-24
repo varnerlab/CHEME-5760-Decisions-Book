@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Rational Uncertain Decisions &#8212; CHEME 5760</title>
+    <title>Random variables and probability &#8212; CHEME 5760</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,11 +53,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-2-uncertainty/probability.html" />
+    <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/appendix/random.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Risk and Risk Aversion" href="risk.html" />
-    <link rel="prev" title="Decision-making in uncertain situations" href="uncertainty-landing.html" />
+    <link rel="next" title="References" href="../References.html" />
+    <link rel="prev" title="Appendix" href="appendix-landing.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -148,28 +148,28 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="uncertainty-landing.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">
    Unit 2. Rational Uncertain Optimal Decisions
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">
      Rational Uncertain Decisions
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="risk.html">
+    <a class="reference internal" href="../unit-2-uncertainty/risk.html">
      Risk and Risk Aversion
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="games.html">
+    <a class="reference internal" href="../unit-2-uncertainty/games.html">
      Multiagent Reasoning and Game Theory
     </a>
    </li>
@@ -215,6 +215,23 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../unit-4-learning/imitation.html">
      Imitation Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="appendix-landing.html">
+   Appendices
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Random variables and probability
     </a>
    </li>
   </ul>
@@ -314,7 +331,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book/issues/new?title=Issue%20on%20page%20%2Funit-2-uncertainty/probability.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book/issues/new?title=Issue%20on%20page%20%2Fappendix/random.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -342,7 +359,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/unit-2-uncertainty/probability.md"
+        <a href="../_sources/appendix/random.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -401,133 +418,102 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Rational Uncertain Decisions
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability-spaces">
+   Probability spaces
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-von-neumann-morgenstern-theorem">
-     The von Neumann-Morgenstern theorem
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sample-space-omega">
+     Sample space
+     <span class="math notranslate nohighlight">
+      \(\Omega\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#event-space-mathcal-f">
+     Event space
+     <span class="math notranslate nohighlight">
+      \(\mathcal{F}\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probability-law-p">
+     Probability law
+     <span class="math notranslate nohighlight">
+      \(P\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditional-probability">
+     Conditional Probability
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#expected-utility-problem">
-       Expected utility problem
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#independence-versus-disjoint">
+       Independence versus Disjoint
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#random-variables-and-probability">
-     Random variables and probability
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bayes-theorem">
+     Bayes’ theorem
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#probability-spaces">
-       Probability spaces
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#sample-space-omega">
-         Sample space
-         <span class="math notranslate nohighlight">
-          \(\Omega\)
-         </span>
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#event-space-mathcal-f">
-         Event space
-         <span class="math notranslate nohighlight">
-          \(\mathcal{F}\)
-         </span>
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#probability-law-p">
-         Probability law
-         <span class="math notranslate nohighlight">
-          \(P\)
-         </span>
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#conditional-probability">
-         Conditional Probability
-        </a>
-        <ul class="nav section-nav flex-column">
-         <li class="toc-h5 nav-item toc-entry">
-          <a class="reference internal nav-link" href="#independence-versus-disjoint">
-           Independence versus Disjoint
-          </a>
-         </li>
-        </ul>
-       </li>
-      </ul>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#bayes-theorem-and-the-law-of-total-probability">
-       Bayes’ theorem and the law of total probability
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#law-of-total-probability">
-       Law of Total Probability
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#probability-mass-functions">
-       Probability mass functions
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#bernoulli-random-variable">
-         Bernoulli random variable
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#binomial-random-variable">
-         Binomial random variable
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#geometric-random-variable">
-         Geometric random variable
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#poisson-random-variable">
-         Poisson random variable
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moments-of-a-random-variable">
-     Moments of a random variable
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#law-of-total-probability">
+     Law of Total Probability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probability-mass-functions">
+     Probability mass functions
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#expectation">
-       Expectation
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bernoulli-random-variable">
+       Bernoulli random variable
       </a>
      </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#variance">
-       Variance
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#binomial-random-variable">
+       Binomial random variable
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometric-random-variable">
+       Geometric random variable
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#poisson-random-variable">
+       Poisson random variable
       </a>
      </li>
     </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#moments-of-a-random-variable">
+   Moments of a random variable
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expectation">
+     Expectation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variance">
+     Variance
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -538,7 +524,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Rational Uncertain Decisions</h1>
+                <h1>Random variables and probability</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -548,133 +534,102 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Rational Uncertain Decisions
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probability-spaces">
+   Probability spaces
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-von-neumann-morgenstern-theorem">
-     The von Neumann-Morgenstern theorem
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sample-space-omega">
+     Sample space
+     <span class="math notranslate nohighlight">
+      \(\Omega\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#event-space-mathcal-f">
+     Event space
+     <span class="math notranslate nohighlight">
+      \(\mathcal{F}\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probability-law-p">
+     Probability law
+     <span class="math notranslate nohighlight">
+      \(P\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditional-probability">
+     Conditional Probability
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#expected-utility-problem">
-       Expected utility problem
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#independence-versus-disjoint">
+       Independence versus Disjoint
       </a>
      </li>
     </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#random-variables-and-probability">
-     Random variables and probability
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bayes-theorem">
+     Bayes’ theorem
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#probability-spaces">
-       Probability spaces
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#sample-space-omega">
-         Sample space
-         <span class="math notranslate nohighlight">
-          \(\Omega\)
-         </span>
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#event-space-mathcal-f">
-         Event space
-         <span class="math notranslate nohighlight">
-          \(\mathcal{F}\)
-         </span>
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#probability-law-p">
-         Probability law
-         <span class="math notranslate nohighlight">
-          \(P\)
-         </span>
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#conditional-probability">
-         Conditional Probability
-        </a>
-        <ul class="nav section-nav flex-column">
-         <li class="toc-h5 nav-item toc-entry">
-          <a class="reference internal nav-link" href="#independence-versus-disjoint">
-           Independence versus Disjoint
-          </a>
-         </li>
-        </ul>
-       </li>
-      </ul>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#bayes-theorem-and-the-law-of-total-probability">
-       Bayes’ theorem and the law of total probability
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#law-of-total-probability">
-       Law of Total Probability
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#probability-mass-functions">
-       Probability mass functions
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#bernoulli-random-variable">
-         Bernoulli random variable
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#binomial-random-variable">
-         Binomial random variable
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#geometric-random-variable">
-         Geometric random variable
-        </a>
-       </li>
-       <li class="toc-h4 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#poisson-random-variable">
-         Poisson random variable
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moments-of-a-random-variable">
-     Moments of a random variable
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#law-of-total-probability">
+     Law of Total Probability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#probability-mass-functions">
+     Probability mass functions
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#expectation">
-       Expectation
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bernoulli-random-variable">
+       Bernoulli random variable
       </a>
      </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#variance">
-       Variance
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#binomial-random-variable">
+       Binomial random variable
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geometric-random-variable">
+       Geometric random variable
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#poisson-random-variable">
+       Poisson random variable
       </a>
      </li>
     </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#summary">
-   Summary
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#moments-of-a-random-variable">
+   Moments of a random variable
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expectation">
+     Expectation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variance">
+     Variance
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -686,60 +641,19 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="rational-uncertain-decisions">
-<h1>Rational Uncertain Decisions<a class="headerlink" href="#rational-uncertain-decisions" title="Permalink to this headline">#</a></h1>
-<p>Previously, we developed tools to make optimal choices when the outcomes were sure, and the level of satisfaction derived from those choices was known, e.g., the utility of purchasing a particular bundle of goods or services could be computed using a utility function. However, in many real-world situations, the assumption of certainty is invalid. For example, betting, buying an insurance policy, investing in a new business, or the stock market all or <em>uncertain</em>.</p>
-<p>Toward understanding how to make uncertain rational decisions, we begin by introducing the <a class="reference external" href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem">von Neumann-Morgenstern theorem</a> and then discuss tools to model uncertainty:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#content-references-vnm-theorem"><span class="std std-ref">The von Neumann-Morgenstern theorem</span></a> is a fundamental concept in decision theory that provides a mathematical foundation for expected utility theory. It states that if an individual’s preferences over uncertain outcomes satisfy certain axioms, then there exists a utility function that represents those preferences. This theorem has important implications for understanding how people make decisions under uncertainty and designing mechanisms to elicit and aggregate individual preferences.</p></li>
-<li><p><a class="reference internal" href="#content-references-random-variables-probability"><span class="std std-ref">Random variables and probability</span></a> are central concepts in understanding uncertainty.  Random variables represent quantities that can take on different values with a particular probability distribution. They are used to model uncertainty and randomness in various fields, including finance, physics, and engineering. Probability theory provides a framework for understanding and quantifying the likelihood of different events occurring based on the underlying distribution of the random variables involved.</p></li>
-</ul>
-<hr class="docutils" />
-<section id="the-von-neumann-morgenstern-theorem">
-<span id="content-references-vnm-theorem"></span><h2>The von Neumann-Morgenstern theorem<a class="headerlink" href="#the-von-neumann-morgenstern-theorem" title="Permalink to this headline">#</a></h2>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem">von Neumann-Morgenstern theorem</a>, the basis for the <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_utility_hypothesis">expected utility hypothesis</a>, is a fundamental result in decision theory that provides a framework for making <em>rational choices</em> under uncertainty <span id="id1">[<a class="reference internal" href="../References.html#id2" title="J. von Neumann and O. Morgenstern. Theory of games and economic behavior. Princeton University Press, 1944.">von Neumann and Morgenstern, 1944</a>]</span>.</p>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem">von Neumann-Morgenstern theorem</a> posits, under certain axioms of rational behavior, that an agent faced with probabilistic outcomes will behave as if they are maximizing the expected value of a von Neumann–Morgenstern utility function, defined over the potential outcomes, allowing decision-makers to make choices that maximize their expected utility.</p>
-<p>The rationality of the <a class="reference external" href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem">von Neumann-Morgenstern theorem</a> is based on three axioms:</p>
-<ul class="simple">
-<li><p><strong>Completeness</strong>: The decision maker can always compare any two alternatives and determine which one is preferred or declare them equally preferred.</p></li>
-<li><p><strong>Transitivity</strong>: If alternative A is preferred to alternative B, and alternative B is preferred to alternative C, then alternative A must be preferred to alternative C.</p></li>
-<li><p><strong>Independence</strong>: The utility of an alternative should depend only on the consequences and not on how the decision maker arrived at that alternative. Specifically, if alternatives A and B have the same values, the decision maker should be indifferent between them, regardless of how the choice was presented or framed.</p></li>
-</ul>
-<!-- 
-The VNM utility theorem shows that any individual who follows these axioms must have a utility function that can be used to evaluate and compare alternatives and that a unique probability distribution over outcomes can represent this utility function. -->
-<section id="expected-utility-problem">
-<h3>Expected utility problem<a class="headerlink" href="#expected-utility-problem" title="Permalink to this headline">#</a></h3>
-<p>The world exists in states <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>, agents make observations <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> and take actions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>.  The utility of state <span class="math notranslate nohighlight">\(s\in\mathcal{S}\)</span> is described by <span class="math notranslate nohighlight">\(U(s)\)</span>, where the utility function <span class="math notranslate nohighlight">\(U\)</span> follows the <a class="reference external" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/unit-1-simpledecisions/utilityfunctions.html#properties-of-utility-functions">properties of the utility functions</a>. Further, an agent makes observations <span class="math notranslate nohighlight">\(o\in\mathcal{O}\)</span> and takes actions <span class="math notranslate nohighlight">\(a\in\mathcal{A}\)</span>. Then, a rational agent solves the expected utility problem (<a class="reference internal" href="#defn-expected-utility-hypothesis">Definition 4</a>):</p>
-<div class="proof definition admonition" id="defn-expected-utility-hypothesis">
-<p class="admonition-title"><span class="caption-number">Definition 4 </span> (Expected utility problem)</p>
-<section class="definition-content" id="proof-content">
-<p>An agent has a model <span class="math notranslate nohighlight">\(P(s^{\prime}|o,a)\)</span> which represents the probability of the world being in state <span class="math notranslate nohighlight">\(s^{\prime}\)</span> given that the agent observes <span class="math notranslate nohighlight">\(o\)</span> and takes action <span class="math notranslate nohighlight">\(a\)</span>. The payoff of state <span class="math notranslate nohighlight">\(s^{\prime}\)</span> is given by <span class="math notranslate nohighlight">\(U(s^{\prime})\)</span>. A <em>rational agent</em> maximizes the expected utility subject to constraints:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-max-expected-ulity-problem">
-<span class="eqno">(11)<a class="headerlink" href="#equation-eqn-max-expected-ulity-problem" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
-\text{maximize}~\mathbb{E}(s) &amp;=&amp; \sum_{s^{\prime}}P(s^{\prime}|a,o)U(s^{\prime}) \\
-\text{subject to}~s^{\prime} &amp;=&amp; T(s,a) \\
-\text{and}~s&amp;\in&amp;\mathcal{S} \\
-\text{and}~a&amp;\in&amp;\mathcal{A} \\
-\text{and}~o&amp;\in&amp;\mathcal{O} \\
-\end{eqnarray}\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(T(s,a)\)</span> denotes a transition function governing the transition from state <span class="math notranslate nohighlight">\(s\rightarrow{s^{\prime}}\)</span> under action <span class="math notranslate nohighlight">\(a\)</span>.</p>
-</section>
-</div><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_utility_hypothesis">expected utility hypothesis</a> depends upon an understanding of two critical concepts, random variables, and probability.</p>
-</section>
-</section>
-<section id="random-variables-and-probability">
-<span id="content-references-random-variables-probability"></span><h2>Random variables and probability<a class="headerlink" href="#random-variables-and-probability" title="Permalink to this headline">#</a></h2>
-<p>The sample space and the event space are all based on statements, for example, getting a head when flipping a coin, winning the game, or drawing a card, etc. These statements are not numbers; how do we convert a statement to a number? The answer is a random variable; random variables are mappings from events to numbers, these numbers are probabilities.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="random-variables-and-probability">
+<h1>Random variables and probability<a class="headerlink" href="#random-variables-and-probability" title="Permalink to this headline">#</a></h1>
+<p>Random variables and probability are central concepts in understanding uncertainty.  Random variables represent quantities that can take on different values with a particular probability distribution. They are used to model uncertainty and randomness in various fields, including finance, physics, and engineering. Probability theory provides a framework for understanding and quantifying the likelihood of different events occurring based on the underlying distribution of the random variables involved.</p>
 <ul class="simple">
 <li><p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Random_variable">random variable</a> is a variable <span class="math notranslate nohighlight">\(X\)</span> that takes on different values <span class="math notranslate nohighlight">\(x\)</span> according to the outcome of a random event or process. There are two types of random variables: discrete random variables and continuous random variables. Discrete random variables can take on a countable number of distinct values, while continuous random variables can take on any value in a continuous range.</p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Probability">Probability</a> measures the likelihood that a particular event or outcome will occur and is commonly used to quantify uncertainty in various fields, such as science, engineering, economics, and finance. For a discrete random variable, the likelihood that <span class="math notranslate nohighlight">\(X=x\)</span> is described by a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">Probability Mass Function (PMF)</a> and a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_density_function">Probability Density Function (PDF)</a> for continuous random variables.</p></li>
 </ul>
 <section id="probability-spaces">
-<span id="content-references-probability"></span><h3>Probability spaces<a class="headerlink" href="#probability-spaces" title="Permalink to this headline">#</a></h3>
+<span id="content-references-probability"></span><h2>Probability spaces<a class="headerlink" href="#probability-spaces" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_probability">Frequentists</a> argue that probability is the relative frequency or propensity of a particular outcome in the set of all possible outcomes. On the other hand, <a class="reference external" href="https://en.wikipedia.org/wiki/Bayesian_probability">Bayesians</a> argue that probability is a subjective belief. The context of your problem will typically suggest which perspective to use. For example, when you have a shortage of data, a Bayesian approach allows you to use prior knowledge or belief. On the other hand, when in a data-rich environment, a <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_probability">frequentist</a> approach calculates the probability of an event directly from the data, along with confidence intervals on your estimate.</p>
-<p>Whether you prefer the <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_probability">frequentist’s</a> or the <a class="reference external" href="https://en.wikipedia.org/wiki/Bayesian_probability">Bayesian view</a>, there is a more fundamental notion of probability thanks to <a class="reference external" href="https://en.wikipedia.org/wiki/Andrey_Kolmogorov">Andrey Kolmogorov</a>, namely, the probability is a measure of the size of a set (<a class="reference internal" href="#defn-prob-space-kolmogorov">Definition 5</a>):</p>
+<p>Whether you prefer the <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_probability">frequentist’s</a> or the <a class="reference external" href="https://en.wikipedia.org/wiki/Bayesian_probability">Bayesian view</a>, there is a more fundamental notion of probability thanks to <a class="reference external" href="https://en.wikipedia.org/wiki/Andrey_Kolmogorov">Andrey Kolmogorov</a>, namely, the probability is a measure of the size of a set (<a class="reference internal" href="#defn-prob-space-kolmogorov">Definition 9</a>):</p>
 <div class="proof definition admonition" id="defn-prob-space-kolmogorov">
-<p class="admonition-title"><span class="caption-number">Definition 5 </span> (Probability space)</p>
+<p class="admonition-title"><span class="caption-number">Definition 9 </span> (Probability space)</p>
 <section class="definition-content" id="proof-content">
 <p>A probability space is described by the tuple of objects <span class="math notranslate nohighlight">\((\Omega,\mathcal{F},P)\)</span>:</p>
 <ul class="simple">
@@ -748,8 +662,9 @@ The VNM utility theorem shows that any individual who follows these axioms must 
 <li><p>The probability law <span class="math notranslate nohighlight">\(P\)</span> is a mapping from an event <span class="math notranslate nohighlight">\(E\)</span> to a number <span class="math notranslate nohighlight">\(P(E)\)</span> which, measures the <em>size</em> of the event <span class="math notranslate nohighlight">\(E\)</span>.</p></li>
 </ul>
 </section>
-</div><section id="sample-space-omega">
-<h4>Sample space <span class="math notranslate nohighlight">\(\Omega\)</span><a class="headerlink" href="#sample-space-omega" title="Permalink to this headline">#</a></h4>
+</div><p>The sample space and the event space are all based on statements, for example, getting a head when flipping a coin, winning the game, or drawing a card, etc. These statements are not numbers; how do we convert a statement to a number? The answer is a random variable; random variables are mappings from events to numbers, these numbers are probabilities.</p>
+<section id="sample-space-omega">
+<h3>Sample space <span class="math notranslate nohighlight">\(\Omega\)</span><a class="headerlink" href="#sample-space-omega" title="Permalink to this headline">#</a></h3>
 <p>Given an experiment, the sample space <span class="math notranslate nohighlight">\(\Omega\)</span> is the set containing all possible outcomes of that experiment. These outcomes can be numbers, alphabets, vectors, or functions, as well as, images, videos, EEG signals, audio speeches, etc.</p>
 <p>Let’s consider an example of a six sided dice (<a class="reference internal" href="#ex-sample-space-dice">Example 1</a>):</p>
 <div class="proof example dropdown admonition" id="ex-sample-space-dice">
@@ -763,7 +678,7 @@ Then the sample space for this experiment <span class="math notranslate nohighli
 </section>
 </div></section>
 <section id="event-space-mathcal-f">
-<h4>Event space <span class="math notranslate nohighlight">\(\mathcal{F}\)</span><a class="headerlink" href="#event-space-mathcal-f" title="Permalink to this headline">#</a></h4>
+<h3>Event space <span class="math notranslate nohighlight">\(\mathcal{F}\)</span><a class="headerlink" href="#event-space-mathcal-f" title="Permalink to this headline">#</a></h3>
 <p>The sample space <span class="math notranslate nohighlight">\(\Omega\)</span> contains all the possible outcomes of an experiment.
 However, we may not be interested in an individual outcome.
 Rather we may be interested in combinations of individual outcomes where the elements of these sets share some common trait, e.g., even integers or the collection of face cards, etc. These subsets are called events <span class="math notranslate nohighlight">\(E\subseteq\Omega\)</span>, and the set of all possible events, denoted as <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, is called the event space.
@@ -823,7 +738,7 @@ Thus, the event space <span class="math notranslate nohighlight">\(\mathcal{F}\)
 </section>
 </div></section>
 <section id="probability-law-p">
-<h4>Probability law <span class="math notranslate nohighlight">\(P\)</span><a class="headerlink" href="#probability-law-p" title="Permalink to this headline">#</a></h4>
+<h3>Probability law <span class="math notranslate nohighlight">\(P\)</span><a class="headerlink" href="#probability-law-p" title="Permalink to this headline">#</a></h3>
 <p>A probability law <span class="math notranslate nohighlight">\(P\)</span> is a function <span class="math notranslate nohighlight">\(P\)</span> : <span class="math notranslate nohighlight">\(\mathcal{F}\rightarrow\left[0, 1\right]\)</span>;
 the function <span class="math notranslate nohighlight">\(P\)</span> maps an event (set) <span class="math notranslate nohighlight">\(E\subseteq\Omega\)</span> to a real number in <span class="math notranslate nohighlight">\(\left[0, 1\right]\)</span>.
 The definition above does not specify how an event <span class="math notranslate nohighlight">\(E\subseteq\Omega\)</span> is being mapped to a number.
@@ -843,13 +758,13 @@ to a real number on the interval <span class="math notranslate nohighlight">\(\l
 </section>
 </div></section>
 <section id="conditional-probability">
-<h4>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">#</a></h4>
+<h3>Conditional Probability<a class="headerlink" href="#conditional-probability" title="Permalink to this headline">#</a></h3>
 <p>The motivation of conditional probability is to restrict the probability to a subevent happening in the sample space. If B has happened, the probability for A to also happen is P[A∩B]/P[B]. If two events are not influencing each other, then we say that A and B are independent.</p>
 <section id="independence-versus-disjoint">
-<h5>Independence versus Disjoint<a class="headerlink" href="#independence-versus-disjoint" title="Permalink to this headline">#</a></h5>
-<p>Conditional probability deals with situations where two events, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, are related.  However, what if the two events are unrelated, i.e., information about one event says nothing about the second event? In this case, the events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent (<a class="reference internal" href="#defn-independence">Definition 6</a>):</p>
+<h4>Independence versus Disjoint<a class="headerlink" href="#independence-versus-disjoint" title="Permalink to this headline">#</a></h4>
+<p>Conditional probability deals with situations where two events, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, are related.  However, what if the two events are unrelated, i.e., information about one event says nothing about the second event? In this case, the events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent (<a class="reference internal" href="#defn-independence">Definition 10</a>):</p>
 <div class="proof definition admonition" id="defn-independence">
-<p class="admonition-title"><span class="caption-number">Definition 6 </span> (Statistical independence of events)</p>
+<p class="admonition-title"><span class="caption-number">Definition 10 </span> (Statistical independence of events)</p>
 <section class="definition-content" id="proof-content">
 <p>Two events A and B are statistically independent if:</p>
 <div class="math notranslate nohighlight">
@@ -862,9 +777,8 @@ to a real number on the interval <span class="math notranslate nohighlight">\(\l
 The only case when disjoint implies independence is if either <span class="math notranslate nohighlight">\(P(A) = 0\)</span> or <span class="math notranslate nohighlight">\(P(B) = 0\)</span>.</p>
 </section>
 </section>
-</section>
-<section id="bayes-theorem-and-the-law-of-total-probability">
-<h3>Bayes’ theorem and the law of total probability<a class="headerlink" href="#bayes-theorem-and-the-law-of-total-probability" title="Permalink to this headline">#</a></h3>
+<section id="bayes-theorem">
+<h3>Bayes’ theorem<a class="headerlink" href="#bayes-theorem" title="Permalink to this headline">#</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes’ theorem</a>, named after <a class="reference external" href="https://en.wikipedia.org/wiki/Thomas_Bayes">Thomas Bayes</a>, describes the likelihood of an event based on prior knowledge of conditions related to the event (<a class="reference internal" href="#bayes-theorem">Theorem 1</a>):</p>
 <div class="proof theorem admonition" id="bayes-theorem">
 <p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Bayes’ theorem)</p>
@@ -893,9 +807,9 @@ Then for <span class="math notranslate nohighlight">\(B\subseteq\Omega\)</span>:
 </div></section>
 <section id="probability-mass-functions">
 <h3>Probability mass functions<a class="headerlink" href="#probability-mass-functions" title="Permalink to this headline">#</a></h3>
-<p>In the case of discrete random variables, for example, dice roles, coin flips etc, the likelihood that <span class="math notranslate nohighlight">\(X=x\)</span> is described by a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">Probability Mass Function (PMF)</a> (<a class="reference internal" href="#defn-pmf">Definition 7</a>):</p>
+<p>In the case of discrete random variables, for example, dice roles, coin flips etc, the likelihood that <span class="math notranslate nohighlight">\(X=x\)</span> is described by a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">Probability Mass Function (PMF)</a> (<a class="reference internal" href="#defn-pmf">Definition 11</a>):</p>
 <div class="proof definition admonition" id="defn-pmf">
-<p class="admonition-title"><span class="caption-number">Definition 7 </span> (Probability Mass Function)</p>
+<p class="admonition-title"><span class="caption-number">Definition 11 </span> (Probability Mass Function)</p>
 <section class="definition-content" id="proof-content">
 <p>The probability mass function (PMF) of a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> is a function that specifies the probability of obtaining <span class="math notranslate nohighlight">\(X = x\)</span>, where <span class="math notranslate nohighlight">\(x\)</span> is a particular event in the set of possible events we’re interested in <span class="math notranslate nohighlight">\(\mathcal{F}\subseteq{X\left(\Omega\right)}\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -909,9 +823,9 @@ Then for <span class="math notranslate nohighlight">\(B\subseteq\Omega\)</span>:
 <section id="bernoulli-random-variable">
 <h4>Bernoulli random variable<a class="headerlink" href="#bernoulli-random-variable" title="Permalink to this headline">#</a></h4>
 <p>A Bernoulli random variable, the simplest random variable, models a coin flip or some other type of binary
-outcome (<a class="reference internal" href="#defn-pmf-bernouli">Definition 8</a>):</p>
+outcome (<a class="reference internal" href="#defn-pmf-bernouli">Definition 12</a>):</p>
 <div class="proof definition admonition" id="defn-pmf-bernouli">
-<p class="admonition-title"><span class="caption-number">Definition 8 </span> (Bernoulli Random Variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 12 </span> (Bernoulli Random Variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be a Bernoulli random variable. Then, the probability mass function of <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
@@ -965,9 +879,9 @@ outcome (<a class="reference internal" href="#defn-pmf-bernouli">Definition 8</a
 </section>
 <section id="binomial-random-variable">
 <h4>Binomial random variable<a class="headerlink" href="#binomial-random-variable" title="Permalink to this headline">#</a></h4>
-<p>The binomial distribution is the probability of getting exactly <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli trials, e.g., the chance of getting four heads in 6 coin tosses (<a class="reference internal" href="#defn-pmf-binomial">Definition 9</a>):</p>
+<p>The binomial distribution is the probability of getting exactly <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli trials, e.g., the chance of getting four heads in 6 coin tosses (<a class="reference internal" href="#defn-pmf-binomial">Definition 13</a>):</p>
 <div class="proof definition admonition" id="defn-pmf-binomial">
-<p class="admonition-title"><span class="caption-number">Definition 9 </span> (Binomial Random Variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 13 </span> (Binomial Random Variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Suppose we perform repeated Bernoulli trials <span class="math notranslate nohighlight">\(X(\Omega) \in [0,1]^n\)</span>, i.e., <span class="math notranslate nohighlight">\(n\)</span> trials of an independent binary experiment. The probability of getting exactly <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli trials is governed by the binomial probability mass function:</p>
 <div class="math notranslate nohighlight">
@@ -1021,9 +935,9 @@ of a successful trial and:</p>
 </section>
 <section id="geometric-random-variable">
 <h4>Geometric random variable<a class="headerlink" href="#geometric-random-variable" title="Permalink to this headline">#</a></h4>
-<p>Geometric random variables are a type of discrete probability distribution that models the number of trials required to obtain the first success in a sequence of independent Bernoulli trials (<a class="reference internal" href="#defn-pmf-geometric">Definition 10</a>):</p>
+<p>Geometric random variables are a type of discrete probability distribution that models the number of trials required to obtain the first success in a sequence of independent Bernoulli trials (<a class="reference internal" href="#defn-pmf-geometric">Definition 14</a>):</p>
 <div class="proof definition admonition" id="defn-pmf-geometric">
-<p class="admonition-title"><span class="caption-number">Definition 10 </span> (Geometric Random Variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 14 </span> (Geometric Random Variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be a geometric random variable. The probability mass function for a geometric random variable is given by:</p>
 <div class="math notranslate nohighlight">
@@ -1038,9 +952,9 @@ of a successful trial and:</p>
 </div></section>
 <section id="poisson-random-variable">
 <h4>Poisson random variable<a class="headerlink" href="#poisson-random-variable" title="Permalink to this headline">#</a></h4>
-<p>Poisson random variables are a type of discrete probability distribution that models the number of occurrences of an event in a fixed interval of time or space (<a class="reference internal" href="#defn-pmf-poisson">Definition 11</a>):</p>
+<p>Poisson random variables are a type of discrete probability distribution that models the number of occurrences of an event in a fixed interval of time or space (<a class="reference internal" href="#defn-pmf-poisson">Definition 15</a>):</p>
 <div class="proof definition admonition" id="defn-pmf-poisson">
-<p class="admonition-title"><span class="caption-number">Definition 11 </span> (Poisson Random Variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 15 </span> (Poisson Random Variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be a Poisson random variable. The probability mass function for a Poisson random variable is given by:</p>
 <div class="math notranslate nohighlight">
@@ -1061,13 +975,13 @@ of a successful trial and:</p>
 <p>Moments of a random variable are a way to summarize its distribution and provide important information about its properties. Specifically, moments are mathematical quantities that describe the shape, center, and spread of a distribution, and they can be used to calculate other statistical measures such as variance and skewness.Let’s look at the first and second moments of a random variable, namely the <a class="reference internal" href="#content-references-random-variable-expectation"><span class="std std-ref">Expectation</span></a> and the <a class="reference internal" href="#content-references-random-variable-variance"><span class="std std-ref">Variance</span></a>.</p>
 <section id="expectation">
 <span id="content-references-random-variable-expectation"></span><h3>Expectation<a class="headerlink" href="#expectation" title="Permalink to this headline">#</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_value">expectation</a> of a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> measures the central tendency of the values of that random variable (<a class="reference internal" href="#defn-discrete-random-variable-expectation">Definition 12</a>):</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_value">expectation</a> of a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> measures the central tendency of the values of that random variable (<a class="reference internal" href="#defn-discrete-random-variable-expectation">Definition 16</a>):</p>
 <div class="proof definition admonition" id="defn-discrete-random-variable-expectation">
-<p class="admonition-title"><span class="caption-number">Definition 12 </span> (Expectation discrete random variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 16 </span> (Expectation discrete random variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> denote a discrete random variable with the probability space <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}, P\right)\)</span>, where <span class="math notranslate nohighlight">\(\Omega\)</span> denotes the sample space, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> denotes the event space, and <span class="math notranslate nohighlight">\(P\)</span> denotes the probability measure. Then, the expected value of the random variable <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-expectation">
-<span class="eqno">(12)<a class="headerlink" href="#equation-eqn-expectation" title="Permalink to this equation">#</a></span>\[\mathbb{E}\left[X\right] = \sum_{x\in\Omega}xp_{X}(x)\]</div>
+<span class="eqno">(19)<a class="headerlink" href="#equation-eqn-expectation" title="Permalink to this equation">#</a></span>\[\mathbb{E}\left[X\right] = \sum_{x\in\Omega}xp_{X}(x)\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> denotes a value for the discrete random variable <span class="math notranslate nohighlight">\(X\)</span>, and <span class="math notranslate nohighlight">\(p_{X}(x)\)</span> denotes the probability of <span class="math notranslate nohighlight">\(X=x\)</span>. The value of <span class="math notranslate nohighlight">\(p_{X}(x)\)</span> is governed by a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">Probability Mass Function (PMF)</a>.</p>
 </section>
 </div><p>The expectation of a discrete random variable has a few interesting properties (<a class="reference internal" href="#obs-expectation-props">Observation 3</a>):</p>
@@ -1087,13 +1001,13 @@ of a successful trial and:</p>
 <section id="variance">
 <span id="content-references-random-variable-variance"></span><h3>Variance<a class="headerlink" href="#variance" title="Permalink to this headline">#</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Variance">variance</a> measures the expected dispersion for
-individual values of a random variable <span class="math notranslate nohighlight">\(X\)</span>, i.e., the average distance that values of <span class="math notranslate nohighlight">\(X\)</span> are spread out from their expected value (<a class="reference internal" href="#defn-discrete-random-variable-variance">Definition 13</a>):</p>
+individual values of a random variable <span class="math notranslate nohighlight">\(X\)</span>, i.e., the average distance that values of <span class="math notranslate nohighlight">\(X\)</span> are spread out from their expected value (<a class="reference internal" href="#defn-discrete-random-variable-variance">Definition 17</a>):</p>
 <div class="proof definition admonition" id="defn-discrete-random-variable-variance">
-<p class="admonition-title"><span class="caption-number">Definition 13 </span> (Variance discrete random variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 17 </span> (Variance discrete random variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> denote a discrete random variable with the probability space <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span>, where <span class="math notranslate nohighlight">\(\Omega\)</span> denotes the sample space, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> denotes the event space, and <span class="math notranslate nohighlight">\(P\)</span> denotes the probability measure. Then, the variance of the random variable <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-variance">
-<span class="eqno">(13)<a class="headerlink" href="#equation-eqn-variance" title="Permalink to this equation">#</a></span>\[\text{Var}(X) = \mathbb{E}\Bigl[(X-\mu)^{2}\Bigr]\]</div>
+<span class="eqno">(20)<a class="headerlink" href="#equation-eqn-variance" title="Permalink to this equation">#</a></span>\[\text{Var}(X) = \mathbb{E}\Bigl[(X-\mu)^{2}\Bigr]\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mu = \mathbb{E}(X)\)</span> denotes the expected value of the random variable <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </section>
 </div><p>The variance of a discrete random variable has a few interesting properties (<a class="reference internal" href="#obs-variances-var">Observation 4</a>):</p>
@@ -1111,15 +1025,6 @@ individual values of a random variable <span class="math notranslate nohighlight
 </section>
 </section>
 </section>
-<hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h1>
-<p>Toward understanding uncertain rational decisions, in this lecture we introduced the <a class="reference external" href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem">von Neumann-Morgenstern theorem</a> and then discussed tools to model uncertainty:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#content-references-vnm-theorem"><span class="std std-ref">The von Neumann-Morgenstern theorem</span></a> is a fundamental concept in decision theory that provides a mathematical foundation for expected utility theory. It states that if an individual’s preferences over uncertain outcomes satisfy certain axioms, then there exists a utility function that represents those preferences. This theorem has important implications for understanding how people make decisions under uncertainty and designing mechanisms to elicit and aggregate individual preferences.</p></li>
-<li><p><a class="reference internal" href="#content-references-random-variables-probability"><span class="std std-ref">Random variables and probability</span></a> are central concepts in understanding uncertainty.  Random variables represent quantities that can take on different values with a particular probability distribution. They are used to model uncertainty and randomness in various fields, including finance, physics, and engineering. Probability theory provides a framework for understanding and quantifying the likelihood of different events occurring based on the underlying distribution of the random variables involved.</p></li>
-</ul>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1134,7 +1039,7 @@ individual values of a random variable <span class="math notranslate nohighlight
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./unit-2-uncertainty"
+            path: "./appendix"
         },
         predefinedOutput: true
     }
@@ -1148,17 +1053,17 @@ individual values of a random variable <span class="math notranslate nohighlight
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="uncertainty-landing.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="appendix-landing.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Decision-making in uncertain situations</p>
+            <p class="prev-next-title">Appendix</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="risk.html" title="next page">
+    <a class='right-next' id="next-link" href="../References.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Risk and Risk Aversion</p>
+        <p class="prev-next-title">References</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

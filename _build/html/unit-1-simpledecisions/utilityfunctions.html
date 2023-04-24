@@ -159,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../unit-2-uncertainty/probability.html">
+    <a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">
      Rational Uncertain Decisions
     </a>
    </li>
@@ -215,6 +215,23 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../unit-4-learning/imitation.html">
      Imitation Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendix/appendix-landing.html">
+   Appendices
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/random.html">
+     Random variables and probability
     </a>
    </li>
   </ul>
@@ -415,11 +432,13 @@ title="Print to PDF"
       <a class="reference internal nav-link" href="#properties-of-utility-functions">
        Properties of utility functions
       </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#example-utility-functions">
-       Example utility functions
-      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#example-utility-functions">
+         Example utility functions
+        </a>
+       </li>
+      </ul>
      </li>
     </ul>
    </li>
@@ -468,11 +487,13 @@ title="Print to PDF"
       <a class="reference internal nav-link" href="#properties-of-utility-functions">
        Properties of utility functions
       </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#example-utility-functions">
-       Example utility functions
-      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#example-utility-functions">
+         Example utility functions
+        </a>
+       </li>
+      </ul>
      </li>
     </ul>
    </li>
@@ -509,14 +530,14 @@ title="Print to PDF"
 <hr class="docutils" />
 <section id="rational-choice-theory">
 <span id="content-references-rational-choice-theory"></span><h2>Rational choice theory<a class="headerlink" href="#rational-choice-theory" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Rational_choice_theory">Rational choice theory</a> assumes individuals make rational decisions based on their preferences and available information. <a class="reference external" href="https://en.wikipedia.org/wiki/Rational_choice_theory">Rational choice theory</a> is based on computing the utility of actions or outcomes. Thus, utility functions are a crucial component of this theory, as they describe how individuals assign values to different results or choices (<a class="reference internal" href="#defn-individual-utility">Definition 1</a>):</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Rational_choice_theory">Rational choice theory</a> assumes individuals make rational decisions based on their preferences and available information. <a class="reference external" href="https://en.wikipedia.org/wiki/Rational_choice_theory">Rational choice theory</a> is based on computing the utility of competing actions or outcomes. Thus, utility functions are a crucial component of this theory, as they describe how individuals assign numerical values to different choices (<a class="reference internal" href="#defn-individual-utility">Definition 1</a>):</p>
 <div class="proof definition admonition" id="defn-individual-utility">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (Ordinal utility function)</p>
 <section class="definition-content" id="proof-content">
-<p>An individual decision-making agent is presented with a bundle of <span class="math notranslate nohighlight">\(n\)</span> objects <span class="math notranslate nohighlight">\(x_{1},\dots,x_{n}\)</span>. A utility function represents the preference of the agent for combinations of these <span class="math notranslate nohighlight">\(n\)</span> objects:</p>
+<p>An individual decision-making agent is presented with a bundle of <span class="math notranslate nohighlight">\(n\)</span> objects <span class="math notranslate nohighlight">\(X=\left\{x_{1},\dots,x_{n}\right\}\)</span>. A utility function represents the preference of the agent for combinations of these <span class="math notranslate nohighlight">\(n\)</span> objects:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-utility-function-generic">
 <span class="eqno">(1)<a class="headerlink" href="#equation-eqn-utility-function-generic" title="Permalink to this equation">#</a></span>\[U(x_{1},x_{2},\dots,x_{n})\]</div>
-<p>The utility function <span class="math notranslate nohighlight">\(U(\dots)\)</span> is unique only up to an order-preserving transformation in period <span class="math notranslate nohighlight">\(t\rightarrow{t+dt}\)</span>. Further, utility functions are ordinal, i.e., they rank-order bundles but do not indicate how much better a bundle is compared to another.</p>
+<p>The utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span> is unique only up to an order-preserving transformation in period <span class="math notranslate nohighlight">\(t\rightarrow{t+dt}\)</span>. Further, utility functions are ordinal, i.e., they rank-order bundles but do not indicate how much better a bundle is compared to another.</p>
 </section>
 </div><p><a class="reference internal" href="#defn-individual-utility">Definition 1</a> does not give specifics about the properties of a utility function. However, it does establish a critical concept; the utility can be used to rank order the preference for different choices. For example, suppose we have two choices, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p>
 <ul class="simple">
@@ -535,18 +556,18 @@ title="Print to PDF"
 <li><p><strong>Concavity</strong>: The utility function should be concave if the person exhibits diminishing marginal utility. This means that as a person consumes more of a good, the additional satisfaction gained from each unit consumed decreases.</p></li>
 </ul>
 <p>These properties help ensure that a utility function accurately represents a person’s preferences and can be used to make rational choices between alternatives.</p>
-</section>
 <section id="example-utility-functions">
-<h3>Example utility functions<a class="headerlink" href="#example-utility-functions" title="Permalink to this headline">#</a></h3>
+<h4>Example utility functions<a class="headerlink" href="#example-utility-functions" title="Permalink to this headline">#</a></h4>
 <p>There are many different classes of utility functions, let’s look at a few examples and examine there properties:</p>
 <ul class="simple">
-<li><p><strong>Logarithmic utility function</strong> assumes that an individual’s utility is a function of the logarithm of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = ln(x)\)</span>.</p></li>
+<li><p><strong>Logarithmic utility function</strong> assumes that an individual’s utility is a function of the logarithm of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = ln(x+1)\)</span>.</p></li>
 <li><p><strong>Quadratic utility function</strong> assumes that an individual’s utility is proportional to the square of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = ax^{2}\)</span>, where <span class="math notranslate nohighlight">\(a&gt;0\)</span> is a positive constant.</p></li>
 <li><p><strong>Exponential utility function</strong> assumes that an individual’s utility is proportional to the exponential of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = e^{ax}\)</span>, where <span class="math notranslate nohighlight">\(a&gt;0\)</span> is a positive constant.</p></li>
 <li><p><strong>Linear utility function</strong> assumes that an individual’s utility is directly proportional to the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = \sum{a_{i}x_{i}}\)</span>, where <span class="math notranslate nohighlight">\(a_{i}&gt;0\)</span> is a positive constant.</p></li>
 <li><p><strong>Cobb-Douglas utility function</strong> is commonly used in economics and assumes that an individual’s utility is a function of the quantity of two or more goods consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x_{1},\dots,x_{n}) = \prod{x_{i}^{\alpha_{i}}}\)</span>, where <span class="math notranslate nohighlight">\(\alpha_{i}&gt;0\)</span> are positive constants.</p></li>
 <li><p><strong>Leontief utility function</strong> assumes that an individual’s utility is based on the minimum amount of each attribute or variable required to achieve a certain level of satisfaction. The function is represented by the equation <span class="math notranslate nohighlight">\(U(x_{1},\dots, x_{n}) = \min\left\{\alpha_{1}x_{1},\dots,\alpha_{n}x_{n}\right\}\)</span>, where <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> are the minimum amounts required for each variable, and <span class="math notranslate nohighlight">\(x_{i}\)</span> are the quantities consumed for variable <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
 </ul>
+</section>
 </section>
 </section>
 <section id="indifference-curves">
