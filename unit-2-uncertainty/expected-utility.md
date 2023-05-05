@@ -43,6 +43,7 @@ An agent chooses amongst $n$ possible uncertain objects, $x_{1},\dots,x_{n}$ whe
 \begin{eqnarray}
 \text{maximize}~\mathbb{E}(x) &=& \sum_{k=1}^{n}p_{k}U(x_{k}) \\
 \text{subject to}~g(x)~& \leq & 0\\
+\text{and}
 \text{and}~x_{k}&\geq&{0}\qquad{k=1,2,\dots,n}
 \end{eqnarray}
 
