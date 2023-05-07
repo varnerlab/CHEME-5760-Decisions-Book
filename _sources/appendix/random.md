@@ -1,64 +1,11 @@
-# Rational Uncertain Decisions
-Previously, we developed tools to make optimal choices when the outcomes were sure, and the level of satisfaction derived from those choices was known, e.g., the utility of purchasing a particular bundle of goods or services could be computed using a utility function. However, in many real-world situations, the assumption of certainty is invalid. For example, betting, buying an insurance policy, investing in a new business, or the stock market all or _uncertain_. 
-
-Toward understanding how to make uncertain rational decisions, we begin by introducing the [von Neumann-Morgenstern theorem](https://en.wikipedia.org/wiki/Von_Neumann–Morgenstern_utility_theorem) and then discuss tools to model uncertainty:
-
-* {ref}`content:references:vnm-theorem` is a fundamental concept in decision theory that provides a mathematical foundation for expected utility theory. It states that if an individual's preferences over uncertain outcomes satisfy certain axioms, then there exists a utility function that represents those preferences. This theorem has important implications for understanding how people make decisions under uncertainty and designing mechanisms to elicit and aggregate individual preferences.
-
-* {ref}`content:references:random-variables-probability` are central concepts in understanding uncertainty.  Random variables represent quantities that can take on different values with a particular probability distribution. They are used to model uncertainty and randomness in various fields, including finance, physics, and engineering. Probability theory provides a framework for understanding and quantifying the likelihood of different events occurring based on the underlying distribution of the random variables involved.
-
----
-
-(content:references:vnm-theorem)=
-## The von Neumann-Morgenstern theorem
-The [von Neumann-Morgenstern theorem](https://en.wikipedia.org/wiki/Von_Neumann–Morgenstern_utility_theorem), the basis for the [expected utility hypothesis](https://en.wikipedia.org/wiki/Expected_utility_hypothesis), is a fundamental result in decision theory that provides a framework for making _rational choices_ under uncertainty {cite}`vonneumann1947`. 
-
-The [von Neumann-Morgenstern theorem](https://en.wikipedia.org/wiki/Von_Neumann–Morgenstern_utility_theorem) posits, under certain axioms of rational behavior, that an agent faced with probabilistic outcomes will behave as if they are maximizing the expected value of a von Neumann–Morgenstern utility function, defined over the potential outcomes, allowing decision-makers to make choices that maximize their expected utility.
-
-The rationality of the [von Neumann-Morgenstern theorem](https://en.wikipedia.org/wiki/Von_Neumann–Morgenstern_utility_theorem) is based on three axioms:
-
-* __Completeness__: The decision maker can always compare any two alternatives and determine which one is preferred or declare them equally preferred.
-* __Transitivity__: If alternative A is preferred to alternative B, and alternative B is preferred to alternative C, then alternative A must be preferred to alternative C.
-* __Independence__: The utility of an alternative should depend only on the consequences and not on how the decision maker arrived at that alternative. Specifically, if alternatives A and B have the same values, the decision maker should be indifferent between them, regardless of how the choice was presented or framed.
-<!-- 
-The VNM utility theorem shows that any individual who follows these axioms must have a utility function that can be used to evaluate and compare alternatives and that a unique probability distribution over outcomes can represent this utility function. -->
-
-### Expected utility problem
-The world exists in states $\mathcal{S}$, agents make observations $\mathcal{O}$ and take actions $\mathcal{A}$.  The utility of state $s\in\mathcal{S}$ is described by $U(s)$, where the utility function $U$ follows the [properties of the utility functions](https://varnerlab.github.io/CHEME-5760-Decisions-Book/unit-1-simpledecisions/utilityfunctions.html#properties-of-utility-functions). Further, an agent makes observations $o\in\mathcal{O}$ and takes actions $a\in\mathcal{A}$. Then, a rational agent solves the expected utility problem ({prf:ref}`defn-expected-utility-hypothesis`):
-
-````{prf:definition} Expected utility problem
-:label: defn-expected-utility-hypothesis
-
-An agent has a model $P(s^{\prime}|o,a)$ which represents the probability of the world being in state $s^{\prime}$ given that the agent observes $o$ and takes action $a$. The payoff of state $s^{\prime}$ is given by $U(s^{\prime})$. A _rational agent_ maximizes the expected utility subject to constraints:
-
-```{math}
-:label: eqn-max-expected-ulity-problem
-
-\begin{eqnarray}
-\text{maximize}~\mathbb{E}(s) &=& \sum_{s^{\prime}}P(s^{\prime}|a,o)U(s^{\prime}) \\
-\text{subject to}~s^{\prime} &=& T(s,a) \\
-\text{and}~s&\in&\mathcal{S} \\
-\text{and}~a&\in&\mathcal{A} \\
-\text{and}~o&\in&\mathcal{O} \\
-\end{eqnarray}
-
-```
-
-where $T(s,a)$ denotes a transition function governing the transition from state $s\rightarrow{s^{\prime}}$ under action $a$.  
-
-````
-
-The [expected utility hypothesis](https://en.wikipedia.org/wiki/Expected_utility_hypothesis) depends upon an understanding of two critical concepts, random variables, and probability.
-
-(content:references:random-variables-probability)=
-## Random variables and probability
-The sample space and the event space are all based on statements, for example, getting a head when flipping a coin, winning the game, or drawing a card, etc. These statements are not numbers; how do we convert a statement to a number? The answer is a random variable; random variables are mappings from events to numbers, these numbers are probabilities.
+# Random variables and probability
+Random variables and probability are central concepts in understanding uncertainty.  Random variables represent quantities that can take on different values with a particular probability distribution. They are used to model uncertainty and randomness in various fields, including finance, physics, and engineering. Probability theory provides a framework for understanding and quantifying the likelihood of different events occurring based on the underlying distribution of the random variables involved.
 
 * A [random variable](https://en.wikipedia.org/wiki/Random_variable) is a variable $X$ that takes on different values $x$ according to the outcome of a random event or process. There are two types of random variables: discrete random variables and continuous random variables. Discrete random variables can take on a countable number of distinct values, while continuous random variables can take on any value in a continuous range. 
 * [Probability](https://en.wikipedia.org/wiki/Probability) measures the likelihood that a particular event or outcome will occur and is commonly used to quantify uncertainty in various fields, such as science, engineering, economics, and finance. For a discrete random variable, the likelihood that $X=x$ is described by a [Probability Mass Function (PMF)](https://en.wikipedia.org/wiki/Probability_mass_function) and a [Probability Density Function (PDF)](https://en.wikipedia.org/wiki/Probability_density_function) for continuous random variables. 
 
 (content:references:probability)=
-### Probability spaces
+## Probability spaces
 [Frequentists](https://en.wikipedia.org/wiki/Frequentist_probability) argue that probability is the relative frequency or propensity of a particular outcome in the set of all possible outcomes. On the other hand, [Bayesians](https://en.wikipedia.org/wiki/Bayesian_probability) argue that probability is a subjective belief. The context of your problem will typically suggest which perspective to use. For example, when you have a shortage of data, a Bayesian approach allows you to use prior knowledge or belief. On the other hand, when in a data-rich environment, a [frequentist](https://en.wikipedia.org/wiki/Frequentist_probability) approach calculates the probability of an event directly from the data, along with confidence intervals on your estimate. 
 
 Whether you prefer the [frequentist’s](https://en.wikipedia.org/wiki/Frequentist_probability) or the [Bayesian view](https://en.wikipedia.org/wiki/Bayesian_probability), there is a more fundamental notion of probability thanks to [Andrey Kolmogorov](https://en.wikipedia.org/wiki/Andrey_Kolmogorov), namely, the probability is a measure of the size of a set ({prf:ref}`defn-prob-space-kolmogorov`):
@@ -72,7 +19,9 @@ A probability space is described by the tuple of objects $(\Omega,\mathcal{F},P)
 * The probability law $P$ is a mapping from an event $E$ to a number $P(E)$ which, measures the _size_ of the event $E$.
 ````
 
-#### Sample space $\Omega$
+The sample space and the event space are all based on statements, for example, getting a head when flipping a coin, winning the game, or drawing a card, etc. These statements are not numbers; how do we convert a statement to a number? The answer is a random variable; random variables are mappings from events to numbers, these numbers are probabilities.
+
+### Sample space $\Omega$
 Given an experiment, the sample space $\Omega$ is the set containing all possible outcomes of that experiment. These outcomes can be numbers, alphabets, vectors, or functions, as well as, images, videos, EEG signals, audio speeches, etc. 
 
 Let's consider an example of a six sided dice ({prf:ref}`ex-sample-space-dice`):
@@ -89,7 +38,7 @@ $$\Omega=\left\{1,2,3,4,5,6\right\}$$
 The [cardinality](https://en.wikipedia.org/wiki/Cardinality) of this sample space $\dim\left(\Omega\right) = 6$.
 ````
 
-#### Event space $\mathcal{F}$
+### Event space $\mathcal{F}$
 The sample space $\Omega$ contains all the possible outcomes of an experiment. 
 However, we may not be interested in an individual outcome. 
 Rather we may be interested in combinations of individual outcomes where the elements of these sets share some common trait, e.g., even integers or the collection of face cards, etc. These subsets are called events $E\subseteq\Omega$, and the set of all possible events, denoted as $\mathcal{F}$, is called the event space. 
@@ -118,7 +67,7 @@ __Solution__: The $\dim(\mathcal{F}) = 2^n$ where the elements of $\mathcal{F}$ 
 15 | `1111` | $\left\{\clubsuit, \diamondsuit, \heartsuit, \spadesuit\right\}$
 ````
 
-#### Probability law $P$
+### Probability law $P$
 A probability law $P$ is a function $P$ : $\mathcal{F}\rightarrow\left[0, 1\right]$;
 the function $P$ maps an event (set) $E\subseteq\Omega$ to a real number in $\left[0, 1\right]$.
 The definition above does not specify how an event $E\subseteq\Omega$ is being mapped to a number. 
@@ -139,10 +88,10 @@ to a real number on the interval $\left[0, 1\right]$. The function $P$ must sati
 
 ```
 
-#### Conditional Probability
+### Conditional Probability
 The motivation of conditional probability is to restrict the probability to a subevent happening in the sample space. If B has happened, the probability for A to also happen is P[A∩B]/P[B]. If two events are not influencing each other, then we say that A and B are independent.
 
-##### Independence versus Disjoint
+#### Independence versus Disjoint
 Conditional probability deals with situations where two events, $A$ and $B$, are related.  However, what if the two events are unrelated, i.e., information about one event says nothing about the second event? In this case, the events $A$ and $B$ are independent ({prf:ref}`defn-independence`):
 
 ````{prf:definition} Statistical independence of events
@@ -160,7 +109,7 @@ $$P\left(A\cap{B}\right) = 0$$
 But, this says nothing about whether $P(A\cap{B})$ can be factorized into the product $P(A)P(B)$.
 The only case when disjoint implies independence is if either $P(A) = 0$ or $P(B) = 0$.
 
-### Bayes’ theorem and the law of total probability
+### Bayes’ theorem
 [Bayes' theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem), named after [Thomas Bayes](https://en.wikipedia.org/wiki/Thomas_Bayes), describes the likelihood of an event based on prior knowledge of conditions related to the event ({prf:ref}`bayes-theorem`):
 
 ````{prf:theorem} Bayes' theorem
@@ -457,12 +406,3 @@ The variance of a random variable $X$ has a few interesting (and important) prop
 ````
 
 The more common quantity that is used to measure dispersion, the standard deviation $\sigma$, is related to the variance: $\sigma_{X} = \sqrt{\text{Var}(X)}$.
-
----
-
-# Summary
-Toward understanding uncertain rational decisions, in this lecture we introduced the [von Neumann-Morgenstern theorem](https://en.wikipedia.org/wiki/Von_Neumann–Morgenstern_utility_theorem) and then discussed tools to model uncertainty:
-
-* {ref}`content:references:vnm-theorem` is a fundamental concept in decision theory that provides a mathematical foundation for expected utility theory. It states that if an individual's preferences over uncertain outcomes satisfy certain axioms, then there exists a utility function that represents those preferences. This theorem has important implications for understanding how people make decisions under uncertainty and designing mechanisms to elicit and aggregate individual preferences.
-
-* {ref}`content:references:random-variables-probability` are central concepts in understanding uncertainty.  Random variables represent quantities that can take on different values with a particular probability distribution. They are used to model uncertainty and randomness in various fields, including finance, physics, and engineering. Probability theory provides a framework for understanding and quantifying the likelihood of different events occurring based on the underlying distribution of the random variables involved.

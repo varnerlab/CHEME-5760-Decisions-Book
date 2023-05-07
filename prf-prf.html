@@ -161,7 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="unit-2-uncertainty/probability.html">
+    <a class="reference internal" href="unit-2-uncertainty/expected-utility.html">
      Rational Uncertain Decisions
     </a>
    </li>
@@ -210,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="unit-4-learning/bandits.html">
+     Multiarm Bandit Problems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="unit-4-learning/rl.html">
      Reinforcement Learning
     </a>
@@ -217,6 +222,23 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="unit-4-learning/imitation.html">
      Imitation Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="appendix/appendix-landing.html">
+   Appendices
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="appendix/random.html">
+     Random variables and probability
     </a>
    </li>
   </ul>
@@ -364,13 +386,16 @@ title="Open an issue"
 
    <div class="modindex-jumpbox">
    <a href="#cap-algo-e-greedy"><strong>algo-e-greedy</strong></a> | 
+   <a href="#cap-algo-e-greedy-q-learning"><strong>algo-e-greedy-q-learning</strong></a> | 
    <a href="#cap-algo-thompson-sampling"><strong>algo-thompson-sampling</strong></a> | 
    <a href="#cap-axiom-probability"><strong>axiom-probability</strong></a> | 
    <a href="#cap-bayes-theorem"><strong>bayes-theorem</strong></a> | 
    <a href="#cap-defn-discrete-random-variable-expectation"><strong>defn-discrete-random-variable-expectation</strong></a> | 
    <a href="#cap-defn-discrete-random-variable-variance"><strong>defn-discrete-random-variable-variance</strong></a> | 
-   <a href="#cap-defn-expected-utility-hypothesis"><strong>defn-expected-utility-hypothesis</strong></a> | 
+   <a href="#cap-defn-expected-utility-hypothesis-cont"><strong>defn-expected-utility-hypothesis-cont</strong></a> | 
+   <a href="#cap-defn-expected-utility-hypothesis-discrete"><strong>defn-expected-utility-hypothesis-discrete</strong></a> | 
    <a href="#cap-defn-formal-mdp"><strong>defn-formal-mdp</strong></a> | 
+   <a href="#cap-defn-incremental-update-rule"><strong>defn-incremental-update-rule</strong></a> | 
    <a href="#cap-defn-independence"><strong>defn-independence</strong></a> | 
    <a href="#cap-defn-individual-utility"><strong>defn-individual-utility</strong></a> | 
    <a href="#cap-defn-law-total-probability"><strong>defn-law-total-probability</strong></a> | 
@@ -383,6 +408,7 @@ title="Open an issue"
    <a href="#cap-defn-pmf-poisson"><strong>defn-pmf-poisson</strong></a> | 
    <a href="#cap-defn-policy-evalution"><strong>defn-policy-evalution</strong></a> | 
    <a href="#cap-defn-prob-space-kolmogorov"><strong>defn-prob-space-kolmogorov</strong></a> | 
+   <a href="#cap-defn-q-learning-defn"><strong>defn-q-learning-defn</strong></a> | 
    <a href="#cap-eqn-budget-constraint"><strong>eqn-budget-constraint</strong></a> | 
    <a href="#cap-ex-event-card-suits"><strong>ex-event-card-suits</strong></a> | 
    <a href="#cap-ex-sample-space-dice"><strong>ex-sample-space-dice</strong></a> | 
@@ -400,7 +426,15 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-4-learning/rl.html#algo-e-greedy"><code class="xref">algo-e-greedy</code></a> <em>(unit-4-learning/rl)</em></td><td>
+       <a href="unit-4-learning/bandits.html#algo-e-greedy"><code class="xref">algo-e-greedy</code></a> <em>(unit-4-learning/bandits)</em></td><td>
+       <em>algorithm</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-algo-e-greedy-q-learning"><td></td><td>
+       <strong>algo-e-greedy-q-learning</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/rl.html#algo-e-greedy-q-learning"><code class="xref">algo-e-greedy-q-learning</code></a> <em>(unit-4-learning/rl)</em></td><td>
        <em>algorithm</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-algo-thompson-sampling"><td></td><td>
@@ -408,7 +442,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-4-learning/rl.html#algo-thompson-sampling"><code class="xref">algo-thompson-sampling</code></a> <em>(unit-4-learning/rl)</em></td><td>
+       <a href="unit-4-learning/bandits.html#algo-thompson-sampling"><code class="xref">algo-thompson-sampling</code></a> <em>(unit-4-learning/bandits)</em></td><td>
        <em>algorithm</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-axiom-probability"><td></td><td>
@@ -416,7 +450,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#axiom-probability"><code class="xref">axiom-probability</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#axiom-probability"><code class="xref">axiom-probability</code></a> <em>(appendix/random)</em></td><td>
        <em>axiom</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-bayes-theorem"><td></td><td>
@@ -424,7 +458,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#bayes-theorem"><code class="xref">bayes-theorem</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#bayes-theorem"><code class="xref">bayes-theorem</code></a> <em>(appendix/random)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-discrete-random-variable-expectation"><td></td><td>
@@ -432,7 +466,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#defn-discrete-random-variable-expectation"><code class="xref">defn-discrete-random-variable-expectation</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#defn-discrete-random-variable-expectation"><code class="xref">defn-discrete-random-variable-expectation</code></a> <em>(appendix/random)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-discrete-random-variable-variance"><td></td><td>
@@ -440,15 +474,23 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#defn-discrete-random-variable-variance"><code class="xref">defn-discrete-random-variable-variance</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#defn-discrete-random-variable-variance"><code class="xref">defn-discrete-random-variable-variance</code></a> <em>(appendix/random)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-defn-expected-utility-hypothesis"><td></td><td>
-       <strong>defn-expected-utility-hypothesis</strong></td><td></td></tr>
+     <tr class="cap" id="cap-defn-expected-utility-hypothesis-cont"><td></td><td>
+       <strong>defn-expected-utility-hypothesis-cont</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#defn-expected-utility-hypothesis"><code class="xref">defn-expected-utility-hypothesis</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="unit-2-uncertainty/expected-utility.html#defn-expected-utility-hypothesis-cont"><code class="xref">defn-expected-utility-hypothesis-cont</code></a> <em>(unit-2-uncertainty/expected-utility)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-expected-utility-hypothesis-discrete"><td></td><td>
+       <strong>defn-expected-utility-hypothesis-discrete</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/expected-utility.html#defn-expected-utility-hypothesis-discrete"><code class="xref">defn-expected-utility-hypothesis-discrete</code></a> <em>(unit-2-uncertainty/expected-utility)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-formal-mdp"><td></td><td>
@@ -459,12 +501,20 @@ title="Open an issue"
        <a href="unit-3-planning/mdp.html#defn-formal-mdp"><code class="xref">defn-formal-mdp</code></a> <em>(unit-3-planning/mdp)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-incremental-update-rule"><td></td><td>
+       <strong>defn-incremental-update-rule</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/rl.html#defn-incremental-update-rule"><code class="xref">defn-incremental-update-rule</code></a> <em>(unit-4-learning/rl)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-independence"><td></td><td>
        <strong>defn-independence</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#defn-independence"><code class="xref">defn-independence</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#defn-independence"><code class="xref">defn-independence</code></a> <em>(appendix/random)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-individual-utility"><td></td><td>
@@ -480,7 +530,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#defn-law-total-probability"><code class="xref">defn-law-total-probability</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#defn-law-total-probability"><code class="xref">defn-law-total-probability</code></a> <em>(appendix/random)</em></td><td>
        <em>theorem</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-method-l-multipliers"><td></td><td>
@@ -496,7 +546,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-4-learning/rl.html#defn-multi-arm-bernoulli-bandit-problem"><code class="xref">defn-multi-arm-bernoulli-bandit-problem</code></a> <em>(unit-4-learning/rl)</em></td><td>
+       <a href="unit-4-learning/bandits.html#defn-multi-arm-bernoulli-bandit-problem"><code class="xref">defn-multi-arm-bernoulli-bandit-problem</code></a> <em>(unit-4-learning/bandits)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-pmf"><td></td><td>
@@ -504,7 +554,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#defn-pmf"><code class="xref">defn-pmf</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#defn-pmf"><code class="xref">defn-pmf</code></a> <em>(appendix/random)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-pmf-bernouli"><td></td><td>
@@ -512,7 +562,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#defn-pmf-bernouli"><code class="xref">defn-pmf-bernouli</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#defn-pmf-bernouli"><code class="xref">defn-pmf-bernouli</code></a> <em>(appendix/random)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-pmf-binomial"><td></td><td>
@@ -520,7 +570,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#defn-pmf-binomial"><code class="xref">defn-pmf-binomial</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#defn-pmf-binomial"><code class="xref">defn-pmf-binomial</code></a> <em>(appendix/random)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-pmf-geometric"><td></td><td>
@@ -528,7 +578,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#defn-pmf-geometric"><code class="xref">defn-pmf-geometric</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#defn-pmf-geometric"><code class="xref">defn-pmf-geometric</code></a> <em>(appendix/random)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-pmf-poisson"><td></td><td>
@@ -536,7 +586,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#defn-pmf-poisson"><code class="xref">defn-pmf-poisson</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#defn-pmf-poisson"><code class="xref">defn-pmf-poisson</code></a> <em>(appendix/random)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-policy-evalution"><td></td><td>
@@ -552,7 +602,15 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#defn-prob-space-kolmogorov"><code class="xref">defn-prob-space-kolmogorov</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#defn-prob-space-kolmogorov"><code class="xref">defn-prob-space-kolmogorov</code></a> <em>(appendix/random)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-q-learning-defn"><td></td><td>
+       <strong>defn-q-learning-defn</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/rl.html#defn-q-learning-defn"><code class="xref">defn-q-learning-defn</code></a> <em>(unit-4-learning/rl)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-eqn-budget-constraint"><td></td><td>
@@ -568,7 +626,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#ex-event-card-suits"><code class="xref">ex-event-card-suits</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#ex-event-card-suits"><code class="xref">ex-event-card-suits</code></a> <em>(appendix/random)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-ex-sample-space-dice"><td></td><td>
@@ -576,7 +634,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#ex-sample-space-dice"><code class="xref">ex-sample-space-dice</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#ex-sample-space-dice"><code class="xref">ex-sample-space-dice</code></a> <em>(appendix/random)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-obs-barrier-method-lambda-policy"><td></td><td>
@@ -592,7 +650,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#obs-expectation-props"><code class="xref">obs-expectation-props</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#obs-expectation-props"><code class="xref">obs-expectation-props</code></a> <em>(appendix/random)</em></td><td>
        <em>observation</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-obs-lambda-policy"><td></td><td>
@@ -608,7 +666,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-2-uncertainty/probability.html#obs-variances-var"><code class="xref">obs-variances-var</code></a> <em>(unit-2-uncertainty/probability)</em></td><td>
+       <a href="appendix/random.html#obs-variances-var"><code class="xref">obs-variances-var</code></a> <em>(appendix/random)</em></td><td>
        <em>observation</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-remark-barrier-method"><td></td><td>

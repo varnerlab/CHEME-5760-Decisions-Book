@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Imitation Learning" href="imitation.html" />
-    <link rel="prev" title="Reinforcement and Imitation Learning" href="learning-landing.html" />
+    <link rel="prev" title="Multiarm Bandit Problems" href="bandits.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -159,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../unit-2-uncertainty/probability.html">
+    <a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">
      Rational Uncertain Decisions
     </a>
    </li>
@@ -207,6 +207,11 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="bandits.html">
+     Multiarm Bandit Problems
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Reinforcement Learning
@@ -215,6 +220,23 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="imitation.html">
      Imitation Learning
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendix/appendix-landing.html">
+   Appendices
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendix/random.html">
+     Random variables and probability
     </a>
    </li>
   </ul>
@@ -405,10 +427,20 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#basic-concepts-of-reinforcement-learning">
    Basic concepts of reinforcement learning
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-free-reinforcement-learning">
+   Model-free reinforcement learning
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exploration-exploitation-and-bandit-problems">
-     Exploration, exploitation and bandit problems
+    <a class="reference internal nav-link" href="#incremental-updates">
+     Incremental updates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q-learning">
+     Q-learning
     </a>
    </li>
   </ul>
@@ -436,10 +468,20 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#basic-concepts-of-reinforcement-learning">
    Basic concepts of reinforcement learning
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-free-reinforcement-learning">
+   Model-free reinforcement learning
+  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exploration-exploitation-and-bandit-problems">
-     Exploration, exploitation and bandit problems
+    <a class="reference internal nav-link" href="#incremental-updates">
+     Incremental updates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q-learning">
+     Q-learning
     </a>
    </li>
   </ul>
@@ -459,69 +501,84 @@ title="Print to PDF"
 <p>In our discussion of <a class="reference internal" href="../unit-3-planning/mdp.html"><span class="doc std std-doc">Markov decision process (MDPs)</span></a>, we assumed that the transition and reward models were known precisely. However, these models may not be discovered in many actual problems. In these cases, the agent must learn to act through experience, e.g., by observing the outcomes of its actions. Then the agent chooses actions that maximize its long-term accumulation of reward.</p>
 <p>Several challenges must be addressed in cases of uncertain models. First, agents must balance between exploring the world and exploiting knowledge gained through experience. Second, rewards may be received long after decisions have been made. Finally, agents must generalize from limited experience.</p>
 <hr class="docutils" />
+<figure class="align-default" id="fig-rl-schematic">
+<a class="reference internal image-reference" href="../_images/Fig-Schematic-RL.pdf"><img alt="../_images/Fig-Schematic-RL.pdf" src="../_images/Fig-Schematic-RL.pdf" style="height: 260px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Schematic of the reinforcement learning (RL) process. An agent takes action <span class="math notranslate nohighlight">\(a\)</span> and then observes reward <span class="math notranslate nohighlight">\(r\)</span> and changes in the state of the environment (<span class="math notranslate nohighlight">\(s\rightarrow{s^{\prime}}\)</span>) following the action <span class="math notranslate nohighlight">\(a\)</span>.</span><a class="headerlink" href="#fig-rl-schematic" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <section id="basic-concepts-of-reinforcement-learning">
 <span id="content-references-basic-concepts-reinforcement-learning"></span><h2>Basic concepts of reinforcement learning<a class="headerlink" href="#basic-concepts-of-reinforcement-learning" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Reinforcement_learning">Reinforcement Learning (RL)</a> agents learn by performing actions in the world and then analyzing the rewards they receive (<code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-rl-schematic</span></code>). Thus, reinforcement learning differs from other machine learning approaches, e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/Supervised_learning">supervised learning</a> because labeled input/output pairs, e.g., what actions lead to positive rewards are not presented to the agent <em>a priori</em>.  Instead, reinforcement learning agents learn what is good or bad by trying different actions.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Reinforcement_learning">Reinforcement Learning (RL)</a> agents learn by performing actions in the world and then analyzing the rewards they receive (<a class="reference internal" href="#fig-rl-schematic"><span class="std std-numref">Fig. 2</span></a>). Thus, reinforcement learning differs from other machine learning approaches, e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/Supervised_learning">supervised learning</a> because labeled input/output pairs, e.g., what actions lead to positive rewards are not presented to the agent <em>a priori</em>.  Instead, reinforcement learning agents learn what is good or bad by trying different actions.</p>
 <p>Reinforcement learning agents learn optimal choices in different situations by balancing the exploration of their environment, e.g., by taking random actions and watching what happens, with the exploitation of the knowledge they have built up so far, i.e., choosing what the agent thinks is an optimal action based upon previous experience. The balance between exploration and exploitation is one of the critical concepts in reinforcement learning.</p>
-<section id="exploration-exploitation-and-bandit-problems">
-<span id="content-references-exploration-versus-exploitation"></span><h3>Exploration, exploitation and bandit problems<a class="headerlink" href="#exploration-exploitation-and-bandit-problems" title="Permalink to this headline">#</a></h3>
-<p>Reinforcement learning agents must balance exploration of the environment, e.g., taking random actions with exploiting knowledge already obtained through interacting with the world. Pure exploration allows agents to construct a comprehensive model of their environment, but likely at the expense of positive reward. On the other hand, pure exploitation has the agent continually choosing the action it thinks best to accumulate reward, but different, better actions could be taken.</p>
-<p>A classic approach to understanding the exploration and exploitation tradeoff, which itself has many real-world applications, is the <a class="reference external" href="https://en.wikipedia.org/wiki/Multi-armed_bandit">multi arm bandit problem</a>. A general bandit problem is a sequential game played between an agent and the environment. The game is played over <span class="math notranslate nohighlight">\(n\)</span> rounds called the <em>horizon</em>. In each round the agent chooses an action <span class="math notranslate nohighlight">\(a\in\mathcal{A}\)</span> and the environment then reveals a reward <span class="math notranslate nohighlight">\(r\)</span>.</p>
-<p>Let’s look at a particular sub-type of multi-arm bandit problem, namely, the Bernoulli bandit problem and Thompson sampling, a particular solution approach to this class of problem <span id="id1">[<a class="reference internal" href="../References.html#id4" title="Daniel Russo, Benjamin Van Roy, Abbas Kazerouni, Ian Osband, and Zheng Wen. A tutorial on thompson sampling. Foundations and Trends in Machine Learning, 11(1):1-96, 2017. URL: https://arxiv.org/abs/1707.02038, doi:10.48550/ARXIV.1707.02038.">Russo <em>et al.</em>, 2017</a>]</span>:</p>
-<div class="proof definition admonition" id="defn-multi-arm-bernoulli-bandit-problem">
-<p class="admonition-title"><span class="caption-number">Definition 16 </span> (Binary Bernoulli bandit problem)</p>
+</section>
+<section id="model-free-reinforcement-learning">
+<span id="content-references-model-free-reinforcement-learning"></span><h2>Model-free reinforcement learning<a class="headerlink" href="#model-free-reinforcement-learning" title="Permalink to this headline">#</a></h2>
+<p>Model-free reinforcement learning does not require transition or reward models. Instead, model-free methods, like bandit problems, iteratively construct a policy by interacting with the world. However, unlike bandit problems, model-free reinforcement learning builds the action value function <span class="math notranslate nohighlight">\(Q(s, a)\)</span> directly, e.g., by incrementally estimating the action value function <span class="math notranslate nohighlight">\(Q(s, a)\)</span> from samples using the <a class="reference external" href="https://en.wikipedia.org/wiki/Q-learning">Q-learning approach</a>.</p>
+<section id="incremental-updates">
+<h3>Incremental updates<a class="headerlink" href="#incremental-updates" title="Permalink to this headline">#</a></h3>
+<p>Model-free methods incrementally estimate the action value function <span class="math notranslate nohighlight">\(Q(s, a)\)</span> by sampling the world. To understand the structure of the update procedures, which we’ll discuss later, let’s take a quick detour and look at how we incrementally estimate the mean of a single variable <span class="math notranslate nohighlight">\(X\)</span>. Suppose we are interested in computing the mean of <span class="math notranslate nohighlight">\(X\)</span> from <span class="math notranslate nohighlight">\(m\)</span> samples:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-simple-mean">
+<span class="eqno">(19)<a class="headerlink" href="#equation-eqn-simple-mean" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \frac{1}{m}\sum_{i=1}^{m}x^{(i)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(x^{(i)}\)</span> denotes the ith sample. However, model-free RL incrementally updates <span class="math notranslate nohighlight">\(Q(s,a)\)</span>; thus, we need to develop an incremental estimation calculation.
+Equation <a class="reference internal" href="#equation-eqn-simple-mean">(19)</a> can be re-written as:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-simple-mean-1">
+<span class="eqno">(20)<a class="headerlink" href="#equation-eqn-simple-mean-1" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \frac{1}{m}\left(x^{(m)}+\sum_{i=1}^{m-1}x^{(i)}\right)\]</div>
+<p>but the summation term is mean from <span class="math notranslate nohighlight">\(m-1\)</span> samples or:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-simple-mean-2">
+<span class="eqno">(21)<a class="headerlink" href="#equation-eqn-simple-mean-2" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \frac{1}{m}\left(x^{(m)}+(m-1)\hat{x}_{m-1}\right)\]</div>
+<p>which can be rearranged to give the incremental update expression:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-simple-mean-3">
+<span class="eqno">(22)<a class="headerlink" href="#equation-eqn-simple-mean-3" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \hat{x}_{m-1} + \frac{1}{m}\left(x^{(m)}-\hat{x}_{m-1}\right)\]</div>
+<p>Equation <a class="reference internal" href="#equation-eqn-simple-mean-3">(22)</a> can be generalized to give the incremental update rule (<a class="reference internal" href="#defn-incremental-update-rule">Definition 9</a>):</p>
+<div class="proof definition admonition" id="defn-incremental-update-rule">
+<p class="admonition-title"><span class="caption-number">Definition 9 </span> (Incremental update rule)</p>
 <section class="definition-content" id="proof-content">
-<p>Suppose an agent has a choice between <span class="math notranslate nohighlight">\(K\)</span> possible actions <span class="math notranslate nohighlight">\(\mathcal{A}=\left\{a_{1},a_{2},\dots,a_{K}\right\}\)</span>. Further, the success or failure of any action <span class="math notranslate nohighlight">\(a_{i}\in\mathcal{A}\)</span> is governed by a Bernoulli random variable (see <a class="reference internal" href="../unit-2-uncertainty/probability.html#defn-pmf-bernouli">Definition 8</a>).</p>
-<p>The agent receives a reward of <span class="math notranslate nohighlight">\(R_{a_{i}} = 1\)</span> (success) with probability <span class="math notranslate nohighlight">\(p_{a_{i}}\)</span>, and <span class="math notranslate nohighlight">\(R_{a_{i}} = 0\)</span> (failure) otherwise.</p>
-<p>The success probabilities of any action <span class="math notranslate nohighlight">\(p_{a_{i}}\)</span>, while static over the horizon of the game, are unknown to the agent, but they can be learned by experimentation. The agent’s objective is to maximize the cumulative number of successes over the game horizon, e.g., T-periods, where <span class="math notranslate nohighlight">\(T\gg{K}\)</span>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\hat{x}_{m-1}\)</span> denote the mean value computed from <span class="math notranslate nohighlight">\(m-1\)</span> samples. The value of <span class="math notranslate nohighlight">\(\hat{x}_{m}\)</span> given the the next sample <span class="math notranslate nohighlight">\(x^{(m)}\)</span> can be written as:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-next-sample-mean">
+<span class="eqno">(23)<a class="headerlink" href="#equation-eqn-next-sample-mean" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \hat{x}_{m-1} + \alpha\left(m\right)\left(x^{(m)}-\hat{x}_{m-1}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\left(m\right)\)</span> is the learning rate function. The learning rate can be any function of <span class="math notranslate nohighlight">\(m\)</span>; however, to ensure convergence
+<span class="math notranslate nohighlight">\(\alpha\left(m\right)\)</span> must have the properties: the sum of <span class="math notranslate nohighlight">\(\alpha\left(m\right)\)</span> as <span class="math notranslate nohighlight">\(m\rightarrow\infty\)</span> can be unbounded, but the sum of <span class="math notranslate nohighlight">\(\alpha\left(m\right)^{2}\)</span> as <span class="math notranslate nohighlight">\(m\rightarrow\infty\)</span> is bounded.</p>
 </section>
-</div><p>There are multiple heuristic strategies to solve the Binary Bernoulli bandit problem described in <a class="reference internal" href="#defn-multi-arm-bernoulli-bandit-problem">Definition 16</a>:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Thompson_sampling">Thompson sampling</a> which is shown in <a class="reference internal" href="#algo-thompson-sampling">Algorithm 1</a> consists of choosing the action that maximizes the expected reward with respect to a randomly drawn belief, where the belief distribution follows a <a class="reference external" href="https://en.wikipedia.org/wiki/Beta_distribution">Beta distribution</a>.</p></li>
-</ul>
-<div class="proof algorithm dropdown admonition" id="algo-thompson-sampling">
-<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Thompson-sampling)</p>
-<section class="algorithm-content" id="proof-content">
-<p><strong>Inputs</strong>  number of time periods in the horizon <span class="math notranslate nohighlight">\(T\)</span>, the dimension of the action space <span class="math notranslate nohighlight">\(K = |\mathcal{A}|\)</span>, and
-<span class="math notranslate nohighlight">\(\alpha_{1},\dots,\alpha_{K}\)</span> and <span class="math notranslate nohighlight">\(\beta_{1},\dots,\beta_{K}\)</span> the initial values (prior) for the parameters that appear in the
-Beta-distribution for each action</p>
-<p><strong>Outputs</strong> posterior values for the parameters <span class="math notranslate nohighlight">\(\alpha_{1},\dots,\alpha_{K}\)</span> and <span class="math notranslate nohighlight">\(\beta_{1},\dots,\beta_{K}\)</span> that appear in the Beta-distributions for each action</p>
-<p><strong>Initialize</strong>
-a Beta-distribution for each action using initial values <span class="math notranslate nohighlight">\((\alpha,\beta)\)</span>.</p>
-<p><strong>Main</strong></p>
-<ol class="simple">
-<li><p>for t <span class="math notranslate nohighlight">\(\in\)</span> 1 to T</p>
-<ol class="simple">
-<li><p>for k <span class="math notranslate nohighlight">\(\in\)</span> 1 to K</p>
-<ol class="simple">
-<li><p>sample <span class="math notranslate nohighlight">\(\hat{\theta}_{k} \sim \beta(\alpha_{k}, \beta_{k})\)</span></p></li>
-</ol>
-</li>
-<li><p>Select action: <span class="math notranslate nohighlight">\(a_{t} = \text{arg}\max_{k}\hat{\theta}_{k}\)</span></p></li>
-<li><p>Apply <span class="math notranslate nohighlight">\(a_{t}\)</span> and observe <span class="math notranslate nohighlight">\(r_{t}\)</span>.</p></li>
-<li><p>Update distribution parameters:</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\((\alpha_{t},\beta_{t})\leftarrow\left(\alpha_{t}+r_{t},\beta_{t}+(1-r_{t})\right)\)</span></p></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p><strong>Return</strong>
-<span class="math notranslate nohighlight">\((\alpha_{1},\dots,\alpha_{K})\)</span> and <span class="math notranslate nohighlight">\((\beta_{1},\dots,\beta_{K})\)</span></p>
+</div></section>
+<section id="q-learning">
+<h3>Q-learning<a class="headerlink" href="#q-learning" title="Permalink to this headline">#</a></h3>
+<p>The Q-learning approach incrementally estimates the action value function <span class="math notranslate nohighlight">\(Q(s,a)\)</span> using the action value form of the <em>Bellman expectation equation</em>.  From our discussion of <a class="reference internal" href="../unit-3-planning/mdp.html"><span class="doc std std-doc">Markov decision process (MDPs)</span></a>, we know that the action-value function (the <span class="math notranslate nohighlight">\(Q\)</span>-function) is defined as:</p>
+<div class="math notranslate nohighlight">
+\[Q(s,a) = R(s,a) + \gamma\sum_{s^{\prime}\in\mathcal{S}}T(s^{\prime} | s, a)U(s^{\prime})\]</div>
+<p>However, we know that:</p>
+<div class="math notranslate nohighlight">
+\[U(s) = \max_{a} Q(s,a)\]</div>
+<p>thus:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-bellman-expectation-eqn">
+<span class="eqno">(24)<a class="headerlink" href="#equation-eqn-bellman-expectation-eqn" title="Permalink to this equation">#</a></span>\[Q(s,a) = R(s,a) + \gamma\sum_{s^{\prime}\in\mathcal{S}}T(s^{\prime} | s, a)\left(\max_{a^{\prime}}Q(s^{\prime},a^{\prime})\right)\]</div>
+<p>Here’s the catch: in a model-free universe, we don’t know the rewards or physics of the world, i.e., we don’t know the rewards <span class="math notranslate nohighlight">\(R(s, a)\)</span> or the probability array <span class="math notranslate nohighlight">\(T(s^{\prime} | s, a)\)</span> that appear in Eqn. <a class="reference internal" href="#equation-eqn-bellman-expectation-eqn">(24)</a>. Instead of computing the rewards <span class="math notranslate nohighlight">\(r\)</span> and transitions from a model, we must estimate them from samples received:</p>
+<div class="math notranslate nohighlight">
+\[Q(s,a) = \mathbb{E}_{r,s^{\prime}}\left[r+\gamma\cdot\max_{a^{\prime}}Q(s^{\prime},a^{\prime})\right]\]</div>
+<p>We can use the incremental update rule shown in Eqn. <a class="reference internal" href="#equation-eqn-next-sample-mean">(23)</a> to develop an an expression that incrementally updates our estimate of <span class="math notranslate nohighlight">\(Q(s,a)\)</span> as more data becomes available:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-q-learning-update-rule">
+<span class="eqno">(25)<a class="headerlink" href="#equation-eqn-q-learning-update-rule" title="Permalink to this equation">#</a></span>\[Q(s,a)\leftarrow{Q(s,a)}+\alpha\left(r+\gamma\max_{a^{\prime}}Q(s^{\prime},a^{\prime}) - Q(s,a)\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> denotes a <em>learning rate hyperparameter</em>. Putting all these ideas together, gives a Q-learning definition (<a class="reference internal" href="#defn-q-learning-defn">Definition 10</a>):</p>
+<div class="proof definition admonition" id="defn-q-learning-defn">
+<p class="admonition-title"><span class="caption-number">Definition 10 </span> (Q-learning)</p>
+<section class="definition-content" id="proof-content">
+<p>There exists states <span class="math notranslate nohighlight">\(s\in\mathcal{S}\)</span> and actions <span class="math notranslate nohighlight">\(a\in\mathcal{A}\)</span>. The action value function <span class="math notranslate nohighlight">\(Q(s,a)\)</span> can be iteratively estimated using the update rule:</p>
+<div class="math notranslate nohighlight">
+\[Q(s,a)\leftarrow{Q(s,a)}+\alpha\left(r+\gamma\max_{a^{\prime}}Q(s^{\prime},a^{\prime}) - Q(s,a)\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> denotes the learning rate hyperparameter, and <span class="math notranslate nohighlight">\(\gamma\)</span> denotes the discount rate. The policy <span class="math notranslate nohighlight">\(\pi(s)\)</span> can be estimated from the action value function:</p>
+<div class="math notranslate nohighlight">
+\[\pi(s) = \text{arg}\max_{a}Q(s,a)\]</div>
 </section>
-</div><ul class="simple">
-<li><p>An obvious (but naive) alternative approach is to allocate a fixed fraction of the time steps in the time horizon, say <span class="math notranslate nohighlight">\(\epsilon\)</span>, to explore purely random actions. In contrast, in the remaining periods, only successful actions are chosen via <a class="reference external" href="https://en.wikipedia.org/wiki/Thompson_sampling">Thompson sampling</a> or another exploitation approach. This strategy, called <span class="math notranslate nohighlight">\(\epsilon\)</span>-greedy exploration, is shown in <a class="reference internal" href="#algo-e-greedy">Algorithm 2</a> with a <a class="reference external" href="https://en.wikipedia.org/wiki/Thompson_sampling">Thompson sampling</a> exploitation step:</p></li>
-</ul>
-<div class="proof algorithm dropdown admonition" id="algo-e-greedy">
-<p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (<span class="math notranslate nohighlight">\(\epsilon\)</span>-greedy exploration)</p>
+</div><p>An algorithm to incrementally update the <span class="math notranslate nohighlight">\(Q\)</span>-function is given by (<a class="reference internal" href="#algo-e-greedy-q-learning">Algorithm 3</a>):</p>
+<div class="proof algorithm admonition" id="algo-e-greedy-q-learning">
+<p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (<span class="math notranslate nohighlight">\(\epsilon\)</span>-greedy Q-learning)</p>
 <section class="algorithm-content" id="proof-content">
-<p><strong>Inputs</strong>  the pure exploration parameter <span class="math notranslate nohighlight">\(\epsilon\)</span>, the number of time periods in the horizon <span class="math notranslate nohighlight">\(T\)</span>, the dimension of the action space <span class="math notranslate nohighlight">\(K = |\mathcal{A}|\)</span>, and
-<span class="math notranslate nohighlight">\(\alpha_{1},\dots,\alpha_{K}\)</span> and <span class="math notranslate nohighlight">\(\beta_{1},\dots,\beta_{K}\)</span> the initial values (prior) for the parameters that appear in the
-Beta-distribution for each action</p>
-<p><strong>Outputs</strong> posterior values for the parameters <span class="math notranslate nohighlight">\(\alpha_{1},\dots,\alpha_{K}\)</span> and <span class="math notranslate nohighlight">\(\beta_{1},\dots,\beta_{K}\)</span> that appear in the Beta-distributions for each action</p>
-<p><strong>Initialize</strong>
-A Beta-distribution for each action using initial values <span class="math notranslate nohighlight">\((\alpha,\beta)\)</span>.</p>
+<p><strong>Inputs</strong>  the pure exploration parameter <span class="math notranslate nohighlight">\(\epsilon\)</span>, the number of time periods in the horizon <span class="math notranslate nohighlight">\(T\)</span>, the state space <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>, the action space <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> and the initial state <span class="math notranslate nohighlight">\(s\)</span>.</p>
+<p><strong>Outputs</strong> the <span class="math notranslate nohighlight">\(Q(s,a)\)</span> array</p>
+<p><strong>Initialize</strong></p>
+<ol class="simple">
+<li><p>set <span class="math notranslate nohighlight">\(Q(s,a)\leftarrow\text{zeros}(|\mathcal{S}|,|\mathcal{A}|)\)</span></p></li>
+</ol>
 <p><strong>Main</strong></p>
 <ol class="simple">
 <li><p>for t <span class="math notranslate nohighlight">\(\in\)</span> 1 to T</p>
@@ -533,25 +590,25 @@ A Beta-distribution for each action using initial values <span class="math notra
 </li>
 <li><p>else</p>
 <ol class="simple">
-<li><p>for k <span class="math notranslate nohighlight">\(\in\)</span> 1 to K</p>
-<ol class="simple">
-<li><p>sample <span class="math notranslate nohighlight">\(\hat{\theta}_{k} \sim \beta(\alpha_{k}, \beta_{k})\)</span></p></li>
+<li><p>Select action: <span class="math notranslate nohighlight">\(a_{t}\leftarrow\text{arg}\max_{a}Q(s,a)\)</span></p></li>
 </ol>
 </li>
-<li><p>Select action: <span class="math notranslate nohighlight">\(a_{t} = \text{arg}\max_{k}\hat{\theta}_{k}\)</span></p></li>
+<li><p>Apply <span class="math notranslate nohighlight">\(a_{t}\)</span>: observe the reward <span class="math notranslate nohighlight">\(r_{t}\)</span> and the state <span class="math notranslate nohighlight">\(s^{\prime}\)</span></p></li>
+<li><p>Update <span class="math notranslate nohighlight">\(Q(s,a)\)</span>:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q(s,a)\leftarrow{Q(s,a)}+\alpha\left(r+\gamma\max_{a^{\prime}}Q(s^{\prime},a^{\prime}) - Q(s,a)\right)\)</span></p></li>
 </ol>
 </li>
-<li><p>Apply <span class="math notranslate nohighlight">\(a_{t}\)</span> and observe <span class="math notranslate nohighlight">\(r_{t}\)</span>.</p></li>
-<li><p>Update distribution parameters:</p>
+<li><p>Update state:</p>
 <ol class="simple">
-<li><p><span class="math notranslate nohighlight">\((\alpha_{t},\beta_{t})\leftarrow\left(\alpha_{t}+r_{t},\beta_{t}+(1-r_{t})\right)\)</span></p></li>
+<li><p>set <span class="math notranslate nohighlight">\(s\leftarrow{s}^{\prime}\)</span></p></li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
 <p><strong>Return</strong>
-<span class="math notranslate nohighlight">\((\alpha_{1},\dots,\alpha_{K})\)</span> and <span class="math notranslate nohighlight">\((\beta_{1},\dots,\beta_{K})\)</span></p>
+<span class="math notranslate nohighlight">\(Q(s,a)\)</span></p>
 </section>
 </div></section>
 </section>
@@ -584,11 +641,11 @@ A Beta-distribution for each action using initial values <span class="math notra
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="learning-landing.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="bandits.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Reinforcement and Imitation Learning</p>
+            <p class="prev-next-title">Multiarm Bandit Problems</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="imitation.html" title="next page">
