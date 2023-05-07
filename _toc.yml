@@ -24,6 +24,7 @@ chapters:
 - file: unit-4-learning/learning-landing
   title: Unit 4. Machine Learning Methods and Decisions
   sections:
+  - file: unit-4-learning/bandits
   - file: unit-4-learning/rl
   - file: unit-4-learning/imitation
 - file: appendix/appendix-landing

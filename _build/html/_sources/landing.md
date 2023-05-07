@@ -6,7 +6,9 @@ Decision-making is essential to almost everything facet of life. However, are yo
 ### Times, places and websites
 * __Credits__: 3-credits
 * __Lectures and discussions__: Lectures TuTh 11:15 AM - 12:05 PM in XXX, and Discussions on Fr 1:25 PM - 2:15 PM in XXX
-* __Website__: Canvas and GitHub. Examples, labs, and other codes used throughout the course are available on our GitHub repository: [https://github.com/varnerlab/CHEME-5760-Course-Repository-F23](https://github.com/varnerlab/CHEME-5760-Course-Repository-F23).
+* __Website__: Canvas and GitHub. Examples, labs, and other codes used throughout the course are available on our 
+[GitHub repository](https://github.com/varnerlab/CHEME-5760-Course-Repository-F23).
+* __Schedule__: The lecture, lab and problem set schedule can be viewed [here (requires Cornell login)](https://cornell.box.com/s/t28fw49opylf5kdfwwwmdg5pgtgy0kc3).
 
 ### Outcomes
 In this course, students will:
@@ -20,9 +22,6 @@ Lectures are organized into units, each having roughly four weeks of class time
 * [Unit 2: Rational Uncertain Optimal Decisions](./unit-2-uncertainty/uncertainty-landing.md)
 * [Unit 3: Sequential Planning and Decisions](./unit-3-planning/planning-landing.md)
 * [Unit 4: Machine Learning Methods and Decisions](./unit-4-learning/learning-landing.md)
-
-### Schedule
-The lecture, lab and problem set schedule can be viewed at (requires Cornell login): [https://cornell.box.com/s/t28fw49opylf5kdfwwwmdg5pgtgy0kc3](https://cornell.box.com/s/t28fw49opylf5kdfwwwmdg5pgtgy0kc3)
 
 ## Grading
 We expect this course to draw from a spectrum of students, including “those less comfortable with computing,” “those more comfortable with computing,” and those in between. However, what ultimately matters is not where you end up relative to your classmates but where you are relative to yourself. 

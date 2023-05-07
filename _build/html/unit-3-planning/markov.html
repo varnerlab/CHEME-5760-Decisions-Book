@@ -208,6 +208,11 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../unit-4-learning/bandits.html">
+     Multiarm Bandit Problems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../unit-4-learning/rl.html">
      Reinforcement Learning
     </a>
@@ -469,7 +474,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="markov-chains">
 <h1>Markov Chains<a class="headerlink" href="#markov-chains" title="Permalink to this headline">#</a></h1>
-<p>Markov chains take their name from the Russian mathematician <a class="reference external" href="https://en.wikipedia.org/wiki/Andrey_Markov">Andrey Markov</a>. Markov chains are a stochastic model which describes a sequence of possible events in which the probability of each event depends only on the system state in the previous event.</p>
+<p>A Markov chain is a stochastic model describing a sequence of possible events where the probability of each of these events depends only on the system’s current state and not on past system states. A system’s state space and time (much like a probability) can be either discrete or continuous; for most of the applications we’ll be interested in, we’ll focus on discrete time and discrete finite state spaces. Markov chains take their name from the Russian mathematician <a class="reference external" href="https://en.wikipedia.org/wiki/Andrey_Markov">Andrey Markov</a>.</p>
 <p>In this lecture:</p>
 <ul class="simple">
 <li><p>We will discuss <a class="reference internal" href="#content-references-markov-chains"><span class="std std-ref">Discrete-time Markov chains</span></a> and discrete time <a class="reference internal" href="#content-references-structure-of-an-hmm"><span class="std std-ref">Hidden Markov Models (HMMs)</span></a>, which are approaches for modeling the evolution of a stochastic system as a series of possible events.</p></li>
@@ -477,7 +482,6 @@ title="Print to PDF"
 <hr class="docutils" />
 <section id="discrete-time-markov-chains">
 <span id="content-references-markov-chains"></span><h2>Discrete-time Markov chains<a class="headerlink" href="#discrete-time-markov-chains" title="Permalink to this headline">#</a></h2>
-<p>A Markov chain is a stochastic model describing a sequence of possible events where the probability of each of these events depends only on the system’s current state and not on past system states. A system’s state space and time (much like a probability) can be either discrete or continuous; for most of the applications we’ll be interested in, we’ll focus on discrete time and discrete finite state spaces.</p>
 <p>A discrete-time Markov chain is a sequence of random variables <span class="math notranslate nohighlight">\(X_{1}\)</span>, <span class="math notranslate nohighlight">\(X_{2}\)</span>, <span class="math notranslate nohighlight">\(X_{3}\)</span>, …, <span class="math notranslate nohighlight">\(X_{n}\)</span> that have the <a class="reference external" href="https://en.wikipedia.org/wiki/Markov_property">Markov property</a>, i.e., the probability of moving to the <em>next state</em> depends only on the <em>present state</em> and not on the <em>previous states</em>:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-markov-property">
 <span class="eqno">(13)<a class="headerlink" href="#equation-eqn-markov-property" title="Permalink to this equation">#</a></span>\[P(X_{n+1} = x | X_{1}=x_{1}, \dots, X_{n}=x_{n}) = P(X_{n+1} = x | X_{n}=y)\]</div>

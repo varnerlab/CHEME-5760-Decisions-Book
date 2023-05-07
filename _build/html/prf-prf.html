@@ -210,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="unit-4-learning/bandits.html">
+     Multiarm Bandit Problems
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="unit-4-learning/rl.html">
      Reinforcement Learning
     </a>
@@ -381,6 +386,7 @@ title="Open an issue"
 
    <div class="modindex-jumpbox">
    <a href="#cap-algo-e-greedy"><strong>algo-e-greedy</strong></a> | 
+   <a href="#cap-algo-e-greedy-q-learning"><strong>algo-e-greedy-q-learning</strong></a> | 
    <a href="#cap-algo-thompson-sampling"><strong>algo-thompson-sampling</strong></a> | 
    <a href="#cap-axiom-probability"><strong>axiom-probability</strong></a> | 
    <a href="#cap-bayes-theorem"><strong>bayes-theorem</strong></a> | 
@@ -389,6 +395,7 @@ title="Open an issue"
    <a href="#cap-defn-expected-utility-hypothesis-cont"><strong>defn-expected-utility-hypothesis-cont</strong></a> | 
    <a href="#cap-defn-expected-utility-hypothesis-discrete"><strong>defn-expected-utility-hypothesis-discrete</strong></a> | 
    <a href="#cap-defn-formal-mdp"><strong>defn-formal-mdp</strong></a> | 
+   <a href="#cap-defn-incremental-update-rule"><strong>defn-incremental-update-rule</strong></a> | 
    <a href="#cap-defn-independence"><strong>defn-independence</strong></a> | 
    <a href="#cap-defn-individual-utility"><strong>defn-individual-utility</strong></a> | 
    <a href="#cap-defn-law-total-probability"><strong>defn-law-total-probability</strong></a> | 
@@ -401,6 +408,7 @@ title="Open an issue"
    <a href="#cap-defn-pmf-poisson"><strong>defn-pmf-poisson</strong></a> | 
    <a href="#cap-defn-policy-evalution"><strong>defn-policy-evalution</strong></a> | 
    <a href="#cap-defn-prob-space-kolmogorov"><strong>defn-prob-space-kolmogorov</strong></a> | 
+   <a href="#cap-defn-q-learning-defn"><strong>defn-q-learning-defn</strong></a> | 
    <a href="#cap-eqn-budget-constraint"><strong>eqn-budget-constraint</strong></a> | 
    <a href="#cap-ex-event-card-suits"><strong>ex-event-card-suits</strong></a> | 
    <a href="#cap-ex-sample-space-dice"><strong>ex-sample-space-dice</strong></a> | 
@@ -418,7 +426,15 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-4-learning/rl.html#algo-e-greedy"><code class="xref">algo-e-greedy</code></a> <em>(unit-4-learning/rl)</em></td><td>
+       <a href="unit-4-learning/bandits.html#algo-e-greedy"><code class="xref">algo-e-greedy</code></a> <em>(unit-4-learning/bandits)</em></td><td>
+       <em>algorithm</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-algo-e-greedy-q-learning"><td></td><td>
+       <strong>algo-e-greedy-q-learning</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/rl.html#algo-e-greedy-q-learning"><code class="xref">algo-e-greedy-q-learning</code></a> <em>(unit-4-learning/rl)</em></td><td>
        <em>algorithm</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-algo-thompson-sampling"><td></td><td>
@@ -426,7 +442,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-4-learning/rl.html#algo-thompson-sampling"><code class="xref">algo-thompson-sampling</code></a> <em>(unit-4-learning/rl)</em></td><td>
+       <a href="unit-4-learning/bandits.html#algo-thompson-sampling"><code class="xref">algo-thompson-sampling</code></a> <em>(unit-4-learning/bandits)</em></td><td>
        <em>algorithm</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-axiom-probability"><td></td><td>
@@ -485,6 +501,14 @@ title="Open an issue"
        <a href="unit-3-planning/mdp.html#defn-formal-mdp"><code class="xref">defn-formal-mdp</code></a> <em>(unit-3-planning/mdp)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-incremental-update-rule"><td></td><td>
+       <strong>defn-incremental-update-rule</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/rl.html#defn-incremental-update-rule"><code class="xref">defn-incremental-update-rule</code></a> <em>(unit-4-learning/rl)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-independence"><td></td><td>
        <strong>defn-independence</strong></td><td></td></tr>
      <tr>
@@ -522,7 +546,7 @@ title="Open an issue"
      <tr>
        <td></td>
        <td>
-       <a href="unit-4-learning/rl.html#defn-multi-arm-bernoulli-bandit-problem"><code class="xref">defn-multi-arm-bernoulli-bandit-problem</code></a> <em>(unit-4-learning/rl)</em></td><td>
+       <a href="unit-4-learning/bandits.html#defn-multi-arm-bernoulli-bandit-problem"><code class="xref">defn-multi-arm-bernoulli-bandit-problem</code></a> <em>(unit-4-learning/bandits)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-pmf"><td></td><td>
@@ -579,6 +603,14 @@ title="Open an issue"
        <td></td>
        <td>
        <a href="appendix/random.html#defn-prob-space-kolmogorov"><code class="xref">defn-prob-space-kolmogorov</code></a> <em>(appendix/random)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-q-learning-defn"><td></td><td>
+       <strong>defn-q-learning-defn</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/rl.html#defn-q-learning-defn"><code class="xref">defn-q-learning-defn</code></a> <em>(unit-4-learning/rl)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-eqn-budget-constraint"><td></td><td>
