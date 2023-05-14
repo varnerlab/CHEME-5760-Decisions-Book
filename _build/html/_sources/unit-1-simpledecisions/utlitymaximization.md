@@ -1,7 +1,13 @@
 # Maximizing Utility Subject to Constraints
 Utility maximization is the process of choosing the option that provides the highest level of utility, given a set of available options and the individual's preferences. It involves evaluating each option using a utility function and selecting the one that maximizes the utility subject to constraints.
 
+```{topic} Outline
+
 * {ref}`content:references:rational-choice-theory-opt` is a concept in decision-making that refers to the selection of the best possible option from a set of alternatives. It is based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets. 
+
+* {ref}`content:references:rational-choice-budget-constraints` are a crucial factor in decision-making for individuals, businesses, and governments alike. They represent the finite resources available to make choices and allocate funds toward different options. A budget constraint forces decision-makers to weigh the costs and benefits of various options and make trade-offs based on their available resources.
+
+```
 
 ---
 
@@ -170,7 +176,6 @@ Several different types of penalty methods are commonly used in statistical mode
 Penalty methods can be combined with [optimization algorithms](https://optimization.cbe.cornell.edu/index.php?title=Main_Page) to find the best (optimal) values of the model parameters that minimize the loss function subject to the penalty constraints. These methods are often used in situations with many predictors, and the goal is to select a parsimonious model with a small number of essential features.
 
 ### Heuristic optimization
-
 Heuristic optimization is a family of algorithms inspired by natural phenomena and human behavior. Heuristic methods are often used to solve complex, real-world problems where exact solutions are difficult to obtain or may not even exist. Unlike traditional optimization methods, heuristic approaches use rules of thumb, intuition, and trial-and-error to explore the search space and find the best solution.
 
 There are several types of heuristic optimization algorithms, including:
@@ -182,7 +187,14 @@ There are several types of heuristic optimization algorithms, including:
 * [Artificial Bee Colony (ABC)](https://en.wikipedia.org/wiki/Artificial_bee_colony_algorithm) simulates the behavior of a colony of artificial honey bees. ABC is commonly used for problems that involve finding the optimal solution in a continuous search space. Each bee represents a potential solution to the problem and adjusts its position based on the quality of the nectar source it has found.
 * [Tabu Search (TS)](https://en.wikipedia.org/wiki/Tabu_search) uses a memory-based search strategy to avoid revisiting previously explored solutions. TS is commonly used for problems that involve finding the optimal solution in a combinatorial search space. It maintains a list of tabu moves, which are forbidden moves, to ensure that the search space is explored efficiently.
 
+(content:references:rational-choice-budget-constraints)=
+## Budget constraints
+Fill me in
+
 ---
+
+
+
 
 # Summary
 Fill me in

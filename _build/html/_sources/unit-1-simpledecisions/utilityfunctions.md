@@ -1,11 +1,14 @@
 # Utility Functions and Rational Choices
 Utility functions are mathematical expressions representing an individual's preferences over different choices or outcomes. It assigns a numerical value, called utility which is a surrogate for happiness or satisfaction, to each possible option or outcome, based on how much the individual values it. However, a utility function is subjective and can vary from person to person, as different individuals may have other preferences.
 
+```{topic} Outline
 In this lecture, we'll develop tools to compute rational choices and explore some mathematical and philosophical properties of utility functions:
 
 * {ref}`content:references:rational-choice-theory` is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.
 
 * {ref}`content:references:indifference-curves` are a tool used in microeconomics to analyze consumers’ preferences. They represent a graphical depiction of different combinations of two goods that provide the same level of satisfaction, or utility, to a consumer. Indifference curves can be used to understand how consumers make choices when faced with trade-offs between goods and how they may respond to changes in prices or income.
+
+```
 
 ---
 
