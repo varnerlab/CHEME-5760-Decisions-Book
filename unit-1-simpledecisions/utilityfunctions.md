@@ -2,11 +2,14 @@
 Utility functions are mathematical expressions representing an individual's preferences over different choices or outcomes. It assigns a numerical value, called utility which is a surrogate for happiness or satisfaction, to each possible option or outcome, based on how much the individual values it. However, a utility function is subjective and can vary from person to person, as different individuals may have other preferences.
 
 ```{topic} Outline
-In this lecture, we'll develop tools to compute rational choices and explore some mathematical and philosophical properties of utility functions:
+This week, we'll develop tools to compute rational choices and explore some mathematical and philosophical properties of utility functions:
 
 * {ref}`content:references:rational-choice-theory` is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.
 
+* {ref}`content:references:marginal-utility` describes the added satisfaction or benefits that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that the happiness or benefit from each extra unit decreases as a consumer increases the number of units consumed. Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.
+
 * {ref}`content:references:indifference-curves` are a tool used in microeconomics to analyze consumers’ preferences. They represent a graphical depiction of different combinations of two goods that provide the same level of satisfaction, or utility, to a consumer. Indifference curves can be used to understand how consumers make choices when faced with trade-offs between goods and how they may respond to changes in prices or income.
+
 
 ```
 
@@ -56,6 +59,32 @@ There are many different classes of utility functions, let's look at a few examp
 * __Linear utility function__ assumes that an individual's utility is directly proportional to the quantity consumed, and is represented by the equation $U(x) = \sum{a_{i}x_{i}}$, where $a_{i}>0$ is a positive constant.
 * __Cobb-Douglas utility function__ is commonly used in economics and assumes that an individual's utility is a function of the quantity of two or more goods consumed, and is represented by the equation $U(x_{1},\dots,x_{n}) = \prod{x_{i}^{\alpha_{i}}}$, where $\alpha_{i}>0$ are positive constants.
 * __Leontief utility function__ assumes that an individual's utility is based on the minimum amount of each attribute or variable required to achieve a certain level of satisfaction. The function is represented by the equation $U(x_{1},\dots, x_{n}) = \min\left\{\alpha_{1}x_{1},\dots,\alpha_{n}x_{n}\right\}$, where $\alpha_{i}$ are the minimum amounts required for each variable, and $x_{i}$ are the quantities consumed for variable $i$.
+
+(content:references:marginal-utility)=
+## Marginal utility
+The marginal utility quantifies the satisfaction gained by an agent from an additional unit of consumption of a good or service ({prf:ref}`defn-marginal-utility`):
+
+
+````{prf:definition} Marginal Utility
+:label: defn-marginal-utility
+
+A decision maker is analyzing the consumption of different combinations of $n$ goods or services $x_{1},\dots,x_{n}$. The utility function governing the decision maker $U(\dots)$ can be expanded by computing the [total differential](https://en.wikipedia.org/wiki/Differential_of_a_function#Differentials_in_several_variables) around some point $\left(x_{1}^{\star},\dots,x_{n}^{\star}\right)$:
+
+```{math}
+:label: eqn-total-differential-ic
+
+dU = \sum_{i=1}^{n}\left(\frac{\partial{U}}{\partial{x_{i}}}\right)_{\star}dx_{i}
+```
+
+The partial derivative of the utility with respect to a change in the consumption of good or service $i$ is the [marginal utility](https://en.wikipedia.org/wiki/Marginal_utility):
+
+```{math}
+dU = \sum_{i=1}^{n}\left(\text{MU}_{i}^{\star}\right){dx_{i}}
+```
+````
+
+
+
 
 (content:references:indifference-curves)=
 ## Indifference curves
@@ -116,5 +145,7 @@ end
 In this lecture, we'll developed tools to compute rational choices and explored some mathematical and philosophical properties of utility functions:
 
 * {ref}`content:references:rational-choice-theory` is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.
+
+* {ref}`content:references:marginal-utility` describes the added satisfaction or benefit that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that as a consumer increases the number of units consumed, the satisfaction or benefit from each extra unit decreases. The concept of Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.
 
 * {ref}`content:references:indifference-curves` are a tool used in microeconomics to analyze consumers’ preferences. They represent a graphical depiction of different combinations of two goods that provide the same level of satisfaction, or utility, to a consumer. Indifference curves can be used to understand how consumers make choices when faced with trade-offs between goods and how they may respond to changes in prices or income.
