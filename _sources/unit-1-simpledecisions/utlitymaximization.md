@@ -1,12 +1,48 @@
 # Maximizing Utility Subject to Constraints
 Utility maximization is the process of choosing the option that provides the highest level of utility, given a set of available options and the individual's preferences. It involves evaluating each option using a utility function and selecting the one that maximizes the utility subject to constraints.
 
-* {ref}`content:references:rational-choice-theory-opt` is a concept in decision-making that refers to the selection of the best possible option from a set of alternatives. It is based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets. 
+```{topic} Outline
+
+* {ref}`content:references:rational-choice-budget-constraints` are a crucial factor in decision-making for individuals, businesses, and governments alike. They represent the finite resources available to make choices and allocate funds toward different options. A budget constraint forces decision-makers to weigh the costs and benefits of various options and make trade-offs based on their available resources.
+
+* {ref}`content:references:rational-choice-theory-opt` is based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets. 
+
+```
 
 ---
 
+(content:references:rational-choice-budget-constraints)=
+## Budget constraints
+Effective budget management involves prioritizing expenditures, making trade-offs, and seeking optimal ways to utilize the available funds within the defined buedget constraints. Budget constraints refer to the limitations imposed on an individual, organization, or government’s spending activities. These constraints arise from the finite availability of financial resources, requiring careful planning and allocation to meet various needs and goals ({prf:ref}`defn-budget-constraint`): 
+
+````{prf:definition} Budget constraint
+:label: defn-budget-constraint
+
+Let $I$ denote the income allocated to purchase goods in a set of goods $x\in\mathcal{X}$ where $c_{x}\geq{0}$ denotes the unit cost of item $x$. Then, the budget constraint for $\mathcal{X}$ is given by:
+
+```{math}
+:label: eqn-budget-constraint
+\sum_{x\in\mathcal{X}}c_{x}\cdot\dim(x)\leq{I}
+```
+
+The quantity $\dim(x)$ denotes the number of good $x$ purchased. The number of iterms purchased must be non-negative, i.e., $\dim(x)\geq{0}$.
+
+````
+
+### Two goods
+To better understand {prf:ref}`defn-budget-constraint`, let's consider the case when we have only two goods in the set of goods $\mathcal{X}$, i.e., $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$. In this case, the budget constraint becomes a line in the $\text{apples}$ versus $\text{oranges}$ plane ({numref}`fig-two-dim-bc`).
+
+ ```{figure} ./figs/Fig-TwoDim-BudgetConstraint-Schematic.pdf
+---
+height: 400px
+name: fig-two-dim-bc
+---
+Two-dimensional budget constraint. 
+```
+
+
 (content:references:rational-choice-theory-opt)=
-## Optimal rational choices
+## Optimal rational choice
 An optimal rational decision-making agent _maximizes_ its utility function, i.e., the agent searches for a combination of goods and services that gives the highest satisfaction subject to various constraints, e.g., a budget constraint ({prf:ref}`eqn-budget-constraint`):
 
 ````{prf:definition} Maximum utility and budget constraints
@@ -170,7 +206,6 @@ Several different types of penalty methods are commonly used in statistical mode
 Penalty methods can be combined with [optimization algorithms](https://optimization.cbe.cornell.edu/index.php?title=Main_Page) to find the best (optimal) values of the model parameters that minimize the loss function subject to the penalty constraints. These methods are often used in situations with many predictors, and the goal is to select a parsimonious model with a small number of essential features.
 
 ### Heuristic optimization
-
 Heuristic optimization is a family of algorithms inspired by natural phenomena and human behavior. Heuristic methods are often used to solve complex, real-world problems where exact solutions are difficult to obtain or may not even exist. Unlike traditional optimization methods, heuristic approaches use rules of thumb, intuition, and trial-and-error to explore the search space and find the best solution.
 
 There are several types of heuristic optimization algorithms, including:
@@ -182,7 +217,11 @@ There are several types of heuristic optimization algorithms, including:
 * [Artificial Bee Colony (ABC)](https://en.wikipedia.org/wiki/Artificial_bee_colony_algorithm) simulates the behavior of a colony of artificial honey bees. ABC is commonly used for problems that involve finding the optimal solution in a continuous search space. Each bee represents a potential solution to the problem and adjusts its position based on the quality of the nectar source it has found.
 * [Tabu Search (TS)](https://en.wikipedia.org/wiki/Tabu_search) uses a memory-based search strategy to avoid revisiting previously explored solutions. TS is commonly used for problems that involve finding the optimal solution in a combinatorial search space. It maintains a list of tabu moves, which are forbidden moves, to ensure that the search space is explored efficiently.
 
+
 ---
+
+
+
 
 # Summary
 Fill me in
