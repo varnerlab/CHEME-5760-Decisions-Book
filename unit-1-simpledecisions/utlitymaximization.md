@@ -37,7 +37,7 @@ To better understand {prf:ref}`defn-budget-constraint`, let's consider the case 
 height: 400px
 name: fig-two-dim-bc
 ---
-Two-dimensional budget constraint. 
+Two-dimensional budget constraint for the $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$ set of goods.
 ```
 
 
