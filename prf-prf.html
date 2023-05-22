@@ -185,6 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="unit-3-planning/markov.html">Markov Chains</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="unit-3-planning/mdp.html">Markov Decision Processes</a></li>
 </ul>
 </li>
@@ -356,6 +357,7 @@ document.write(`
    <a href="#cap-algo-thompson-sampling"><strong>algo-thompson-sampling</strong></a> | 
    <a href="#cap-axiom-probability"><strong>axiom-probability</strong></a> | 
    <a href="#cap-bayes-theorem"><strong>bayes-theorem</strong></a> | 
+   <a href="#cap-defn-arrow-pratt-model"><strong>defn-arrow-pratt-model</strong></a> | 
    <a href="#cap-defn-budget-constraint"><strong>defn-budget-constraint</strong></a> | 
    <a href="#cap-defn-discrete-random-variable-expectation"><strong>defn-discrete-random-variable-expectation</strong></a> | 
    <a href="#cap-defn-discrete-random-variable-variance"><strong>defn-discrete-random-variable-variance</strong></a> | 
@@ -369,6 +371,7 @@ document.write(`
    <a href="#cap-defn-marginal-utility"><strong>defn-marginal-utility</strong></a> | 
    <a href="#cap-defn-method-l-multipliers"><strong>defn-method-l-multipliers</strong></a> | 
    <a href="#cap-defn-multi-arm-bernoulli-bandit-problem"><strong>defn-multi-arm-bernoulli-bandit-problem</strong></a> | 
+   <a href="#cap-defn-n-transition"><strong>defn-n-transition</strong></a> | 
    <a href="#cap-defn-pmf"><strong>defn-pmf</strong></a> | 
    <a href="#cap-defn-pmf-bernouli"><strong>defn-pmf-bernouli</strong></a> | 
    <a href="#cap-defn-pmf-binomial"><strong>defn-pmf-binomial</strong></a> | 
@@ -380,6 +383,9 @@ document.write(`
    <a href="#cap-eqn-budget-constraint"><strong>eqn-budget-constraint</strong></a> | 
    <a href="#cap-ex-event-card-suits"><strong>ex-event-card-suits</strong></a> | 
    <a href="#cap-ex-sample-space-dice"><strong>ex-sample-space-dice</strong></a> | 
+   <a href="#cap-example-categorical-dist"><strong>example-categorical-dist</strong></a> | 
+   <a href="#cap-example-dicrete-mchain"><strong>example-dicrete-mchain</strong></a> | 
+   <a href="#cap-example-dicrete-mchain-hmm"><strong>example-dicrete-mchain-hmm</strong></a> | 
    <a href="#cap-obs-barrier-method-lambda-policy"><strong>obs-barrier-method-lambda-policy</strong></a> | 
    <a href="#cap-obs-expectation-props"><strong>obs-expectation-props</strong></a> | 
    <a href="#cap-obs-lambda-policy"><strong>obs-lambda-policy</strong></a> | 
@@ -428,6 +434,14 @@ document.write(`
        <td>
        <a href="appendix/random.html#bayes-theorem"><code class="xref">bayes-theorem</code></a> <em>(appendix/random)</em></td><td>
        <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-arrow-pratt-model"><td></td><td>
+       <strong>defn-arrow-pratt-model</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/risk.html#defn-arrow-pratt-model"><code class="xref">defn-arrow-pratt-model</code></a> <em>(unit-2-uncertainty/risk)</em></td><td>
+       <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-budget-constraint"><td></td><td>
        <strong>defn-budget-constraint</strong></td><td></td></tr>
@@ -533,6 +547,14 @@ document.write(`
        <a href="unit-4-learning/bandits.html#defn-multi-arm-bernoulli-bandit-problem"><code class="xref">defn-multi-arm-bernoulli-bandit-problem</code></a> <em>(unit-4-learning/bandits)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-n-transition"><td></td><td>
+       <strong>defn-n-transition</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-3-planning/markov.html#defn-n-transition"><code class="xref">defn-n-transition</code></a> <em>(unit-3-planning/markov)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-defn-pmf"><td></td><td>
        <strong>defn-pmf</strong></td><td></td></tr>
      <tr>
@@ -619,6 +641,30 @@ document.write(`
        <td></td>
        <td>
        <a href="appendix/random.html#ex-sample-space-dice"><code class="xref">ex-sample-space-dice</code></a> <em>(appendix/random)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-categorical-dist"><td></td><td>
+       <strong>example-categorical-dist</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-3-planning/markov.html#example-categorical-dist"><code class="xref">example-categorical-dist</code></a> <em>(unit-3-planning/markov)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-dicrete-mchain"><td></td><td>
+       <strong>example-dicrete-mchain</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-3-planning/markov.html#example-dicrete-mchain"><code class="xref">example-dicrete-mchain</code></a> <em>(unit-3-planning/markov)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-dicrete-mchain-hmm"><td></td><td>
+       <strong>example-dicrete-mchain-hmm</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-3-planning/markov.html#example-dicrete-mchain-hmm"><code class="xref">example-dicrete-mchain-hmm</code></a> <em>(unit-3-planning/markov)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-obs-barrier-method-lambda-policy"><td></td><td>

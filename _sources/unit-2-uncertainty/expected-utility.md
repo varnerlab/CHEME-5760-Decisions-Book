@@ -1,13 +1,16 @@
 # Rational Uncertain Decisions
 Previously, we developed tools to make optimal choices when the outcomes were sure, and the level of satisfaction derived from those choices was known, e.g., the utility of purchasing a particular bundle of goods or services could be computed using a utility function. However, in many real-world situations, the assumption of certainty is invalid. For example, betting, buying an insurance policy, investing in a new business, or the stock market all or _uncertain_. 
 
-Toward understanding how to make uncertain rational decisions, we begin by introducing the [von Neumann-Morgenstern theorem](https://en.wikipedia.org/wiki/Von_Neumann–Morgenstern_utility_theorem) and then discuss two versions of the uncertain rational decision problem:
+```{topic} Outline
+This week, we’ll be talking about how to make decisions when faced with uncertainty. We’ll introduce the von Neumann-Morgenstern theorem and then explore two versions of the uncertain rational decision problem:
 
 * {ref}`content:references:vnm-theorem` is a fundamental concept in decision theory that provides a mathematical foundation for expected utility theory. It states that if an individual's preferences over uncertain outcomes satisfy certain axioms, then there exists a utility function that represents those preferences. This theorem has important implications for understanding how people make decisions under uncertainty and designing mechanisms to elicit and aggregate individual preferences.
 
 * {ref}`content:references:cont-util-prob` involve a decision-making agent deciding between continuous objects, i.e., choices between infinitely divisible goods, services, lotteries, etc subject to various types of constraints, i.e., budget constraints.
 
 * {ref}`content:references:disc-util-prob` involve the decision marker making integer or binary decisions, e.g., should they pack an umbrella on a trip. In these cases, the world is divided into a set of states $\mathcal{S}$, the agent makes observations from the set $\mathcal{O}$ and takes actions from the set $\mathcal{A}$.
+
+```
 
 ---
 
