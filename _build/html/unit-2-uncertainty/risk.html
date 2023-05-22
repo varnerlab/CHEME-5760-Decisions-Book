@@ -68,6 +68,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'unit-2-uncertainty/risk';</script>
     <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-2-uncertainty/risk.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -181,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Markov Chains</a></li>
+
 <li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/mdp.html">Markov Decision Processes</a></li>
 </ul>
 </li>
@@ -389,6 +392,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-aversion">Risk aversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model">Arrow-Pratt model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
@@ -404,11 +409,52 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="risk-and-risk-aversion">
 <h1>Risk and Risk Aversion<a class="headerlink" href="#risk-and-risk-aversion" title="Permalink to this headline">#</a></h1>
 <p>Risk aversion in decision making refers to the tendency of individuals to prefer options with lower levels of uncertainty or potential loss. When faced with choices, risk-averse individuals prioritize minimizing potential risks over maximizing potential gains. This cognitive bias can influence various aspects of decision making, such as investment choices, career decisions, and even personal choices involving health and safety.</p>
+<div class="topic">
+<p class="topic-title">Outline</p>
+<p>This week we discuss risk, risk aversion, and its role in decisions:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-risk-aversion"><span class="std std-ref">Risk aversion</span></a> is important for understanding how people choose between safe and risky options. This knowledge can help decision-makers develop strategies that match people’s risk preferences.</p></li>
+<li><p><a class="reference internal" href="#content-references-measuring-risk-aversion"><span class="std std-ref">Arrow-Pratt model</span></a> helps us understand risk and decision-making. The model provides insights into how people weigh potential gains and losses in uncertain situations, and aid in developing strategies that align with individuals’ risk preferences.</p></li>
+</ul>
+</div>
 <hr class="docutils" />
+<section id="risk-aversion">
+<span id="content-references-risk-aversion"></span><h2>Risk aversion<a class="headerlink" href="#risk-aversion" title="Permalink to this headline">#</a></h2>
+<p>Understanding risk aversion is crucial for evaluating investment preferences, insurance choices, and risk management strategies. It is a fundamental concept that plays a crucial role in decision-making in uncertain situations, and it varies from person to person.</p>
+<div class="attention admonition">
+<p class="admonition-title">Coin flip game</p>
+<p>Let’s explore how an individual responds to a <em>fair game</em>. Suppose we are given a choice to participate in a coin-flipping game where you bet on the result of the flip of a <em>fair coin</em>:</p>
+<ul class="simple">
+<li><p><strong>Heads</strong>: If the coin flip gives heads <code class="docutils literal notranslate"><span class="pre">H</span></code>, you win <span class="math notranslate nohighlight">\(w\)</span> USD.</p></li>
+<li><p><strong>Tails</strong>: If the coin flip gives tails <code class="docutils literal notranslate"><span class="pre">T</span></code>, you lose <span class="math notranslate nohighlight">\(w\)</span> USD</p></li>
+</ul>
+<p>Because the coin is fair, the expected outcome of this game is <code class="docutils literal notranslate"><span class="pre">0</span></code>. However, how much would you risk, i.e., would you play if <span class="math notranslate nohighlight">\(w\)</span> is large?</p>
+</div>
+</section>
+<section id="arrow-pratt-model">
+<span id="content-references-measuring-risk-aversion"></span><h2>Arrow-Pratt model<a class="headerlink" href="#arrow-pratt-model" title="Permalink to this headline">#</a></h2>
+<p>The Arrow-Pratt risk aversion model is a widely used framework in economics and decision theory for measuring and analyzing individuals’ risk preferences <span id="id1">[<a class="reference internal" href="../References.html#id2" title="C. F. Menezes and D. L. Hanson. On the theory of risk aversion. International Economic Review, 11(3):481–487, 1970. URL: http://www.jstor.org/stable/2525326 (visited on 2023-05-21).">Menezes and Hanson, 1970</a>]</span>. Proposed by economists <a class="reference external" href="https://en.wikipedia.org/wiki/Kenneth_Arrow">Kenneth Arrow</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/John_W._Pratt">John W. Pratt</a>, this model quantifies the degree of risk aversion by examining how individuals’ utility functions respond to changes in wealth and uncertainty <span id="id2">[<a class="reference internal" href="../References.html#id3" title="John W. Pratt. Risk aversion in the small and in the large. Econometrica, 32(1/2):122–136, 1964. URL: http://www.jstor.org/stable/1913738 (visited on 2023-05-21).">Pratt, 1964</a>]</span>.</p>
+<p>The Arrow-Pratt measures absolute and relative risk aversion, which allows decision-makers to assess the sensitivity of individuals to risk, informing optimal decision-making strategies in various domains, such as finance, insurance, and investment (<a class="reference internal" href="#defn-arrow-pratt-model">Definition 8</a>):</p>
+<div class="proof definition admonition" id="defn-arrow-pratt-model">
+<p class="admonition-title"><span class="caption-number">Definition 8 </span> (Arrow-Pratt model)</p>
+<section class="definition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(U(w)\)</span> be a utility function describing an individuals satisfaction gained from a unit of wealth <span class="math notranslate nohighlight">\(w\)</span>. Further, let <span class="math notranslate nohighlight">\(U(w)\)</span> be at least twice differentiable with respect to the wealth <span class="math notranslate nohighlight">\(w\)</span>. Then, the absolute risk aversion measure <span class="math notranslate nohighlight">\(r(w)\)</span> is defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-abs-risk-aversion-model">
+<span class="eqno">(15)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-model" title="Permalink to this equation">#</a></span>\[r(w) = - \frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
+<p>and the relative risk aversion <span class="math notranslate nohighlight">\(\bar{r}(w)\)</span> is defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-relative-risk-aversion-model">
+<span class="eqno">(16)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-model" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(U^{\prime}(w)\)</span> and <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)\)</span> denote the first and second derivative of the utility function with respect to the weath.</p>
+</section>
+</div></section>
 <hr class="docutils" />
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
-<p>Fill me in</p>
+<p>This week we discussed risk, risk aversion, and its role in decisions:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-risk-aversion"><span class="std std-ref">Risk aversion</span></a> is important for understanding how people choose between safe and risky options. This knowledge can help decision-makers develop strategies that match people’s risk preferences.</p></li>
+<li><p><a class="reference internal" href="#content-references-measuring-risk-aversion"><span class="std std-ref">Arrow-Pratt model</span></a> helps us understand risk and decision-making. The model provides insights into how people weigh potential gains and losses in uncertain situations, and aid in developing strategies that align with individuals’ risk preferences.</p></li>
+</ul>
 </section>
 </section>
 
@@ -479,6 +525,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-aversion">Risk aversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model">Arrow-Pratt model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>
