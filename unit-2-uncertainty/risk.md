@@ -27,6 +27,52 @@ Let's explore how an individual responds to a _fair game_. Suppose we are given 
 Because the coin is fair, the expected outcome of this game is `0`. However, how much would you risk, i.e., would you play if $w$ is large?
 ```
 
+Let's develop a code to simulate this game, and use it to answer some questions. We model the coin flip as a [Bernoulli random variable](https://en.wikipedia.org/wiki/Bernoulli_distribution) with $p = 0.50$ (fair coin), and assume we have $M$ players, each performing $N$ flips:
+
+```julia
+"""
+    simulate(w::Float64; N::Int64 = 100, M::Int64 = 100) -> Array{Float64,2}
+"""
+function simulate(w::Float64; N::Int64 = 100, M::Int64 = 100)::Array{Float64,2}
+
+    # initialize -
+    data = Array{Float64,2}(undef, M, N); # holds the simulation results
+    fill!(data,0.0); # fill up the data array w/0.0 -
+
+    # build a Bernoulli distribution, and sample it
+    p = 0.5;
+    flips = rand(Bernoulli(p), M, N)
+
+    # simulation loop -
+    for i ∈ 1:M # we have M players
+        for j ∈ 2:N # each player does N flips -
+            
+            # grab a flip for player i and trial j -
+            flip = flips[i,j];
+
+            if (flip == 1) # heads
+                data[i,j] = w + data[i,j-1]  # add w to current balance
+            else
+                data[i,j] = data[i,j-1] - w; # substract w from current balance
+            end
+        end
+    end
+
+    # return -
+    return data
+end
+```
+
+We can use the `simulate` function to simulate different values of the wealth $w$ and simulate the expected return ({numref}`fig-coin-flip-simulation`):
+
+
+ ```{figure} ./figs/Fig-CoinFlip-Game-Simulation.pdf
+---
+height: 260px
+name: fig-coin-flip-simulation
+---
+Fill me in.
+```
 
 (content:references:measuring-risk-aversion)=
 ## Arrow-Pratt model

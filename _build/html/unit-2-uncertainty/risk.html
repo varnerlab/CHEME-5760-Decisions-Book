@@ -430,11 +430,52 @@ document.write(`
 </ul>
 <p>Because the coin is fair, the expected outcome of this game is <code class="docutils literal notranslate"><span class="pre">0</span></code>. However, how much would you risk, i.e., would you play if <span class="math notranslate nohighlight">\(w\)</span> is large?</p>
 </div>
+<p>Let’s develop a code to simulate this game, and use it to answer some questions. We model the coin flip as a <a class="reference external" href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli random variable</a> with <span class="math notranslate nohighlight">\(p = 0.50\)</span> (fair coin), and assume we have <span class="math notranslate nohighlight">\(M\)</span> players, each performing <span class="math notranslate nohighlight">\(N\)</span> flips:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">    simulate(w::Float64; N::Int64 = 100, M::Int64 = 100) -&gt; Array{Float64,2}</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">simulate</span><span class="p">(</span><span class="n">w</span><span class="o">::</span><span class="kt">Float64</span><span class="p">;</span> <span class="n">N</span><span class="o">::</span><span class="kt">Int64</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="kt">Int64</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>
+
+    <span class="c"># initialize -</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span> <span class="c"># holds the simulation results</span>
+    <span class="n">fill!</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="mf">0.0</span><span class="p">);</span> <span class="c"># fill up the data array w/0.0 -</span>
+
+    <span class="c"># build a Bernoulli distribution, and sample it</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="n">flips</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="n">Bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+    <span class="c"># simulation loop -</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">∈</span> <span class="mi">1</span><span class="o">:</span><span class="n">M</span> <span class="c"># we have M players</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="o">∈</span> <span class="mi">2</span><span class="o">:</span><span class="n">N</span> <span class="c"># each player does N flips -</span>
+            
+            <span class="c"># grab a flip for player i and trial j -</span>
+            <span class="n">flip</span> <span class="o">=</span> <span class="n">flips</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">];</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">flip</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="c"># heads</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c"># add w to current balance</span>
+            <span class="k">else</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">w</span><span class="p">;</span> <span class="c"># substract w from current balance</span>
+            <span class="k">end</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="c"># return -</span>
+    <span class="k">return</span> <span class="n">data</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> function to simulate different values of the wealth <span class="math notranslate nohighlight">\(w\)</span> and simulate the expected return (<a class="reference internal" href="#fig-coin-flip-simulation"><span class="std std-numref">Fig. 3</span></a>):</p>
+<figure class="align-default" id="fig-coin-flip-simulation">
+<a class="reference internal image-reference" href="../_images/Fig-CoinFlip-Game-Simulation.pdf"><img alt="../_images/Fig-CoinFlip-Game-Simulation.pdf" src="../_images/Fig-CoinFlip-Game-Simulation.pdf" style="height: 260px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Fill me in.</span><a class="headerlink" href="#fig-coin-flip-simulation" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="arrow-pratt-model">
 <span id="content-references-measuring-risk-aversion"></span><h2>Arrow-Pratt model<a class="headerlink" href="#arrow-pratt-model" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Risk_aversion">Arrow-Pratt risk aversion model</a> is a widely used framework in economics and decision theory for measuring and analyzing individuals’ risk preferences <span id="id1">[<a class="reference internal" href="../References.html#id2" title="C. F. Menezes and D. L. Hanson. On the theory of risk aversion. International Economic Review, 11(3):481–487, 1970. URL: http://www.jstor.org/stable/2525326 (visited on 2023-05-21).">Menezes and Hanson, 1970</a>]</span>. Proposed by economists <a class="reference external" href="https://en.wikipedia.org/wiki/Kenneth_Arrow">Kenneth Arrow</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/John_W._Pratt">John W. Pratt</a>, this model quantifies the degree of risk aversion by examining how individuals’ utility functions respond to changes in wealth and uncertainty <span id="id2">[<a class="reference internal" href="../References.html#id3" title="John W. Pratt. Risk aversion in the small and in the large. Econometrica, 32(1/2):122–136, 1964. URL: http://www.jstor.org/stable/1913738 (visited on 2023-05-21).">Pratt, 1964</a>]</span>.</p>
-<p>The Arrow-Pratt measures absolute and relative risk aversion, which allows decision-makers to assess the sensitivity of individuals to risk, informing optimal decision-making strategies in various domains, such as finance, insurance, and investment (<a class="reference internal" href="#defn-arrow-pratt-model">Definition 8</a>):</p>
+<p>The Arrow-Pratt model measures absolute and relative risk aversion, which allows decision-makers to assess the sensitivity of individuals to risk, informing optimal decision-making strategies in various domains, such as finance, insurance, and investment (<a class="reference internal" href="#defn-arrow-pratt-model">Definition 8</a>):</p>
 <div class="proof definition admonition" id="defn-arrow-pratt-model">
 <p class="admonition-title"><span class="caption-number">Definition 8 </span> (Arrow-Pratt model)</p>
 <section class="definition-content" id="proof-content">
