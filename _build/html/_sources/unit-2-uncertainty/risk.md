@@ -7,7 +7,7 @@ This week we discuss risk, risk aversion, and its role in decisions:
 
 * {ref}`content:references:risk-aversion` is important for understanding how people choose between safe and risky options. This knowledge can help decision-makers develop strategies that match people’s risk preferences.
 
-* {ref}`content:references:measuring-risk-aversion` helps us understand risk and decision-making. The model provides insights into how people weigh potential gains and losses in uncertain situations, and aid in developing strategies that align with individuals’ risk preferences.
+* The {ref}`content:references:measuring-risk-aversion` helps us quantify risk and its role in decision-making. The model provides insights into how people weigh potential gains and losses in uncertain situations, and aid in developing strategies that align with individuals’ risk preferences.
 
 ```
 
@@ -30,7 +30,7 @@ Because the coin is fair, the expected outcome of this game is `0`. However, how
 
 (content:references:measuring-risk-aversion)=
 ## Arrow-Pratt model
-The Arrow-Pratt risk aversion model is a widely used framework in economics and decision theory for measuring and analyzing individuals' risk preferences {cite}`Hanson-1970`. Proposed by economists [Kenneth Arrow](https://en.wikipedia.org/wiki/Kenneth_Arrow) and [John W. Pratt](https://en.wikipedia.org/wiki/John_W._Pratt), this model quantifies the degree of risk aversion by examining how individuals' utility functions respond to changes in wealth and uncertainty {cite}`Pratt-1964`. 
+The [Arrow-Pratt risk aversion model](https://en.wikipedia.org/wiki/Risk_aversion) is a widely used framework in economics and decision theory for measuring and analyzing individuals' risk preferences {cite}`Hanson-1970`. Proposed by economists [Kenneth Arrow](https://en.wikipedia.org/wiki/Kenneth_Arrow) and [John W. Pratt](https://en.wikipedia.org/wiki/John_W._Pratt), this model quantifies the degree of risk aversion by examining how individuals' utility functions respond to changes in wealth and uncertainty {cite}`Pratt-1964`. 
 
 The Arrow-Pratt measures absolute and relative risk aversion, which allows decision-makers to assess the sensitivity of individuals to risk, informing optimal decision-making strategies in various domains, such as finance, insurance, and investment ({prf:ref}`defn-arrow-pratt-model`):
 
