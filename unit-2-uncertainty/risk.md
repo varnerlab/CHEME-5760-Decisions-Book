@@ -63,7 +63,7 @@ function simulate(w::Float64; N::Int64 = 100, M::Int64 = 100)::Array{Float64,2}
 end
 ```
 
-We can use the `simulate` function to simulate different values of the wealth $w$ and simulate the expected return ({numref}`fig-coin-flip-simulation`):
+We can use the `simulate` function to calculate the experimental outcome for different values of the wealth $w$ bet on each flip and the expected return ({numref}`fig-coin-flip-simulation`):
 
 
  ```{figure} ./figs/Fig-CoinFlip-Game-Simulation.pdf
@@ -71,8 +71,10 @@ We can use the `simulate` function to simulate different values of the wealth $w
 height: 260px
 name: fig-coin-flip-simulation
 ---
-Fill me in.
+Simulation of the cumulative cash position of $M$ players following $N$ flips of a fair coin for $w = 1$ (left) and $w = 10$ (right). Regardless of the amount bet on each flip, the expected value computed over the population of players is near zero.
 ```
+
+The expected value of the coin flip game is zero for $M$ trials with $N$ flips per trial for $w = 1$ and $w = 10$; this result would be true even as $w\rightarrow\infty$. Thus, why do people react differently to betting a small versus a large amount on each coin flip if they will always break even eventually? This is the essence of an interesting characteristic of individuals, namely, risk aversion.
 
 (content:references:measuring-risk-aversion)=
 ## Arrow-Pratt model
@@ -83,7 +85,7 @@ The Arrow-Pratt model measures absolute and relative risk aversion, which allows
 ````{prf:definition} Arrow-Pratt model
 :label: defn-arrow-pratt-model
 
-Let $U(w)$ be a utility function describing an individuals satisfaction gained from a unit of wealth $w$. Further, let $U(w)$ be at least twice differentiable with respect to the wealth $w$. Then, the absolute risk aversion measure $r(w)$ is defined as:
+Let $U(w)$ be a utility function describing an individuals satisfaction gained from a unit of wealth $w$. Further, let $U(w)$ be at least twice differentiable with respect to the wealth $w$. Then, the absolute risk aversion $r(w)$ is defined as:
 
 ```{math}
 :label: eqn-abs-risk-aversion-model
@@ -99,6 +101,11 @@ and the relative risk aversion $\bar{r}(w)$ is defined as:
 
 where $U^{\prime}(w)$ and $U^{\prime\prime}(w)$ denote the first and second derivative of the utility function with respect to the weath. 
 ````
+
+Let's compute the absolute and relative risk aversion parameters for some typical utility functions using the [Symbolics.jl](https://github.com/JuliaSymbolics/Symbolics.jl) package.
+
+
+
 
 ---
 

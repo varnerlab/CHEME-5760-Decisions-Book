@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Maximizing Utility Subject to Constraints &#8212; CHEME 5760</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Decision-making in uncertain situations" href="../unit-2-uncertainty/uncertainty-landing.html" />
     <link rel="prev" title="Utility Functions and Rational Choices" href="utilityfunctions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -178,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Multiagent Reasoning and Game Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Multiagent Reasoning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -428,18 +429,18 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="maximizing-utility-subject-to-constraints">
-<h1>Maximizing Utility Subject to Constraints<a class="headerlink" href="#maximizing-utility-subject-to-constraints" title="Permalink to this headline">#</a></h1>
+<h1>Maximizing Utility Subject to Constraints<a class="headerlink" href="#maximizing-utility-subject-to-constraints" title="Permalink to this heading">#</a></h1>
 <p>Utility maximization is the process of choosing the option that provides the highest level of utility, given a set of available options and the individual’s preferences. It involves evaluating each option using a utility function and selecting the one that maximizes the utility subject to constraints.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Outline</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-rational-choice-budget-constraints"><span class="std std-ref">Budget constraints</span></a> are a crucial factor in decision-making for individuals, businesses, and governments alike. They represent the finite resources available to make choices and allocate funds toward different options. A budget constraint forces decision-makers to weigh the costs and benefits of various options and make trade-offs based on their available resources.</p></li>
 <li><p><a class="reference internal" href="#content-references-rational-choice-theory-opt"><span class="std std-ref">Optimal rational choice</span></a> is based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets.</p></li>
 </ul>
-</div>
+</aside>
 <hr class="docutils" />
 <section id="budget-constraints">
-<span id="content-references-rational-choice-budget-constraints"></span><h2>Budget constraints<a class="headerlink" href="#budget-constraints" title="Permalink to this headline">#</a></h2>
+<span id="content-references-rational-choice-budget-constraints"></span><h2>Budget constraints<a class="headerlink" href="#budget-constraints" title="Permalink to this heading">#</a></h2>
 <p>Effective budget management involves prioritizing expenditures, making trade-offs, and seeking optimal ways to utilize the available funds within the defined buedget constraints. Budget constraints refer to the limitations imposed on an individual, organization, or government’s spending activities. These constraints arise from the finite availability of financial resources, requiring careful planning and allocation to meet various needs and goals (<a class="reference internal" href="#defn-budget-constraint">Definition 3</a>):</p>
 <div class="proof definition admonition" id="defn-budget-constraint">
 <p class="admonition-title"><span class="caption-number">Definition 3 </span> (Budget constraint)</p>
@@ -450,7 +451,7 @@ document.write(`
 <p>The quantity <span class="math notranslate nohighlight">\(\dim(x)\)</span> denotes the number of good <span class="math notranslate nohighlight">\(x\)</span> purchased. The number of iterms purchased must be non-negative, i.e., <span class="math notranslate nohighlight">\(\dim(x)\geq{0}\)</span>.</p>
 </section>
 </div><section id="two-goods">
-<h3>Two goods<a class="headerlink" href="#two-goods" title="Permalink to this headline">#</a></h3>
+<h3>Two goods<a class="headerlink" href="#two-goods" title="Permalink to this heading">#</a></h3>
 <p>To better understand <a class="reference internal" href="#defn-budget-constraint">Definition 3</a>, let’s consider the case when we have only two goods in the set of goods <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, i.e., <span class="math notranslate nohighlight">\(\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}\)</span>. In this case, the budget constraint becomes a line in the <span class="math notranslate nohighlight">\(\text{apples}\)</span> versus <span class="math notranslate nohighlight">\(\text{oranges}\)</span> plane (<a class="reference internal" href="#fig-two-dim-bc"><span class="std std-numref">Fig. 2</span></a>).</p>
 <figure class="align-default" id="fig-two-dim-bc">
 <a class="reference internal image-reference" href="../_images/Fig-TwoDim-BudgetConstraint-Schematic.pdf"><img alt="../_images/Fig-TwoDim-BudgetConstraint-Schematic.pdf" src="../_images/Fig-TwoDim-BudgetConstraint-Schematic.pdf" style="height: 400px;" /></a>
@@ -461,7 +462,7 @@ document.write(`
 </section>
 </section>
 <section id="optimal-rational-choice">
-<span id="content-references-rational-choice-theory-opt"></span><h2>Optimal rational choice<a class="headerlink" href="#optimal-rational-choice" title="Permalink to this headline">#</a></h2>
+<span id="content-references-rational-choice-theory-opt"></span><h2>Optimal rational choice<a class="headerlink" href="#optimal-rational-choice" title="Permalink to this heading">#</a></h2>
 <p>An optimal rational decision-making agent <em>maximizes</em> its utility function, i.e., the agent searches for a combination of goods and services that gives the highest satisfaction subject to various constraints, e.g., a budget constraint (<a class="reference internal" href="#eqn-budget-constraint">Definition 4</a>):</p>
 <div class="proof definition admonition" id="eqn-budget-constraint">
 <p class="admonition-title"><span class="caption-number">Definition 4 </span> (Maximum utility and budget constraints)</p>
@@ -478,10 +479,10 @@ document.write(`
 </div><p>The problem in <a class="reference internal" href="#eqn-budget-constraint">Definition 4</a> can be solved for the unknown consumption levels of <span class="math notranslate nohighlight">\(x_{i}\)</span> using various techniques. For example, we could use the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a> or a <a class="reference external" href="https://en.wikipedia.org/wiki/Penalty_method">penalty method</a> in combination with any number of heuristic optimization approaches, e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/Simulated_annealing">simulated annealing</a>. Of course, if the utility function in <a class="reference internal" href="#eqn-budget-constraint">Definition 4</a> is linear, we could also use <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_programming">linear programming</a>.</p>
 </section>
 <section id="solving-optimal-choice-problems">
-<h2>Solving optimal choice problems<a class="headerlink" href="#solving-optimal-choice-problems" title="Permalink to this headline">#</a></h2>
+<h2>Solving optimal choice problems<a class="headerlink" href="#solving-optimal-choice-problems" title="Permalink to this heading">#</a></h2>
 <p>To solve the constrained maximum utility problem, we could use classical calculus methods, i.e., the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a> or numerical approaches such as the <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent">method of gradient descent</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Metaheuristic#Metaheuristic_Optimization_Frameworks">metaheuristic approaches</a> in combination with a <a class="reference external" href="https://en.wikipedia.org/wiki/Penalty_method">penalty</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Barrier_function">barrier</a> method to accommodate the constraints.</p>
 <section id="lagrange-multipliers">
-<h3>Lagrange multipliers<a class="headerlink" href="#lagrange-multipliers" title="Permalink to this headline">#</a></h3>
+<h3>Lagrange multipliers<a class="headerlink" href="#lagrange-multipliers" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a> involves introducing additional variables, called Lagrange multipliers, which integrate the constraints into the objective function (<a class="reference internal" href="#defn-method-l-multipliers">Definition 5</a>):</p>
 <div class="proof definition admonition" id="defn-method-l-multipliers">
 <p class="admonition-title"><span class="caption-number">Definition 5 </span> (Method of Lagrange multipliers)</p>
@@ -499,7 +500,7 @@ Lagrangian function with respect to <span class="math notranslate nohighlight">\
 <p>The system of equations defined by Eqn. <a class="reference internal" href="#equation-eqn-first-order-condition-lagrange">(6)</a> callled the Lagrange equations, can be solved to find the critical points and, thus, the maximum or minimum value of the objective function.</p>
 </section>
 </div><section id="karush-kuhn-tucker-kkt-conditions">
-<h4>Karush-Kuhn-Tucker (KKT) conditions<a class="headerlink" href="#karush-kuhn-tucker-kkt-conditions" title="Permalink to this headline">#</a></h4>
+<h4>Karush-Kuhn-Tucker (KKT) conditions<a class="headerlink" href="#karush-kuhn-tucker-kkt-conditions" title="Permalink to this heading">#</a></h4>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions">Karush-Kuhn-Tucker (KKT) conditions</a> are necessary conditions for finding the optimal solution to an optimization problem with constraints. The conditions are as follows:</p>
 <ul class="simple">
 <li><p><strong>Stationarity condition</strong>: The gradient of the objective function at the optimal point is orthogonal to the feasible region, taking into account the constraints.</p></li>
@@ -511,11 +512,11 @@ Lagrangian function with respect to <span class="math notranslate nohighlight">\
 </section>
 </section>
 <section id="penalty-and-barrier-methods">
-<h3>Penalty and Barrier methods<a class="headerlink" href="#penalty-and-barrier-methods" title="Permalink to this headline">#</a></h3>
+<h3>Penalty and Barrier methods<a class="headerlink" href="#penalty-and-barrier-methods" title="Permalink to this heading">#</a></h3>
 <p>A penalty method transforms a constrained least squares problem into an unconstrained problem that can be solved. In a penalty method, a penalty is added to the loss function to encourage specific desirable properties of the solution.</p>
 <section id="quadratic-penalty-functions">
-<h4>Quadratic penalty functions<a class="headerlink" href="#quadratic-penalty-functions" title="Permalink to this headline">#</a></h4>
-<p>Before we look at the applications of penalty methods, let’s consider a simple example to work out the basic strategy. This example was reproduced from the <a class="reference external" href="https://web.stanford.edu/group/sisl/k12/optimization/#%21index.md">Mathematical Optimization course at Stanford</a>. Suppose we wanted to solve the problem:</p>
+<h4>Quadratic penalty functions<a class="headerlink" href="#quadratic-penalty-functions" title="Permalink to this heading">#</a></h4>
+<p>Before we look at the applications of penalty methods, let’s consider a simple example to work out the basic strategy. This example was reproduced from the <a class="reference external" href="https://web.stanford.edu/group/sisl/k12/optimization/#!index.md">Mathematical Optimization course at Stanford</a>. Suppose we wanted to solve the problem:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-example-pmethod">
 <span class="eqno">(7)<a class="headerlink" href="#equation-eqn-example-pmethod" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
 \arg \min_{x} \left(f(x) = \frac{100}{x}\right) &amp; &amp;  \\
@@ -548,7 +549,7 @@ x\leq{5} &amp; &amp;
 </div><p>With a penalty method, we can choose any value for the starting value of <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </section>
 <section id="barrier-functions">
-<h4>Barrier functions<a class="headerlink" href="#barrier-functions" title="Permalink to this headline">#</a></h4>
+<h4>Barrier functions<a class="headerlink" href="#barrier-functions" title="Permalink to this heading">#</a></h4>
 <p>Let’s rethink the problem shown in Eqn. <a class="reference internal" href="#equation-eqn-example-pmethod">(7)</a>. Suppose, instead of developing the penality function shown in Eqn. <a class="reference internal" href="#equation-eqn-quad-penalty">(8)</a> to minimize <span class="math notranslate nohighlight">\(f(x)\)</span>, for a ccontraint of the form <span class="math notranslate nohighlight">\(g(x)\leq{0}\)</span> we developed a barrier function:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-barrier-function">
 <span class="eqno">(11)<a class="headerlink" href="#equation-eqn-barrier-function" title="Permalink to this equation">#</a></span>\[B\left(x\right) = - \frac{1}{g(x)}\]</div>
@@ -570,7 +571,7 @@ we gradually reduce <span class="math notranslate nohighlight">\(\lambda\)</span
 </section>
 </div></section>
 <section id="application-of-penalty-and-barrier-methods">
-<h4>Application of penalty and barrier methods<a class="headerlink" href="#application-of-penalty-and-barrier-methods" title="Permalink to this headline">#</a></h4>
+<h4>Application of penalty and barrier methods<a class="headerlink" href="#application-of-penalty-and-barrier-methods" title="Permalink to this heading">#</a></h4>
 <p>In the context of statistical modeling, penalty, and barrier methods are often used to regularize the model, which means imposing constraints on the model parameters to prevent overfitting and improve the model’s generalization ability</p>
 <p>Several different types of penalty methods are commonly used in statistical modeling, including:</p>
 <ul class="simple">
@@ -583,7 +584,7 @@ we gradually reduce <span class="math notranslate nohighlight">\(\lambda\)</span
 </section>
 </section>
 <section id="heuristic-optimization">
-<h3>Heuristic optimization<a class="headerlink" href="#heuristic-optimization" title="Permalink to this headline">#</a></h3>
+<h3>Heuristic optimization<a class="headerlink" href="#heuristic-optimization" title="Permalink to this heading">#</a></h3>
 <p>Heuristic optimization is a family of algorithms inspired by natural phenomena and human behavior. Heuristic methods are often used to solve complex, real-world problems where exact solutions are difficult to obtain or may not even exist. Unlike traditional optimization methods, heuristic approaches use rules of thumb, intuition, and trial-and-error to explore the search space and find the best solution.</p>
 <p>There are several types of heuristic optimization algorithms, including:</p>
 <ul class="simple">
@@ -599,7 +600,7 @@ we gradually reduce <span class="math notranslate nohighlight">\(\lambda\)</span
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h1>
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>Fill me in</p>
 </section>
 

@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Rational Uncertain Decisions &#8212; CHEME 5760</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Risk and Risk Aversion" href="risk.html" />
     <link rel="prev" title="Decision-making in uncertain situations" href="uncertainty-landing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -178,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="risk.html">Risk and Risk Aversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="games.html">Multiagent Reasoning and Game Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="games.html">Multiagent Reasoning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -412,9 +413,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="rational-uncertain-decisions">
-<h1>Rational Uncertain Decisions<a class="headerlink" href="#rational-uncertain-decisions" title="Permalink to this headline">#</a></h1>
+<h1>Rational Uncertain Decisions<a class="headerlink" href="#rational-uncertain-decisions" title="Permalink to this heading">#</a></h1>
 <p>Previously, we developed tools to make optimal choices when the outcomes were sure, and the level of satisfaction derived from those choices was known, e.g., the utility of purchasing a particular bundle of goods or services could be computed using a utility function. However, in many real-world situations, the assumption of certainty is invalid. For example, betting, buying an insurance policy, investing in a new business, or the stock market all or <em>uncertain</em>.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Outline</p>
 <p>This week, we’ll be talking about how to make decisions when faced with uncertainty. We’ll introduce the von Neumann-Morgenstern theorem and then explore two versions of the uncertain rational decision problem:</p>
 <ul class="simple">
@@ -422,11 +423,11 @@ document.write(`
 <li><p><a class="reference internal" href="#content-references-cont-util-prob"><span class="std std-ref">Continuous expected utility problems</span></a> involve a decision-making agent deciding between continuous objects, i.e., choices between infinitely divisible goods, services, lotteries, etc subject to various types of constraints, i.e., budget constraints.</p></li>
 <li><p><a class="reference internal" href="#content-references-disc-util-prob"><span class="std std-ref">Discrete expected utility problems</span></a> involve the decision marker making integer or binary decisions, e.g., should they pack an umbrella on a trip. In these cases, the world is divided into a set of states <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>, the agent makes observations from the set <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> and takes actions from the set <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>.</p></li>
 </ul>
-</div>
+</aside>
 <hr class="docutils" />
 <section id="the-von-neumann-morgenstern-theorem">
-<span id="content-references-vnm-theorem"></span><h2>The von Neumann-Morgenstern theorem<a class="headerlink" href="#the-von-neumann-morgenstern-theorem" title="Permalink to this headline">#</a></h2>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem">von Neumann-Morgenstern theorem</a>, the basis for the <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_utility_hypothesis">expected utility hypothesis</a>, is a fundamental result in decision theory that provides a framework for making <em>rational choices</em> under uncertainty <span id="id1">[<a class="reference internal" href="../References.html#id2" title="J. von Neumann and O. Morgenstern. Theory of games and economic behavior. Princeton University Press, 1944.">von Neumann and Morgenstern, 1944</a>]</span>.</p>
+<span id="content-references-vnm-theorem"></span><h2>The von Neumann-Morgenstern theorem<a class="headerlink" href="#the-von-neumann-morgenstern-theorem" title="Permalink to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem">von Neumann-Morgenstern theorem</a>, the basis for the <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_utility_hypothesis">expected utility hypothesis</a>, is a fundamental result in decision theory that provides a framework for making <em>rational choices</em> under uncertainty <span id="id1">[<a class="reference internal" href="../References.html#id4" title="J. von Neumann and O. Morgenstern. Theory of games and economic behavior. Princeton University Press, 1944.">von Neumann and Morgenstern, 1944</a>]</span>.</p>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem">von Neumann-Morgenstern theorem</a> posits, under certain axioms of rational behavior, that an agent faced with probabilistic outcomes will behave as if they are maximizing the expected value of a utility function, potentially subject to various types of constraints, e.g., budget constraints or other restrictions concerning how the world works.</p>
 <p>The rationality of the <a class="reference external" href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem">von Neumann-Morgenstern theorem</a> is based on three axioms:</p>
 <ul class="simple">
@@ -439,7 +440,7 @@ The VNM utility theorem shows that any individual who follows these axioms must 
 <p>The decision variables that a utility-maximizing agent makes decisions over can be either continuous or discrete. In both the continuous and discrete cases, the <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_utility_hypothesis">expected utility hypothesis</a> depends upon an understanding of two critical concepts, <a class="reference internal" href="../appendix/appendix-landing.html"><span class="doc std std-doc">random variables and probability</span></a>. For students uncomfortable with these topics, please consult the <a class="reference internal" href="../appendix/appendix-landing.html"><span class="doc std std-doc">appendicies</span></a> of these notes.</p>
 </section>
 <section id="continuous-expected-utility-problems">
-<span id="content-references-cont-util-prob"></span><h2>Continuous expected utility problems<a class="headerlink" href="#continuous-expected-utility-problems" title="Permalink to this headline">#</a></h2>
+<span id="content-references-cont-util-prob"></span><h2>Continuous expected utility problems<a class="headerlink" href="#continuous-expected-utility-problems" title="Permalink to this heading">#</a></h2>
 <p>In the continuous utility problem, a decision-making agent is deciding between continuous objects, i.e., choices between an infinitely divisible good or service subject to constraints, i.e., budget constraints (<a class="reference internal" href="#defn-expected-utility-hypothesis-cont">Definition 6</a>):</p>
 <div class="proof definition admonition" id="defn-expected-utility-hypothesis-cont">
 <p class="admonition-title"><span class="caption-number">Definition 6 </span> (Continuous expected utility hypothesis)</p>
@@ -456,7 +457,7 @@ The VNM utility theorem shows that any individual who follows these axioms must 
 </section>
 </div></section>
 <section id="discrete-expected-utility-problems">
-<span id="content-references-disc-util-prob"></span><h2>Discrete expected utility problems<a class="headerlink" href="#discrete-expected-utility-problems" title="Permalink to this headline">#</a></h2>
+<span id="content-references-disc-util-prob"></span><h2>Discrete expected utility problems<a class="headerlink" href="#discrete-expected-utility-problems" title="Permalink to this heading">#</a></h2>
 <p>In discrete problems, the decision marker is making integer or binary decisions, e.g., should they pack an umbrella on a trip. In these cases,
 the world exists in states <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>, agents make observations <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> and take actions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>.  The utility of state <span class="math notranslate nohighlight">\(s\in\mathcal{S}\)</span>, described by <span class="math notranslate nohighlight">\(U(s)\)</span>, where the utility function <span class="math notranslate nohighlight">\(U\)</span> follows the <a class="reference external" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/unit-1-simpledecisions/utilityfunctions.html#properties-of-utility-functions">properties of the utility functions</a>. Further, an agent makes observations <span class="math notranslate nohighlight">\(o\in\mathcal{O}\)</span> and takes actions <span class="math notranslate nohighlight">\(a\in\mathcal{A}\)</span>. Then, a rational agent solves the expected utility problem (<a class="reference internal" href="#defn-expected-utility-hypothesis-discrete">Definition 7</a>):</p>
 <div class="proof definition admonition" id="defn-expected-utility-hypothesis-discrete">
@@ -477,7 +478,7 @@ the world exists in states <span class="math notranslate nohighlight">\(\mathcal
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h1>
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>Toward understanding uncertain rational decisions, in this lecture we introduced the <a class="reference external" href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem">von Neumann-Morgenstern theorem</a> and then discussed two versions of the uncertain rational decision problem:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-vnm-theorem"><span class="std std-ref">The von Neumann-Morgenstern theorem</span></a> is a fundamental concept in decision theory that provides a mathematical foundation for expected utility theory. It states that if an individual’s preferences over uncertain outcomes satisfy certain axioms, then there exists a utility function that represents those preferences. This theorem has important implications for understanding how people make decisions under uncertainty and designing mechanisms to elicit and aggregate individual preferences.</p></li>

@@ -63,7 +63,7 @@ function simulate(w::Float64; N::Int64 = 100, M::Int64 = 100)::Array{Float64,2}
 end
 ```
 
-We can use the `simulate` function to simulate different values of the wealth $w$ and simulate the expected return ({numref}`fig-coin-flip-simulation`):
+We can use the `simulate` function to calculate the experimental outcome for different values of the wealth $w$ bet on each flip and the expected return ({numref}`fig-coin-flip-simulation`):
 
 
  ```{figure} ./figs/Fig-CoinFlip-Game-Simulation.pdf
@@ -71,8 +71,10 @@ We can use the `simulate` function to simulate different values of the wealth $w
 height: 260px
 name: fig-coin-flip-simulation
 ---
-Fill me in.
+Simulation of the cumulative cash position of $M$ players following $N$ flips of a fair coin for $w = 1$ (left) and $w = 10$ (right). Regardless of the amount bet on each flip, the expected value computed over the population of players is near zero.
 ```
+
+The expected value of the coin flip game is zero for $M$ trials with $N$ flips per trial for $w = 1$ and $w = 10$; this result would be true even as $w\rightarrow\infty$. Thus, why do people react differently to betting a small versus a large amount on each coin flip if they will always break even eventually? This is the essence of an interesting characteristic of individuals, namely, risk aversion.
 
 (content:references:measuring-risk-aversion)=
 ## Arrow-Pratt model

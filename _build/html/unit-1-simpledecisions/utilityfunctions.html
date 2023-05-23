@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Utility Functions and Rational Choices &#8212; CHEME 5760</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Maximizing Utility Subject to Constraints" href="utlitymaximization.html" />
     <link rel="prev" title="Making simple decisions" href="simpledecisions-landing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -178,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Multiagent Reasoning and Game Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Multiagent Reasoning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -418,9 +419,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="utility-functions-and-rational-choices">
-<h1>Utility Functions and Rational Choices<a class="headerlink" href="#utility-functions-and-rational-choices" title="Permalink to this headline">#</a></h1>
+<h1>Utility Functions and Rational Choices<a class="headerlink" href="#utility-functions-and-rational-choices" title="Permalink to this heading">#</a></h1>
 <p>Utility functions are mathematical expressions representing an individual’s preferences over different choices or outcomes. It assigns a numerical value, called utility which is a surrogate for happiness or satisfaction, to each possible option or outcome, based on how much the individual values it. However, a utility function is subjective and can vary from person to person, as different individuals may have other preferences.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Outline</p>
 <p>This week, we’ll develop tools to compute rational choices and explore some mathematical and philosophical properties of utility functions:</p>
 <ul class="simple">
@@ -428,10 +429,10 @@ document.write(`
 <li><p><a class="reference internal" href="#content-references-marginal-utility"><span class="std std-ref">Marginal utility</span></a> describes the added satisfaction or benefits that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that the happiness or benefit from each extra unit decreases as a consumer increases the number of units consumed. Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.</p></li>
 <li><p><a class="reference internal" href="#content-references-indifference-curves"><span class="std std-ref">Indifference curves</span></a> are a tool used in microeconomics to analyze consumers’ preferences. They represent a graphical depiction of different combinations of two goods that provide the same level of satisfaction, or utility, to a consumer. Indifference curves can be used to understand how consumers make choices when faced with trade-offs between goods and how they may respond to changes in prices or income.</p></li>
 </ul>
-</div>
+</aside>
 <hr class="docutils" />
 <section id="rational-choice-theory">
-<span id="content-references-rational-choice-theory"></span><h2>Rational choice theory<a class="headerlink" href="#rational-choice-theory" title="Permalink to this headline">#</a></h2>
+<span id="content-references-rational-choice-theory"></span><h2>Rational choice theory<a class="headerlink" href="#rational-choice-theory" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Rational_choice_theory">Rational choice theory</a> assumes individuals make rational decisions based on their preferences and available information. <a class="reference external" href="https://en.wikipedia.org/wiki/Rational_choice_theory">Rational choice theory</a> is based on computing the utility of competing actions or outcomes. Thus, utility functions are a crucial component of this theory, as they describe how individuals assign numerical values to different choices (<a class="reference internal" href="#defn-individual-utility">Definition 1</a>):</p>
 <div class="proof definition admonition" id="defn-individual-utility">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (Ordinal utility function)</p>
@@ -448,7 +449,7 @@ document.write(`
 <li><p>If <span class="math notranslate nohighlight">\(A\succsim{B}\)</span>, the decision maker <em>weakly prefers</em> <span class="math notranslate nohighlight">\(A\)</span> over <span class="math notranslate nohighlight">\(B\)</span>, or they are indifferent. Then, the utility of choice <span class="math notranslate nohighlight">\(A\)</span> is greater than or equal to <span class="math notranslate nohighlight">\(B\)</span>, or <span class="math notranslate nohighlight">\(U(A)\geq{U(A)}\)</span>.</p></li>
 </ul>
 <section id="properties-of-utility-functions">
-<h3>Properties of utility functions<a class="headerlink" href="#properties-of-utility-functions" title="Permalink to this headline">#</a></h3>
+<h3>Properties of utility functions<a class="headerlink" href="#properties-of-utility-functions" title="Permalink to this heading">#</a></h3>
 <p>A utility function is a mathematical representation of a person’s preferences over different outcomes or alternatives. Here are some properties that a utility function should possess:</p>
 <ul class="simple">
 <li><p><strong>Completeness</strong>: A utility function should be able to rank all possible outcomes or alternatives. In other words, for any two outcomes, the utility function should tell us which one is preferred or whether they are equally preferred.</p></li>
@@ -459,7 +460,7 @@ document.write(`
 </ul>
 <p>These properties help ensure that a utility function accurately represents a person’s preferences and can be used to make rational choices between alternatives.</p>
 <section id="example-utility-functions">
-<h4>Example utility functions<a class="headerlink" href="#example-utility-functions" title="Permalink to this headline">#</a></h4>
+<h4>Example utility functions<a class="headerlink" href="#example-utility-functions" title="Permalink to this heading">#</a></h4>
 <p>There are many different classes of utility functions, let’s look at a few examples and examine there properties:</p>
 <ul class="simple">
 <li><p><strong>Logarithmic utility function</strong> assumes that an individual’s utility is a function of the logarithm of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = ln(x+1)\)</span>.</p></li>
@@ -473,7 +474,7 @@ document.write(`
 </section>
 </section>
 <section id="marginal-utility">
-<span id="content-references-marginal-utility"></span><h2>Marginal utility<a class="headerlink" href="#marginal-utility" title="Permalink to this headline">#</a></h2>
+<span id="content-references-marginal-utility"></span><h2>Marginal utility<a class="headerlink" href="#marginal-utility" title="Permalink to this heading">#</a></h2>
 <p>The marginal utility quantifies the satisfaction gained by an agent from an additional unit of consumption of a good or service (<a class="reference internal" href="#defn-marginal-utility">Definition 2</a>):</p>
 <div class="proof definition admonition" id="defn-marginal-utility">
 <p class="admonition-title"><span class="caption-number">Definition 2 </span> (Marginal Utility)</p>
@@ -487,7 +488,7 @@ document.write(`
 </section>
 </div></section>
 <section id="indifference-curves">
-<span id="content-references-indifference-curves"></span><h2>Indifference curves<a class="headerlink" href="#indifference-curves" title="Permalink to this headline">#</a></h2>
+<span id="content-references-indifference-curves"></span><h2>Indifference curves<a class="headerlink" href="#indifference-curves" title="Permalink to this heading">#</a></h2>
 <p>Indifference curves are graphical representations of combinations of choices that provide a decision-making agent with the same level of utility (<a class="reference internal" href="#fig-cobb-douglas-ic"><span class="std std-numref">Fig. 1</span></a>). Thus, decision-makers are <em>indifferent</em> to the consumption of different combinations of goods (or services) on an indifference curve.</p>
 <figure class="align-default" id="fig-cobb-douglas-ic">
 <a class="reference internal image-reference" href="../_images/Fig-CobbDouglas-IndifferenceCurves-Sqrt.pdf"><img alt="../_images/Fig-CobbDouglas-IndifferenceCurves-Sqrt.pdf" src="../_images/Fig-CobbDouglas-IndifferenceCurves-Sqrt.pdf" style="height: 400px;" /></a>
@@ -539,7 +540,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h1>
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>In this lecture, we’ll developed tools to compute rational choices and explored some mathematical and philosophical properties of utility functions:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-rational-choice-theory"><span class="std std-ref">Rational choice theory</span></a> is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.</p></li>

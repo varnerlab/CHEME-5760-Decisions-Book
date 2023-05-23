@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Multiarm Bandit Problems &#8212; CHEME 5760</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Reinforcement Learning" href="rl.html" />
     <link rel="prev" title="Reinforcement and Imitation Learning" href="learning-landing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -178,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Multiagent Reasoning and Game Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Multiagent Reasoning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -414,23 +415,23 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="multiarm-bandit-problems">
-<h1>Multiarm Bandit Problems<a class="headerlink" href="#multiarm-bandit-problems" title="Permalink to this headline">#</a></h1>
+<h1>Multiarm Bandit Problems<a class="headerlink" href="#multiarm-bandit-problems" title="Permalink to this heading">#</a></h1>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Multi-armed_bandit">multi-armed bandit problem</a> is a fundamental problem in machine learning and decision-making. It refers to a scenario where an agent must repeatedly choose between multiple actions, each with an unknown reward distribution. Each action can be considered a slot machine, or a <em>one-armed bandit</em>, with potentially different payout distributions.</p>
 <p>The goal of the agent is to maximize its total reward over time while learning the reward distributions of the different actions. This presents a tradeoff between exploitation, where the agent chooses the action with the highest estimated reward so far, and exploration, where it selects an action with an uncertain reward to learn more about its distribution. The multi-armed bandit problem has practical applications in various fields, such as clinical trials, online advertising, and recommender systems.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Outline</p>
 <p>In this lecture series, we will delve into the problem, covering different algorithms and strategies for balancing exploration and exploitation:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-exploration-versus-exploitation"><span class="std std-ref">Binary Bernoulli bandit problems</span></a> are games random actions vereus exploiting knowledge already obtained through interacting with the world. Pure exploration allows agents to construct a comprehensive model of their environment, but likely at the expense of positive reward. On the other hand, pure exploitation has the agent continually choosing the action it thinks best to accumulate reward, but different, better actions could be taken.</p></li>
 </ul>
-</div>
+</aside>
 <hr class="docutils" />
 <!-- 
 Reinforcement learning agents must balance exploration of the environment, e.g., taking random actions with exploiting knowledge already obtained through interacting with the world. Pure exploration allows agents to construct a comprehensive model of their environment, but likely at the expense of positive reward. On the other hand, pure exploitation has the agent continually choosing the action it thinks best to accumulate reward, but different, better actions could be taken. 
 
 A classic approach to understanding the exploration and exploitation tradeoff, which itself has many real-world applications, is the [multi arm bandit problem](https://en.wikipedia.org/wiki/Multi-armed_bandit). -->
 <section id="binary-bernoulli-bandit-problems">
-<span id="content-references-exploration-versus-exploitation"></span><h2>Binary Bernoulli bandit problems<a class="headerlink" href="#binary-bernoulli-bandit-problems" title="Permalink to this headline">#</a></h2>
+<span id="content-references-exploration-versus-exploitation"></span><h2>Binary Bernoulli bandit problems<a class="headerlink" href="#binary-bernoulli-bandit-problems" title="Permalink to this heading">#</a></h2>
 <p>When an agent needs to choose between different actions, each with an unknown reward distribution, they face a crucial trade-off between exploration and exploitation. Exploitation involves selecting the action with the highest estimated reward based on experience, while exploration involves choosing an action with an uncertain reward to learn more about its distribution. To maximize the total reward over time, it’s essential to balance these two objectives. Various algorithms and strategies have been developed to address this trade-off, and studying their performance is crucial to understanding and solving multi-armed bandit problems.</p>
 <p>A general bandit problem is a sequential game played between an agent and the environment. The game is played over <span class="math notranslate nohighlight">\(n\)</span> rounds called the <em>horizon</em>. In each round the agent chooses an action <span class="math notranslate nohighlight">\(a\in\mathcal{A}\)</span> and the environment then reveals a reward <span class="math notranslate nohighlight">\(r\)</span>. Let’s look at a particular sub-type of multi-arm bandit problem, namely, the Bernoulli bandit problem and Thompson sampling, a particular solution approach to this class of problem <span id="id1">[<a class="reference internal" href="../References.html#id6" title="Daniel Russo, Benjamin Van Roy, Abbas Kazerouni, Ian Osband, and Zheng Wen. A tutorial on thompson sampling. Foundations and Trends in Machine Learning, 11(1):1-96, 2017. URL: https://arxiv.org/abs/1707.02038, doi:10.48550/ARXIV.1707.02038.">Russo <em>et al.</em>, 2017</a>]</span>:</p>
 <div class="proof definition admonition" id="defn-multi-arm-bernoulli-bandit-problem">
@@ -524,16 +525,16 @@ A Beta-distribution for each action using initial values <span class="math notra
 </section>
 </div></section>
 <section id="applications">
-<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this headline">#</a></h2>
+<h2>Applications<a class="headerlink" href="#applications" title="Permalink to this heading">#</a></h2>
 <section id="portfolio-allocation">
-<span id="content-references-portfolio-allocation"></span><h3>Portfolio allocation<a class="headerlink" href="#portfolio-allocation" title="Permalink to this headline">#</a></h3>
+<span id="content-references-portfolio-allocation"></span><h3>Portfolio allocation<a class="headerlink" href="#portfolio-allocation" title="Permalink to this heading">#</a></h3>
 <p>The central theme of modern portfolio theory is balancing risk and reward. Reward is measured as the <a class="reference external" href="https://www.investopedia.com/terms/r/return.asp">expected return</a> of a portfolio of assets, while, the risk is calculated as the variance of the logarithmic or fraction return of the portfolio. Thus, the objective of modern portfolio theory is to balance the composition of the portfolio such that an investor obtains a desired expected return while minimizing the variance (risk).</p>
 </section>
 </section>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h1>
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>In this lecture series, we explored bandit problems, and covered different algorithms and strategies for balancing exploration and exploitation:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-exploration-versus-exploitation"><span class="std std-ref">Binary Bernoulli bandit problems</span></a> are games random actions vereus exploiting knowledge already obtained through interacting with the world. Pure exploration allows agents to construct a comprehensive model of their environment, but likely at the expense of positive reward. On the other hand, pure exploitation has the agent continually choosing the action it thinks best to accumulate reward, but different, better actions could be taken.</p></li>

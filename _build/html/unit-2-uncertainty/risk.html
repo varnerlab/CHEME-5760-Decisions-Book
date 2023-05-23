@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Risk and Risk Aversion &#8212; CHEME 5760</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -74,10 +75,10 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-2-uncertainty/risk.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Multiagent Reasoning and Game Theory" href="games.html" />
+    <link rel="next" title="Multiagent Reasoning" href="games.html" />
     <link rel="prev" title="Rational Uncertain Decisions" href="expected-utility.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -178,7 +179,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Risk and Risk Aversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="games.html">Multiagent Reasoning and Game Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="games.html">Multiagent Reasoning</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -407,19 +408,19 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="risk-and-risk-aversion">
-<h1>Risk and Risk Aversion<a class="headerlink" href="#risk-and-risk-aversion" title="Permalink to this headline">#</a></h1>
+<h1>Risk and Risk Aversion<a class="headerlink" href="#risk-and-risk-aversion" title="Permalink to this heading">#</a></h1>
 <p>Risk aversion in decision making refers to the tendency of individuals to prefer options with lower levels of uncertainty or potential loss. When faced with choices, risk-averse individuals prioritize minimizing potential risks over maximizing potential gains. This cognitive bias can influence various aspects of decision making, such as investment choices, career decisions, and even personal choices involving health and safety.</p>
-<div class="topic">
+<aside class="topic">
 <p class="topic-title">Outline</p>
 <p>This week we discuss risk, risk aversion, and its role in decisions:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-risk-aversion"><span class="std std-ref">Risk aversion</span></a> is important for understanding how people choose between safe and risky options. This knowledge can help decision-makers develop strategies that match people’s risk preferences.</p></li>
 <li><p>The <a class="reference internal" href="#content-references-measuring-risk-aversion"><span class="std std-ref">Arrow-Pratt model</span></a> helps us quantify risk and its role in decision-making. The model provides insights into how people weigh potential gains and losses in uncertain situations, and aid in developing strategies that align with individuals’ risk preferences.</p></li>
 </ul>
-</div>
+</aside>
 <hr class="docutils" />
 <section id="risk-aversion">
-<span id="content-references-risk-aversion"></span><h2>Risk aversion<a class="headerlink" href="#risk-aversion" title="Permalink to this headline">#</a></h2>
+<span id="content-references-risk-aversion"></span><h2>Risk aversion<a class="headerlink" href="#risk-aversion" title="Permalink to this heading">#</a></h2>
 <p>Understanding risk aversion is crucial for evaluating investment preferences, insurance choices, and risk management strategies. It is a fundamental concept that plays a crucial role in decision-making in uncertain situations, and it varies from person to person.</p>
 <div class="attention admonition">
 <p class="admonition-title">Coin flip game</p>
@@ -464,16 +465,17 @@ document.write(`
 <span class="k">end</span>
 </pre></div>
 </div>
-<p>We can use the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> function to simulate different values of the wealth <span class="math notranslate nohighlight">\(w\)</span> and simulate the expected return (<a class="reference internal" href="#fig-coin-flip-simulation"><span class="std std-numref">Fig. 3</span></a>):</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> function to calculate the experimental outcome for different values of the wealth <span class="math notranslate nohighlight">\(w\)</span> bet on each flip and the expected return (<a class="reference internal" href="#fig-coin-flip-simulation"><span class="std std-numref">Fig. 3</span></a>):</p>
 <figure class="align-default" id="fig-coin-flip-simulation">
 <a class="reference internal image-reference" href="../_images/Fig-CoinFlip-Game-Simulation.pdf"><img alt="../_images/Fig-CoinFlip-Game-Simulation.pdf" src="../_images/Fig-CoinFlip-Game-Simulation.pdf" style="height: 260px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Fill me in.</span><a class="headerlink" href="#fig-coin-flip-simulation" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Simulation of the cumulative cash position of <span class="math notranslate nohighlight">\(M\)</span> players following <span class="math notranslate nohighlight">\(N\)</span> flips of a fair coin for <span class="math notranslate nohighlight">\(w = 1\)</span> (left) and <span class="math notranslate nohighlight">\(w = 10\)</span> (right). Regardless of the amount bet on each flip, the expected value computed over the population of players is near zero.</span><a class="headerlink" href="#fig-coin-flip-simulation" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<p>The expected value of the coin flip game is zero for <span class="math notranslate nohighlight">\(M\)</span> trials with <span class="math notranslate nohighlight">\(N\)</span> flips per trial for <span class="math notranslate nohighlight">\(w = 1\)</span> and <span class="math notranslate nohighlight">\(w = 10\)</span>; this result would be true even as <span class="math notranslate nohighlight">\(w\rightarrow\infty\)</span>. Thus, why do people react differently to betting a small versus a large amount on each coin flip if they will always break even eventually? This is the essence of an interesting characteristic of individuals, namely, risk aversion.</p>
 </section>
 <section id="arrow-pratt-model">
-<span id="content-references-measuring-risk-aversion"></span><h2>Arrow-Pratt model<a class="headerlink" href="#arrow-pratt-model" title="Permalink to this headline">#</a></h2>
+<span id="content-references-measuring-risk-aversion"></span><h2>Arrow-Pratt model<a class="headerlink" href="#arrow-pratt-model" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Risk_aversion">Arrow-Pratt risk aversion model</a> is a widely used framework in economics and decision theory for measuring and analyzing individuals’ risk preferences <span id="id1">[<a class="reference internal" href="../References.html#id2" title="C. F. Menezes and D. L. Hanson. On the theory of risk aversion. International Economic Review, 11(3):481–487, 1970. URL: http://www.jstor.org/stable/2525326 (visited on 2023-05-21).">Menezes and Hanson, 1970</a>]</span>. Proposed by economists <a class="reference external" href="https://en.wikipedia.org/wiki/Kenneth_Arrow">Kenneth Arrow</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/John_W._Pratt">John W. Pratt</a>, this model quantifies the degree of risk aversion by examining how individuals’ utility functions respond to changes in wealth and uncertainty <span id="id2">[<a class="reference internal" href="../References.html#id3" title="John W. Pratt. Risk aversion in the small and in the large. Econometrica, 32(1/2):122–136, 1964. URL: http://www.jstor.org/stable/1913738 (visited on 2023-05-21).">Pratt, 1964</a>]</span>.</p>
 <p>The Arrow-Pratt model measures absolute and relative risk aversion, which allows decision-makers to assess the sensitivity of individuals to risk, informing optimal decision-making strategies in various domains, such as finance, insurance, and investment (<a class="reference internal" href="#defn-arrow-pratt-model">Definition 8</a>):</p>
 <div class="proof definition admonition" id="defn-arrow-pratt-model">
@@ -490,7 +492,7 @@ document.write(`
 </div></section>
 <hr class="docutils" />
 <section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
 <p>This week we discussed risk, risk aversion, and its role in decisions:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-risk-aversion"><span class="std std-ref">Risk aversion</span></a> is important for understanding how people choose between safe and risky options. This knowledge can help decision-makers develop strategies that match people’s risk preferences.</p></li>
@@ -544,7 +546,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Multiagent Reasoning and Game Theory</p>
+        <p class="prev-next-title">Multiagent Reasoning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
