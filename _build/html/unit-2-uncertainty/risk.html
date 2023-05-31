@@ -481,7 +481,7 @@ document.write(`
 <div class="proof definition admonition" id="defn-arrow-pratt-model">
 <p class="admonition-title"><span class="caption-number">Definition 8 </span> (Arrow-Pratt model)</p>
 <section class="definition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(U(w)\)</span> be a utility function describing an individuals satisfaction gained from a unit of wealth <span class="math notranslate nohighlight">\(w\)</span>. Further, let <span class="math notranslate nohighlight">\(U(w)\)</span> be at least twice differentiable with respect to the wealth <span class="math notranslate nohighlight">\(w\)</span>. Then, the absolute risk aversion measure <span class="math notranslate nohighlight">\(r(w)\)</span> is defined as:</p>
+<p>Let <span class="math notranslate nohighlight">\(U(w)\)</span> be a utility function describing an individuals satisfaction gained from a unit of wealth <span class="math notranslate nohighlight">\(w\)</span>. Further, let <span class="math notranslate nohighlight">\(U(w)\)</span> be at least twice differentiable with respect to the wealth <span class="math notranslate nohighlight">\(w\)</span>. Then, the absolute risk aversion <span class="math notranslate nohighlight">\(r(w)\)</span> is defined as:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-abs-risk-aversion-model">
 <span class="eqno">(15)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-model" title="Permalink to this equation">#</a></span>\[r(w) = - \frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
 <p>and the relative risk aversion <span class="math notranslate nohighlight">\(\bar{r}(w)\)</span> is defined as:</p>
@@ -489,7 +489,8 @@ document.write(`
 <span class="eqno">(16)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-model" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
 <p>where <span class="math notranslate nohighlight">\(U^{\prime}(w)\)</span> and <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)\)</span> denote the first and second derivative of the utility function with respect to the weath.</p>
 </section>
-</div></section>
+</div><p>Let’s compute the absolute and relative risk aversion parameters for some typical utility functions using the <a class="reference external" href="https://github.com/JuliaSymbolics/Symbolics.jl">Symbolics.jl</a> package.</p>
+</section>
 <hr class="docutils" />
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>

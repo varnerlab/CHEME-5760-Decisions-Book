@@ -76,6 +76,9 @@ Simulation of the cumulative cash position of $M$ players following $N$ flips of
 
 The expected value of the coin flip game is zero for $M$ trials with $N$ flips per trial for $w = 1$ and $w = 10$; this result would be true even as $w\rightarrow\infty$. Thus, why do people react differently to betting a small versus a large amount on each coin flip if they will always break even eventually? This is the essence of an interesting characteristic of individuals, namely, risk aversion.
 
+### Modes of Risk Aversion
+There are three models of risk aversion that a decision maker can be exhibt, risk-neutral, risk-seeking and risk-avoiding (XXX). 
+
 (content:references:measuring-risk-aversion)=
 ## Arrow-Pratt model
 The [Arrow-Pratt risk aversion model](https://en.wikipedia.org/wiki/Risk_aversion) is a widely used framework in economics and decision theory for measuring and analyzing individuals' risk preferences {cite}`Hanson-1970`. Proposed by economists [Kenneth Arrow](https://en.wikipedia.org/wiki/Kenneth_Arrow) and [John W. Pratt](https://en.wikipedia.org/wiki/John_W._Pratt), this model quantifies the degree of risk aversion by examining how individuals' utility functions respond to changes in wealth and uncertainty {cite}`Pratt-1964`. 

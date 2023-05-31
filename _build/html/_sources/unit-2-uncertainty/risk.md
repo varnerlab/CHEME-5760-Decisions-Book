@@ -85,7 +85,7 @@ The Arrow-Pratt model measures absolute and relative risk aversion, which allows
 ````{prf:definition} Arrow-Pratt model
 :label: defn-arrow-pratt-model
 
-Let $U(w)$ be a utility function describing an individuals satisfaction gained from a unit of wealth $w$. Further, let $U(w)$ be at least twice differentiable with respect to the wealth $w$. Then, the absolute risk aversion measure $r(w)$ is defined as:
+Let $U(w)$ be a utility function describing an individuals satisfaction gained from a unit of wealth $w$. Further, let $U(w)$ be at least twice differentiable with respect to the wealth $w$. Then, the absolute risk aversion $r(w)$ is defined as:
 
 ```{math}
 :label: eqn-abs-risk-aversion-model
@@ -101,6 +101,11 @@ and the relative risk aversion $\bar{r}(w)$ is defined as:
 
 where $U^{\prime}(w)$ and $U^{\prime\prime}(w)$ denote the first and second derivative of the utility function with respect to the weath. 
 ````
+
+Let's compute the absolute and relative risk aversion parameters for some typical utility functions using the [Symbolics.jl](https://github.com/JuliaSymbolics/Symbolics.jl) package.
+
+
+
 
 ---
 
