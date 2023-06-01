@@ -76,6 +76,32 @@ Simulation of the cumulative cash position of $M$ players following $N$ flips of
 
 The expected value of the coin flip game is zero for $M$ trials with $N$ flips per trial for $w = 1$ and $w = 10$; this result would be true even as $w\rightarrow\infty$. Thus, why do people react differently to betting a small versus a large amount on each coin flip if they will always break even eventually? This is the essence of an interesting characteristic of individuals, namely, risk aversion.
 
+### Modes of Risk Aversion
+Imagine being presented with two options: a guaranteed payoff of some amount, which we'll called the certainty equivalent (CE), or a risky payout that depends on the flip of a fair coin, e.g., either $100 or nothing. People have different attitudes towards risk, leading them to choose one option over the other. In particular, there are three models of risk that a decision-maker can be exhibit, risk-avoiding, risk-neutral, and risk-seeking ({numref}`fig-risk-aversion-types`): 
+
+ ```{figure} ./figs/Fig-RiskAversion-Types.pdf
+---
+height: 240px
+name: fig-risk-aversion-types
+---
+Utility versus wealth $W$ for three models of risk; risk-avoiding (left), risk-neutral (center), and risk-seeking (right). CE: certainty equivalent and $\mathbb{E}(W)$ expected wealth.
+```
+
+The expected value of the proposed game is $\mathbb{E}(W)$ = 50 USD. However, individuals will react differently to the choice between taking the bet or taking a certain payment:
+
+*  __Risk avoiding__ individuals would accept a certainty equivalent of less than 50 USD (for example, 10 USD) rather than taking the gamble and possibly receiving nothing, i.e., $\text{CE} < \mathbb{E}(W)$.
+* __Risk neutral__ individuals are indifferent between the bet and a certain 50 USD payment, i.e., $\text{CE} = \mathbb{E}(W)$.
+* __Risk seeking__ individuals would accept the bet even when the guaranteed payment is greater than 50 USD, i.e., $\text{CE} > \mathbb{E}(W)$. In other words, a risk-seeking individual will _pay_ to accept uncertainty.
+
+The difference between the certainty equivalent and the expected payout of the game $\mathbb{E}(W)$ is the _risk premium_ or $\text{RP}$:
+
+```{math}
+:label: eqn-risk-premimum
+\text{RP} = \mathbb{E}(W) - \text{CE}
+```
+
+For risk avoiding individuals, the risk premium is positive. For risk neutral decision makers, the risk premium is zero. However, for risk seeking individuals, the risk premium is negative, i.e., the decision maker is willing to pay to take a chance.
+
 (content:references:measuring-risk-aversion)=
 ## Arrow-Pratt model
 The [Arrow-Pratt risk aversion model](https://en.wikipedia.org/wiki/Risk_aversion) is a widely used framework in economics and decision theory for measuring and analyzing individuals' risk preferences {cite}`Hanson-1970`. Proposed by economists [Kenneth Arrow](https://en.wikipedia.org/wiki/Kenneth_Arrow) and [John W. Pratt](https://en.wikipedia.org/wiki/John_W._Pratt), this model quantifies the degree of risk aversion by examining how individuals' utility functions respond to changes in wealth and uncertainty {cite}`Pratt-1964`. 

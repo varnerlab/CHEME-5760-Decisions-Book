@@ -393,7 +393,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-aversion">Risk aversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-aversion">Risk aversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-risk-aversion">Modes of Risk Aversion</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model">Arrow-Pratt model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
@@ -473,6 +476,26 @@ document.write(`
 </figcaption>
 </figure>
 <p>The expected value of the coin flip game is zero for <span class="math notranslate nohighlight">\(M\)</span> trials with <span class="math notranslate nohighlight">\(N\)</span> flips per trial for <span class="math notranslate nohighlight">\(w = 1\)</span> and <span class="math notranslate nohighlight">\(w = 10\)</span>; this result would be true even as <span class="math notranslate nohighlight">\(w\rightarrow\infty\)</span>. Thus, why do people react differently to betting a small versus a large amount on each coin flip if they will always break even eventually? This is the essence of an interesting characteristic of individuals, namely, risk aversion.</p>
+<section id="modes-of-risk-aversion">
+<h3>Modes of Risk Aversion<a class="headerlink" href="#modes-of-risk-aversion" title="Permalink to this heading">#</a></h3>
+<p>Imagine being presented with two options: a guaranteed payoff of some amount, which we’ll called the certainty equivalent (CE), or a risky payout that depends on the flip of a fair coin, e.g., either $100 or nothing. People have different attitudes towards risk, leading them to choose one option over the other. In particular, there are three models of risk that a decision-maker can be exhibit, risk-avoiding, risk-neutral, and risk-seeking (<a class="reference internal" href="#fig-risk-aversion-types"><span class="std std-numref">Fig. 4</span></a>):</p>
+<figure class="align-default" id="fig-risk-aversion-types">
+<a class="reference internal image-reference" href="../_images/Fig-RiskAversion-Types.pdf"><img alt="../_images/Fig-RiskAversion-Types.pdf" src="../_images/Fig-RiskAversion-Types.pdf" style="height: 240px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Utility versus wealth <span class="math notranslate nohighlight">\(W\)</span> for three models of risk; risk-avoiding (left), risk-neutral (center), and risk-seeking (right). CE: certainty equivalent and <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> expected wealth.</span><a class="headerlink" href="#fig-risk-aversion-types" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The expected value of the proposed game is <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> = 50 USD. However, individuals will react differently to the choice between taking the bet or taking a certain payment:</p>
+<ul class="simple">
+<li><p><strong>Risk avoiding</strong> individuals would accept a certainty equivalent of less than 50 USD (for example, 10 USD) rather than taking the gamble and possibly receiving nothing, i.e., <span class="math notranslate nohighlight">\(\text{CE} &lt; \mathbb{E}(W)\)</span>.</p></li>
+<li><p><strong>Risk neutral</strong> individuals are indifferent between the bet and a certain 50 USD payment, i.e., <span class="math notranslate nohighlight">\(\text{CE} = \mathbb{E}(W)\)</span>.</p></li>
+<li><p><strong>Risk seeking</strong> individuals would accept the bet even when the guaranteed payment is greater than 50 USD, i.e., <span class="math notranslate nohighlight">\(\text{CE} &gt; \mathbb{E}(W)\)</span>. In other words, a risk-seeking individual will <em>pay</em> to accept uncertainty.</p></li>
+</ul>
+<p>The difference between the certainty equivalent and the expected payout of the game <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> is the <em>risk premium</em> or <span class="math notranslate nohighlight">\(\text{RP}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-risk-premimum">
+<span class="eqno">(15)<a class="headerlink" href="#equation-eqn-risk-premimum" title="Permalink to this equation">#</a></span>\[\text{RP} = \mathbb{E}(W) - \text{CE}\]</div>
+<p>For risk avoiding individuals, the risk premium is positive. For risk neutral decision makers, the risk premium is zero. However, for risk seeking individuals, the risk premium is negative, i.e., the decision maker is willing to pay to take a chance.</p>
+</section>
 </section>
 <section id="arrow-pratt-model">
 <span id="content-references-measuring-risk-aversion"></span><h2>Arrow-Pratt model<a class="headerlink" href="#arrow-pratt-model" title="Permalink to this heading">#</a></h2>
@@ -483,10 +506,10 @@ document.write(`
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(U(w)\)</span> be a utility function describing an individuals satisfaction gained from a unit of wealth <span class="math notranslate nohighlight">\(w\)</span>. Further, let <span class="math notranslate nohighlight">\(U(w)\)</span> be at least twice differentiable with respect to the wealth <span class="math notranslate nohighlight">\(w\)</span>. Then, the absolute risk aversion <span class="math notranslate nohighlight">\(r(w)\)</span> is defined as:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-abs-risk-aversion-model">
-<span class="eqno">(15)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-model" title="Permalink to this equation">#</a></span>\[r(w) = - \frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
+<span class="eqno">(16)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-model" title="Permalink to this equation">#</a></span>\[r(w) = - \frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
 <p>and the relative risk aversion <span class="math notranslate nohighlight">\(\bar{r}(w)\)</span> is defined as:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-relative-risk-aversion-model">
-<span class="eqno">(16)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-model" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
+<span class="eqno">(17)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-model" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
 <p>where <span class="math notranslate nohighlight">\(U^{\prime}(w)\)</span> and <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)\)</span> denote the first and second derivative of the utility function with respect to the weath.</p>
 </section>
 </div><p>Let’s compute the absolute and relative risk aversion parameters for some typical utility functions using the <a class="reference external" href="https://github.com/JuliaSymbolics/Symbolics.jl">Symbolics.jl</a> package.</p>
@@ -569,7 +592,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-aversion">Risk aversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-aversion">Risk aversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-risk-aversion">Modes of Risk Aversion</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model">Arrow-Pratt model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
