@@ -6,12 +6,12 @@ root: landing.md
 title: Description
 chapters:
 - file: unit-1-simpledecisions/simpledecisions-landing
-  title: Unit 1. Utility and Simple Optimal Decisions
+  title: Unit 1. Simple Optimal Decisions
   sections:
   - file: unit-1-simpledecisions/utilityfunctions
   - file: unit-1-simpledecisions/utlitymaximization
 - file: unit-2-uncertainty/uncertainty-landing
-  title: Unit 2. Rational Uncertain Optimal Decisions
+  title: Unit 2. Uncertain Optimal Decisions
   sections:
   - file: unit-2-uncertainty/expected-utility
   - file: unit-2-uncertainty/risk
@@ -22,7 +22,7 @@ chapters:
   - file: unit-3-planning/markov 
   - file: unit-3-planning/mdp
 - file: unit-4-learning/learning-landing
-  title: Unit 4. Machine Learning Methods and Decisions
+  title: Unit 4. Machine Learning and Decisions
   sections:
   - file: unit-4-learning/bandits
   - file: unit-4-learning/rl

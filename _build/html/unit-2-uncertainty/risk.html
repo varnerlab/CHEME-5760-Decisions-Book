@@ -168,14 +168,14 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Utility and Simple Optimal Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Simple Optimal Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Rational Choices</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility Subject to Constraints</a></li>
 
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="uncertainty-landing.html">Unit 2. Rational Uncertain Optimal Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="uncertainty-landing.html">Unit 2. Uncertain Optimal Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Risk and Risk Aversion</a></li>
@@ -183,12 +183,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Markov Chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Understanding Markov Chains</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/mdp.html">Markov Decision Processes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-4-learning/learning-landing.html">Unit 4. Machine Learning Methods and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-4-learning/learning-landing.html">Unit 4. Machine Learning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandits.html">Multiarm Bandit Problems</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/rl.html">Reinforcement Learning</a></li>
@@ -397,7 +397,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-risk-aversion">Modes of Risk Aversion</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model">Arrow-Pratt model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model-of-risk-aversion">Arrow-Pratt model of Risk Aversion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
@@ -412,13 +412,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="risk-and-risk-aversion">
 <h1>Risk and Risk Aversion<a class="headerlink" href="#risk-and-risk-aversion" title="Permalink to this heading">#</a></h1>
-<p>Risk aversion in decision making refers to the tendency of individuals to prefer options with lower levels of uncertainty or potential loss. When faced with choices, risk-averse individuals prioritize minimizing potential risks over maximizing potential gains. This cognitive bias can influence various aspects of decision making, such as investment choices, career decisions, and even personal choices involving health and safety.</p>
+<p>When individuals make decisions, they often prefer options that have lower levels of uncertainty or potential loss. This preference for minimizing potential risks over maximizing potential gains is known as risk aversion in decision-making. This cognitive bias can have an impact on a range of decisions, including investment choices, career decisions, and even personal choices related to health and safety.</p>
 <aside class="topic">
 <p class="topic-title">Outline</p>
 <p>This week we discuss risk, risk aversion, and its role in decisions:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-risk-aversion"><span class="std std-ref">Risk aversion</span></a> is important for understanding how people choose between safe and risky options. This knowledge can help decision-makers develop strategies that match people’s risk preferences.</p></li>
-<li><p>The <a class="reference internal" href="#content-references-measuring-risk-aversion"><span class="std std-ref">Arrow-Pratt model</span></a> helps us quantify risk and its role in decision-making. The model provides insights into how people weigh potential gains and losses in uncertain situations, and aid in developing strategies that align with individuals’ risk preferences.</p></li>
+<li><p>The <a class="reference internal" href="#content-references-measuring-risk-aversion"><span class="std std-ref">Arrow-Pratt model of Risk Aversion</span></a> helps us quantify risk and its role in decision-making. The model provides insights into how people weigh potential gains and losses in uncertain situations, and aid in developing strategies that align with individuals’ risk preferences.</p></li>
 </ul>
 </aside>
 <hr class="docutils" />
@@ -478,27 +478,27 @@ document.write(`
 <p>The expected value of the coin flip game is zero for <span class="math notranslate nohighlight">\(M\)</span> trials with <span class="math notranslate nohighlight">\(N\)</span> flips per trial for <span class="math notranslate nohighlight">\(w = 1\)</span> and <span class="math notranslate nohighlight">\(w = 10\)</span>; this result would be true even as <span class="math notranslate nohighlight">\(w\rightarrow\infty\)</span>. Thus, why do people react differently to betting a small versus a large amount on each coin flip if they will always break even eventually? This is the essence of an interesting characteristic of individuals, namely, risk aversion.</p>
 <section id="modes-of-risk-aversion">
 <h3>Modes of Risk Aversion<a class="headerlink" href="#modes-of-risk-aversion" title="Permalink to this heading">#</a></h3>
-<p>Imagine being presented with two options: a guaranteed payoff of some amount, which we’ll called the certainty equivalent (CE), or a risky payout that depends on the flip of a fair coin, e.g., either $100 or nothing. People have different attitudes towards risk, leading them to choose one option over the other. In particular, there are three models of risk that a decision-maker can be exhibit, risk-avoiding, risk-neutral, and risk-seeking (<a class="reference internal" href="#fig-risk-aversion-types"><span class="std std-numref">Fig. 4</span></a>):</p>
+<p>Picture yourself having to choose between two options: a definite amount of money, known as the certainty equivalent (CE), or a risky payout that relies on the outcome of a coin flip, such as $100 or nothing. People’s varying attitudes towards risk cause them to opt for one choice over the other. There are three risk models that a decision-maker can adopt: risk-averse, risk-neutral, and risk-seeking (<a class="reference internal" href="#fig-risk-aversion-types"><span class="std std-numref">Fig. 4</span></a>):</p>
 <figure class="align-default" id="fig-risk-aversion-types">
 <a class="reference internal image-reference" href="../_images/Fig-RiskAversion-Types.pdf"><img alt="../_images/Fig-RiskAversion-Types.pdf" src="../_images/Fig-RiskAversion-Types.pdf" style="height: 240px;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">Utility versus wealth <span class="math notranslate nohighlight">\(W\)</span> for three models of risk; risk-avoiding (left), risk-neutral (center), and risk-seeking (right). CE: certainty equivalent and <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> expected wealth.</span><a class="headerlink" href="#fig-risk-aversion-types" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The expected value of the proposed game is <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> = 50 USD. However, individuals will react differently to the choice between taking the bet or taking a certain payment:</p>
+<p>Assuming a fair coin, the expected value of the game proposed is <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> = 50 USD. However, people may have different reactions when given the option of taking the bet or a certain payment:</p>
 <ul class="simple">
-<li><p><strong>Risk avoiding</strong> individuals would accept a certainty equivalent of less than 50 USD (for example, 10 USD) rather than taking the gamble and possibly receiving nothing, i.e., <span class="math notranslate nohighlight">\(\text{CE} &lt; \mathbb{E}(W)\)</span>.</p></li>
-<li><p><strong>Risk neutral</strong> individuals are indifferent between the bet and a certain 50 USD payment, i.e., <span class="math notranslate nohighlight">\(\text{CE} = \mathbb{E}(W)\)</span>.</p></li>
-<li><p><strong>Risk seeking</strong> individuals would accept the bet even when the guaranteed payment is greater than 50 USD, i.e., <span class="math notranslate nohighlight">\(\text{CE} &gt; \mathbb{E}(W)\)</span>. In other words, a risk-seeking individual will <em>pay</em> to accept uncertainty.</p></li>
+<li><p><strong>Risk-averse</strong> individuals would prefer a certainty equivalent of less than 50 USD (for instance, 10 USD) instead of taking the gamble and possibly ending up with nothing. This means that <span class="math notranslate nohighlight">\(\text{CE} &lt; \mathbb{E}(W)\)</span> for a risk-averse individual.</p></li>
+<li><p><strong>Risk-neutral</strong> individuals are indifferent between the bet and a certain payment of 50 USD. Therefore, <span class="math notranslate nohighlight">\(\text{CE} = \mathbb{E}(W)\)</span>.</p></li>
+<li><p><strong>Risk-seeking</strong> individuals would take the bet even when the guaranteed payment is greater than 50 USD. This implies that <span class="math notranslate nohighlight">\(\text{CE} &gt; \mathbb{E}(W)\)</span>. In other words, a risk-seeking individual is willing to pay to accept uncertainty.</p></li>
 </ul>
-<p>The difference between the certainty equivalent and the expected payout of the game <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> is the <em>risk premium</em> or <span class="math notranslate nohighlight">\(\text{RP}\)</span>:</p>
+<p>The difference between the certainty equivalent and the expected payout of the game <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> is referred to as the <em>risk premium</em> or <span class="math notranslate nohighlight">\(\text{RP}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-risk-premimum">
 <span class="eqno">(15)<a class="headerlink" href="#equation-eqn-risk-premimum" title="Permalink to this equation">#</a></span>\[\text{RP} = \mathbb{E}(W) - \text{CE}\]</div>
-<p>For risk avoiding individuals, the risk premium is positive. For risk neutral decision makers, the risk premium is zero. However, for risk seeking individuals, the risk premium is negative, i.e., the decision maker is willing to pay to take a chance.</p>
+<p>For risk-averse individuals, the risk premium is positive. For risk-neutral decision-makers, the risk premium is zero. However, for risk-seeking individuals, the risk premium is negative. This means that the decision maker is willing to pay to take a chance.</p>
 </section>
 </section>
-<section id="arrow-pratt-model">
-<span id="content-references-measuring-risk-aversion"></span><h2>Arrow-Pratt model<a class="headerlink" href="#arrow-pratt-model" title="Permalink to this heading">#</a></h2>
+<section id="arrow-pratt-model-of-risk-aversion">
+<span id="content-references-measuring-risk-aversion"></span><h2>Arrow-Pratt model of Risk Aversion<a class="headerlink" href="#arrow-pratt-model-of-risk-aversion" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Risk_aversion">Arrow-Pratt risk aversion model</a> is a widely used framework in economics and decision theory for measuring and analyzing individuals’ risk preferences <span id="id1">[<a class="reference internal" href="../References.html#id2" title="C. F. Menezes and D. L. Hanson. On the theory of risk aversion. International Economic Review, 11(3):481–487, 1970. URL: http://www.jstor.org/stable/2525326 (visited on 2023-05-21).">Menezes and Hanson, 1970</a>]</span>. Proposed by economists <a class="reference external" href="https://en.wikipedia.org/wiki/Kenneth_Arrow">Kenneth Arrow</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/John_W._Pratt">John W. Pratt</a>, this model quantifies the degree of risk aversion by examining how individuals’ utility functions respond to changes in wealth and uncertainty <span id="id2">[<a class="reference internal" href="../References.html#id3" title="John W. Pratt. Risk aversion in the small and in the large. Econometrica, 32(1/2):122–136, 1964. URL: http://www.jstor.org/stable/1913738 (visited on 2023-05-21).">Pratt, 1964</a>]</span>.</p>
 <p>The Arrow-Pratt model measures absolute and relative risk aversion, which allows decision-makers to assess the sensitivity of individuals to risk, informing optimal decision-making strategies in various domains, such as finance, insurance, and investment (<a class="reference internal" href="#defn-arrow-pratt-model">Definition 8</a>):</p>
 <div class="proof definition admonition" id="defn-arrow-pratt-model">
@@ -512,7 +512,10 @@ document.write(`
 <span class="eqno">(17)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-model" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
 <p>where <span class="math notranslate nohighlight">\(U^{\prime}(w)\)</span> and <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)\)</span> denote the first and second derivative of the utility function with respect to the weath.</p>
 </section>
-</div><p>Let’s compute the absolute and relative risk aversion parameters for some typical utility functions using the <a class="reference external" href="https://github.com/JuliaSymbolics/Symbolics.jl">Symbolics.jl</a> package.</p>
+</div><p>Let’s compute the absolute and relative risk aversion parameters for some typical utility functions using the <a class="reference external" href="https://github.com/JuliaSymbolics/Symbolics.jl">Symbolics.jl</a> package. For example, consider the utility function <span class="math notranslate nohighlight">\(U(w) = \sqrt{w}\)</span>, which is a concave function (<code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-utility-functions</span></code>):</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <hr class="docutils" />
 <section id="summary">
@@ -520,7 +523,7 @@ document.write(`
 <p>This week we discussed risk, risk aversion, and its role in decisions:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-risk-aversion"><span class="std std-ref">Risk aversion</span></a> is important for understanding how people choose between safe and risky options. This knowledge can help decision-makers develop strategies that match people’s risk preferences.</p></li>
-<li><p><a class="reference internal" href="#content-references-measuring-risk-aversion"><span class="std std-ref">Arrow-Pratt model</span></a> helps us understand risk and decision-making. The model provides insights into how people weigh potential gains and losses in uncertain situations, and aid in developing strategies that align with individuals’ risk preferences.</p></li>
+<li><p><a class="reference internal" href="#content-references-measuring-risk-aversion"><span class="std std-ref">Arrow-Pratt model of Risk Aversion</span></a> helps us understand risk and decision-making. The model provides insights into how people weigh potential gains and losses in uncertain situations, and aid in developing strategies that align with individuals’ risk preferences.</p></li>
 </ul>
 </section>
 </section>
@@ -596,7 +599,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-risk-aversion">Modes of Risk Aversion</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model">Arrow-Pratt model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model-of-risk-aversion">Arrow-Pratt model of Risk Aversion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>
