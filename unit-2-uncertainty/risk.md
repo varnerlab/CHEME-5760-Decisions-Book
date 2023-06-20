@@ -122,21 +122,81 @@ and the relative risk aversion $\bar{r}(w)$ is defined as:
 
 ```{math}
 :label: eqn-relative-risk-aversion-model
-\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)}
+\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)} = w\cdot{r(w)}
 ```
 
 where $U^{\prime}(w)$ and $U^{\prime\prime}(w)$ denote the first and second derivative of the utility function with respect to the weath. 
 ````
 
-Let's compute the absolute and relative risk aversion parameters for some typical utility functions using the [Symbolics.jl](https://github.com/JuliaSymbolics/Symbolics.jl) package. For example, consider the utility function $U(w) = \sqrt{w}$, which is a concave utility function:
+* For a __risk avoiding__ individual, the absolute risk aversion $r(w)>0~\forall{w}$, because the utility function $U(w)$ is concave, meaning that first detivative $U^{\prime}(w)>0$ but the second derivative $U^{\prime\prime}(w)<0$. 
 
-```julia
+* For a __risk neutral__ individual, the absolute risk aversion $r(w)=0~\forall{w}$, because the utility function $U(w)$ is linear, meaning that first detivative $U^{\prime}(w) = \text{slope}$, but the second derivative $U^{\prime\prime}(w)=0$.
+
+* For a __risk seeking__ individual, the absolute risk aversion $r(w)<0~\forall{w}$, because the utility function $U(w)$ is convex, meaning that first detivative $U^{\prime}(w)>0$ and the second derivative $U^{\prime\prime}(w)>0$.
+
+<!-- and the relative risk aversion $\bar{r}(w)$ is increasing in wealth $w$. For a __risk neutral__ individual, the absolute risk aversion $r(w)$ is zero, and the relative risk aversion $\bar{r}(w)$ is constant in wealth $w$. For a __risk seeking__ individual, the absolute risk aversion $r(w)$ is negative, and the relative risk aversion $\bar{r}(w)$ is increasing in wealth $w$. -->
 
 
+### Example: Computing risk aversion parameters
+Let's compute the absolute and relative risk aversion parameters for a typical _risk adverse_ utility function using the [FowardDiff.jl](https://github.com/JuliaDiff/ForwardDiff.jl) package. For example, consider the utility function $U(w) = \log(w+1)$, which is a concave utility function. The absolute risk aversion for $U(w) = \log(w+1)$ is given by:
 
+```{math}
+:label: eqn-abs-risk-aversion-example
+r(w) = \frac{1}{w+1}
 ```
 
+while the releative risk aversion is given by:
 
+```{math}
+:label: eqn-relative-risk-aversion-example
+\bar{r}(w) = \frac{w}{w+1}
+```
+
+A quick investigation of the above equations reveals that the absolute risk aversion is decreasing in wealth $w$, while the relative risk aversion is increasing in wealth $w$, i.e., $\lim r(w) = 0$ and $\lim \bar{r}(w) = 1$ as ${w\rightarrow\infty}$.
+
+#### Implementation
+The code block below will compute the utility function and its first and second derivatives and then compute the absolute and relative risk aversion parameters for wealth values ranging from 1 to 100:
+
+```julia
+# include packages -
+using ForwardDiff
+
+# define the utility function U(w), and its derivative U'(w) -
+U(w) = log(w+1)
+
+# setup the wealth range -
+wealth_array = 1.0:1.0:100.0 |> collect;
+number_of_points = length(wealth_array);
+
+# main: compute the utility, and risk aversion for each wealth value -
+risk_aversion_array = Array{Float64,2}(undef, number_of_points, 4);
+for i ∈ 1:number_of_points
+    
+    # grab the wealth from the wealth array -
+    w = wealth_array[i];
+
+    # compute the risk aversion -
+    D1 = ForwardDiff.derivative(U, w);
+    D2 = ForwardDiff.derivative(x -> ForwardDiff.derivative(U, x), w)
+
+    # store data -
+    risk_aversion_array[i,1] = w;           # 1 wealth
+    risk_aversion_array[i,2] = U(w);        # 2 utility
+    risk_aversion_array[i,3] = -(D2/D1);    # 3 risk aversion (absolute))
+    risk_aversion_array[i,4] = -w*(D2/D1);  # 4 risk aversion (relative)
+end
+```
+
+A higher absolute risk aversion coefficient indicates greater aversion to risk, implying that individuals are less willing to take on additional risk for potential gains. On the other hand, the relative risk aversion coefficient is a measure of the risk aversion that is independent of the scale of wealth. 
+
+
+ ```{figure} ./figs/Fig-Abs-RiskAversion-Schematic.pdf
+---
+height: 280px
+name: fig-abs-risk-aversion
+---
+Utility and risk aversion versus wealth for the utility function $U(w) = \ln\left(w+1\right)$. Left: Utility versus wealth $w$. Right: Absolute risk aversion versus wealth $w$.
+```
 
 ---
 

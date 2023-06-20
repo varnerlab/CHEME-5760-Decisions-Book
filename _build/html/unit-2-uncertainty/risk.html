@@ -397,7 +397,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-risk-aversion">Modes of Risk Aversion</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model-of-risk-aversion">Arrow-Pratt model of Risk Aversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model-of-risk-aversion">Arrow-Pratt model of Risk Aversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-computing-risk-aversion-parameters">Example: Computing risk aversion parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
@@ -509,13 +515,65 @@ document.write(`
 <span class="eqno">(16)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-model" title="Permalink to this equation">#</a></span>\[r(w) = - \frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
 <p>and the relative risk aversion <span class="math notranslate nohighlight">\(\bar{r}(w)\)</span> is defined as:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-relative-risk-aversion-model">
-<span class="eqno">(17)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-model" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
+<span class="eqno">(17)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-model" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)} = w\cdot{r(w)}\]</div>
 <p>where <span class="math notranslate nohighlight">\(U^{\prime}(w)\)</span> and <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)\)</span> denote the first and second derivative of the utility function with respect to the weath.</p>
 </section>
-</div><p>Let’s compute the absolute and relative risk aversion parameters for some typical utility functions using the <a class="reference external" href="https://github.com/JuliaSymbolics/Symbolics.jl">Symbolics.jl</a> package. For example, consider the utility function <span class="math notranslate nohighlight">\(U(w) = \sqrt{w}\)</span>, which is a concave function (<code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-utility-functions</span></code>):</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span>
+</div><ul class="simple">
+<li><p>For a <strong>risk avoiding</strong> individual, the absolute risk aversion <span class="math notranslate nohighlight">\(r(w)&gt;0~\forall{w}\)</span>, because the utility function <span class="math notranslate nohighlight">\(U(w)\)</span> is concave, meaning that first detivative <span class="math notranslate nohighlight">\(U^{\prime}(w)&gt;0\)</span> but the second derivative <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)&lt;0\)</span>.</p></li>
+<li><p>For a <strong>risk neutral</strong> individual, the absolute risk aversion <span class="math notranslate nohighlight">\(r(w)=0~\forall{w}\)</span>, because the utility function <span class="math notranslate nohighlight">\(U(w)\)</span> is linear, meaning that first detivative <span class="math notranslate nohighlight">\(U^{\prime}(w) = \text{slope}\)</span>, but the second derivative <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)=0\)</span>.</p></li>
+<li><p>For a <strong>risk seeking</strong> individual, the absolute risk aversion <span class="math notranslate nohighlight">\(r(w)&lt;0~\forall{w}\)</span>, because the utility function <span class="math notranslate nohighlight">\(U(w)\)</span> is convex, meaning that first detivative <span class="math notranslate nohighlight">\(U^{\prime}(w)&gt;0\)</span> and the second derivative <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)&gt;0\)</span>.</p></li>
+</ul>
+<!-- and the relative risk aversion $\bar{r}(w)$ is increasing in wealth $w$. For a __risk neutral__ individual, the absolute risk aversion $r(w)$ is zero, and the relative risk aversion $\bar{r}(w)$ is constant in wealth $w$. For a __risk seeking__ individual, the absolute risk aversion $r(w)$ is negative, and the relative risk aversion $\bar{r}(w)$ is increasing in wealth $w$. -->
+<section id="example-computing-risk-aversion-parameters">
+<h3>Example: Computing risk aversion parameters<a class="headerlink" href="#example-computing-risk-aversion-parameters" title="Permalink to this heading">#</a></h3>
+<p>Let’s compute the absolute and relative risk aversion parameters for a typical <em>risk adverse</em> utility function using the <a class="reference external" href="https://github.com/JuliaDiff/ForwardDiff.jl">FowardDiff.jl</a> package. For example, consider the utility function <span class="math notranslate nohighlight">\(U(w) = \log(w+1)\)</span>, which is a concave utility function. The absolute risk aversion for <span class="math notranslate nohighlight">\(U(w) = \log(w+1)\)</span> is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-abs-risk-aversion-example">
+<span class="eqno">(18)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-example" title="Permalink to this equation">#</a></span>\[r(w) = \frac{1}{w+1}\]</div>
+<p>while the releative risk aversion is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-relative-risk-aversion-example">
+<span class="eqno">(19)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-example" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = \frac{w}{w+1}\]</div>
+<p>A quick investigation of the above equations reveals that the absolute risk aversion is decreasing in wealth <span class="math notranslate nohighlight">\(w\)</span>, while the relative risk aversion is increasing in wealth <span class="math notranslate nohighlight">\(w\)</span>, i.e., <span class="math notranslate nohighlight">\(\lim r(w) = 0\)</span> and <span class="math notranslate nohighlight">\(\lim \bar{r}(w) = 1\)</span> as <span class="math notranslate nohighlight">\({w\rightarrow\infty}\)</span>.</p>
+<section id="implementation">
+<h4>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h4>
+<p>The code block below will compute the utility function and its first and second derivatives and then compute the absolute and relative risk aversion parameters for wealth values ranging from 1 to 100:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># include packages -</span>
+<span class="k">using</span> <span class="n">ForwardDiff</span>
+
+<span class="c"># define the utility function U(w), and its derivative U&#39;(w) -</span>
+<span class="n">U</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">w</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c"># setup the wealth range -</span>
+<span class="n">wealth_array</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">:</span><span class="mf">1.0</span><span class="o">:</span><span class="mf">100.0</span> <span class="o">|&gt;</span> <span class="n">collect</span><span class="p">;</span>
+<span class="n">number_of_points</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">wealth_array</span><span class="p">);</span>
+
+<span class="c"># main: compute the utility, and risk aversion for each wealth value -</span>
+<span class="n">risk_aversion_array</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="n">number_of_points</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">∈</span> <span class="mi">1</span><span class="o">:</span><span class="n">number_of_points</span>
+    
+    <span class="c"># grab the wealth from the wealth array -</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">wealth_array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+
+    <span class="c"># compute the risk aversion -</span>
+    <span class="n">D1</span> <span class="o">=</span> <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">derivative</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">w</span><span class="p">);</span>
+    <span class="n">D2</span> <span class="o">=</span> <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">derivative</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">derivative</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">w</span><span class="p">)</span>
+
+    <span class="c"># store data -</span>
+    <span class="n">risk_aversion_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span>           <span class="c"># 1 wealth</span>
+    <span class="n">risk_aversion_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>        <span class="c"># 2 utility</span>
+    <span class="n">risk_aversion_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">D2</span><span class="o">/</span><span class="n">D1</span><span class="p">);</span>    <span class="c"># 3 risk aversion (absolute))</span>
+    <span class="n">risk_aversion_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="p">(</span><span class="n">D2</span><span class="o">/</span><span class="n">D1</span><span class="p">);</span>  <span class="c"># 4 risk aversion (relative)</span>
+<span class="k">end</span>
 </pre></div>
 </div>
+<p>A higher absolute risk aversion coefficient indicates greater aversion to risk, implying that individuals are less willing to take on additional risk for potential gains. On the other hand, the relative risk aversion coefficient is a measure of the risk aversion that is independent of the scale of wealth.</p>
+<figure class="align-default" id="fig-abs-risk-aversion">
+<a class="reference internal image-reference" href="../_images/Fig-Abs-RiskAversion-Schematic.pdf"><img alt="../_images/Fig-Abs-RiskAversion-Schematic.pdf" src="../_images/Fig-Abs-RiskAversion-Schematic.pdf" style="height: 280px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Utility and risk aversion versus wealth for the utility function <span class="math notranslate nohighlight">\(U(w) = \ln\left(w+1\right)\)</span>. Left: Utility versus wealth <span class="math notranslate nohighlight">\(w\)</span>. Right: Absolute risk aversion versus wealth <span class="math notranslate nohighlight">\(w\)</span>.</span><a class="headerlink" href="#fig-abs-risk-aversion" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
 </section>
 <hr class="docutils" />
 <section id="summary">
@@ -599,7 +657,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-risk-aversion">Modes of Risk Aversion</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model-of-risk-aversion">Arrow-Pratt model of Risk Aversion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model-of-risk-aversion">Arrow-Pratt model of Risk Aversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-computing-risk-aversion-parameters">Example: Computing risk aversion parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>
