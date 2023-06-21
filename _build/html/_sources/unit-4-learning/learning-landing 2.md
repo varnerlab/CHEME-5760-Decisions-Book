@@ -1,0 +1,7 @@
+# Reinforcement and Imitation Learning
+
+* [The multiarm bandit problem](./bandits.md) is a type of decision-making challenge that arises in various fields, including clinical trials, online advertising, and recommendation systems. In the multiarm bandit problem, a decision-maker must allocate resources to a set of actions (or “arms”) with unknown reward distributions, aiming to maximize the total reward during a fixed time period. This challenge is complex because the decision-maker must balance between exploiting arms that have previously shown high rewards and exploring new arms that may have higher rewards.
+
+* [Reinforcement learning](./rl.md) is a type of machine learning where an algorithm learns to make decisions by trial and error, much like a human learns through experience. It involves an agent interacting with an environment and receiving rewards or punishments for its actions, which helps it to learn which actions lead to desirable outcomes. Reinforcement learning has many applications, such as teaching robots to perform complex tasks, optimizing business decisions, and even playing games.
+
+* [Imitation learning](./imitation.md) is a type of machine learning where an algorithm learns to perform a task by imitating an expert's behavior. Instead of trial and error, the algorithm learns by observing the expert's actions and the corresponding outcomes. This approach has applications in fields such as robotics and autonomous vehicles, where the goal is to teach machines to perform tasks safely and efficiently by learning from human experts.
