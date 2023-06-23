@@ -1,51 +1,31 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Julia
+  language: julia
+  name: julia-1.9
+---
+
 # Maximizing Utility Subject to Constraints
 Utility maximization is the process of choosing the option that provides the highest level of utility, given a set of available options and the individual's preferences. It involves evaluating each option using a utility function and selecting the one that maximizes the utility subject to constraints.
 
 ```{topic} Outline
 
-* {ref}`content:references:rational-choice-budget-constraints` are a crucial factor in decision-making for individuals, businesses, and governments alike. They represent the finite resources available to make choices and allocate funds toward different options. A budget constraint forces decision-makers to weigh the costs and benefits of various options and make trade-offs based on their available resources.
+* {ref}`content:references:rational-choice-theory-opt` are based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets.
 
-* {ref}`content:references:rational-choice-theory-opt` is based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets. 
+* {ref}`content:references:rational-choice-income-and-prices`. Understanding the impact of income and prices on decision-making is crucial in comprehending the rationale behind the actions taken by decision makers. By studying the correlation between income, prices, and utility maximization within a budget constraint, we can gain valuable insights into consumer behavior, resource allocation, and market dynamics.
 
 ```
 
 ---
 
-(content:references:rational-choice-budget-constraints)=
-## Budget constraints
-Effective budget management involves prioritizing expenditures, making trade-offs, and seeking optimal ways to utilize the available funds within the defined buedget constraints. Budget constraints refer to the limitations imposed on an individual, organization, or government’s spending activities. These constraints arise from the finite availability of financial resources, requiring careful planning and allocation to meet various needs and goals ({prf:ref}`defn-budget-constraint`): 
-
-````{prf:definition} Budget constraint
-:label: defn-budget-constraint
-
-Let $I$ denote the income allocated to purchase goods in a set of goods $x\in\mathcal{X}$ where $c_{x}\geq{0}$ denotes the unit cost of item $x$. Then, the budget constraint for $\mathcal{X}$ is given by:
-
-```{math}
-:label: eqn-budget-constraint
-\sum_{x\in\mathcal{X}}c_{x}\cdot\dim(x)\leq{I}
-```
-
-The quantity $\dim(x)$ denotes the number of good $x$ purchased. The number of iterms purchased must be non-negative, i.e., $\dim(x)\geq{0}$.
-
-````
-
-### Two good budget constraint
-To better understand {prf:ref}`defn-budget-constraint`, let's consider the case when we have only two goods in the set of goods $\mathcal{X}$, i.e., $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$. In this case, the budget constraint becomes a line in the $\text{apples}$ versus $\text{oranges}$ plane ({numref}`fig-two-dim-bc`).
-
- ```{figure} ./figs/Fig-TwoDim-BudgetConstraint-Schematic.pdf
----
-height: 420px
-name: fig-two-dim-bc
----
-Two-dimensional budget constraint for the $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$ set of goods.
-```
-
-The intercepts of the budget constraint shown in {numref}`fig-two-dim-bc` give the maximum amount of a good or service that can be consumed. For example, the x-intercept of the budget constraint in gives the maximum number of apples that can be purchased given the budget constraint and the price of the apple. Similarly, the y-intercept gives the maximum number of oranges that can be purchased given the budget constraint and the price of oranges.
-
-Every point on the budget constraint line shown in {numref}`fig-two-dim-bc` indicates a possible combination of apples and oranges that could be bought within the given budget. The task at hand is to determine the optimal combination of apples and oranges that maximizes the utility function. 
 
 (content:references:rational-choice-theory-opt)=
-## Optimal rational choice
+## Optimal rational choices
 An optimal rational decision-making agent _maximizes_ its utility function, i.e., the agent searches for a combination of goods and services that gives the highest satisfaction subject to various constraints, e.g., a budget constraint ({prf:ref}`eqn-budget-constraint`):
 
 ````{prf:definition} Maximum utility and budget constraints
@@ -72,11 +52,41 @@ The problem in {prf:ref}`eqn-budget-constraint` can be solved for the unknown co
 
 <!-- Of course, if the utility function in {prf:ref}`eqn-budget-constraint` is linear, we could also use [linear programming](https://en.wikipedia.org/wiki/Linear_programming). -->
 
-## Solving optimal choice problems
-To solve the constrained maximum utility problem, we could use classical calculus methods, i.e., the [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier) or numerical approaches such as the [method of gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) or [metaheuristic approaches](https://en.wikipedia.org/wiki/Metaheuristic#Metaheuristic_Optimization_Frameworks) such as  [simulated annealing](https://en.wikipedia.org/wiki/Simulated_annealing) in combination with a [penalty](https://en.wikipedia.org/wiki/Penalty_method) or [barrier function](https://en.wikipedia.org/wiki/Barrier_function) method to accommodate the constraints. 
+(content:references:rational-choice-budget-constraints)=
+### Budget constraints
+Effective budget management involves prioritizing expenditures, making trade-offs, and seeking optimal ways to utilize the available funds within the defined buedget constraints. Budget constraints refer to the limitations imposed on an individual, organization, or government’s spending activities. These constraints arise from the finite availability of financial resources, requiring careful planning and allocation to meet various needs and goals ({prf:ref}`defn-budget-constraint`): 
 
-### Method of Lagrange multipliers and utility maximization
-Let's begin with a classical approach, the [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier). as it provides a good foundation for understanding  more advanced methods and has some interesting theoretical properties. The [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier) involves introducing additional variables, called Lagrange multipliers, which integrate the constraints into a modified objective function called the Lagrangian function ({prf:ref}`defn-method-l-multipliers`):
+````{prf:definition} Budget constraint
+:label: defn-budget-constraint
+
+Let $I$ denote the income allocated to purchase goods in a set of goods $x\in\mathcal{X}$ where $c_{x}\geq{0}$ denotes the unit cost of item $x$. Then, the budget constraint for $\mathcal{X}$ is given by:
+
+```{math}
+:label: eqn-budget-constraint
+\sum_{x\in\mathcal{X}}c_{x}\cdot\dim(x) = {I}
+```
+
+The quantity $\dim(x)$ denotes the number of good $x$ purchased. The number of iterms purchased must be non-negative, i.e., $\dim(x)\geq{0}$.
+
+````
+
+#### Two good budget constraint: Apples and oranges
+To better understand {prf:ref}`defn-budget-constraint`, let's consider the case when we have only two goods in the set of goods $\mathcal{X}$, i.e., $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$. In this case, the budget constraint becomes a line in the $\text{apples}$ versus $\text{oranges}$ plane ({numref}`fig-two-dim-bc`).
+
+ ```{figure} ./figs/Fig-TwoDim-BudgetConstraint-Schematic.pdf
+---
+height: 420px
+name: fig-two-dim-bc
+---
+Two-dimensional budget constraint for the $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$ set of goods.
+```
+
+The intercepts of the budget constraint shown in {numref}`fig-two-dim-bc` give the maximum amount of a good or service that can be consumed. For example, the x-intercept of the budget constraint in gives the maximum number of apples that can be purchased given the budget constraint and the price of the apple. Similarly, the y-intercept gives the maximum number of oranges that can be purchased given the budget constraint and the price of oranges.
+
+Every point on the budget constraint line shown in {numref}`fig-two-dim-bc` indicates a possible combination of apples and oranges that could be bought within the given budget. The task at hand is to determine the optimal combination of apples and oranges that maximizes the utility function. 
+
+### Lagrange multipliers and utility maximization
+Let's begin with a classical approach, the [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier). as it provides a good foundation for understanding more advanced methods and has some interesting theoretical properties. The [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier) involves introducing additional variables, called Lagrange multipliers, which integrate the constraints into a modified objective function called the Lagrangian function ({prf:ref}`defn-method-l-multipliers`):
 
 ````{prf:definition} Method of Lagrange multipliers
 :label: defn-method-l-multipliers
@@ -202,7 +212,7 @@ or $\mathbf{A}\mathbf{\theta} = \mathbf{b}$ which theoretically can be inverted 
 \theta = \mathbf{A}^{-1}\mathbf{b}
 ```
 
-if the matrix $\mathbf{A}$ has full rank. However, in this case the rank of matrix $\text{rank}(\mathbf{A}) = 2$, which indicates that the system of equations is underdetermined. This means that there are an infinite number of solutions to the system of equations. To find the solution, we can use the [Moore-Penrose pseudoinverse](https://en.wikipedia.org/wiki/Moore–Penrose_inverse) of the matrix $\mathbf{A}$, which is given by:
+if the matrix $\mathbf{A}$ has full rank. However, in this case, the rank of matrix $\text{rank}(\mathbf{A}) = 2$, which indicates that the system of equations is underdetermined. This means that there are an infinite number of solutions to the system of equations. To find the solution, we can use the [Moore-Penrose pseudo-inverse](https://en.wikipedia.org/wiki/Moore–Penrose_inverse) of the matrix $\mathbf{A}$, which is given by:
 
 
 <!-- #### Karush-Kuhn-Tucker (KKT) conditions
@@ -220,9 +230,9 @@ The Cobb-Douglas utility function example above illustrates a case where the fir
 
 We'll make use of the [JuMP](https://jump.dev/JuMP.jl/stable/) and [MadNLP](https://github.com/MadNLP/MadNLP.jl) packages which provide numerical techniques for solving optimization problems:
 * The [JuMP](https://jump.dev/JuMP.jl/stable/) package provides a high-level interface for defining optimization problems.
-* The [MadNLP](https://github.com/MadNLP/MadNLP.jl) package is used by JuMP to solve optimization problems, but it can also be used directly to solve optimization problems.
+* The [MadNLP](https://github.com/MadNLP/MadNLP.jl) package is used by JuMP to solve optimization problems, but it can also be used directly to solve constrained optimization problems.
 
-Let's revsit the Cobb-Douglas utility maximization problem from above, but this time we'll use JuMP and MadNLP to solve the problem numerically. First, we'll define a type that represents the problem:
+Let's revisit the Cobb-Douglas utility maximization problem from above, but this time we'll use [JuMP](https://jump.dev/JuMP.jl/stable/) and [MadNLP](https://github.com/MadNLP/MadNLP.jl) to solve the problem numerically. First, we'll define a type that represents the problem (and stores useful data about the problem):
 
 ```julia
 mutable struct MySimpleCobbDouglasChoiceProblem <: AbstractSimpleChoiceProblem
@@ -239,7 +249,8 @@ mutable struct MySimpleCobbDouglasChoiceProblem <: AbstractSimpleChoiceProblem
 end
 ```
 
-and then a function that takes an intance of the `MySimpleCobbDouglasChoiceProblem` problem and solves the contrained utlity maximization problem: 
+Next, we'll define a function that takes an instance of the `MySimpleCobbDouglasChoiceProblem` problem object, solves the constrained utility maximization problem, and returns a [dictionary](https://docs.julialang.org/en/v1/base/collections/#Dictionaries) with the results:
+
 
 ```julia
 """
@@ -287,15 +298,72 @@ function solve(problem::MySimpleCobbDouglasChoiceProblem)::Dict{String,Any}
 end
 ```
 
-Fill me in here with some text ({numref}`fig-two-dim-bc-cd-soln`):
+Finally, we'll put it all together and solve the problem. We build the problem object using the `build(...)` function, and then call the `solve(...)` function to estimate the optinmal solution:
+
+```julia
+# include the include (load the reqd packages) -
+include("Include.jl")
+
+# initialize -
+α = [0.55, 0.45]; # coefficients
+c = [2.0, 4.0]; # price of x1 and x2
+
+# build my problem object -
+problem = build(MySimpleCobbDouglasChoiceProblem, (
+    
+    initial = 0.1*ones(2), # initial guess
+    α = α, # coefficients
+    c = c, # price of x1 and x2
+    I = 100.0, # income
+    
+    # how much of x₁ and x₂ can be we buy?
+    bounds = [
+        0.0 100.0; # L U
+        0.0 100.0; # L U
+    ]
+));
+
+# call tghe solve function. This will return a dictionary -
+solution = solve(problem);
+```
+
+The optimal solution for the consumption of good $x_{1}$ and $x_{2}$ subject to the budget constraint is a point of tangency between the indifference curve and the budget constraint ({numref}`fig-two-dim-bc-cd-soln`):
 
  ```{figure} ./figs/Fig-Single-Budget-CD-Soln.pdf
 ---
 height: 420px
 name: fig-two-dim-bc-cd-soln
 ---
-Two-dimensional budget constraint for the $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$ set of goods.
+Optimal solution for the two-dimensional goods problem assuming a Cobb-Douglas utility function. Parameters: $\alpha_{1} = 0.55$, $\alpha_{2} = 0.45$, $c_{1} = 2$, $c_{2} = 4$, and $I = 100$. The optimal combination: $x_{1}^{*} = 27.5$, $x_{2}^{*} = 11.25$.
 ```
+
+Let's check the first-order optimality conditions to make sure the solution is optimal:
+
+```{code-cell} julia
+# specify parameters (and solution) from the problem
+α, c₁, c₂, x₁, x₂, I = 0.55, 2.0, 4.0, 27.5, 11.25, 100.0
+
+# compute the marginal utility at the optimum -
+Ū₁ = α*(x₁^(α-1))*(x₂^(1-α))
+Ū₂ = (1-α)*(x₁^(α))*(x₂^(-α))
+
+# compute the Lagrange multiplier -
+λ = Ū₁/c₁;
+
+# Compute the first-order conditions -
+E1 = Ū₁ - λ*c₁
+E2 = Ū₂ - λ*c₂
+E3 = I - (c₁*x₁ + c₂*x₂)
+
+# print -
+println("Optimality conditions: $(E1), $(E2), $(E3) with λ = $(λ)")
+```
+
+
+(content:references:rational-choice-income-and-prices)=
+## The role of income and prices
+By examining the relationship between income, prices, and utility maximization subject to a budget constraint, we gain valuable insights into consumer behavior, resource allocation, and market dynamics.
+
 
 ---
 
