@@ -394,14 +394,12 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Utility Functions and Rational Choices</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-choice-theory">Rational choice theory</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-utility-functions">Properties of utility functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-utility-functions">Example utility functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-choice-theory">Rational choice theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-utility">Marginal utility</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-utility-functions">Linear utility functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithmic-utility-functions">Logarithmic utility functions</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-utility">Marginal utility</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a></li>
 </ul>
 </li>
@@ -433,7 +431,7 @@ document.write(`
 <hr class="docutils" />
 <section id="rational-choice-theory">
 <span id="content-references-rational-choice-theory"></span><h2>Rational choice theory<a class="headerlink" href="#rational-choice-theory" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Rational_choice_theory">Rational choice theory</a> assumes individuals make rational decisions based on their preferences and available information. <a class="reference external" href="https://en.wikipedia.org/wiki/Rational_choice_theory">Rational choice theory</a> is based on computing the utility of competing actions or outcomes. Thus, utility functions are a crucial component of this theory, as they describe how individuals assign numerical values to different choices (<a class="reference internal" href="#defn-individual-utility">Definition 1</a>):</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Rational_choice_theory">Rational Choice Theory</a> is founded on the idea that individuals make decisions based on their preferences and the information available to them. This theory involves calculating the utility of various actions or outcomes using a utility function. The utility function is a vital aspect of this theory as it helps in determining how individuals assign numerical values to different options (<a class="reference internal" href="#defn-individual-utility">Definition 1</a>):</p>
 <div class="proof definition admonition" id="defn-individual-utility">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (Ordinal utility function)</p>
 <section class="definition-content" id="proof-content">
@@ -442,36 +440,31 @@ document.write(`
 <span class="eqno">(1)<a class="headerlink" href="#equation-eqn-utility-function-generic" title="Permalink to this equation">#</a></span>\[U(x_{1},x_{2},\dots,x_{n})\]</div>
 <p>The utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span> is unique only up to an order-preserving transformation in period <span class="math notranslate nohighlight">\(t\rightarrow{t+dt}\)</span>. Further, utility functions are ordinal, i.e., they rank-order bundles but do not indicate how much better a bundle is compared to another.</p>
 </section>
-</div><p><a class="reference internal" href="#defn-individual-utility">Definition 1</a> does not give specifics about the properties of a utility function. However, it does establish a critical concept; the utility can be used to rank order the preference for different choices. For example, suppose we have two choices, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p>
+</div><p><a class="reference internal" href="#defn-individual-utility">Definition 1</a> establishes a critical concept; the utility can be used to rank order the preference for different choices. For example, suppose we have two choices, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(A\succ{B}\)</span>, the decision maker <em>strictly prefers</em> <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(B\)</span>. Then, the utility of choice <span class="math notranslate nohighlight">\(A\)</span> is greater than <span class="math notranslate nohighlight">\(B\)</span>, or <span class="math notranslate nohighlight">\(U(A)&gt;U(B)\)</span>.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(A\sim{B}\)</span>, the decision maker is <em>indifferent</em> between <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(B\)</span>. Then, the utility of choice <span class="math notranslate nohighlight">\(A\)</span> is the same as <span class="math notranslate nohighlight">\(B\)</span>, or <span class="math notranslate nohighlight">\(U(A)=U(B)\)</span>.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(A\succsim{B}\)</span>, the decision maker <em>weakly prefers</em> <span class="math notranslate nohighlight">\(A\)</span> over <span class="math notranslate nohighlight">\(B\)</span>, or they are indifferent. Then, the utility of choice <span class="math notranslate nohighlight">\(A\)</span> is greater than or equal to <span class="math notranslate nohighlight">\(B\)</span>, or <span class="math notranslate nohighlight">\(U(A)\geq{U(A)}\)</span>.</p></li>
 </ul>
-<section id="properties-of-utility-functions">
-<h3>Properties of utility functions<a class="headerlink" href="#properties-of-utility-functions" title="Permalink to this heading">#</a></h3>
-<p>A utility function is a mathematical representation of a person’s preferences over different outcomes or alternatives. Here are some properties that a utility function should possess:</p>
+<p>A utility function is a mathematical representation of a person’s preferences over different outcomes or alternatives. There are many different classes of utility functions, let’s look at a few examples and examine there properties:</p>
 <ul class="simple">
-<li><p><strong>Completeness</strong>: A utility function should be able to rank all possible outcomes or alternatives. In other words, for any two outcomes, the utility function should tell us which one is preferred or whether they are equally preferred.</p></li>
-<li><p><strong>Transitivity</strong>: If outcome A is preferred to outcome B, and outcome B is preferred to outcome C, then outcome A must be preferred to outcome C. This is known as the transitivity property.</p></li>
-<li><p><strong>Monotonicity</strong>: If more of a good is always preferred to less, then the utility function should increase in that good. Conversely, if less of a bad is always preferred to more, then the utility function should decrease in that bad.</p></li>
-<li><p><strong>Continuity</strong>: Small changes in the outcome or alternatives should result in small changes in the utility function. This is known as the continuity property.</p></li>
-<li><p><strong>Concavity</strong>: The utility function should be concave if the person exhibits diminishing marginal utility. This means that as a person consumes more of a good, the additional satisfaction gained from each unit consumed decreases.</p></li>
-</ul>
-<p>These properties help ensure that a utility function accurately represents a person’s preferences and can be used to make rational choices between alternatives.</p>
-<section id="example-utility-functions">
-<h4>Example utility functions<a class="headerlink" href="#example-utility-functions" title="Permalink to this heading">#</a></h4>
-<p>There are many different classes of utility functions, let’s look at a few examples and examine there properties:</p>
-<ul class="simple">
-<li><p><strong>Logarithmic utility function</strong> assumes that an individual’s utility is a function of the logarithm of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = ln(x+1)\)</span>.</p></li>
+<li><p><strong>Logarithmic utility function</strong> assumes that an individual’s utility is a function of the logarithm of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = \ln(x+a)\)</span>, where <span class="math notranslate nohighlight">\(a&gt;0\)</span>.</p></li>
 <li><p><strong>Quadratic utility function</strong> assumes that an individual’s utility is proportional to the square of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = ax^{2}\)</span>, where <span class="math notranslate nohighlight">\(a&gt;0\)</span> is a positive constant.</p></li>
 <li><p><strong>Exponential utility function</strong> assumes that an individual’s utility is proportional to the exponential of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = e^{ax}\)</span>, where <span class="math notranslate nohighlight">\(a&gt;0\)</span> is a positive constant.</p></li>
 <li><p><strong>Linear utility function</strong> assumes that an individual’s utility is directly proportional to the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = \sum{a_{i}x_{i}}\)</span>, where <span class="math notranslate nohighlight">\(a_{i}&gt;0\)</span> is a positive constant.</p></li>
 <li><p><strong>Cobb-Douglas utility function</strong> is commonly used in economics and assumes that an individual’s utility is a function of the quantity of two or more goods consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x_{1},\dots,x_{n}) = \prod{x_{i}^{\alpha_{i}}}\)</span>, where <span class="math notranslate nohighlight">\(\alpha_{i}&gt;0\)</span> are positive constants.</p></li>
 <li><p><strong>Leontief utility function</strong> assumes that an individual’s utility is based on the minimum amount of each attribute or variable required to achieve a certain level of satisfaction. The function is represented by the equation <span class="math notranslate nohighlight">\(U(x_{1},\dots, x_{n}) = \min\left\{\alpha_{1}x_{1},\dots,\alpha_{n}x_{n}\right\}\)</span>, where <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> are the minimum amounts required for each variable, and <span class="math notranslate nohighlight">\(x_{i}\)</span> are the quantities consumed for variable <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
 </ul>
-</section>
-</section>
+<!-- 
+A utility function should obey the following properties: -->
+<!-- * __Completeness__: A utility function should be able to rank all possible outcomes or alternatives. In other words, for any two outcomes, the utility function should tell us which one is preferred or whether they are equally preferred.
+* __Transitivity__: If outcome A is preferred to outcome B, and outcome B is preferred to outcome C, then outcome A must be preferred to outcome C. This is known as the transitivity property.
+* __Monotonicity__: If more of a good is always preferred to less, then the utility function should increase in that good. Conversely, if less of a bad is always preferred to more, then the utility function should decrease in that bad.
+* __Continuity__: Small changes in the outcome or alternatives should result in small changes in the utility function. This is known as the continuity property.
+* __Concavity__: The utility function should be concave if the person exhibits diminishing marginal utility. This means that as a person consumes more of a good, the additional satisfaction gained from each unit consumed decreases. 
+
+These properties ensure that a utility function represents a person's preferences and can be used to make rational choices between alternatives.
+-->
 </section>
 <section id="marginal-utility">
 <span id="content-references-marginal-utility"></span><h2>Marginal utility<a class="headerlink" href="#marginal-utility" title="Permalink to this heading">#</a></h2>
@@ -479,21 +472,32 @@ document.write(`
 <div class="proof definition admonition" id="defn-marginal-utility">
 <p class="admonition-title"><span class="caption-number">Definition 2 </span> (Marginal Utility)</p>
 <section class="definition-content" id="proof-content">
-<p>A decision maker is analyzing the consumption of different combinations of <span class="math notranslate nohighlight">\(n\)</span> goods or services <span class="math notranslate nohighlight">\(x_{1},\dots,x_{n}\)</span>. The utility function governing the decision maker <span class="math notranslate nohighlight">\(U(\dots)\)</span> can be expanded by computing the <a class="reference external" href="https://en.wikipedia.org/wiki/Differential_of_a_function#Differentials_in_several_variables">total differential</a> around some point <span class="math notranslate nohighlight">\(\left(x_{1}^{\star},\dots,x_{n}^{\star}\right)\)</span>:</p>
+<p>A decision maker is analyzing the consumption of different combinations of <span class="math notranslate nohighlight">\(n\)</span> goods or services <span class="math notranslate nohighlight">\(x_{1},\dots,x_{n}\)</span>. The utility function governing the decision maker <span class="math notranslate nohighlight">\(U(\dots)\)</span> can be expanded by computing the <a class="reference external" href="https://en.wikipedia.org/wiki/Differential_of_a_function#Differentials_in_several_variables">total differential</a> around a point <span class="math notranslate nohighlight">\(\left(x_{1}^{\star},\dots,x_{n}^{\star}\right)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-total-differential-ic">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eqn-total-differential-ic" title="Permalink to this equation">#</a></span>\[dU = \sum_{i=1}^{n}\left(\frac{\partial{U}}{\partial{x_{i}}}\right)_{\star}dx_{i}\]</div>
-<p>The partial derivative of the utility with respect to a change in the consumption of good or service <span class="math notranslate nohighlight">\(i\)</span> is the <a class="reference external" href="https://en.wikipedia.org/wiki/Marginal_utility">marginal utility</a>:</p>
+<span class="eqno">(2)<a class="headerlink" href="#equation-eqn-total-differential-ic" title="Permalink to this equation">#</a></span>\[dU = \sum_{i=1}^{n}\bar{U}_{i}\cdot{dx_{i}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\)</span> denotes the partial derivative which is also called the <a class="reference external" href="https://en.wikipedia.org/wiki/Marginal_utility">marginal utility</a>:</p>
 <div class="math notranslate nohighlight">
-\[dU = \sum_{i=1}^{n}\left(\text{MU}_{i}^{\star}\right){dx_{i}}\]</div>
+\[\bar{U}_{i} \equiv \left(\frac{\partial{U}}{\partial{x_{i}}}\right)_{\star}\]</div>
+<p>where the <span class="math notranslate nohighlight">\(\star\)</span> denotes that all other variables (excluding <span class="math notranslate nohighlight">\(x_{i}\)</span>) are held constant. The marginal utility is the rate of change of the utility function with respect to the consumption of one additional unit of <span class="math notranslate nohighlight">\(x_{i}\)</span>.</p>
 </section>
-</div><p>The shape of the marginal utility curves gives insight into how a decision maker values a particular good or service. Consider the case of how two agents feel about widgets <span class="math notranslate nohighlight">\(w\)</span>:</p>
-<ul class="simple">
-<li><p><strong>Agent A</strong>: Let the utility function governing the satisfaction gained by Agent A generated by purchasing a widget be <span class="math notranslate nohighlight">\(U(w) = \ln\left(1+w\right)\)</span>.</p></li>
-<li><p><strong>Agent B</strong>: Let the utility function governing the satisfaction gained by Agent B generated by purchasing a widget be <span class="math notranslate nohighlight">\(U(w) =  \alpha\cdot{w}^2\)</span>, where <span class="math notranslate nohighlight">\(\alpha&gt;0\)</span>.</p></li>
-</ul>
-<p>The marginal utility of Agent A for widgets in given by:</p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial{U}}{\partial{w}} = \frac{1}{1+w}\]</div>
+</div><section id="linear-utility-functions">
+<h3>Linear utility functions<a class="headerlink" href="#linear-utility-functions" title="Permalink to this heading">#</a></h3>
+<p>A linear utility function is the simplest utility function. It assumes that an individual’s utility is directly proportional to the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = \sum{a_{i}x_{i}}\)</span>, where <span class="math notranslate nohighlight">\(a_{i}&gt;0\)</span> is a positive constant. The marginal utility of a linear utility function is constant and does not depend on the quantity consumed.</p>
+</section>
+<section id="logarithmic-utility-functions">
+<h3>Logarithmic utility functions<a class="headerlink" href="#logarithmic-utility-functions" title="Permalink to this heading">#</a></h3>
+<p>A logarithmic utility function assumes that an individual’s utility is a function of the logarithm of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = \ln(x+a)\)</span>, where <span class="math notranslate nohighlight">\(a&gt;0\)</span> is a positive constant. The marginal utility of a logarithmic utility function is inversely proportional to the quantity consumed:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-log-marginal-utility">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eqn-log-marginal-utility" title="Permalink to this equation">#</a></span>\[\bar{U} = \frac{1}{x + a}\]</div>
+<!-- The shape of the marginal utility curves gives insight into how a decision maker values a particular good or service. Consider the case of how two agents feel about widgets $w$:
+
+* __Agent A__: Let the utility function governing the satisfaction gained by Agent A generated by purchasing a widget be $U(w) = \ln\left(1+w\right)$. 
+* __Agent B__: Let the utility function governing the satisfaction gained by Agent B generated by purchasing a widget be $U(w) =  \alpha\cdot{w}^2$, where $\alpha>0$.
+
+The marginal utility of Agent A for widgets in given by:
+
+$$\frac{\partial{U}}{\partial{w}} = \frac{1}{1+w}$$ -->
+</section>
 </section>
 <section id="indifference-curves">
 <span id="content-references-indifference-curves"></span><h2>Indifference curves<a class="headerlink" href="#indifference-curves" title="Permalink to this heading">#</a></h2>
@@ -625,14 +629,12 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Utility Functions and Rational Choices</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-choice-theory">Rational choice theory</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-of-utility-functions">Properties of utility functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-utility-functions">Example utility functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-choice-theory">Rational choice theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-utility">Marginal utility</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-utility-functions">Linear utility functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithmic-utility-functions">Logarithmic utility functions</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-utility">Marginal utility</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a></li>
 </ul>
 </li>
