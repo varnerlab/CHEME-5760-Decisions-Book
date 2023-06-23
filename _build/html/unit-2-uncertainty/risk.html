@@ -474,21 +474,21 @@ document.write(`
 <span class="k">end</span>
 </pre></div>
 </div>
-<p>We can use the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> function to calculate the experimental outcome for different values of the wealth <span class="math notranslate nohighlight">\(w\)</span> bet on each flip and the expected return (<a class="reference internal" href="#fig-coin-flip-simulation"><span class="std std-numref">Fig. 3</span></a>):</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> function to calculate the experimental outcome for different values of the wealth <span class="math notranslate nohighlight">\(w\)</span> bet on each flip and the expected return (<a class="reference internal" href="#fig-coin-flip-simulation"><span class="std std-numref">Fig. 4</span></a>):</p>
 <figure class="align-default" id="fig-coin-flip-simulation">
 <a class="reference internal image-reference" href="../_images/Fig-CoinFlip-Game-Simulation.pdf"><img alt="../_images/Fig-CoinFlip-Game-Simulation.pdf" src="../_images/Fig-CoinFlip-Game-Simulation.pdf" style="height: 260px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Simulation of the cumulative cash position of <span class="math notranslate nohighlight">\(M\)</span> players following <span class="math notranslate nohighlight">\(N\)</span> flips of a fair coin for <span class="math notranslate nohighlight">\(w = 1\)</span> (left) and <span class="math notranslate nohighlight">\(w = 10\)</span> (right). Regardless of the amount bet on each flip, the expected value computed over the population of players is near zero.</span><a class="headerlink" href="#fig-coin-flip-simulation" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Simulation of the cumulative cash position of <span class="math notranslate nohighlight">\(M\)</span> players following <span class="math notranslate nohighlight">\(N\)</span> flips of a fair coin for <span class="math notranslate nohighlight">\(w = 1\)</span> (left) and <span class="math notranslate nohighlight">\(w = 10\)</span> (right). Regardless of the amount bet on each flip, the expected value computed over the population of players is near zero.</span><a class="headerlink" href="#fig-coin-flip-simulation" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The expected value of the coin flip game is zero for <span class="math notranslate nohighlight">\(M\)</span> trials with <span class="math notranslate nohighlight">\(N\)</span> flips per trial for <span class="math notranslate nohighlight">\(w = 1\)</span> and <span class="math notranslate nohighlight">\(w = 10\)</span>; this result would be true even as <span class="math notranslate nohighlight">\(w\rightarrow\infty\)</span>. Thus, why do people react differently to betting a small versus a large amount on each coin flip if they will always break even eventually? This is the essence of an interesting characteristic of individuals, namely, risk aversion.</p>
 <section id="modes-of-risk-aversion">
 <h3>Modes of Risk Aversion<a class="headerlink" href="#modes-of-risk-aversion" title="Permalink to this heading">#</a></h3>
-<p>Picture yourself having to choose between two options: a definite amount of money, known as the certainty equivalent (CE), or a risky payout that relies on the outcome of a coin flip, such as $100 or nothing. People’s varying attitudes towards risk cause them to opt for one choice over the other. There are three risk models that a decision-maker can adopt: risk-averse, risk-neutral, and risk-seeking (<a class="reference internal" href="#fig-risk-aversion-types"><span class="std std-numref">Fig. 4</span></a>):</p>
+<p>Picture yourself having to choose between two options: a definite amount of money, known as the certainty equivalent (CE), or a risky payout that relies on the outcome of a coin flip, such as $100 or nothing. People’s varying attitudes towards risk cause them to opt for one choice over the other. There are three risk models that a decision-maker can adopt: risk-averse, risk-neutral, and risk-seeking (<a class="reference internal" href="#fig-risk-aversion-types"><span class="std std-numref">Fig. 5</span></a>):</p>
 <figure class="align-default" id="fig-risk-aversion-types">
 <a class="reference internal image-reference" href="../_images/Fig-RiskAversion-Types.pdf"><img alt="../_images/Fig-RiskAversion-Types.pdf" src="../_images/Fig-RiskAversion-Types.pdf" style="height: 240px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Utility versus wealth <span class="math notranslate nohighlight">\(W\)</span> for three models of risk; risk-avoiding (left), risk-neutral (center), and risk-seeking (right). CE: certainty equivalent and <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> expected wealth.</span><a class="headerlink" href="#fig-risk-aversion-types" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Utility versus wealth <span class="math notranslate nohighlight">\(W\)</span> for three models of risk; risk-avoiding (left), risk-neutral (center), and risk-seeking (right). CE: certainty equivalent and <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> expected wealth.</span><a class="headerlink" href="#fig-risk-aversion-types" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Assuming a fair coin, the expected value of the game proposed is <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> = 50 USD. However, people may have different reactions when given the option of taking the bet or a certain payment:</p>
@@ -499,7 +499,7 @@ document.write(`
 </ul>
 <p>The difference between the certainty equivalent and the expected payout of the game <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> is referred to as the <em>risk premium</em> or <span class="math notranslate nohighlight">\(\text{RP}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-risk-premimum">
-<span class="eqno">(15)<a class="headerlink" href="#equation-eqn-risk-premimum" title="Permalink to this equation">#</a></span>\[\text{RP} = \mathbb{E}(W) - \text{CE}\]</div>
+<span class="eqno">(17)<a class="headerlink" href="#equation-eqn-risk-premimum" title="Permalink to this equation">#</a></span>\[\text{RP} = \mathbb{E}(W) - \text{CE}\]</div>
 <p>For risk-averse individuals, the risk premium is positive. For risk-neutral decision-makers, the risk premium is zero. However, for risk-seeking individuals, the risk premium is negative. This means that the decision maker is willing to pay to take a chance.</p>
 </section>
 </section>
@@ -512,10 +512,10 @@ document.write(`
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(U(w)\)</span> be a utility function describing an individuals satisfaction gained from a unit of wealth <span class="math notranslate nohighlight">\(w\)</span>. Further, let <span class="math notranslate nohighlight">\(U(w)\)</span> be at least twice differentiable with respect to the wealth <span class="math notranslate nohighlight">\(w\)</span>. Then, the absolute risk aversion <span class="math notranslate nohighlight">\(r(w)\)</span> is defined as:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-abs-risk-aversion-model">
-<span class="eqno">(16)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-model" title="Permalink to this equation">#</a></span>\[r(w) = - \frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
+<span class="eqno">(18)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-model" title="Permalink to this equation">#</a></span>\[r(w) = - \frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
 <p>and the relative risk aversion <span class="math notranslate nohighlight">\(\bar{r}(w)\)</span> is defined as:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-relative-risk-aversion-model">
-<span class="eqno">(17)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-model" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)} = w\cdot{r(w)}\]</div>
+<span class="eqno">(19)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-model" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)} = w\cdot{r(w)}\]</div>
 <p>where <span class="math notranslate nohighlight">\(U^{\prime}(w)\)</span> and <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)\)</span> denote the first and second derivative of the utility function with respect to the weath.</p>
 </section>
 </div><ul class="simple">
@@ -528,10 +528,10 @@ document.write(`
 <h3>Example: Computing risk aversion parameters<a class="headerlink" href="#example-computing-risk-aversion-parameters" title="Permalink to this heading">#</a></h3>
 <p>Let’s compute the absolute and relative risk aversion parameters for a typical <em>risk adverse</em> utility function using the <a class="reference external" href="https://github.com/JuliaDiff/ForwardDiff.jl">FowardDiff.jl</a> package. For example, consider the utility function <span class="math notranslate nohighlight">\(U(w) = \log(w+1)\)</span>, which is a concave utility function. The absolute risk aversion for <span class="math notranslate nohighlight">\(U(w) = \log(w+1)\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-abs-risk-aversion-example">
-<span class="eqno">(18)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-example" title="Permalink to this equation">#</a></span>\[r(w) = \frac{1}{w+1}\]</div>
+<span class="eqno">(20)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-example" title="Permalink to this equation">#</a></span>\[r(w) = \frac{1}{w+1}\]</div>
 <p>while the releative risk aversion is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-relative-risk-aversion-example">
-<span class="eqno">(19)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-example" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = \frac{w}{w+1}\]</div>
+<span class="eqno">(21)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-example" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = \frac{w}{w+1}\]</div>
 <p>A quick investigation of the above equations reveals that the absolute risk aversion is decreasing in wealth <span class="math notranslate nohighlight">\(w\)</span>, while the relative risk aversion is increasing in wealth <span class="math notranslate nohighlight">\(w\)</span>, i.e., <span class="math notranslate nohighlight">\(\lim r(w) = 0\)</span> and <span class="math notranslate nohighlight">\(\lim \bar{r}(w) = 1\)</span> as <span class="math notranslate nohighlight">\({w\rightarrow\infty}\)</span>.</p>
 <section id="implementation">
 <h4>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h4>
@@ -569,7 +569,7 @@ document.write(`
 <figure class="align-default" id="fig-abs-risk-aversion">
 <a class="reference internal image-reference" href="../_images/Fig-Abs-RiskAversion-Schematic.pdf"><img alt="../_images/Fig-Abs-RiskAversion-Schematic.pdf" src="../_images/Fig-Abs-RiskAversion-Schematic.pdf" style="height: 280px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Utility and risk aversion versus wealth for the utility function <span class="math notranslate nohighlight">\(U(w) = \ln\left(w+1\right)\)</span>. Left: Utility versus wealth <span class="math notranslate nohighlight">\(w\)</span>. Right: Absolute risk aversion versus wealth <span class="math notranslate nohighlight">\(w\)</span>.</span><a class="headerlink" href="#fig-abs-risk-aversion" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Utility and risk aversion versus wealth for the utility function <span class="math notranslate nohighlight">\(U(w) = \ln\left(w+1\right)\)</span>. Left: Utility versus wealth <span class="math notranslate nohighlight">\(w\)</span>. Right: Absolute risk aversion versus wealth <span class="math notranslate nohighlight">\(w\)</span>.</span><a class="headerlink" href="#fig-abs-risk-aversion" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

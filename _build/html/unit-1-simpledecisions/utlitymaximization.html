@@ -400,10 +400,12 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-rational-choice">Optimal rational choice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-optimal-choice-problems">Solving optimal choice problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-lagrange-multipliers">Method of Lagrange multipliers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-lagrange-multipliers-and-utility-maximization">Method of Lagrange multipliers and utility maximization</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-two-good-cobb-douglas-utility-maximization-problem">Example: Two-good Cobb-Douglas utility maximization problem</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-two-good-linear-utility-maximization-problem">Example: Two-good linear utility maximization problem</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solutions-of-utility-maximization-problems">Numerical solutions of utility maximization problems</a></li>
 </ul>
 </li>
 </ul>
@@ -471,32 +473,31 @@ document.write(`
 \end{eqnarray}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(c_{i}\geq{0}~\forall{i}\)</span> denotes the cost of good or service <span class="math notranslate nohighlight">\(i\)</span>, and <span class="math notranslate nohighlight">\(x_{i}\)</span> represents the amount of good or service purchased or consumed by the agent during time period <span class="math notranslate nohighlight">\(t\rightarrow{t+dt}\)</span>.</p>
 </section>
-</div><p>The problem in <a class="reference internal" href="#eqn-budget-constraint">Definition 4</a> can be solved for the unknown consumption levels of <span class="math notranslate nohighlight">\(x_{i}\)</span> using various techniques. For example, we could use the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a> or any number of numerical heuristic optimization approaches, e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/Simulated_annealing">simulated annealing</a> in combination with
-<a class="reference external" href="https://en.wikipedia.org/wiki/Penalty_method">penalty</a> or <span class="xref myst">barrier</span> methods to incorporate the constraints.</p>
+</div><p>The problem in <a class="reference internal" href="#eqn-budget-constraint">Definition 4</a> can be solved for the unknown consumption levels of <span class="math notranslate nohighlight">\(x_{i}\)</span> using various techniques.</p>
 <!-- Of course, if the utility function in {prf:ref}`eqn-budget-constraint` is linear, we could also use [linear programming](https://en.wikipedia.org/wiki/Linear_programming). -->
 </section>
 <section id="solving-optimal-choice-problems">
 <h2>Solving optimal choice problems<a class="headerlink" href="#solving-optimal-choice-problems" title="Permalink to this heading">#</a></h2>
-<p>To solve the constrained maximum utility problem, we could use classical calculus methods, i.e., the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a> or numerical approaches such as the <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent">method of gradient descent</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Metaheuristic#Metaheuristic_Optimization_Frameworks">metaheuristic approaches</a> in combination with a <a class="reference external" href="https://en.wikipedia.org/wiki/Penalty_method">penalty</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Barrier_function">barrier function</a> method to accommodate the constraints.</p>
-<section id="method-of-lagrange-multipliers">
-<h3>Method of Lagrange multipliers<a class="headerlink" href="#method-of-lagrange-multipliers" title="Permalink to this heading">#</a></h3>
-<p>Let’s begin with a classical approach, as it provides a good foundation for understanding the more advanced methods and has some interesting theoretical properties. The <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a> involves introducing additional variables, called Lagrange multipliers, which integrate the constraints into the objective function (<a class="reference internal" href="#defn-method-l-multipliers">Definition 5</a>):</p>
+<p>To solve the constrained maximum utility problem, we could use classical calculus methods, i.e., the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a> or numerical approaches such as the <a class="reference external" href="https://en.wikipedia.org/wiki/Gradient_descent">method of gradient descent</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Metaheuristic#Metaheuristic_Optimization_Frameworks">metaheuristic approaches</a> such as  <a class="reference external" href="https://en.wikipedia.org/wiki/Simulated_annealing">simulated annealing</a> in combination with a <a class="reference external" href="https://en.wikipedia.org/wiki/Penalty_method">penalty</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Barrier_function">barrier function</a> method to accommodate the constraints.</p>
+<section id="method-of-lagrange-multipliers-and-utility-maximization">
+<h3>Method of Lagrange multipliers and utility maximization<a class="headerlink" href="#method-of-lagrange-multipliers-and-utility-maximization" title="Permalink to this heading">#</a></h3>
+<p>Let’s begin with a classical approach, the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a>. as it provides a good foundation for understanding  more advanced methods and has some interesting theoretical properties. The <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a> involves introducing additional variables, called Lagrange multipliers, which integrate the constraints into a modified objective function called the Lagrangian function (<a class="reference internal" href="#defn-method-l-multipliers">Definition 5</a>):</p>
 <div class="proof definition admonition" id="defn-method-l-multipliers">
 <p class="admonition-title"><span class="caption-number">Definition 5 </span> (Method of Lagrange multipliers)</p>
 <section class="definition-content" id="proof-content">
-<p>To find the maximum or minimum of a function <span class="math notranslate nohighlight">\(f(x)\)</span> subject to the equality constraint <span class="math notranslate nohighlight">\(g(x)\)</span>, we can form the Lagrangian function:</p>
+<p>To find the maximum or minimum of a function <span class="math notranslate nohighlight">\(f(x)\)</span> subject to the equality constraint <span class="math notranslate nohighlight">\(g(x)\)</span>, we can form the Lagrangian function <span class="math notranslate nohighlight">\(\mathcal{L}(x,\lambda)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-lagrangian-1d">
 <span class="eqno">(6)<a class="headerlink" href="#equation-eqn-lagrangian-1d" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x,\lambda) = f(x) + \lambda\cdot{g}(x)\]</div>
-<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the Lagrange multiplier for constraint <span class="math notranslate nohighlight">\(g(x)\)</span>, and <span class="math notranslate nohighlight">\(\mathcal{L}(x,\lambda)\)</span> is called the Lagrangian function. At a critical point (maximum or minimum), the partial derivatives of the
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the Lagrange multiplier for constraint <span class="math notranslate nohighlight">\(g(x)\)</span>. At a critical point (maximum or minimum), the partial derivatives of the
 Lagrangian function with respect to <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> vanish:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-first-order-condition-lagrange">
 <span class="eqno">(7)<a class="headerlink" href="#equation-eqn-first-order-condition-lagrange" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
 \frac{\partial\mathcal{L}}{\partial{x}} &amp; = &amp; f^{\prime}(x) + \lambda\cdot{g^{\prime}(x)} = 0\\
 \frac{\partial\mathcal{L}}{\partial{\lambda}} &amp; = &amp; g(x) = 0 \\
 \end{eqnarray}\end{split}\]</div>
-<p>The system of equations defined by Eqn. <a class="reference internal" href="#equation-eqn-first-order-condition-lagrange">(7)</a> callled the Lagrange equations, can be solved to find the critical points and, thus, the maximum or minimum value of the objective function.</p>
+<p>The system of equations defined by Eqn. <a class="reference internal" href="#equation-eqn-first-order-condition-lagrange">(7)</a> callled the Lagrange equations are first-order optimality conditions, which can be solved to find the critical points and, thus, the maximum or minimum value of the objective function.</p>
 </section>
-</div><p>Thus, in terms the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a>, the utility maximization problem has the Lagrangian function:</p>
+</div><p>The utility maximization problem outlined in <a class="reference internal" href="#eqn-budget-constraint">Definition 4</a> has the Lagrangian function:</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{L}(x,\lambda) = U(x_{1},\dots,x_{n}) + \lambda\cdot\left(I-\sum_{i=1}^{n}c_{i}x_{i}\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(I\)</span> is the amount of money (income) we have to spend on goods <span class="math notranslate nohighlight">\(x_{1},x_{2},\dots,x_{n}\)</span>, and <span class="math notranslate nohighlight">\(c_{i}\)</span> is the cost of good <span class="math notranslate nohighlight">\(i\)</span>. The Lagrangian function <span class="math notranslate nohighlight">\(\mathcal{L}(x,\lambda)\)</span> can be expanded into the <span class="math notranslate nohighlight">\(n+1\)</span> system of equations (first-order optimality conditions):</p>
@@ -507,25 +508,39 @@ Lagrangian function with respect to <span class="math notranslate nohighlight">\
 \frac{\partial\mathcal{L}}{\partial{x_{n}}} &amp; = &amp; \bar{U}_{n} - \lambda\cdot{c_{n}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial\lambda} &amp; = &amp; I - \sum_{i=1}^{n}c_{i}x_{i} = 0 \\
 \end{eqnarray}\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\)</span> denotes the marginal utility of good <span class="math notranslate nohighlight">\(i\)</span>. The system of equations in <a class="reference internal" href="#equation-eqn-two-good-utility-maximization">(8)</a> can be solved to find the optimal consumption levels of <span class="math notranslate nohighlight">\(x_{i}\)</span>, i.e., the values of <span class="math notranslate nohighlight">\(x_{i}\)</span> that maximize the utility function <span class="math notranslate nohighlight">\(U(x_{1},\dots,x_{n})\)</span> subject to the budget constraint. The first <span class="math notranslate nohighlight">\(n\)</span> of the first-order optimality conditions can be solved to arrive at the following expression for the Lagrange multiplier:</p>
+<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\)</span> denotes the marginal utility of good <span class="math notranslate nohighlight">\(i\)</span>. The system of equations in Eqn. <a class="reference internal" href="#equation-eqn-two-good-utility-maximization">(8)</a> can be solved to find the optimal consumption levels of <span class="math notranslate nohighlight">\(x_{i}\)</span>. The first <span class="math notranslate nohighlight">\(n\)</span> of the first-order optimality conditions can be solved to arrive at the following expression for the Lagrange multiplier:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-lagrange-multiplier-marginal-utility-dollar">
 <span class="eqno">(9)<a class="headerlink" href="#equation-eqn-lagrange-multiplier-marginal-utility-dollar" title="Permalink to this equation">#</a></span>\[\lambda = \frac{\bar{U}_{i}}{c_{i}}\qquad\forall{i}\]</div>
 <p>which gives an interesting interpretation of the Lagrange multiplier: it is the marginal utility per dollar spent on good <span class="math notranslate nohighlight">\(i\)</span>. Further, it provides the basis for the matching condition at the optimum:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-matching-condition-marginal-utility-dollar">
 <span class="eqno">(10)<a class="headerlink" href="#equation-eqn-matching-condition-marginal-utility-dollar" title="Permalink to this equation">#</a></span>\[\frac{\bar{U}_{i}}{c_{i}} = \frac{\bar{U}_{j}}{c_{j}}\qquad\forall{i,j}\]</div>
+<section id="example-two-good-cobb-douglas-utility-maximization-problem">
+<h4>Example: Two-good Cobb-Douglas utility maximization problem<a class="headerlink" href="#example-two-good-cobb-douglas-utility-maximization-problem" title="Permalink to this heading">#</a></h4>
+<p>Let’s consider a utility maximization problem that uses a Cobb-Douglas utility function <span class="math notranslate nohighlight">\(U(x_{1},x_{2}) = x_{1}^{\alpha}x_{2}^{1-\alpha}\)</span> that describes the satisfaction gained from consuming two goods, <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>. The utility function is subject to a budget constraint <span class="math notranslate nohighlight">\(\sum c_{i}x_{i} = I\)</span>, where <span class="math notranslate nohighlight">\(I\)</span> is the amount of money (income) we have to spend on goods <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>, and <span class="math notranslate nohighlight">\(c_{i}\)</span> is the cost of good <span class="math notranslate nohighlight">\(i\)</span>. The Lagrangian function for this problem is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-lagrangian-two-good-cobb-douglas-utility">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eqn-lagrangian-two-good-cobb-douglas-utility" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x_{1},x_{2},\lambda) = x_{1}^{\alpha}x_{2}^{1-\alpha} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)\]</div>
+<p>which gives the first-order optimality conditions:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-two-good-cobb-douglas-utility-maximization">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eqn-two-good-cobb-douglas-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
+\frac{\partial\mathcal{L}}{\partial{x_{1}}} &amp; = &amp; \alpha\cdot{x_{1}^{\alpha-1}}x_{2}^{1-\alpha} - \lambda\cdot{c_{1}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial{x_{2}}} &amp; = &amp; (1-\alpha)\cdot{x_{1}^{\alpha}x_{2}^{-\alpha}} - \lambda\cdot{c_{2}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial\lambda} &amp; = &amp; I - c_{1}x_{1} - c_{2}x_{2} = 0 \\
+\end{eqnarray}\end{split}\]</div>
+<p>The system of equations in Eqn. <a class="reference internal" href="#equation-eqn-two-good-cobb-douglas-utility-maximization">(12)</a> can be solved to find the optimal consumption levels of <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>. However, these equations are non-linear and not easy to solve analytically. Thus, we must use numerical methods to find the optimal values of <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>.</p>
+</section>
 <section id="example-two-good-linear-utility-maximization-problem">
 <h4>Example: Two-good linear utility maximization problem<a class="headerlink" href="#example-two-good-linear-utility-maximization-problem" title="Permalink to this heading">#</a></h4>
-<p>Let’s consider a simple example of a two-good utility maximization problem. Suppose we have a linear utility function <span class="math notranslate nohighlight">\(U(x_{1},x_{2}) = a_{1}x_{1}+a_{2}x_{2}\)</span> that describes the satisfaction gained from consuming two goods, <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>. The utility function is subject to a budget constraint <span class="math notranslate nohighlight">\(\sum c_{i}x_{i} = I\)</span>, where <span class="math notranslate nohighlight">\(I\)</span> is the amount of money (income) we have to spend on goods <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>, and <span class="math notranslate nohighlight">\(c_{i}\)</span> is the cost of good <span class="math notranslate nohighlight">\(i\)</span>. The Lagrangian function for this problem is given by:</p>
+<p>Let’s consider a two-good utility maximization problem that uses a linear utility function <span class="math notranslate nohighlight">\(U(x_{1},x_{2}) = a_{1}x_{1}+a_{2}x_{2}\)</span> that describes the satisfaction gained from consuming two goods, <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>. The utility function is subject to a budget constraint <span class="math notranslate nohighlight">\(\sum c_{i}x_{i} = I\)</span>, where <span class="math notranslate nohighlight">\(I\)</span> is the amount of money (income) we have to spend on goods <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>, and <span class="math notranslate nohighlight">\(c_{i}\)</span> is the cost of good <span class="math notranslate nohighlight">\(i\)</span>. The Lagrangian function for this problem is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-lagrangian-two-good-linear-utility">
-<span class="eqno">(11)<a class="headerlink" href="#equation-eqn-lagrangian-two-good-linear-utility" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x_{1},x_{2},\lambda) = a_{1}x_{1} + a_{2}x_{2} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)\]</div>
+<span class="eqno">(13)<a class="headerlink" href="#equation-eqn-lagrangian-two-good-linear-utility" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x_{1},x_{2},\lambda) = a_{1}x_{1} + a_{2}x_{2} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)\]</div>
 <p>which gives the first-order optimality conditions:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-two-good-linear-utility-maximization">
-<span class="eqno">(12)<a class="headerlink" href="#equation-eqn-two-good-linear-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
+<span class="eqno">(14)<a class="headerlink" href="#equation-eqn-two-good-linear-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
 \frac{\partial\mathcal{L}}{\partial{x_{1}}} &amp; = &amp; a_{1} - \lambda\cdot{c_{1}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial{x_{2}}} &amp; = &amp; a_{2} - \lambda\cdot{c_{2}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial\lambda} &amp; = &amp; I - c_{1}x_{1} - c_{2}x_{2} = 0 \\
 \end{eqnarray}\end{split}\]</div>
-<p>This system of equations can be represented as a <span class="math notranslate nohighlight">\(3\times{3}\)</span> system of linear algebraic equations for unknows <span class="math notranslate nohighlight">\(x_{1},x_{2}, \lambda\)</span>:</p>
+<p>This system of equations can be represented as a <span class="math notranslate nohighlight">\(3\times{3}\)</span> system of linear algebraic equations for the unknows <span class="math notranslate nohighlight">\(\theta = \left[x_{1},x_{2},\lambda\right]^{T}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{bmatrix}
 0 &amp; 0 &amp; -c_{1} \\
@@ -542,10 +557,10 @@ x_{2} \\
 -a_{2} \\
 -I \\
 \end{bmatrix}\end{split}\]</div>
-<p>or <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{\theta} = \mathbf{b}\)</span> which can be inverted to find the solution:</p>
+<p>or <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{\theta} = \mathbf{b}\)</span> which theoretically can be inverted to find the solution:</p>
 <div class="math notranslate nohighlight">
 \[\theta = \mathbf{A}^{-1}\mathbf{b}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\theta = \left[x_{1},x_{2},\lambda\right]^{T}\)</span>.</p>
+<p>if the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> has full rank. However, in this case the rank of matrix <span class="math notranslate nohighlight">\(\text{rank}(\mathbf{A}) = 2\)</span>, which indicates that the system of equations is underdetermined. This means that there are an infinite number of solutions to the system of equations. To find the solution, we can use the <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse">Moore-Penrose pseudoinverse</a> of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>, which is given by:</p>
 <!-- #### Karush-Kuhn-Tucker (KKT) conditions
 The [Karush-Kuhn-Tucker (KKT) conditions](https://en.wikipedia.org/wiki/Karush–Kuhn–Tucker_conditions) are necessary conditions for finding the optimal solution to an optimization problem with constraints. The conditions are as follows:
 
@@ -556,6 +571,83 @@ The [Karush-Kuhn-Tucker (KKT) conditions](https://en.wikipedia.org/wiki/Karush�
 
 These conditions provide a necessary condition for optimality, which means that if a solution satisfies these conditions, it may be a candidate for the optimal solution. However, it is not guaranteed that the optimal solution satisfies all these conditions, and additional analysis may be necessary to confirm the optimality of a candidate solution. -->
 </section>
+</section>
+<section id="numerical-solutions-of-utility-maximization-problems">
+<h3>Numerical solutions of utility maximization problems<a class="headerlink" href="#numerical-solutions-of-utility-maximization-problems" title="Permalink to this heading">#</a></h3>
+<p>The Cobb-Douglas utility function example above illustrates a case where the first-order optimality conditions are non-linear and not easy to solve analytically. In these cases, which are common, we must use numerical methods to find the optimal values for <span class="math notranslate nohighlight">\(x_{1},\dots,x_{n}\)</span>.</p>
+<p>We’ll make use of the <a class="reference external" href="https://jump.dev/JuMP.jl/stable/">JuMP</a> and <a class="reference external" href="https://github.com/MadNLP/MadNLP.jl">MadNLP</a> packages which provide numerical techniques for solving optimization problems:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://jump.dev/JuMP.jl/stable/">JuMP</a> package provides a high-level interface for defining optimization problems.</p></li>
+<li><p>The <a class="reference external" href="https://github.com/MadNLP/MadNLP.jl">MadNLP</a> package is used by JuMP to solve optimization problems, but it can also be used directly to solve optimization problems.</p></li>
+</ul>
+<p>Let’s revsit the Cobb-Douglas utility maximization problem from above, but this time we’ll use JuMP and MadNLP to solve the problem numerically. First, we’ll define a type that represents the problem:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">mutable struct</span> <span class="kt">MySimpleCobbDouglasChoiceProblem</span> <span class="o">&lt;:</span> <span class="kt">AbstractSimpleChoiceProblem</span>
+
+    <span class="c"># data -</span>
+    <span class="n">α</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span>
+    <span class="n">c</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span>
+    <span class="n">I</span><span class="o">::</span><span class="kt">Float64</span>
+    <span class="n">bounds</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>
+    <span class="n">initial</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span>
+
+    <span class="c"># constructor</span>
+    <span class="n">MySimpleCobbDouglasChoiceProblem</span><span class="p">()</span> <span class="o">=</span> <span class="n">new</span><span class="p">();</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>and then a function that takes an intance of the <code class="docutils literal notranslate"><span class="pre">MySimpleCobbDouglasChoiceProblem</span></code> problem and solves the contrained utlity maximization problem:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">    solve(problem::MySimpleCobbDouglasChoiceProblem) -&gt; Dict{String,Any}</span>
+
+<span class="s">Solves the optimal decision problem with a budget constraint with a Cobb-Douglas utility function</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">solve</span><span class="p">(</span><span class="n">problem</span><span class="o">::</span><span class="kt">MySimpleCobbDouglasChoiceProblem</span><span class="p">)</span><span class="o">::</span><span class="kt">Dict</span><span class="p">{</span><span class="kt">String</span><span class="p">,</span><span class="kt">Any</span><span class="p">}</span>
+
+    <span class="c"># initialize -</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">{</span><span class="kt">String</span><span class="p">,</span><span class="kt">Any</span><span class="p">}()</span>
+    <span class="n">α</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">α</span><span class="p">;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">c</span><span class="p">;</span>
+    <span class="n">bounds</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">bounds</span><span class="p">;</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">I</span><span class="p">;</span>
+    <span class="n">xₒ</span> <span class="o">=</span> <span class="n">problem</span><span class="o">.</span><span class="n">initial</span>
+
+    <span class="c"># how many variables do we have?</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">α</span><span class="p">);</span>
+
+    <span class="c"># Setup the problem -</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(()</span><span class="o">-&gt;</span><span class="n">MadNLP</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">(</span><span class="n">print_level</span><span class="o">=</span><span class="n">MadNLP</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">))</span>
+    <span class="nd">@variable</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">d</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">start</span><span class="o">=</span><span class="n">xₒ</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c"># we have d variables</span>
+    
+    <span class="c"># set objective function -   </span>
+    <span class="nd">@NLobjective</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">Max</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="n">α</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="n">α</span><span class="p">[</span><span class="mi">2</span><span class="p">]));</span>
+    <span class="nd">@constraints</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> 
+        <span class="k">begin</span>
+            <span class="c"># my budget constraint</span>
+            <span class="n">transpose</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">I</span>
+        <span class="k">end</span>
+    <span class="p">);</span>
+
+    <span class="c"># run the optimization -</span>
+    <span class="n">optimize!</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+    <span class="c"># populate -</span>
+    <span class="n">x_opt</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">results</span><span class="p">[</span><span class="s">&quot;argmax&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_opt</span>
+    <span class="n">results</span><span class="p">[</span><span class="s">&quot;budget&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">transpose</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">x_opt</span><span class="p">;</span> 
+    <span class="n">results</span><span class="p">[</span><span class="s">&quot;objective_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">objective_value</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
+
+    <span class="c"># return -</span>
+    <span class="k">return</span> <span class="n">results</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Fill me in here with some text (<a class="reference internal" href="#fig-two-dim-bc-cd-soln"><span class="std std-numref">Fig. 3</span></a>):</p>
+<figure class="align-default" id="fig-two-dim-bc-cd-soln">
+<a class="reference internal image-reference" href="../_images/Fig-Single-Budget-CD-Soln.pdf"><img alt="../_images/Fig-Single-Budget-CD-Soln.pdf" src="../_images/Fig-Single-Budget-CD-Soln.pdf" style="height: 420px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Two-dimensional budget constraint for the <span class="math notranslate nohighlight">\(\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}\)</span> set of goods.</span><a class="headerlink" href="#fig-two-dim-bc-cd-soln" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 </section>
@@ -639,10 +731,12 @@ These conditions provide a necessary condition for optimality, which means that 
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-rational-choice">Optimal rational choice</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-optimal-choice-problems">Solving optimal choice problems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-lagrange-multipliers">Method of Lagrange multipliers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-lagrange-multipliers-and-utility-maximization">Method of Lagrange multipliers and utility maximization</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-two-good-cobb-douglas-utility-maximization-problem">Example: Two-good Cobb-Douglas utility maximization problem</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-two-good-linear-utility-maximization-problem">Example: Two-good linear utility maximization problem</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solutions-of-utility-maximization-problems">Numerical solutions of utility maximization problems</a></li>
 </ul>
 </li>
 </ul>
