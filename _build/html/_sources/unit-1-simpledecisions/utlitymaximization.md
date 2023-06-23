@@ -368,4 +368,8 @@ By examining the relationship between income, prices, and utility maximization s
 ---
 
 # Summary
-Fill me in
+In this set of lectures, we discussed optimal rational choices and constrained utility maximization. We learned how to solve constrained utility maximization problems using the Lagrangian method and numerical optimization. We also explored how the optimal solution changes as a function of available income and the prices of goods and services.
+
+* {ref}`content:references:rational-choice-theory-opt` are based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets.
+
+* {ref}`content:references:rational-choice-income-and-prices`. Understanding the impact of income and prices on decision-making is crucial in comprehending the rationale behind the actions taken by decision-makers. By studying the correlation between income, prices, and utility maximization within a budget constraint, we can gain valuable insights into consumer behavior, resource allocation, and market dynamics.
