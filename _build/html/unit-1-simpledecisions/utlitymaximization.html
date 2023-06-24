@@ -637,32 +637,35 @@ These conditions provide a necessary condition for optimality, which means that 
 <span class="k">end</span>
 </pre></div>
 </div>
-<p>Finally, we’ll put it all together and solve the problem. We build the problem object using the <code class="docutils literal notranslate"><span class="pre">build(...)</span></code> function, and then call the <code class="docutils literal notranslate"><span class="pre">solve(...)</span></code> function to estimate the optinmal solution:</p>
-<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># include the include (load the reqd packages) -</span>
-<span class="n">include</span><span class="p">(</span><span class="s">&quot;Include.jl&quot;</span><span class="p">)</span>
-
-<span class="c"># initialize -</span>
-<span class="n">α</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">];</span> <span class="c"># coefficients</span>
-<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">];</span> <span class="c"># price of x1 and x2</span>
-
-<span class="c"># build my problem object -</span>
-<span class="n">problem</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="n">MySimpleCobbDouglasChoiceProblem</span><span class="p">,</span> <span class="p">(</span>
-    
-    <span class="n">initial</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="c"># initial guess</span>
-    <span class="n">α</span> <span class="o">=</span> <span class="n">α</span><span class="p">,</span> <span class="c"># coefficients</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="c"># price of x1 and x2</span>
-    <span class="n">I</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">,</span> <span class="c"># income</span>
-    
-    <span class="c"># how much of x₁ and x₂ can be we buy?</span>
-    <span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="mf">0.0</span> <span class="mf">100.0</span><span class="p">;</span> <span class="c"># L U</span>
-        <span class="mf">0.0</span> <span class="mf">100.0</span><span class="p">;</span> <span class="c"># L U</span>
-    <span class="p">]</span>
-<span class="p">));</span>
-
-<span class="c"># call tghe solve function. This will return a dictionary -</span>
-<span class="n">solution</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">problem</span><span class="p">);</span>
+<p>Finally, we’ll put it all together and solve the problem. We build the problem object using the <code class="docutils literal notranslate"><span class="pre">build(...)</span></code> function, and then call the <code class="docutils literal notranslate"><span class="pre">solve(...)</span></code> function to estimate the optimal solution:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">runme-cobb-douglas.jl</span><a class="headerlink" href="#id1" title="Permalink to this code">#</a></div>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c"># include the include (load the reqd packages) -</span>
+<span class="linenos"> 2</span><span class="n">include</span><span class="p">(</span><span class="s">&quot;Include.jl&quot;</span><span class="p">)</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c"># initialize -</span>
+<span class="linenos"> 5</span><span class="n">α</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">];</span> <span class="c"># coefficients</span>
+<span class="linenos"> 6</span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">];</span> <span class="c"># price of x1 and x2</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c"># build my problem object -</span>
+<span class="linenos"> 9</span><span class="n">problem</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="n">MySimpleCobbDouglasChoiceProblem</span><span class="p">,</span> <span class="p">(</span>
+<span class="linenos">10</span>    
+<span class="linenos">11</span>    <span class="n">initial</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="c"># initial guess</span>
+<span class="linenos">12</span>    <span class="n">α</span> <span class="o">=</span> <span class="n">α</span><span class="p">,</span> <span class="c"># coefficients</span>
+<span class="linenos">13</span>    <span class="n">c</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span> <span class="c"># price of x1 and x2</span>
+<span class="linenos">14</span>    <span class="n">I</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">,</span> <span class="c"># income</span>
+<span class="linenos">15</span>    
+<span class="linenos">16</span>    <span class="c"># how much of x₁ and x₂ can be we buy?</span>
+<span class="linenos">17</span>    <span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span>
+<span class="linenos">18</span>        <span class="mf">0.0</span> <span class="mf">100.0</span><span class="p">;</span> <span class="c"># L U</span>
+<span class="linenos">19</span>        <span class="mf">0.0</span> <span class="mf">100.0</span><span class="p">;</span> <span class="c"># L U</span>
+<span class="linenos">20</span>    <span class="p">]</span>
+<span class="linenos">21</span><span class="p">));</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="c"># call tghe solve function. This will return a dictionary -</span>
+<span class="linenos">24</span><span class="n">solution</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">problem</span><span class="p">);</span>
 </pre></div>
+</div>
 </div>
 <p>The optimal solution for the consumption of good <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span> subject to the budget constraint is a point of tangency between the indifference curve and the budget constraint (<a class="reference internal" href="#fig-two-dim-bc-cd-soln"><span class="std std-numref">Fig. 3</span></a>):</p>
 <figure class="align-default" id="fig-two-dim-bc-cd-soln">

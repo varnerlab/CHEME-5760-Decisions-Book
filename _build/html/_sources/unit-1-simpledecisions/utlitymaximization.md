@@ -298,9 +298,12 @@ function solve(problem::MySimpleCobbDouglasChoiceProblem)::Dict{String,Any}
 end
 ```
 
-Finally, we'll put it all together and solve the problem. We build the problem object using the `build(...)` function, and then call the `solve(...)` function to estimate the optinmal solution:
+Finally, we'll put it all together and solve the problem. We build the problem object using the `build(...)` function, and then call the `solve(...)` function to estimate the optimal solution:
 
-```julia
+```{code-block} julia
+:caption: runme-cobb-douglas.jl
+:linenos:
+
 # include the include (load the reqd packages) -
 include("Include.jl")
 
