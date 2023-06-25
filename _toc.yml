@@ -25,7 +25,9 @@ chapters:
   title: Unit 4. Machine Learning and Decisions
   sections:
   - file: unit-4-learning/bandits
-  - file: unit-4-learning/rl
+  - file: unit-4-learning/rl/bandit-problems-ts
+    sections:
+    - file: unit-4-learning/rl
   - file: unit-4-learning/imitation
 - file: appendix/appendix-landing
   title: Appendices

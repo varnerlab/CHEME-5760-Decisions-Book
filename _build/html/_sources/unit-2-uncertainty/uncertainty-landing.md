@@ -3,7 +3,7 @@
 ## Topics
 Making decisions in uncertain situations, potentially involving multiple agents, can be challenging. Decision-making in uncertain situations involves uncertainty and risk. Thus, in this unit, we'll introduce tools to model uncertainty, approaches to understand risk, and risk tolerance and model the actions of multiple actors involved in our decisions:
 
-* [Expected utility hypothesis](./expected-utility.md) is a cornerstone concept in decision theory and economics. It proposes that individuals make choices based on their anticipated outcomes and corresponding utility or satisfaction. This hypothesis assumes that individuals are rational and seek to maximize their expected utility when making decisions.
+* [Expected utility hypothesis](./expected-utility.md) is a cornerstone concept in decision theory and economics. It proposes that individuals make choices based on their anticipated outcomes and corresponding utility or satisfaction. This hypothesis assumes that individuals are rational and seek to maximize their expected utility when making decisions, subject to various constraints.
 
 * [Risk](./risk.md) is the possibility of an adverse outcome or loss, typically resulting from uncertainty or exposure to danger. Risk aversion is the tendency of individuals or organizations to prefer a particular outcome over an uncertain one, even if the uncertain outcome has a potentially higher expected value. Understanding risk and risk aversion is crucial for making informed decisions that involve uncertainty and can help individuals and organizations manage and mitigate potential losses.
 
