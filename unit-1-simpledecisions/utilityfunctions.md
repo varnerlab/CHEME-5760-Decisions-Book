@@ -1,4 +1,4 @@
-# Utility Functions and Rational Choices
+# Utility Functions
 Utility functions are mathematical expressions representing an individual's preferences over different choices or outcomes. It assigns a numerical value, called utility which is a surrogate for happiness or satisfaction, to each possible option or outcome, based on how much the individual values it. However, a utility function is subjective and can vary from person to person, as different individuals may have other preferences.
 
 ```{topic} Outline
@@ -62,31 +62,7 @@ These properties ensure that a utility function represents a person's preference
 
 
 
-(content:references:marginal-utility)=
-## Marginal utility
-The marginal utility quantifies the satisfaction gained by an agent from an additional unit of consumption of a good or service ({prf:ref}`defn-marginal-utility`):
 
-
-````{prf:definition} Marginal Utility
-:label: defn-marginal-utility
-
-A decision maker is analyzing the consumption of different combinations of $n$ goods or services $x_{1},\dots,x_{n}$. The utility function governing the decision maker $U(\dots)$ can be expanded by computing the [total differential](https://en.wikipedia.org/wiki/Differential_of_a_function#Differentials_in_several_variables) around a point $\left(x_{1}^{\star},\dots,x_{n}^{\star}\right)$:
-
-```{math}
-:label: eqn-total-differential-ic
-
-dU = \sum_{i=1}^{n}\bar{U}_{i}\cdot{dx_{i}}
-```
-
-where $\bar{U}_{i}$ denotes the partial derivative which is also called the [marginal utility](https://en.wikipedia.org/wiki/Marginal_utility):
-
-```{math}
-\bar{U}_{i} \equiv \left(\frac{\partial{U}}{\partial{x_{i}}}\right)_{\star}
-```
-
-where the $\star$ denotes that all other variables (excluding $x_{i}$) are held constant. The marginal utility is the rate of change of the utility function with respect to the consumption of one additional unit of $x_{i}$.
-
-````
 
 ### Linear utility functions
 A linear utility function is the simplest utility function. It assumes that an individual's utility is directly proportional to the quantity consumed, and is represented by the equation $U(x) = \sum{a_{i}x_{i}}$, where $a_{i}>0$ is a positive constant. The marginal utility of a linear utility function is constant and does not depend on the quantity consumed.

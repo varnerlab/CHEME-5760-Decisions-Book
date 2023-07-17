@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Utility Functions and Rational Choices &#8212; CHEME 5760</title>
+    <title>Utility Functions &#8212; CHEME 5760</title>
   
   
   
@@ -75,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-1-simpledecisions/utilityfunctions.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Marginal Utility" href="marginal-utility.html" />
+    <link rel="next" title="Marginal Rate of Substitution" href="marginal-utility.html" />
     <link rel="prev" title="Making simple decisions" href="simpledecisions-landing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -168,16 +168,16 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="simpledecisions-landing.html">Unit 1. Simple Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Utility Functions and Rational Choices</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="simpledecisions-landing.html">Unit 1. Simple Optimal Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Utility Functions</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="marginal-utility.html">Marginal Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="marginal-utility.html">Marginal Rate of Substitution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indifference-curves.html">Indifference Curves</a></li>
-<li class="toctree-l2"><a class="reference internal" href="utlitymaximization.html">Maximizing Utility Subject to Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utlitymaximization.html">Maximizing Utility</a></li>
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Uncertain Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Uncertain Optimal Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
@@ -187,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Games and Multiagent Reasoning</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Understanding Markov Chains</a></li>
 
 <li class="toctree-l2 has-children"><a class="reference internal" href="../unit-3-planning/mdp.html">Markov Decision Processes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -402,7 +402,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Utility Functions and Rational Choices</h1>
+    <h1>Utility Functions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -412,9 +412,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Utility Functions and Rational Choices</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-choice-theory">Rational choice theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-utility">Marginal utility</a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Utility Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-choice-theory">Rational choice theory</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-utility-functions">Linear utility functions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithmic-utility-functions">Logarithmic utility functions</a></li>
 </ul>
@@ -435,15 +434,15 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="utility-functions-and-rational-choices">
-<h1>Utility Functions and Rational Choices<a class="headerlink" href="#utility-functions-and-rational-choices" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="utility-functions">
+<h1>Utility Functions<a class="headerlink" href="#utility-functions" title="Permalink to this heading">#</a></h1>
 <p>Utility functions are mathematical expressions representing an individual’s preferences over different choices or outcomes. It assigns a numerical value, called utility which is a surrogate for happiness or satisfaction, to each possible option or outcome, based on how much the individual values it. However, a utility function is subjective and can vary from person to person, as different individuals may have other preferences.</p>
 <aside class="topic">
 <p class="topic-title">Outline</p>
 <p>This week, we’ll develop tools to compute rational choices and explore some mathematical and philosophical properties of utility functions:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-rational-choice-theory"><span class="std std-ref">Rational choice theory</span></a> is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.</p></li>
-<li><p><a class="reference internal" href="#content-references-marginal-utility"><span class="std std-ref">Marginal utility</span></a> describes the added satisfaction or benefits that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that the happiness or benefit from each extra unit decreases as a consumer increases the number of units consumed. Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.</p></li>
+<li><p><a class="reference internal" href="marginal-utility.html#content-references-marginal-utility"><span class="std std-ref">Marginal utility</span></a> describes the added satisfaction or benefits that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that the happiness or benefit from each extra unit decreases as a consumer increases the number of units consumed. Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.</p></li>
 <li><p><a class="reference internal" href="#content-references-indifference-curves"><span class="std std-ref">Indifference curves</span></a> are a tool used in microeconomics to analyze consumers’ preferences. They represent a graphical depiction of different combinations of two goods that provide the same level of satisfaction, or utility, to a consumer. Indifference curves can be used to understand how consumers make choices when faced with trade-offs between goods and how they may respond to changes in prices or income.</p></li>
 </ul>
 </aside>
@@ -484,22 +483,7 @@ A utility function should obey the following properties: -->
 
 These properties ensure that a utility function represents a person's preferences and can be used to make rational choices between alternatives.
 -->
-</section>
-<section id="marginal-utility">
-<span id="content-references-marginal-utility"></span><h2>Marginal utility<a class="headerlink" href="#marginal-utility" title="Permalink to this heading">#</a></h2>
-<p>The marginal utility quantifies the satisfaction gained by an agent from an additional unit of consumption of a good or service (<a class="reference internal" href="#defn-marginal-utility">Definition 2</a>):</p>
-<div class="proof definition admonition" id="defn-marginal-utility">
-<p class="admonition-title"><span class="caption-number">Definition 2 </span> (Marginal Utility)</p>
-<section class="definition-content" id="proof-content">
-<p>A decision maker is analyzing the consumption of different combinations of <span class="math notranslate nohighlight">\(n\)</span> goods or services <span class="math notranslate nohighlight">\(x_{1},\dots,x_{n}\)</span>. The utility function governing the decision maker <span class="math notranslate nohighlight">\(U(\dots)\)</span> can be expanded by computing the <a class="reference external" href="https://en.wikipedia.org/wiki/Differential_of_a_function#Differentials_in_several_variables">total differential</a> around a point <span class="math notranslate nohighlight">\(\left(x_{1}^{\star},\dots,x_{n}^{\star}\right)\)</span>:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-total-differential-ic">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eqn-total-differential-ic" title="Permalink to this equation">#</a></span>\[dU = \sum_{i=1}^{n}\bar{U}_{i}\cdot{dx_{i}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\)</span> denotes the partial derivative which is also called the <a class="reference external" href="https://en.wikipedia.org/wiki/Marginal_utility">marginal utility</a>:</p>
-<div class="math notranslate nohighlight">
-\[\bar{U}_{i} \equiv \left(\frac{\partial{U}}{\partial{x_{i}}}\right)_{\star}\]</div>
-<p>where the <span class="math notranslate nohighlight">\(\star\)</span> denotes that all other variables (excluding <span class="math notranslate nohighlight">\(x_{i}\)</span>) are held constant. The marginal utility is the rate of change of the utility function with respect to the consumption of one additional unit of <span class="math notranslate nohighlight">\(x_{i}\)</span>.</p>
-</section>
-</div><section id="linear-utility-functions">
+<section id="linear-utility-functions">
 <h3>Linear utility functions<a class="headerlink" href="#linear-utility-functions" title="Permalink to this heading">#</a></h3>
 <p>A linear utility function is the simplest utility function. It assumes that an individual’s utility is directly proportional to the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = \sum{a_{i}x_{i}}\)</span>, where <span class="math notranslate nohighlight">\(a_{i}&gt;0\)</span> is a positive constant. The marginal utility of a linear utility function is constant and does not depend on the quantity consumed.</p>
 </section>
@@ -507,7 +491,7 @@ These properties ensure that a utility function represents a person's preference
 <h3>Logarithmic utility functions<a class="headerlink" href="#logarithmic-utility-functions" title="Permalink to this heading">#</a></h3>
 <p>A logarithmic utility function assumes that an individual’s utility is a function of the logarithm of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = \ln(x+a)\)</span>, where <span class="math notranslate nohighlight">\(a&gt;0\)</span> is a positive constant. The marginal utility of a logarithmic utility function is inversely proportional to the quantity consumed:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-log-marginal-utility">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eqn-log-marginal-utility" title="Permalink to this equation">#</a></span>\[\bar{U} = \frac{1}{x + a}\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-eqn-log-marginal-utility" title="Permalink to this equation">#</a></span>\[\bar{U} = \frac{1}{x + a}\]</div>
 <!-- The shape of the marginal utility curves gives insight into how a decision maker values a particular good or service. Consider the case of how two agents feel about widgets $w$:
 
 * __Agent A__: Let the utility function governing the satisfaction gained by Agent A generated by purchasing a widget be $U(w) = \ln\left(1+w\right)$. 
@@ -575,7 +559,7 @@ $$\frac{\partial{U}}{\partial{w}} = \frac{1}{1+w}$$ -->
 <p>In this lecture, we’ll developed tools to compute rational choices and explored some mathematical and philosophical properties of utility functions:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-rational-choice-theory"><span class="std std-ref">Rational choice theory</span></a> is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.</p></li>
-<li><p><a class="reference internal" href="#content-references-marginal-utility"><span class="std std-ref">Marginal utility</span></a> describes the added satisfaction or benefit that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that as a consumer increases the number of units consumed, the satisfaction or benefit from each extra unit decreases. The concept of Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.</p></li>
+<li><p><a class="reference internal" href="marginal-utility.html#content-references-marginal-utility"><span class="std std-ref">Marginal utility</span></a> describes the added satisfaction or benefit that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that as a consumer increases the number of units consumed, the satisfaction or benefit from each extra unit decreases. The concept of Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.</p></li>
 <li><p><a class="reference internal" href="#content-references-indifference-curves"><span class="std std-ref">Indifference curves</span></a> are a tool used in microeconomics to analyze consumers’ preferences. They represent a graphical depiction of different combinations of two goods that provide the same level of satisfaction, or utility, to a consumer. Indifference curves can be used to understand how consumers make choices when faced with trade-offs between goods and how they may respond to changes in prices or income.</p></li>
 </ul>
 </section>
@@ -625,7 +609,7 @@ $$\frac{\partial{U}}{\partial{w}} = \frac{1}{1+w}$$ -->
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Marginal Utility</p>
+        <p class="prev-next-title">Marginal Rate of Substitution</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -647,9 +631,8 @@ $$\frac{\partial{U}}{\partial{w}} = \frac{1}{1+w}$$ -->
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Utility Functions and Rational Choices</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-choice-theory">Rational choice theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-utility">Marginal utility</a><ul class="nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Utility Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-choice-theory">Rational choice theory</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-utility-functions">Linear utility functions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithmic-utility-functions">Logarithmic utility functions</a></li>
 </ul>
