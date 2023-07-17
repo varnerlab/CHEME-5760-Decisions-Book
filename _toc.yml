@@ -6,29 +6,43 @@ root: landing.md
 title: Description
 chapters:
 - file: unit-1-simpledecisions/simpledecisions-landing
-  title: Unit 1. Simple Optimal Decisions
+  title: Unit 1. Simple Decisions
   sections:
   - file: unit-1-simpledecisions/utilityfunctions
+  - file: unit-1-simpledecisions/marginal-utility
+  - file: unit-1-simpledecisions/indifference-curves
   - file: unit-1-simpledecisions/utlitymaximization
 - file: unit-2-uncertainty/uncertainty-landing
-  title: Unit 2. Uncertain Optimal Decisions
+  title: Unit 2. Uncertain Decisions
   sections:
   - file: unit-2-uncertainty/expected-utility
   - file: unit-2-uncertainty/risk
+  - file: unit-2-uncertainty/risk-and-decisions
+  - file: unit-2-uncertainty/contigencies
+  - file: unit-2-uncertainty/contingencies-and-utility-max
   - file: unit-2-uncertainty/games
 - file: unit-3-planning/planning-landing
-  title: Unit 3. Sequential Planning and Decisions
+  title: Unit 3. Sequential Decisions
   sections:
   - file: unit-3-planning/markov 
   - file: unit-3-planning/mdp
+    sections:
+    - file: unit-3-planning/sequential-decisions
+    - file: unit-3-planning/policy-evaluation
+  - file: unit-3-planning/mcts
 - file: unit-4-learning/learning-landing
   title: Unit 4. Machine Learning and Decisions
   sections:
   - file: unit-4-learning/bandits
-  - file: unit-4-learning/rl/bandit-problems-ts
+  - file: unit-4-learning/bandit-problems-ts
+  - file: unit-4-learning/rl
     sections:
-    - file: unit-4-learning/rl
+    - file: unit-4-learning/model-based-rl
+    - file: unit-4-learning/model-free-rl
   - file: unit-4-learning/imitation
+    sections:
+    - file: unit-4-learning/behavior
+  - file: unit-4-learning/bayesian-rules
 - file: appendix/appendix-landing
   title: Appendices
   sections:

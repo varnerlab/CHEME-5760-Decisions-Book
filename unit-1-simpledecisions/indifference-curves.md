@@ -1,0 +1,2 @@
+# Indifference Curves
+Indifference curves are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `iso-happiness` or `iso-satisfaction` curve in the space of choices.
