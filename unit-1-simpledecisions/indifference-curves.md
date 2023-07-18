@@ -16,27 +16,47 @@ In this lecture, we introduce indifference curves for some common utility functi
 
 (content:references:indifference-curves-perfect-sub)=
 ## Indifference curves for perfect substitutes
-If a set of goods are [perfect substitutes](https://en.wikipedia.org/wiki/Substitute_good) then the indifference curve will have a constant slope since the consumer would be willing to switch between the goods at a fixed ratio. The marginal rate of substitution between perfect substitutes is likewise constant. Let's consider a collection of goods or services $\dim\mathcal{X} = n$ which are perfect substitutes that is governed by linear the utility function $U:\mathcal{X}\rightarrow\mathbb{R}$:
+[Perfect substitutes](https://en.wikipedia.org/wiki/Substitute_good) are goods that can be used interchangeably. In a collection of perfect substitutes, the utility function is linear, creating constant slope indifference curves. This means a decision-maker is willing to switch between goods at a fixed ratio, and the marginal rate of substitution between perfect substitutes is constant.
 
-```{math}
-U(x) = \sum_{x_{i}\in\mathcal{X}}\alpha_{x_{i}}\cdot{x_{i}}
+```{admonition} Examples of perfect substitutes
+* Goods that are very similar from different providers, such as hard drives, memory chips, pens, pencils, etc.
+* Electricity from different power plants, which cannot be differentiated by the user
+* One dollar bill can be replaced perfectly by another dollar bill
 ```
 
-where $\alpha_{x_{i}}$ is the marginal utility of $x_{i}$. Then, the marginal rate of substitution between any two goods $x_{i}$ and $x_{j}$ is constant along the indifference curve (line of constant utility):
+### Derivation of Marginal Rate of Substitution
+Let’s consider a collection of $n$ goods or services which are perfect substitutes that is governed by the linear utility function $U:X\rightarrow\mathbb{R}$:
 
 ```{math}
-\sum_{x_{i}\in\mathcal{X}}\alpha_{x_{i}}\cdot{dx_{i}} = 0
+:label: eqn-linear-utility
+U(x_{1},\dots,x_{n}) = \sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{x_{i}}
 ```
 
-where $dx_{i}$ is the change in the consumption of good or service $x_{i}$. Thus, the marginal rate of substitution between any two goods $x_{i}$ and $x_{j}$ is constant along the indifference curve:
+where $\bar{U}_{i}\equiv\alpha_{x_{i}}$ is the marginal utility of $U(\dots)$ with respect to good $x_{i}$. Expanding the utility function around an operating point $x^{\star}_{1},\dots,x^{\star}_{n}$ yields:
 
 ```{math}
+:label: eqn-total-differential-linear-utility
+dU = \sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{dx_{i}}
+```
+
+However, along a line of constant utility, i.e., an indifference curve, the change in utility is zero: 
+
+```{math}
+:label: eqn-total-differential-linear-utility-zero
+\sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{dx_{i}} = 0
+```
+
+Thus, the marginal rate of substitution between any two substitutable goods $x_{i}$ and $x_{j}$ along the indifference curve is given by:
+
+```{math}
+:label: eqn-marginal-rate-substitution-linear-utility
 \alpha_{x_{i}}dx_{i} = -\alpha_{x_{j}}dx_{j}\qquad{\forall{i\neq{j}}}
 ```
 
 or equivalently:
 
 ```{math}
+:label: eqn-marginal-rate-substitution-linear-utility-2
 \frac{dx_{i}}{dx_{j}} = -\frac{\alpha_{x_{j}}}{\alpha_{x_{i}}}
 ```
 
@@ -45,7 +65,24 @@ Fill me in.
 
 (content:references:indifference-curves-perfect-complement)=
 ## Indifference curves for perfect complements
-If two goods are [perfect complements](https://en.wikipedia.org/wiki/Complementary_good), then the indifference curves will be L-shaped. Examples of perfect complements include left shoes compared to right shoes: the consumer is no better off having several right shoes if she has only one left shoe - additional right shoes have zero marginal utility without more left shoes, so bundles of goods differing only in the number of right shoes they include - however many - are equally preferred. The marginal rate of substitution is either zero or infinite. 
+A [perfect complement](https://en.wikipedia.org/wiki/Complementary_good) is a good or service that must be consumed along with another good. Such preferences can be represented by a [Leontief utility function](https://en.wikipedia.org/wiki/Leontief_utilities) of the form:
+
+```{math}
+:label: eqn-leontief-utility
+U(x_{1},\dots,x_{n}) = \min\left\{\frac{x_{1}}{w_{1}},\dots,\frac{x_{n}}{w_{n}}\right\}
+```
+
+where $w_{i}~(\text{for}~i\in{1\dots{n}})$ is the weight of good $x_{i}$ in the utility function, $x_{i}~(\text{for}~i\in{1\dots{n}})$ is the quantity of good or service $x_{i}$ consumed, and $n$ is the number of goods in the collection. If two goods are [perfect complements](https://en.wikipedia.org/wiki/Complementary_good), then the indifference curves will be L-shaped. 
+
+```{admonition} Examples of perfect complements
+* Suppose $x_{1}$ is the number of left shoes and $x_{2}$ is the number of right shoes. A consumer can only use pairs of shoes. Thus, their utility is $U(x_{1},x_{2}) = \min\left\{x_{1},x_{2}\right\}$.
+```
+
+### Derivation of Marginal Rate of Substitution
+Fill me in.
+
+### Implementation
+Fill me in.
 
 (content:references:indifference-curves-cobb-douglas)=
 ## Indifference curves for Cobb-Douglas utility functions
@@ -53,5 +90,11 @@ Fill me in.
 
 ---
 
-## Summary 
-Fill me in
+## Summary
+In this lecture, we introduced indifference curves for some common utility functions and discussed the properties of indifference curves, particularly the marginal rate of substitution of each type of utility function. 
+
+* [Indifference curves for perfect substitutes](content:references:indifference-curves-perfect-sub) are linear where a consumer is willing to trade one good for another at a fixed ratio, i.e., the marginal rate of substitution is constant.
+
+* [Indifference curves for perfect complements](content:references:indifference-curves-perfect-complement) are L-shaped where a consumer is willing to either zero or infinite units of one good for a unit of another good, i.e., the marginal rate of substitution is either zero or infinite.
+
+* [Indifference curves for Cobb-Douglas utility functions](content:references:indifference-curves-cobb-douglas) are convex, where a consumer is willing to trade one good for another at a varying ratio, i.e., the marginal rate of substitution is not constant and varies with the amount of each good consumed.

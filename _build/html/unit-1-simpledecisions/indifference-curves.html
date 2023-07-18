@@ -168,7 +168,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="simpledecisions-landing.html">Unit 1. Simple Optimal Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="simpledecisions-landing.html">Unit 1. Simple Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="utilityfunctions.html">Utility Functions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="marginal-utility.html">Marginal Rate of Substitution</a></li>
@@ -177,7 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Uncertain Optimal Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Uncertain Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
@@ -187,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Games and Multiagent Reasoning</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Understanding Markov Chains</a></li>
 
 <li class="toctree-l2 has-children"><a class="reference internal" href="../unit-3-planning/mdp.html">Markov Decision Processes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -413,10 +413,15 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-perfect-substitutes">Indifference curves for perfect substitutes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-marginal-rate-of-substitution">Derivation of Marginal Rate of Substitution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-perfect-complements">Indifference curves for perfect complements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-perfect-complements">Indifference curves for perfect complements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Derivation of Marginal Rate of Substitution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Implementation</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-cobb-douglas-utility-functions">Indifference curves for Cobb-Douglas utility functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
@@ -445,18 +450,33 @@ document.write(`
 <hr class="docutils" />
 <section id="indifference-curves-for-perfect-substitutes">
 <span id="content-references-indifference-curves-perfect-sub"></span><h2>Indifference curves for perfect substitutes<a class="headerlink" href="#indifference-curves-for-perfect-substitutes" title="Permalink to this heading">#</a></h2>
-<p>If a set of goods are <a class="reference external" href="https://en.wikipedia.org/wiki/Substitute_good">perfect substitutes</a> then the indifference curve will have a constant slope since the consumer would be willing to switch between the goods at a fixed ratio. The marginal rate of substitution between perfect substitutes is likewise constant. Let’s consider a collection of goods or services <span class="math notranslate nohighlight">\(\dim\mathcal{X} = n\)</span> which are perfect substitutes that is governed by linear the utility function <span class="math notranslate nohighlight">\(U:\mathcal{X}\rightarrow\mathbb{R}\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[U(x) = \sum_{x_{i}\in\mathcal{X}}\alpha_{x_{i}}\cdot{x_{i}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\alpha_{x_{i}}\)</span> is the marginal utility of <span class="math notranslate nohighlight">\(x_{i}\)</span>. Then, the marginal rate of substitution between any two goods <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(x_{j}\)</span> is constant along the indifference curve (line of constant utility):</p>
-<div class="math notranslate nohighlight">
-\[\sum_{x_{i}\in\mathcal{X}}\alpha_{x_{i}}\cdot{dx_{i}} = 0\]</div>
-<p>where <span class="math notranslate nohighlight">\(dx_{i}\)</span> is the change in the consumption of good or service <span class="math notranslate nohighlight">\(x_{i}\)</span>. Thus, the marginal rate of substitution between any two goods <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(x_{j}\)</span> is constant along the indifference curve:</p>
-<div class="math notranslate nohighlight">
-\[\alpha_{x_{i}}dx_{i} = -\alpha_{x_{j}}dx_{j}\qquad{\forall{i\neq{j}}}\]</div>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Substitute_good">Perfect substitutes</a> are goods that can be used interchangeably. In a collection of perfect substitutes, the utility function is linear, creating constant slope indifference curves. This means a decision-maker is willing to switch between goods at a fixed ratio, and the marginal rate of substitution between perfect substitutes is constant.</p>
+<div class="admonition-examples-of-perfect-substitutes admonition">
+<p class="admonition-title">Examples of perfect substitutes</p>
+<ul class="simple">
+<li><p>Goods that are very similar from different providers, such as hard drives, memory chips, pens, pencils, etc.</p></li>
+<li><p>Electricity from different power plants, which cannot be differentiated by the user</p></li>
+<li><p>One dollar bill can be replaced perfectly by another dollar bill</p></li>
+</ul>
+</div>
+<section id="derivation-of-marginal-rate-of-substitution">
+<h3>Derivation of Marginal Rate of Substitution<a class="headerlink" href="#derivation-of-marginal-rate-of-substitution" title="Permalink to this heading">#</a></h3>
+<p>Let’s consider a collection of <span class="math notranslate nohighlight">\(n\)</span> goods or services which are perfect substitutes that is governed by the linear utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-linear-utility">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eqn-linear-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots,x_{n}) = \sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{x_{i}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\equiv\alpha_{x_{i}}\)</span> is the marginal utility of <span class="math notranslate nohighlight">\(U(\dots)\)</span> with respect to good <span class="math notranslate nohighlight">\(x_{i}\)</span>. Expanding the utility function around an operating point <span class="math notranslate nohighlight">\(x^{\star}_{1},\dots,x^{\star}_{n}\)</span> yields:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-total-differential-linear-utility">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eqn-total-differential-linear-utility" title="Permalink to this equation">#</a></span>\[dU = \sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{dx_{i}}\]</div>
+<p>However, along a line of constant utility, i.e., an indifference curve, the change in utility is zero:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-total-differential-linear-utility-zero">
+<span class="eqno">(6)<a class="headerlink" href="#equation-eqn-total-differential-linear-utility-zero" title="Permalink to this equation">#</a></span>\[\sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{dx_{i}} = 0\]</div>
+<p>Thus, the marginal rate of substitution between any two substitutable goods <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(x_{j}\)</span> along the indifference curve is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-marginal-rate-substitution-linear-utility">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eqn-marginal-rate-substitution-linear-utility" title="Permalink to this equation">#</a></span>\[\alpha_{x_{i}}dx_{i} = -\alpha_{x_{j}}dx_{j}\qquad{\forall{i\neq{j}}}\]</div>
 <p>or equivalently:</p>
-<div class="math notranslate nohighlight">
-\[\frac{dx_{i}}{dx_{j}} = -\frac{\alpha_{x_{j}}}{\alpha_{x_{i}}}\]</div>
+<div class="math notranslate nohighlight" id="equation-eqn-marginal-rate-substitution-linear-utility-2">
+<span class="eqno">(8)<a class="headerlink" href="#equation-eqn-marginal-rate-substitution-linear-utility-2" title="Permalink to this equation">#</a></span>\[\frac{dx_{i}}{dx_{j}} = -\frac{\alpha_{x_{j}}}{\alpha_{x_{i}}}\]</div>
+</section>
 <section id="implementation">
 <h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h3>
 <p>Fill me in.</p>
@@ -464,7 +484,24 @@ document.write(`
 </section>
 <section id="indifference-curves-for-perfect-complements">
 <span id="content-references-indifference-curves-perfect-complement"></span><h2>Indifference curves for perfect complements<a class="headerlink" href="#indifference-curves-for-perfect-complements" title="Permalink to this heading">#</a></h2>
-<p>If two goods are <a class="reference external" href="https://en.wikipedia.org/wiki/Complementary_good">perfect complements</a>, then the indifference curves will be L-shaped. Examples of perfect complements include left shoes compared to right shoes: the consumer is no better off having several right shoes if she has only one left shoe - additional right shoes have zero marginal utility without more left shoes, so bundles of goods differing only in the number of right shoes they include - however many - are equally preferred. The marginal rate of substitution is either zero or infinite.</p>
+<p>A perfect complement is a good or service that must be consumed with another good. Such preferences can be represented by a <a class="reference external" href="https://en.wikipedia.org/wiki/Leontief_utilities">Leontief utility function</a> of the form:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-leontief-utility">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eqn-leontief-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots,x_{n}) = \min\left\{\frac{x_{1}}{w_{1}},\dots,\frac{x_{n}}{w_{n}}\right\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(w_{i}~(\text{for}~i\in{1\dots{n}})\)</span> is the weight of good <span class="math notranslate nohighlight">\(x_{i}\)</span> in the utility function, <span class="math notranslate nohighlight">\(x_{i}~(\text{for}~i\in{1\dots{n}})\)</span> is the quantity of good or service <span class="math notranslate nohighlight">\(x_{i}\)</span> consumed, and <span class="math notranslate nohighlight">\(n\)</span> is the number of goods in the collection. If two goods are <a class="reference external" href="https://en.wikipedia.org/wiki/Complementary_good">perfect complements</a>, then the indifference curves will be L-shaped.</p>
+<div class="admonition-examples-of-perfect-complements admonition">
+<p class="admonition-title">Examples of perfect complements</p>
+<ul class="simple">
+<li><p>Suppose <span class="math notranslate nohighlight">\(x_{1}\)</span> is the number of left shoes and <span class="math notranslate nohighlight">\(x_{2}\)</span> is the number of right shoes. A consumer can only use pairs of shoes. Thus, their utility is <span class="math notranslate nohighlight">\(U(x_{1},x_{2}) = \min\left\{x_{1},x_{2}\right\}\)</span>.</p></li>
+</ul>
+</div>
+<section id="id1">
+<h3>Derivation of Marginal Rate of Substitution<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Fill me in.</p>
+</section>
+<section id="id2">
+<h3>Implementation<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>Fill me in.</p>
+</section>
 </section>
 <section id="indifference-curves-for-cobb-douglas-utility-functions">
 <span id="content-references-indifference-curves-cobb-douglas"></span><h2>Indifference curves for Cobb-Douglas utility functions<a class="headerlink" href="#indifference-curves-for-cobb-douglas-utility-functions" title="Permalink to this heading">#</a></h2>
@@ -473,7 +510,12 @@ document.write(`
 <hr class="docutils" />
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
-<p>Fill me in</p>
+<p>In this lecture, we introduced indifference curves for some common utility functions and discussed the properties of indifference curves, particularly the marginal rate of substitution of each type of utility function.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-indifference-curves-perfect-sub"><span class="std std-ref">Indifference curves for perfect substitutes</span></a> are linear where a consumer is willing to trade one good for another at a fixed ratio, i.e., the marginal rate of substitution is constant.</p></li>
+<li><p><a class="reference internal" href="#content-references-indifference-curves-perfect-complement"><span class="std std-ref">Indifference curves for perfect complements</span></a> are L-shaped where a consumer is willing to either zero or infinite units of one good for a unit of another good, i.e., the marginal rate of substitution is either zero or infinite.</p></li>
+<li><p><a class="reference internal" href="#content-references-indifference-curves-cobb-douglas"><span class="std std-ref">Indifference curves for Cobb-Douglas utility functions</span></a> are convex, where a consumer is willing to trade one good for another at a varying ratio, i.e., the marginal rate of substitution is not constant and varies with the amount of each good consumed.</p></li>
+</ul>
 </section>
 </section>
 
@@ -545,10 +587,15 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-perfect-substitutes">Indifference curves for perfect substitutes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-marginal-rate-of-substitution">Derivation of Marginal Rate of Substitution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-perfect-complements">Indifference curves for perfect complements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-perfect-complements">Indifference curves for perfect complements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Derivation of Marginal Rate of Substitution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Implementation</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-cobb-douglas-utility-functions">Indifference curves for Cobb-Douglas utility functions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
