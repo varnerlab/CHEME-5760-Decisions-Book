@@ -14,10 +14,10 @@ The marginal utility quantifies the satisfaction gained by an agent from an addi
 ````{prf:definition} Marginal Utility
 :label: defn-marginal-utility
 
-Let $x\in\mathcal{X}$ be a good or service in the set of goods and services $\mathcal{X}$ and $U:\mathcal{X}\rightarrow\mathbb{R}$ be a utility function. The [marginal utility](https://en.wikipedia.org/wiki/Marginal_utility) of $x$ is the partial derivative of $U$ with respect to $x$:
+Let $x_{i}~(\text{for}~i\in{1\dots{n}})$ be a good or service in the set of goods and services $X$ and $U:\mathcal{X}\rightarrow\mathbb{R}$ be a utility function. The [marginal utility](https://en.wikipedia.org/wiki/Marginal_utility) of $x$ is the partial derivative of $U$ with respect to $x$:
 
 ```{math}
-\bar{U}_{x} \equiv \left(\frac{\partial{U}}{\partial{x_{i}}}\right)_{\star}
+\bar{U}_{x_{i}} \equiv \left(\frac{\partial{U}}{\partial{x_{i}}}\right)_{\star}
 ```
 
 where the marginal utility is evaluated at a point $x^{\star}\in\mathcal{X}^{\star}$. The utility function governing the decision maker $U(\dots)$ can be expanded by computing the [total differential](https://en.wikipedia.org/wiki/Differential_of_a_function#Differentials_in_several_variables) around a point $x^{\star}\in\mathcal{X}^{\star}$:
@@ -25,8 +25,8 @@ where the marginal utility is evaluated at a point $x^{\star}\in\mathcal{X}^{\st
 ```{math}
 :label: eqn-total-differential-ic
 
-dU = \sum_{x\in\mathcal{X}}\bar{U}_{x}\cdot{dx}
+dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}
 ```
 
-where $\bar{U}_{x}$ denotes the marginal utility of $x$ and $dx$ denotes the change in the consumption of good or service $x$.
+where $\bar{U}_{x_{i}}$ denotes the marginal utility of $x_{i}$ and $dx_{i}$ denotes the change in the consumption of good or service $x$.
 ````

@@ -422,7 +422,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-cobb-douglas-utility-functions">Indifference curves for Cobb-Douglas utility functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-cobb-douglas-utility-functions">Indifference curves for Cobb-Douglas utility functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Derivation of Marginal Rate of Substitution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Implementation</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
@@ -484,7 +488,7 @@ document.write(`
 </section>
 <section id="indifference-curves-for-perfect-complements">
 <span id="content-references-indifference-curves-perfect-complement"></span><h2>Indifference curves for perfect complements<a class="headerlink" href="#indifference-curves-for-perfect-complements" title="Permalink to this heading">#</a></h2>
-<p>A perfect complement is a good or service that must be consumed with another good. Such preferences can be represented by a <a class="reference external" href="https://en.wikipedia.org/wiki/Leontief_utilities">Leontief utility function</a> of the form:</p>
+<p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Complementary_good">perfect complement</a> is a good or service that must be consumed along with another good. Such preferences can be represented by a <a class="reference external" href="https://en.wikipedia.org/wiki/Leontief_utilities">Leontief utility function</a> of the form:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-leontief-utility">
 <span class="eqno">(9)<a class="headerlink" href="#equation-eqn-leontief-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots,x_{n}) = \min\left\{\frac{x_{1}}{w_{1}},\dots,\frac{x_{n}}{w_{n}}\right\}\]</div>
 <p>where <span class="math notranslate nohighlight">\(w_{i}~(\text{for}~i\in{1\dots{n}})\)</span> is the weight of good <span class="math notranslate nohighlight">\(x_{i}\)</span> in the utility function, <span class="math notranslate nohighlight">\(x_{i}~(\text{for}~i\in{1\dots{n}})\)</span> is the quantity of good or service <span class="math notranslate nohighlight">\(x_{i}\)</span> consumed, and <span class="math notranslate nohighlight">\(n\)</span> is the number of goods in the collection. If two goods are <a class="reference external" href="https://en.wikipedia.org/wiki/Complementary_good">perfect complements</a>, then the indifference curves will be L-shaped.</p>
@@ -505,7 +509,22 @@ document.write(`
 </section>
 <section id="indifference-curves-for-cobb-douglas-utility-functions">
 <span id="content-references-indifference-curves-cobb-douglas"></span><h2>Indifference curves for Cobb-Douglas utility functions<a class="headerlink" href="#indifference-curves-for-cobb-douglas-utility-functions" title="Permalink to this heading">#</a></h2>
+<p>The Cobb–Douglas function is a <a class="reference external" href="https://en.wikipedia.org/wiki/Utility">utility function</a> over a collection of <span class="math notranslate nohighlight">\(n\)</span> goods or services that takes the form:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-cobb-douglas-utility">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eqn-cobb-douglas-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots,x_{n}) = \prod_{i\in{1\dots{n}}}x_{i}^{\alpha_{i}}\]</div>
+<p>where the exponents <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> are constrained to sum to one:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-cobb-douglas-utility-constraint">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eqn-cobb-douglas-utility-constraint" title="Permalink to this equation">#</a></span>\[\sum_{i\in{1\dots{n}}}\alpha_{i} = 1\]</div>
+<section id="id3">
+<h3>Derivation of Marginal Rate of Substitution<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Cobb%E2%80%93Douglas_production_function">Cobb–Douglas utility function</a> has the marginal utility:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-mu-u-function">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eqn-mu-u-function" title="Permalink to this equation">#</a></span>\[\bar{U}_{x_{i}} = \left(\alpha_{i}x^{\alpha_{i}-1}\right)\cdot\left(\prod_{j=1,i}^{n}x_{j}^{\alpha_{j}}\right)\]</div>
+</section>
+<section id="id4">
+<h3>Implementation<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <p>Fill me in.</p>
+</section>
 </section>
 <hr class="docutils" />
 <section id="summary">
@@ -596,7 +615,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-cobb-douglas-utility-functions">Indifference curves for Cobb-Douglas utility functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-cobb-douglas-utility-functions">Indifference curves for Cobb-Douglas utility functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Derivation of Marginal Rate of Substitution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Implementation</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>

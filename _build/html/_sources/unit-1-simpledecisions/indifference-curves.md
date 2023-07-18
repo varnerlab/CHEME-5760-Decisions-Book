@@ -65,7 +65,7 @@ Fill me in.
 
 (content:references:indifference-curves-perfect-complement)=
 ## Indifference curves for perfect complements
-A perfect complement is a good or service that must be consumed with another good. Such preferences can be represented by a [Leontief utility function](https://en.wikipedia.org/wiki/Leontief_utilities) of the form:
+A [perfect complement](https://en.wikipedia.org/wiki/Complementary_good) is a good or service that must be consumed along with another good. Such preferences can be represented by a [Leontief utility function](https://en.wikipedia.org/wiki/Leontief_utilities) of the form:
 
 ```{math}
 :label: eqn-leontief-utility
@@ -86,6 +86,30 @@ Fill me in.
 
 (content:references:indifference-curves-cobb-douglas)=
 ## Indifference curves for Cobb-Douglas utility functions
+The Cobb–Douglas function is a [utility function](https://en.wikipedia.org/wiki/Utility) over a collection of $n$ goods or services that takes the form:
+
+```{math}
+:label: eqn-cobb-douglas-utility
+U(x_{1},\dots,x_{n}) = \prod_{i\in{1\dots{n}}}x_{i}^{\alpha_{i}}
+```
+
+where the exponents $\alpha_{i}$ are constrained to sum to one:
+
+```{math}
+:label: eqn-cobb-douglas-utility-constraint
+\sum_{i\in{1\dots{n}}}\alpha_{i} = 1
+```
+
+### Derivation of Marginal Rate of Substitution
+The [Cobb–Douglas utility function](https://en.wikipedia.org/wiki/Cobb–Douglas_production_function) has the marginal utility: 
+
+```{math}
+:label: eqn-mu-u-function
+
+\bar{U}_{x_{i}} = \left(\alpha_{i}x^{\alpha_{i}-1}\right)\cdot\left(\prod_{j=1,i}^{n}x_{j}^{\alpha_{j}}\right)
+```
+
+### Implementation
 Fill me in.
 
 ---
