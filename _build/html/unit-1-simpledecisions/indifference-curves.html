@@ -467,19 +467,19 @@ document.write(`
 <h3>Derivation of Marginal Rate of Substitution<a class="headerlink" href="#derivation-of-marginal-rate-of-substitution" title="Permalink to this heading">#</a></h3>
 <p>Let’s consider a collection of <span class="math notranslate nohighlight">\(n\)</span> goods or services which are perfect substitutes that is governed by the linear utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-linear-utility">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eqn-linear-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots,x_{n}) = \sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{x_{i}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\equiv\alpha_{x_{i}}\)</span> is the marginal utility of <span class="math notranslate nohighlight">\(U(\dots)\)</span> with respect to good <span class="math notranslate nohighlight">\(x_{i}\)</span>. Expanding the utility function around an operating point <span class="math notranslate nohighlight">\(x^{\star}_{1},\dots,x^{\star}_{n}\)</span> yields:</p>
+<span class="eqno">(4)<a class="headerlink" href="#equation-eqn-linear-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots,x_{n}) = \sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{x_{i}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\equiv\alpha_{i}\)</span> is the marginal utility of <span class="math notranslate nohighlight">\(U(\dots)\)</span> with respect to good <span class="math notranslate nohighlight">\(x_{i}\)</span>. Expanding the utility function around an operating point <span class="math notranslate nohighlight">\(x^{\star}_{1},\dots,x^{\star}_{n}\)</span> yields:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-total-differential-linear-utility">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eqn-total-differential-linear-utility" title="Permalink to this equation">#</a></span>\[dU = \sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{dx_{i}}\]</div>
+<span class="eqno">(5)<a class="headerlink" href="#equation-eqn-total-differential-linear-utility" title="Permalink to this equation">#</a></span>\[dU = \sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{dx_{i}}\]</div>
 <p>However, along a line of constant utility, i.e., an indifference curve, the change in utility is zero:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-total-differential-linear-utility-zero">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eqn-total-differential-linear-utility-zero" title="Permalink to this equation">#</a></span>\[\sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{dx_{i}} = 0\]</div>
+<span class="eqno">(6)<a class="headerlink" href="#equation-eqn-total-differential-linear-utility-zero" title="Permalink to this equation">#</a></span>\[\sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{dx_{i}} = 0\]</div>
 <p>Thus, the marginal rate of substitution between any two substitutable goods <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(x_{j}\)</span> along the indifference curve is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-marginal-rate-substitution-linear-utility">
-<span class="eqno">(7)<a class="headerlink" href="#equation-eqn-marginal-rate-substitution-linear-utility" title="Permalink to this equation">#</a></span>\[\alpha_{x_{i}}dx_{i} = -\alpha_{x_{j}}dx_{j}\qquad{\forall{i\neq{j}}}\]</div>
+<span class="eqno">(7)<a class="headerlink" href="#equation-eqn-marginal-rate-substitution-linear-utility" title="Permalink to this equation">#</a></span>\[\alpha_{i}dx_{i} = -\alpha_{j}dx_{j}\qquad{\forall{i\neq{j}}}\]</div>
 <p>or equivalently:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-marginal-rate-substitution-linear-utility-2">
-<span class="eqno">(8)<a class="headerlink" href="#equation-eqn-marginal-rate-substitution-linear-utility-2" title="Permalink to this equation">#</a></span>\[\frac{dx_{i}}{dx_{j}} = -\frac{\alpha_{x_{j}}}{\alpha_{x_{i}}}\]</div>
+<span class="eqno">(8)<a class="headerlink" href="#equation-eqn-marginal-rate-substitution-linear-utility-2" title="Permalink to this equation">#</a></span>\[\frac{dx_{i}}{dx_{j}} = -\frac{\alpha_{j}}{\alpha_{i}}\qquad{\forall{i\neq{j}}}\]</div>
 </section>
 <section id="implementation">
 <h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h3>
@@ -492,8 +492,8 @@ document.write(`
 <div class="math notranslate nohighlight" id="equation-eqn-leontief-utility">
 <span class="eqno">(9)<a class="headerlink" href="#equation-eqn-leontief-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots,x_{n}) = \min\left\{\frac{x_{1}}{w_{1}},\dots,\frac{x_{n}}{w_{n}}\right\}\]</div>
 <p>where <span class="math notranslate nohighlight">\(w_{i}~(\text{for}~i\in{1\dots{n}})\)</span> is the weight of good <span class="math notranslate nohighlight">\(x_{i}\)</span> in the utility function, <span class="math notranslate nohighlight">\(x_{i}~(\text{for}~i\in{1\dots{n}})\)</span> is the quantity of good or service <span class="math notranslate nohighlight">\(x_{i}\)</span> consumed, and <span class="math notranslate nohighlight">\(n\)</span> is the number of goods in the collection. If two goods are <a class="reference external" href="https://en.wikipedia.org/wiki/Complementary_good">perfect complements</a>, then the indifference curves will be L-shaped.</p>
-<div class="admonition-examples-of-perfect-complements admonition">
-<p class="admonition-title">Examples of perfect complements</p>
+<div class="admonition-example-of-perfect-complements admonition">
+<p class="admonition-title">Example of perfect complements</p>
 <ul class="simple">
 <li><p>Suppose <span class="math notranslate nohighlight">\(x_{1}\)</span> is the number of left shoes and <span class="math notranslate nohighlight">\(x_{2}\)</span> is the number of right shoes. A consumer can only use pairs of shoes. Thus, their utility is <span class="math notranslate nohighlight">\(U(x_{1},x_{2}) = \min\left\{x_{1},x_{2}\right\}\)</span>.</p></li>
 </ul>
@@ -512,9 +512,16 @@ document.write(`
 <p>The Cobb–Douglas function is a <a class="reference external" href="https://en.wikipedia.org/wiki/Utility">utility function</a> over a collection of <span class="math notranslate nohighlight">\(n\)</span> goods or services that takes the form:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-cobb-douglas-utility">
 <span class="eqno">(10)<a class="headerlink" href="#equation-eqn-cobb-douglas-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots,x_{n}) = \prod_{i\in{1\dots{n}}}x_{i}^{\alpha_{i}}\]</div>
-<p>where the exponents <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> are constrained to sum to one:</p>
+<p>where the exponents <span class="math notranslate nohighlight">\(\alpha_{i}\)</span>, also known as the elasticities, are constrained to sum to one:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-cobb-douglas-utility-constraint">
 <span class="eqno">(11)<a class="headerlink" href="#equation-eqn-cobb-douglas-utility-constraint" title="Permalink to this equation">#</a></span>\[\sum_{i\in{1\dots{n}}}\alpha_{i} = 1\]</div>
+<div class="admonition-cobb-douglas-utility-functions admonition">
+<p class="admonition-title">Cobb-Douglas utility functions</p>
+<ul class="simple">
+<li><p>A consumer with Cobb-Douglas preferences will always buy some of each good or service in the collection.</p></li>
+<li><p>The marginal rate of substitution between any two goods or services <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(x_{j}\)</span> that are governed by the Cobb-Douglas utility is equal to the ratio of prices.</p></li>
+</ul>
+</div>
 <section id="id3">
 <h3>Derivation of Marginal Rate of Substitution<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Cobb%E2%80%93Douglas_production_function">Cobb–Douglas utility function</a> has the marginal utility:</p>

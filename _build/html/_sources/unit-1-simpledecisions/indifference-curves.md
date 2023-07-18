@@ -29,35 +29,35 @@ Let’s consider a collection of $n$ goods or services which are perfect substit
 
 ```{math}
 :label: eqn-linear-utility
-U(x_{1},\dots,x_{n}) = \sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{x_{i}}
+U(x_{1},\dots,x_{n}) = \sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{x_{i}}
 ```
 
-where $\bar{U}_{i}\equiv\alpha_{x_{i}}$ is the marginal utility of $U(\dots)$ with respect to good $x_{i}$. Expanding the utility function around an operating point $x^{\star}_{1},\dots,x^{\star}_{n}$ yields:
+where $\bar{U}_{i}\equiv\alpha_{i}$ is the marginal utility of $U(\dots)$ with respect to good $x_{i}$. Expanding the utility function around an operating point $x^{\star}_{1},\dots,x^{\star}_{n}$ yields:
 
 ```{math}
 :label: eqn-total-differential-linear-utility
-dU = \sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{dx_{i}}
+dU = \sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{dx_{i}}
 ```
 
 However, along a line of constant utility, i.e., an indifference curve, the change in utility is zero: 
 
 ```{math}
 :label: eqn-total-differential-linear-utility-zero
-\sum_{i\in{1\dots{n}}}\alpha_{x_{i}}\cdot{dx_{i}} = 0
+\sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{dx_{i}} = 0
 ```
 
 Thus, the marginal rate of substitution between any two substitutable goods $x_{i}$ and $x_{j}$ along the indifference curve is given by:
 
 ```{math}
 :label: eqn-marginal-rate-substitution-linear-utility
-\alpha_{x_{i}}dx_{i} = -\alpha_{x_{j}}dx_{j}\qquad{\forall{i\neq{j}}}
+\alpha_{i}dx_{i} = -\alpha_{j}dx_{j}\qquad{\forall{i\neq{j}}}
 ```
 
 or equivalently:
 
 ```{math}
 :label: eqn-marginal-rate-substitution-linear-utility-2
-\frac{dx_{i}}{dx_{j}} = -\frac{\alpha_{x_{j}}}{\alpha_{x_{i}}}
+\frac{dx_{i}}{dx_{j}} = -\frac{\alpha_{j}}{\alpha_{i}}\qquad{\forall{i\neq{j}}}
 ```
 
 ### Implementation
@@ -74,7 +74,7 @@ U(x_{1},\dots,x_{n}) = \min\left\{\frac{x_{1}}{w_{1}},\dots,\frac{x_{n}}{w_{n}}\
 
 where $w_{i}~(\text{for}~i\in{1\dots{n}})$ is the weight of good $x_{i}$ in the utility function, $x_{i}~(\text{for}~i\in{1\dots{n}})$ is the quantity of good or service $x_{i}$ consumed, and $n$ is the number of goods in the collection. If two goods are [perfect complements](https://en.wikipedia.org/wiki/Complementary_good), then the indifference curves will be L-shaped. 
 
-```{admonition} Examples of perfect complements
+```{admonition} Example of perfect complements
 * Suppose $x_{1}$ is the number of left shoes and $x_{2}$ is the number of right shoes. A consumer can only use pairs of shoes. Thus, their utility is $U(x_{1},x_{2}) = \min\left\{x_{1},x_{2}\right\}$.
 ```
 
@@ -93,12 +93,18 @@ The Cobb–Douglas function is a [utility function](https://en.wikipedia.org/wik
 U(x_{1},\dots,x_{n}) = \prod_{i\in{1\dots{n}}}x_{i}^{\alpha_{i}}
 ```
 
-where the exponents $\alpha_{i}$ are constrained to sum to one:
+where the exponents $\alpha_{i}$, also known as the elasticities, are constrained to sum to one:
 
 ```{math}
 :label: eqn-cobb-douglas-utility-constraint
 \sum_{i\in{1\dots{n}}}\alpha_{i} = 1
 ```
+
+```{admonition} Cobb-Douglas utility functions
+* A consumer with Cobb-Douglas preferences will always buy some of each good or service in the collection. 
+* The marginal rate of substitution between any two goods or services $x_{i}$ and $x_{j}$ that are governed by the Cobb-Douglas utility is equal to the ratio of prices.
+```
+
 
 ### Derivation of Marginal Rate of Substitution
 The [Cobb–Douglas utility function](https://en.wikipedia.org/wiki/Cobb–Douglas_production_function) has the marginal utility: 
