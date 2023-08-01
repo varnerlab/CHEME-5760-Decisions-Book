@@ -39,12 +39,13 @@ The utility function $U:X\rightarrow\mathbb{R}$ is unique only up to an order-pr
 * If $A\sim{B}$, the decision maker is _indifferent_ between $A$ to $B$. Then, the utility of choice $A$ is the same as $B$, or $U(A)=U(B)$.
 * If $A\succsim{B}$, the decision maker _weakly prefers_ $A$ over $B$, or they are indifferent. Then, the utility of choice $A$ is greater than or equal to $B$, or $U(A)\geq{U(A)}$.
 
-A utility function is a mathematical representation of a person's preferences over different outcomes or alternatives. There are many different classes of utility functions, let's look at a few examples and examine there properties:
+(content:references:rational-choice-theory-utility-functions)=
+### Utility functions
+A utility function is a mathematical representation of a person's preferences over different outcomes or alternatives. There are many different classes of utility functions, let's look at a few examples and examine their properties:
 
-* __Logarithmic utility function__ assumes that an individual's utility is a function of the logarithm of the quantity consumed, and is represented by the equation $U(x) = \ln(x+a)$, where $a>0$.
-* __Quadratic utility function__ assumes that an individual's utility is proportional to the square of the quantity consumed, and is represented by the equation $U(x) = ax^{2}$, where $a>0$ is a positive constant.
-* __Exponential utility function__ assumes that an individual's utility is proportional to the exponential of the quantity consumed, and is represented by the equation $U(x) = e^{ax}$, where $a>0$ is a positive constant.
-* __Linear utility function__ assumes that an individual's utility is directly proportional to the quantity consumed, and is represented by the equation $U(x) = \sum{a_{i}x_{i}}$, where $a_{i}>0$ is a positive constant.
+* __Linear utility function__ assumes that an individual's utility is directly proportional to the quantity of goods or services consumed, and is represented by the equation $U(x) = \sum{\alpha_{i}x_{i}}$, where $\alpha_{i}>0$ is a positive constant, and $x_{i}$ denotes the quantity of good or service $i$ consumed.
+* __Logarithmic utility function__ assumes that an individual's utility is a function of the logarithm of the quantity consumed, and is represented by the equation $U(x) = \ln(\alpha^{T}\cdot{x}+\beta)$, where $\beta>0$ is a positive constant, and $\alpha^{T}\cdot{x}$ is the scalar product of the vector of parameters $\alpha$ and goods or services $x$, where $x_{i}>0$ and $\alpha_{i}>0$.
+* __Exponential utility function__ assumes that an individual's utility is proportional to the exponential of the quantity consumed, and is represented by the equation $U(x) = e^{\alpha^{T}\cdot{x}}$, where $\alpha^{T}\cdot{x}$ is the scalar product of the vector of parameters $\alpha$ and the vector of goods or services $x$, where $x_{i}>0$ and $\alpha_{i}>0$.
 * __Cobb-Douglas utility function__ is commonly used in economics and assumes that an individual's utility is a function of the quantity of two or more goods consumed, and is represented by the equation $U(x_{1},\dots,x_{n}) = \prod{x_{i}^{\alpha_{i}}}$, where $\alpha_{i}>0$ are positive constants.
 * __Leontief utility function__ assumes that an individual's utility is based on the minimum amount of each attribute or variable required to achieve a certain level of satisfaction. The function is represented by the equation $U(x_{1},\dots, x_{n}) = \min\left\{\alpha_{1}x_{1},\dots,\alpha_{n}x_{n}\right\}$, where $\alpha_{i}$ are the minimum amounts required for each variable, and $x_{i}$ are the quantities consumed for variable $i$.
 
@@ -60,16 +61,23 @@ A utility function should obey the following properties: -->
 These properties ensure that a utility function represents a person's preferences and can be used to make rational choices between alternatives.
 -->
 
+(content:references:rational-choice-theory-utility-functions-linear)=
+#### Linear utility functions
+A linear utility function is the simplest utility function. It assumes that an individual's utility is directly proportional to the quantity consumed, and is represented by the equation $U(x) = \sum{\alpha_{i}x_{i}}$, where $\alpha_{i}>0$ is a positive constant ({numref}`fig-linear-utility-1d`). 
+
+
+ ```{figure} ./figs/Fig-Linear-Utility.svg
+---
+height: 420px
+name: fig-linear-utility-1d
+---
+Linear utility function in one dimension as a function of the quantity of good or service consumed and the values of the utility function parameter $\alpha.
+```
 
 
 
-
-### Linear utility functions
-A linear utility function is the simplest utility function. It assumes that an individual's utility is directly proportional to the quantity consumed, and is represented by the equation $U(x) = \sum{a_{i}x_{i}}$, where $a_{i}>0$ is a positive constant. The marginal utility of a linear utility function is constant and does not depend on the quantity consumed.
-
-
-
-### Logarithmic utility functions
+(content:references:rational-choice-theory-utility-functions-log)=
+#### Logarithmic utility functions
 A logarithmic utility function assumes that an individual's utility is a function of the logarithm of the quantity consumed, and is represented by the equation $U(x) = \ln(x+a)$, where $a>0$ is a positive constant. The marginal utility of a logarithmic utility function is inversely proportional to the quantity consumed:
 
 ```{math}
@@ -86,61 +94,15 @@ The marginal utility of Agent A for widgets in given by:
 
 $$\frac{\partial{U}}{\partial{w}} = \frac{1}{1+w}$$ -->
 
+(content:references:rational-choice-theory-utility-functions-cobb-douglas)=
+#### Cobb-Douglas utility functions
+Fill me in
 
 
-(content:references:indifference-curves)=
-## Indifference curves
-Indifference curves are graphical representations of combinations of choices that provide a decision-making agent with the same level of utility ({numref}`fig-cobb-douglas-ic`). Thus, decision-makers are _indifferent_ to the consumption of different combinations of goods (or services) on an indifference curve. 
+(content:references:rational-choice-theory-utility-functions-leontief)=
+#### Leontief utility functions
+Fill me in
 
- ```{figure} ./figs/Fig-CobbDouglas-IndifferenceCurves-Sqrt.pdf
----
-height: 400px
-name: fig-cobb-douglas-ic
----
-Two-dimensional indifference curves were generated using the Cobb–Douglas utility function with $\alpha_{1} = \alpha_{2} = 0.5$. The decision maker is indifferent to a choice between point $A$ and $B$, i.e., $A\sim{B}$ or $C\sim{D}$. However, the decision maker strictly prefers $C$ and $D$ compared to $A$ and $B$, i.e., $C\sim{D}\succ{A}\sim{B}$.
-```
-
-For example, the decision agent with the Cobb–Douglas utility function shown in ({numref}`fig-cobb-douglas-ic`) is _indifferent_ to a choice between $A$ and $B$, but strictly prefers $C$ and $D$ to either $A$ or $B$. 
-
-Sample code to compute the two-dimensional indifference curve for a Cobb–Douglas utility function with $\alpha_{1} = \alpha_{2} = 0.5$:
-```julia
-# initialize
-α₁ = 0.5 
-α₂ = 1.0 - α₁
-
-# Storage: holds indifference curves 
-results = Dict{Int64,Array{Float64,2}}()
-
-# Set values for the good and service 1
-X1 = range(0.001,stop=100.0,step = 0.001) |> collect;
-d = length(X1);
-
-# Set utility values
-U = [12.0, 24.0, 36.0, 48.0];
-n = length(U);
-
-# simulation loop
-for i ∈ 1:n
-
-    # Allocate storage for the indifference curve 
-    Y = Array{Float64,2}(undef,d,2);
-    U_val = U[i];
-
-    # compute X2 from the X1 values
-    for j ∈ 1:d
-
-        # compute the log-transformed utility
-        tmp = (1/α₂)*(log(U_val) - α₁*log(X1[j]));
-
-        # store
-        Y[j,1] = X1[j];
-        Y[j,2] = exp(tmp); # inverse transform
-    end
-
-    # store -
-    results[i] = Y;
-end
-```
 ---
 
 # Summary
