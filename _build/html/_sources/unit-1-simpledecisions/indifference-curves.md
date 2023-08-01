@@ -112,7 +112,7 @@ The [Cobb–Douglas utility function](https://en.wikipedia.org/wiki/Cobb–Dougl
 ```{math}
 :label: eqn-mu-u-function
 
-\bar{U}_{x_{i}} = \left(\alpha_{i}x^{\alpha_{i}-1}\right)\cdot\left(\prod_{j=1,i}^{n}x_{j}^{\alpha_{j}}\right)
+\bar{U}_{x_{i}} = \left(\alpha_{i}\cdot{x}^{\alpha_{i}-1}\right)\cdot\left(\prod_{j=1,i}^{n}x_{j}^{\alpha_{j}}\right)
 ```
 
 ### Implementation
