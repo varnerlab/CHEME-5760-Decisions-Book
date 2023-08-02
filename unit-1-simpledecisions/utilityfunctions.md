@@ -6,11 +6,7 @@ This week, we'll develop tools to compute rational choices and explore some math
 
 * {ref}`content:references:rational-choice-theory` is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.
 
-* {ref}`content:references:marginal-utility` describes the added satisfaction or benefits that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that the happiness or benefit from each extra unit decreases as a consumer increases the number of units consumed. Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.
-
-* {ref}`content:references:indifference-curves` are a tool used in microeconomics to analyze consumers’ preferences. They represent a graphical depiction of different combinations of two goods that provide the same level of satisfaction, or utility, to a consumer. Indifference curves can be used to understand how consumers make choices when faced with trade-offs between goods and how they may respond to changes in prices or income.
-
-
+* {ref}`content:references:marginal-utility` describes the added satisfaction or benefits that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that the happiness or benefit from each extra unit decreases as a consumer increases the number of units consumed. Marginal utility is crucial in shaping consumer behavior, prices, and market equilibrium.
 ```
 
 ---
@@ -26,10 +22,10 @@ An individual decision-making agent is presented with a bundle of $n$ objects $X
 
 ```{math}
 :label: eqn-utility-function-generic
-U(x_{1},x_{2},\dots,x_{n})
+U(x_{1},x_{2},\dots,x_{n}) = u
 ```
 
-The utility function $U:X\rightarrow\mathbb{R}$ is unique only up to an order-preserving transformation in period $t\rightarrow{t+dt}$. Further, utility functions are ordinal, i.e., they rank-order bundles but do not indicate how much better a bundle is compared to another.
+where $u$ is a real number called the utility. The utility function $U:X\rightarrow\mathbb{R}$ is unique only up to an order-preserving transformation in period $t\rightarrow{t+dt}$. Further, utility functions are ordinal, i.e., they rank-order bundles but do not indicate how much better a bundle is compared to another.
 
 ````
 
@@ -37,7 +33,7 @@ The utility function $U:X\rightarrow\mathbb{R}$ is unique only up to an order-pr
 
 * If $A\succ{B}$, the decision maker _strictly prefers_ $A$ to $B$. Then, the utility of choice $A$ is greater than $B$, or $U(A)>U(B)$.
 * If $A\sim{B}$, the decision maker is _indifferent_ between $A$ to $B$. Then, the utility of choice $A$ is the same as $B$, or $U(A)=U(B)$.
-* If $A\succsim{B}$, the decision maker _weakly prefers_ $A$ over $B$, or they are indifferent. Then, the utility of choice $A$ is greater than or equal to $B$, or $U(A)\geq{U(A)}$.
+* If $A\succsim{B}$, the decision maker _weakly prefers_ $A$ over $B$, or they are indifferent. Then, the utility of choice $A$ is greater than or equal to $B$, or $U(A)\geq{U(B)}$.
 
 (content:references:rational-choice-theory-utility-functions)=
 ### Utility functions
@@ -46,7 +42,7 @@ A utility function is a mathematical representation of a person's preferences ov
 * __Linear utility function__ assumes that an individual's utility is directly proportional to the quantity of goods or services consumed, and is represented by the equation $U(x) = \sum{\alpha_{i}x_{i}}$, where $\alpha_{i}>0$ is a positive constant, and $x_{i}$ denotes the quantity of good or service $i$ consumed.
 * __Logarithmic utility function__ assumes that an individual's utility is a function of the logarithm of the quantity consumed, and is represented by the equation $U(x) = \ln(\alpha^{T}\cdot{x}+\beta)$, where $\beta>0$ is a positive constant, and $\alpha^{T}\cdot{x}$ is the scalar product of the vector of parameters $\alpha$ and goods or services $x$, where $x_{i}>0$ and $\alpha_{i}>0$.
 * __Exponential utility function__ assumes that an individual's utility is proportional to the exponential of the quantity consumed, and is represented by the equation $U(x) = e^{\alpha^{T}\cdot{x}}$, where $\alpha^{T}\cdot{x}$ is the scalar product of the vector of parameters $\alpha$ and the vector of goods or services $x$, where $x_{i}>0$ and $\alpha_{i}>0$.
-* __Cobb-Douglas utility function__ is commonly used in economics and assumes that an individual's utility is a function of the quantity of two or more goods consumed, and is represented by the equation $U(x_{1},\dots,x_{n}) = \prod{x_{i}^{\alpha_{i}}}$, where $\alpha_{i}>0$ are positive constants.
+* __Cobb-Douglas utility function__ is commonly used in economics and assumes that an individual's utility is a function of the quantity of two or more goods consumed, and is represented by the equation $U(x_{1},\dots,x_{n}) = \prod{x_{i}^{\alpha_{i}}}$, where $\alpha_{i}>0$ are positive constants, and $\sum{\alpha_{i}}=1$.
 * __Leontief utility function__ assumes that an individual's utility is based on the minimum amount of each attribute or variable required to achieve a certain level of satisfaction. The function is represented by the equation $U(x_{1},\dots, x_{n}) = \min\left\{\alpha_{1}x_{1},\dots,\alpha_{n}x_{n}\right\}$, where $\alpha_{i}$ are the minimum amounts required for each variable, and $x_{i}$ are the quantities consumed for variable $i$.
 
 <!-- 
@@ -63,45 +59,243 @@ These properties ensure that a utility function represents a person's preference
 
 (content:references:rational-choice-theory-utility-functions-linear)=
 #### Linear utility functions
-A linear utility function is the simplest utility function. It assumes that an individual's utility is directly proportional to the quantity consumed, and is represented by the equation $U(x) = \sum{\alpha_{i}x_{i}}$, where $\alpha_{i}>0$ is a positive constant ({numref}`fig-linear-utility-1d`). 
+A linear utility function is the simplest utility function. It assumes that an individual's utility is directly proportional to the quantity consumed, and is represented by the equation 
 
-
- ```{figure} ./figs/Fig-Linear-Utility.svg
----
-height: 420px
-name: fig-linear-utility-1d
----
-Linear utility function in one dimension as a function of the quantity of good or service consumed and the values of the utility function parameter $\alpha.
+```{math}
+:label: eqn-linear-utility-function
+U(x) = \alpha^{T}\cdot{x}
 ```
 
+where $\alpha^{T}\cdot{x}$ denotes the dot product (or scalar product) of the vector of parameters $\alpha$ and the vector of goods or services $x$, where $x_{i}>0$ and $\alpha_{i}>0$. 
+
+ ```{figure} ./figs/Fig-Linear-Utility-Schematic.png
+---
+height: 380px
+name: fig-linear-utility-1d
+---
+Linear utility function in one dimension as a function of the quantity of good or service consumed and the values of the utility function parameter $\alpha$.
+```
+
+A linear utility function exhibits constant [marginal utility](https://en.wikipedia.org/wiki/Marginal_utility), i.e., the satisfaction gained from consuming an additional unit of a good or service is constant. 
+
+##### Implementation
+We used the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) to build a `linear` utility function model,  and then to plot it. The code that produced ({numref}`fig-linear-utility-1d`) is shown below:
+
+```{code-block} julia
+:caption: Linear utility function model in Julia
+:linenos:
+
+# load packages -
+using VLDecisionsPackage
+using Plots
+using Colors
+
+# setup colors -
+colors = Dict{Int,RGB}()
+colors[1] = parse(Colorant, "#D81B60")
+colors[2] = parse(Colorant, "#1E88E5")
+colors[3] = parse(Colorant, "#FFC107")
+colors[4] = parse(Colorant, "#004D40")
+
+# setup ranges and parameters -
+goods_array = range(0.0,stop=100.0,step=1.0) |> collect;
+parameter_value_array = [0.1, 0.2, 0.3, 0.4];
+
+# goods array -
+goods_array = range(0.0,stop=100.0,step=1.0) |> collect;
+parameter_value_array = [0.1, 0.2, 0.3, 0.4];
+
+counter = 1;
+for p ∈ parameter_value_array
+    
+    # utility function -
+    my_utility_model = build(VLLinearUtilityFunction, (
+        α = [p],
+    ));
+
+    # evaluate the utility function -
+    utility_array = evaluate(my_utility_model, goods_array);
+
+    # plot -
+    plot!(goods_array, utility_array, label="α = $(p)", lw=4, c=colors[counter],
+        bg=:snow2, background_color_outside="white", framestyle = :box, fg_legend = :transparent);
+
+    global counter += 1;
+end
+current()
+xlabel!("Good or Service 1 (units)", fontsize=18);
+ylabel!("Utility (utils)", fontsize=18);
+```
 
 
 (content:references:rational-choice-theory-utility-functions-log)=
 #### Logarithmic utility functions
-A logarithmic utility function assumes that an individual's utility is a function of the logarithm of the quantity consumed, and is represented by the equation $U(x) = \ln(x+a)$, where $a>0$ is a positive constant. The marginal utility of a logarithmic utility function is inversely proportional to the quantity consumed:
+A logarithmic utility function assumes that an individual's utility is a function of the logarithm of the quantity consumed and is given by:
 
 ```{math}
-:label: eqn-log-marginal-utility
-\bar{U} = \frac{1}{x + a}
+:label: eq-log-utility
+U(x) = \ln(\alpha^{T}\cdot{x}+\beta)
 ```
 
-<!-- The shape of the marginal utility curves gives insight into how a decision maker values a particular good or service. Consider the case of how two agents feel about widgets $w$:
+where $\beta>0$ is a positive constant, and $\alpha^{T}\cdot{x}$ is the scalar product of the vector of parameters $\alpha$ and goods or services $x$, where $x_{i}>0$ and $\alpha_{i}>0$. However, unlike the linear utility function, the logarithmic utility function exhibits [diminishing marginal utility](https://www.investopedia.com/terms/l/lawofdiminishingutility.asp), i.e., as a person consumes more of a good, the additional satisfaction gained from each unit consumed decreases ({numref}`fig-log-utility-1d`)
 
-* __Agent A__: Let the utility function governing the satisfaction gained by Agent A generated by purchasing a widget be $U(w) = \ln\left(1+w\right)$. 
-* __Agent B__: Let the utility function governing the satisfaction gained by Agent B generated by purchasing a widget be $U(w) =  \alpha\cdot{w}^2$, where $\alpha>0$.
+ ```{figure} ./figs/Fig-Log-Utility.svg
+---
+height: 380px
+name: fig-log-utility-1d
+---
+Log utility function in one dimension as a function of the quantity of good or service consumed and the values of the utility function parameter $\alpha$ with $\beta = 1.0$
+```
 
-The marginal utility of Agent A for widgets in given by:
+##### Implementation
+We used the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) to build a `log` utility function model, an instance of the `VLLogUtilityFunction` type,  and compute the utility values using the `evaluate(...)` function.  We plot the utility function using the [Plots.jl](https://github.com/JuliaPlots/Plots.jl) package. The code that produced {numref}`fig-log-utility-1d` is shown below:
 
-$$\frac{\partial{U}}{\partial{w}} = \frac{1}{1+w}$$ -->
+```{code-block} julia
+:caption: Log utility function model in Julia
+:linenos:
+
+# load packages -
+using VLDecisionsPackage
+using Plots
+using Colors
+
+# setup colors -
+colors = Dict{Int,RGB}()
+colors[1] = parse(Colorant, "#D81B60")
+colors[2] = parse(Colorant, "#1E88E5")
+colors[3] = parse(Colorant, "#FFC107")
+colors[4] = parse(Colorant, "#004D40")
+
+# setup ranges and parameters -
+goods_array = range(0.0,stop=100.0,step=1.0) |> collect;
+parameter_value_array = [0.1, 0.2, 0.3, 0.4];
+
+# main loop -
+counter = 1;
+for p ∈ parameter_value_array
+    
+    # build a utility function model -
+    my_utility_model = build(VLLogUtilityFunction, (
+        α = [p], β = 1.0
+    ));
+
+    # evaluate the utility function model for the goods array -
+    utility_array = evaluate(my_utility_model, goods_array);
+
+    # plot -
+    plot!(goods_array, utility_array, label="α = $(p)", lw=4, c=colors[counter],
+        bg=:snow2, background_color_outside="white", framestyle = :box, 
+        fg_legend = :transparent);
+
+    global counter += 1;
+end
+current()
+xlabel!("Good or Service 1 (units)", fontsize=18);
+ylabel!("Utility (utils)", fontsize=18);
+```
 
 (content:references:rational-choice-theory-utility-functions-cobb-douglas)=
 #### Cobb-Douglas utility functions
-Fill me in
+The Cobb-Douglas utility function governs the consumption of multiple goods or services and is given by:
 
+```{math}
+:label: eq-cobb-douglas-utility
+U(x_{1},\dots,x_{n}) = \prod_{i\in{1\dots{n}}}{x_{i}^{\alpha_{i}}}
+```
+
+where the exponents sum to unity $\sum_{i\in{1\dots{n}}}\alpha_{i} = 1$, and $\alpha_{i}\geq{0}$. 
+
+ ```{figure} ./figs/Fig-CobbDouglas-Utility-Schematic.png
+---
+height: 380px
+name: fig-cobbdouglas-utility-1d
+---
+Cobb utility function in one dimension as a function of the quantity of good or service consumed and the values of the utility function parameters $\alpha$. We assumed $x_{2} = 1.0$ for all values of $x_{1}$, and $\sum\alpha = 1$.
+```
+
+##### Implementation
+We used the `build(...)` method of [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) to build a `Cobb Douglas` utility function model, which is an instance of the `VLCobbDouglasUtilityFunction` type,  and then calculated the utility values using the `evaluate(...)` function.  Finally, we ploted the utility function values using the [Plots.jl](https://github.com/JuliaPlots/Plots.jl) package. The code that produced {numref}`fig-cobbdouglas-utility-1d` is shown below:
+
+```{code-block} julia
+:caption: Cobb-Douglas utility function
+:linenos:
+
+# load packages -
+using VLDecisionsPackage
+using Plots
+using Colors
+
+# setup colors -
+colors = Dict{Int,RGB}()
+colors[1] = parse(Colorant, "#D81B60")
+colors[2] = parse(Colorant, "#1E88E5")
+colors[3] = parse(Colorant, "#FFC107")
+colors[4] = parse(Colorant, "#004D40")
+
+# goods array -
+number_of_steps = 100;
+goods_array = zeros(number_of_steps,2);
+for i ∈ 1:number_of_steps
+    goods_array[i,1] = i |> Float64;
+    goods_array[i,2] = 1.0;
+end
+parameter_value_array = [0.1, 0.2, 0.3, 0.4];
+
+# main loop -
+counter = 1;
+for p ∈ parameter_value_array
+
+    # utility function -
+    my_utility_model = build(VLCobbDouglasUtilityFunction, (
+        α = [p, 1.0-p],
+    ));
+
+    # evaluate the utility function -
+    utility_array = evaluate(my_utility_model, goods_array);
+
+    # plot -
+    plot!(goods_array[:,1], utility_array, label="α = $(p)", lw=4, c=colors[counter],
+        bg=:snow2, background_color_outside="white", framestyle = :box, 
+        fg_legend = :transparent);
+
+    global counter += 1;
+end
+current()
+xlabel!("Good or Service 1 (units)", fontsize=18);
+ylabel!("Utility (utils)", fontsize=18);
+```
 
 (content:references:rational-choice-theory-utility-functions-leontief)=
 #### Leontief utility functions
 Fill me in
+
+
+(content:references:marginal-utility)=
+## Marginal utility
+The marginal utility of a good or service is the added satisfaction or benefit that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that as a consumer increases the number of units consumed, the satisfaction or benefit from each extra unit decreases. 
+
+Mathematically, the marginal utility is the partial derivative of the utility function with respect to the quantity of good or service consumed. For example, the marginal utility of good or service $i$ is given by ({prf:ref}`defn-marginal-utility`):
+
+````{prf:definition} Marginal Utility
+:label: defn-marginal-utility
+
+Let $x_{i}~(\text{for}~i\in{1\dots{n}})$ be a good or service in the set of goods and services $X$. Further, let $U:X\rightarrow\mathbb{R}$ be a utility function over the set of goods $X$. Then, the [marginal utility](https://en.wikipedia.org/wiki/Marginal_utility) of $x\in{X}$ is the partial derivative of $U$ with respect to $x$:
+
+```{math}
+\bar{U}_{x_{i}} \equiv \left(\frac{\partial{U}}{\partial{x_{i}}}\right)_{\star}
+```
+
+evaluated at a point $x^{\star}\in{X}$. The change in the utility governing the decision maker can be computed using the [total differential](https://en.wikipedia.org/wiki/Differential_of_a_function#Differentials_in_several_variables) around a point $x^{\star}\in{X}$:
+
+```{math}
+:label: eqn-total-differential-ic
+
+dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}
+```
+
+where $\bar{U}_{x_{i}}$ denotes the marginal utility of $x_{i}$ and $dx_{i}$ denotes the change in the consumption of good or service $x$.
+````
+
 
 ---
 
@@ -111,5 +305,3 @@ In this lecture, we'll developed tools to compute rational choices and explored 
 * {ref}`content:references:rational-choice-theory` is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.
 
 * {ref}`content:references:marginal-utility` describes the added satisfaction or benefit that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that as a consumer increases the number of units consumed, the satisfaction or benefit from each extra unit decreases. The concept of Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.
-
-* {ref}`content:references:indifference-curves` are a tool used in microeconomics to analyze consumers’ preferences. They represent a graphical depiction of different combinations of two goods that provide the same level of satisfaction, or utility, to a consumer. Indifference curves can be used to understand how consumers make choices when faced with trade-offs between goods and how they may respond to changes in prices or income.
