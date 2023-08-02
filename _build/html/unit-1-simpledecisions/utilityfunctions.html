@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Utility Functions &#8212; CHEME 5760</title>
+    <title>Utility Functions and Choice Theory &#8212; CHEME 5760</title>
   
   
   
@@ -169,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="simpledecisions-landing.html">Unit 1. Simple Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Utility Functions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Utility Functions and Choice Theory</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="marginal-utility.html">Marginal Rate of Substitution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indifference-curves.html">Indifference Curves</a></li>
@@ -402,7 +402,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Utility Functions</h1>
+    <h1>Utility Functions and Choice Theory</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -412,19 +412,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Utility Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Utility Functions and Choice Theory</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-choice-theory">Rational choice theory</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#content-references-rational-choice-theory-utility-functions">Utility functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-functions">Utility functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-utility-functions">Linear utility functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithmic-utility-functions">Logarithmic utility functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Implementation</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Implementation</a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cobb-douglas-utility-functions">Cobb-Douglas utility functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Implementation</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Implementation</a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#leontief-utility-functions">Leontief utility functions</a></li>
@@ -448,12 +448,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="utility-functions">
-<h1>Utility Functions<a class="headerlink" href="#utility-functions" title="Permalink to this heading">#</a></h1>
-<p>Utility functions are mathematical expressions representing an individual’s preferences over different choices or outcomes. It assigns a numerical value, called utility which is a surrogate for happiness or satisfaction, to each possible option or outcome, based on how much the individual values it. However, a utility function is subjective and can vary from person to person, as different individuals may have other preferences.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="utility-functions-and-choice-theory">
+<h1>Utility Functions and Choice Theory<a class="headerlink" href="#utility-functions-and-choice-theory" title="Permalink to this heading">#</a></h1>
+<p>Utility functions are mathematical expressions that show an individual’s preferences for different choices or outcomes. They give a numerical value, known as utility, for each available option or outcome based on the individual’s valuation of it, which is a proxy for happiness or satisfaction. However, utility functions are subjective and can differ from person to person since everyone has different preferences.</p>
 <aside class="topic">
 <p class="topic-title">Outline</p>
-<p>This week, we’ll develop tools to compute rational choices and explore some mathematical and philosophical properties of utility functions:</p>
+<p>This week, we’ll develop tools to compute rational choices using utility functions, and explore some mathematical and philosophical properties of utility functions:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-rational-choice-theory"><span class="std std-ref">Rational choice theory</span></a> is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.</p></li>
 <li><p><a class="reference internal" href="#content-references-marginal-utility"><span class="std std-ref">Marginal utility</span></a> describes the added satisfaction or benefits that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that the happiness or benefit from each extra unit decreases as a consumer increases the number of units consumed. Marginal utility is crucial in shaping consumer behavior, prices, and market equilibrium.</p></li>
@@ -466,30 +466,30 @@ document.write(`
 <div class="proof definition admonition" id="defn-individual-utility">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (Ordinal utility function)</p>
 <section class="definition-content" id="proof-content">
-<p>An individual decision-making agent is presented with a bundle of <span class="math notranslate nohighlight">\(n\)</span> objects <span class="math notranslate nohighlight">\(X=\left\{x_{1},\dots,x_{n}\right\}\)</span>. A utility function represents the preference of the agent for combinations of these <span class="math notranslate nohighlight">\(n\)</span> objects:</p>
+<p>An individual decision-making agent is presented with a bundle (set) of <span class="math notranslate nohighlight">\(n\)</span> objects <span class="math notranslate nohighlight">\(X=\left\{x_{1},\dots,x_{n}\right\}\)</span>. A utility function represents the preference of the agent for combinations of these <span class="math notranslate nohighlight">\(n\)</span> objects:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-utility-function-generic">
 <span class="eqno">(1)<a class="headerlink" href="#equation-eqn-utility-function-generic" title="Permalink to this equation">#</a></span>\[U(x_{1},x_{2},\dots,x_{n}) = u\]</div>
-<p>where <span class="math notranslate nohighlight">\(u\)</span> is a real number called the utility. The utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span> is unique only up to an order-preserving transformation in period <span class="math notranslate nohighlight">\(t\rightarrow{t+dt}\)</span>. Further, utility functions are ordinal, i.e., they rank-order bundles but do not indicate how much better a bundle is compared to another.</p>
+<p>where <span class="math notranslate nohighlight">\(u\)</span> is a real number called the utility. The utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span> is unique only up to an order-preserving transformation in period <span class="math notranslate nohighlight">\(t\rightarrow{t+dt}\)</span>. Further, utility functions are ordinal, i.e., they rank-order bundles but do not indicate how much better or worse a bundle is compared to another.</p>
 </section>
-</div><p><a class="reference internal" href="#defn-individual-utility">Definition 1</a> establishes a critical concept; the utility can be used to rank order the preference for different choices. For example, suppose we have two choices, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>:</p>
+</div><p><a class="reference internal" href="#defn-individual-utility">Definition 1</a> establishes a critical concept; the utility can be used to rank order the preference for different choices. For example, suppose we have two choices, <span class="math notranslate nohighlight">\(A\in{X}\)</span> and <span class="math notranslate nohighlight">\(B\in{X}\)</span>:</p>
 <ul class="simple">
 <li><p>If <span class="math notranslate nohighlight">\(A\succ{B}\)</span>, the decision maker <em>strictly prefers</em> <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(B\)</span>. Then, the utility of choice <span class="math notranslate nohighlight">\(A\)</span> is greater than <span class="math notranslate nohighlight">\(B\)</span>, or <span class="math notranslate nohighlight">\(U(A)&gt;U(B)\)</span>.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(A\sim{B}\)</span>, the decision maker is <em>indifferent</em> between <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(B\)</span>. Then, the utility of choice <span class="math notranslate nohighlight">\(A\)</span> is the same as <span class="math notranslate nohighlight">\(B\)</span>, or <span class="math notranslate nohighlight">\(U(A)=U(B)\)</span>.</p></li>
 <li><p>If <span class="math notranslate nohighlight">\(A\succsim{B}\)</span>, the decision maker <em>weakly prefers</em> <span class="math notranslate nohighlight">\(A\)</span> over <span class="math notranslate nohighlight">\(B\)</span>, or they are indifferent. Then, the utility of choice <span class="math notranslate nohighlight">\(A\)</span> is greater than or equal to <span class="math notranslate nohighlight">\(B\)</span>, or <span class="math notranslate nohighlight">\(U(A)\geq{U(B)}\)</span>.</p></li>
 </ul>
-<div class="admonition-key-takeaway admonition">
-<p class="admonition-title">Key Takeaway</p>
-<p>When faced with a set of possible competing alternatives, decision-making agents will always choose the option that maximizes their utility.</p>
+<div class="admonition-key-idea-of-rational-choice-theory admonition">
+<p class="admonition-title">Key Idea of Rational Choice Theory</p>
+<p>When faced with competing alternatives, i.e., different decision outcomes <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, a decision-making agent will <em>always</em> choose the option that maximizes their utility.</p>
 </div>
-<section id="content-references-rational-choice-theory-utility-functions">
-<span id="id1"></span><h3>Utility functions<a class="headerlink" href="#content-references-rational-choice-theory-utility-functions" title="Permalink to this heading">#</a></h3>
-<p>A utility function is a mathematical representation of a person’s preferences over different outcomes or alternatives. There are many different classes of utility functions, let’s look at a few examples and examine their properties:</p>
+<section id="utility-functions">
+<span id="content-references-rational-choice-theory-utility-functions"></span><h3>Utility functions<a class="headerlink" href="#utility-functions" title="Permalink to this heading">#</a></h3>
+<p>To better understand utility functions, let’s explore them further. Utility functions are utilized to express preferences for various outcomes by assigning a numerical value to each option, which is referred to as <code class="docutils literal notranslate"><span class="pre">utility</span></code> and measured in <code class="docutils literal notranslate"><span class="pre">utils</span></code>. It’s important to note that these functions, or their parameters, are subjective and may differ from one person to another. There are various types of utility functions, and we’ll examine some examples and their characteristics:</p>
 <ul class="simple">
 <li><p><strong>Linear utility function</strong> assumes that an individual’s utility is directly proportional to the quantity of goods or services consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = \sum{\alpha_{i}x_{i}}\)</span>, where <span class="math notranslate nohighlight">\(\alpha_{i}&gt;0\)</span> is a positive constant, and <span class="math notranslate nohighlight">\(x_{i}\)</span> denotes the quantity of good or service <span class="math notranslate nohighlight">\(i\)</span> consumed.</p></li>
 <li><p><strong>Logarithmic utility function</strong> assumes that an individual’s utility is a function of the logarithm of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = \ln(\alpha^{T}\cdot{x}+\beta)\)</span>, where <span class="math notranslate nohighlight">\(\beta&gt;0\)</span> is a positive constant, and <span class="math notranslate nohighlight">\(\alpha^{T}\cdot{x}\)</span> is the scalar product of the vector of parameters <span class="math notranslate nohighlight">\(\alpha\)</span> and goods or services <span class="math notranslate nohighlight">\(x\)</span>, where <span class="math notranslate nohighlight">\(x_{i}&gt;0\)</span> and <span class="math notranslate nohighlight">\(\alpha_{i}&gt;0\)</span>.</p></li>
 <li><p><strong>Exponential utility function</strong> assumes that an individual’s utility is proportional to the exponential of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = e^{\alpha^{T}\cdot{x}}\)</span>, where <span class="math notranslate nohighlight">\(\alpha^{T}\cdot{x}\)</span> is the scalar product of the vector of parameters <span class="math notranslate nohighlight">\(\alpha\)</span> and the vector of goods or services <span class="math notranslate nohighlight">\(x\)</span>, where <span class="math notranslate nohighlight">\(x_{i}&gt;0\)</span> and <span class="math notranslate nohighlight">\(\alpha_{i}&gt;0\)</span>.</p></li>
 <li><p><strong>Cobb-Douglas utility function</strong> is commonly used in economics and assumes that an individual’s utility is a function of the quantity of two or more goods consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x_{1},\dots,x_{n}) = \prod{x_{i}^{\alpha_{i}}}\)</span>, where <span class="math notranslate nohighlight">\(\alpha_{i}&gt;0\)</span> are positive constants, and <span class="math notranslate nohighlight">\(\sum{\alpha_{i}}=1\)</span>.</p></li>
-<li><p><strong>Leontief utility function</strong> assumes that an individual’s utility is based on the minimum amount of each attribute or variable required to achieve a certain level of satisfaction. The function is represented by the equation <span class="math notranslate nohighlight">\(U(x_{1},\dots, x_{n}) = \min\left\{\alpha_{1}x_{1},\dots,\alpha_{n}x_{n}\right\}\)</span>, where <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> are the minimum amounts required for each variable, and <span class="math notranslate nohighlight">\(x_{i}\)</span> are the quantities consumed for variable <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+<li><p><strong>Leontief utility function</strong> assumes that an individual’s utility is based on the minimum amount of each attribute or variable required to achieve a certain level of satisfaction. The function is represented by the equation <span class="math notranslate nohighlight">\(U(x_{1},\dots, x_{n}) = \min\left\{x_{1}/\alpha_{1},\dots,x_{n}/\alpha_{n}\right\}\)</span>, where <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> are the minimum amounts required for each variable, and <span class="math notranslate nohighlight">\(x_{i}\)</span> are the quantities consumed for variable <span class="math notranslate nohighlight">\(i\)</span>, or the system state in configuration <span class="math notranslate nohighlight">\(i\)</span>, etc.</p></li>
 </ul>
 <!-- 
 A utility function should obey the following properties: -->
@@ -503,10 +503,10 @@ These properties ensure that a utility function represents a person's preference
 -->
 <section id="linear-utility-functions">
 <span id="content-references-rational-choice-theory-utility-functions-linear"></span><h4>Linear utility functions<a class="headerlink" href="#linear-utility-functions" title="Permalink to this heading">#</a></h4>
-<p>A linear utility function is the simplest utility function. It assumes that an individual’s utility is directly proportional to the quantity consumed, and is represented by:</p>
+<p>A linear utility function is the simplest utility function. It assumes that an individual’s utility is directly proportional to the decision outcome, e.g., the quantity of a good or serice consumed, and is represented by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-linear-utility-function">
 <span class="eqno">(2)<a class="headerlink" href="#equation-eqn-linear-utility-function" title="Permalink to this equation">#</a></span>\[U(x) = \alpha^{T}\cdot{x}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\alpha^{T}\cdot{x}\)</span> denotes the dot product (or scalar product) of the vector of parameters <span class="math notranslate nohighlight">\(\alpha\)</span> and the vector of goods or services <span class="math notranslate nohighlight">\(x\)</span>, where <span class="math notranslate nohighlight">\(x_{i}&gt;0\)</span> and <span class="math notranslate nohighlight">\(\alpha_{i}&gt;0\)</span>. Let’s consider a one-dimensional linear utility function for four decision making agents with <span class="math notranslate nohighlight">\(\alpha_{1}&lt;\alpha_{2}&lt;\alpha_{3}&lt;\alpha_{4}\)</span> (<a class="reference internal" href="#fig-linear-utility-1d"><span class="std std-numref">Fig. 1</span></a>).</p>
+<p>where <span class="math notranslate nohighlight">\(\alpha^{T}\cdot{x}\)</span> denotes the dot product (or scalar product) of the vector of parameters <span class="math notranslate nohighlight">\(\alpha\)</span> and the vector of goods or services <span class="math notranslate nohighlight">\(x\)</span>, where <span class="math notranslate nohighlight">\(x_{i}\geq{0}\)</span> and <span class="math notranslate nohighlight">\(\alpha_{i}&gt;0\)</span>. Let’s consider a one-dimensional linear utility function for four decision making agents with <span class="math notranslate nohighlight">\(\alpha_{1}&lt;\alpha_{2}&lt;\alpha_{3}&lt;\alpha_{4}\)</span> (<a class="reference internal" href="#fig-linear-utility-1d"><span class="std std-numref">Fig. 1</span></a>).</p>
 <figure class="align-default" id="fig-linear-utility-1d">
 <a class="reference internal image-reference" href="../_images/Fig-Linear-Utility-Schematic.png"><img alt="../_images/Fig-Linear-Utility-Schematic.png" src="../_images/Fig-Linear-Utility-Schematic.png" style="height: 380px;" /></a>
 <figcaption>
@@ -516,14 +516,14 @@ These properties ensure that a utility function represents a person's preference
 <ul class="simple">
 <li><p>Each agent has a different utility value at the consumption of 75 units of <span class="math notranslate nohighlight">\(x\)</span>, indicated as points B, C, D, and E. The agent with the highest value of <span class="math notranslate nohighlight">\(\alpha\)</span>, Agent 4, has the highest utility value at point E, while the one with the lowest value of <span class="math notranslate nohighlight">\(\alpha\)</span>, Agent 1, has the lowest utility value at point B.</p></li>
 <li><p>Despite the difference in absolute utility values among the agents, their preferences remain the same. For instance, Agent 1 strictly prefers <span class="math notranslate nohighlight">\(B\succ{A}\)</span>
-, which means that they would choose to consume 75 units of <span class="math notranslate nohighlight">\(x\)</span> instead of 50 units of <span class="math notranslate nohighlight">\(x\)</span>. Similarly, Agent 4 strictly prefers <span class="math notranslate nohighlight">\(E\succ{F}\)</span>.</p></li>
-<li><p>A linear utility function has constant <a class="reference external" href="https://en.wikipedia.org/wiki/Marginal_utility">constant marginal utility</a>, meaning the satisfaction gained from consuming an additional unit of a good or service remains constant.</p></li>
+, which means that they would choose to consume 75 units instead of 50 units of <span class="math notranslate nohighlight">\(x\)</span>. Similarly, Agent 4 strictly prefers <span class="math notranslate nohighlight">\(E\succ{F}\)</span>.</p></li>
+<li><p>A linear utility function has constant <a class="reference external" href="https://en.wikipedia.org/wiki/Marginal_utility">constant marginal utility</a>, meaning the satisfaction gained from each additional <span class="math notranslate nohighlight">\(x\)</span> remains constant.</p></li>
 </ul>
 <section id="implementation">
 <h5>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h5>
 <p>We used the <a class="reference external" href="https://github.com/varnerlab/VLDecisionsPackage.jl">VLDecisionsPackage.jl</a> to build a <code class="docutils literal notranslate"><span class="pre">linear</span></code> utility function model,  and then to plot it. The code that produced (<a class="reference internal" href="#fig-linear-utility-1d"><span class="std std-numref">Fig. 1</span></a>) is shown below:</p>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Linear utility function model in Julia</span><a class="headerlink" href="#id4" title="Permalink to this code">#</a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Linear utility function model in Julia</span><a class="headerlink" href="#id3" title="Permalink to this code">#</a></div>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c"># load packages -</span>
 <span class="linenos"> 2</span><span class="k">using</span> <span class="n">VLDecisionsPackage</span>
 <span class="linenos"> 3</span><span class="k">using</span> <span class="n">Plots</span>
@@ -585,11 +585,11 @@ These properties ensure that a utility function represents a person's preference
 <li><p>Despite the difference in absolute utility values among the agents, their preferences remain the same. For instance, Agent 2 strictly prefers <span class="math notranslate nohighlight">\(B\succ{A}\)</span>.</p></li>
 <li><p>Unlike the linear utility function, the logarithmic utility function exhibits <a class="reference external" href="https://www.investopedia.com/terms/l/lawofdiminishingutility.asp">diminishing marginal utility</a>, i.e., as a person consumes more of a good, the additional satisfaction gained from each unit consumed decreases.</p></li>
 </ul>
-<section id="id2">
-<h5>Implementation<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h5>
+<section id="id1">
+<h5>Implementation<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h5>
 <p>We used the <a class="reference external" href="https://github.com/varnerlab/VLDecisionsPackage.jl">VLDecisionsPackage.jl</a> to build a <code class="docutils literal notranslate"><span class="pre">log</span></code> utility function model, an instance of the <code class="docutils literal notranslate"><span class="pre">VLLogUtilityFunction</span></code> type,  and compute the utility values using the <code class="docutils literal notranslate"><span class="pre">evaluate(...)</span></code> function.  We plot the utility function using the <a class="reference external" href="https://github.com/JuliaPlots/Plots.jl">Plots.jl</a> package. The code that produced <a class="reference internal" href="#fig-log-utility-1d"><span class="std std-numref">Fig. 2</span></a> is shown below:</p>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">Log utility function model in Julia</span><a class="headerlink" href="#id5" title="Permalink to this code">#</a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">Log utility function model in Julia</span><a class="headerlink" href="#id4" title="Permalink to this code">#</a></div>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c"># load packages -</span>
 <span class="linenos"> 2</span><span class="k">using</span> <span class="n">VLDecisionsPackage</span>
 <span class="linenos"> 3</span><span class="k">using</span> <span class="n">Plots</span>
@@ -650,11 +650,11 @@ These properties ensure that a utility function represents a person's preference
 <li><p>Preferences differ among the agents. Agent 1 appears to weakly prefer <span class="math notranslate nohighlight">\(B\succsim{A}\)</span>, which indicates that they are nearly indifferent to consuming 75 units of <span class="math notranslate nohighlight">\(x\)</span> versus 50 units of <span class="math notranslate nohighlight">\(x\)</span>. However, Agent 4 strictly prefers <span class="math notranslate nohighlight">\(E\succ{F}\)</span>.</p></li>
 <li><p>Like the log utility, the Cobb-Douglas utility function reflects <a class="reference external" href="https://www.investopedia.com/terms/l/lawofdiminishingutility.asp">diminishing marginal utility</a>, meaning that as a person consumes more of a good, the additional satisfaction gained from each unit consumed decreases.</p></li>
 </ul>
-<section id="id3">
-<h5>Implementation<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h5>
+<section id="id2">
+<h5>Implementation<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h5>
 <p>We used the <code class="docutils literal notranslate"><span class="pre">build(...)</span></code> method of <a class="reference external" href="https://github.com/varnerlab/VLDecisionsPackage.jl">VLDecisionsPackage.jl</a> to build a <code class="docutils literal notranslate"><span class="pre">Cobb</span> <span class="pre">Douglas</span></code> utility function model, which is an instance of the <code class="docutils literal notranslate"><span class="pre">VLCobbDouglasUtilityFunction</span></code> type,  and then calculated the utility values using the <code class="docutils literal notranslate"><span class="pre">evaluate(...)</span></code> function.  Finally, we ploted the utility function values using the <a class="reference external" href="https://github.com/JuliaPlots/Plots.jl">Plots.jl</a> package. The code that produced <a class="reference internal" href="#fig-cobbdouglas-utility-1d"><span class="std std-numref">Fig. 3</span></a> is shown below:</p>
-<div class="literal-block-wrapper docutils container" id="id6">
-<div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">Cobb-Douglas utility function</span><a class="headerlink" href="#id6" title="Permalink to this code">#</a></div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">Cobb-Douglas utility function</span><a class="headerlink" href="#id5" title="Permalink to this code">#</a></div>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c"># load packages -</span>
 <span class="linenos"> 2</span><span class="k">using</span> <span class="n">VLDecisionsPackage</span>
 <span class="linenos"> 3</span><span class="k">using</span> <span class="n">Plots</span>
@@ -705,7 +705,10 @@ These properties ensure that a utility function represents a person's preference
 </section>
 <section id="leontief-utility-functions">
 <span id="content-references-rational-choice-theory-utility-functions-leontief"></span><h4>Leontief utility functions<a class="headerlink" href="#leontief-utility-functions" title="Permalink to this heading">#</a></h4>
-<p>Fill me in</p>
+<p>The Leontief utility function, first developed by <a class="reference external" href="https://en.wikipedia.org/wiki/Wassily_Leontief">Wassily Leontief</a>, governs the choice between multiple states of the world and is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-leontief-utility">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-leontief-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots, x_{n}) = \min\left\{x_{1}/\alpha_{1},\dots,x_{n}/\alpha_{n}\right\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha_{i}&gt;{0}\)</span> and <span class="math notranslate nohighlight">\(x_{i}\geq{0}\)</span> for all <span class="math notranslate nohighlight">\(i\in{1\dots{n}}\)</span>.</p>
 </section>
 </section>
 </section>
@@ -720,7 +723,7 @@ These properties ensure that a utility function represents a person's preference
 \[\bar{U}_{x_{i}} \equiv \left(\frac{\partial{U}}{\partial{x_{i}}}\right)_{\star}\]</div>
 <p>evaluated at a point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>. The change in the utility governing the decision maker can be computed using the <a class="reference external" href="https://en.wikipedia.org/wiki/Differential_of_a_function#Differentials_in_several_variables">total differential</a> around a point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-total-differential-ic">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eqn-total-differential-ic" title="Permalink to this equation">#</a></span>\[dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}\]</div>
+<span class="eqno">(6)<a class="headerlink" href="#equation-eqn-total-differential-ic" title="Permalink to this equation">#</a></span>\[dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\bar{U}_{x_{i}}\)</span> denotes the marginal utility of <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(dx_{i}\)</span> denotes the change in the consumption of good or service <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </section>
 </div></section>
@@ -802,19 +805,19 @@ These properties ensure that a utility function represents a person's preference
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Utility Functions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Utility Functions and Choice Theory</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rational-choice-theory">Rational choice theory</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#content-references-rational-choice-theory-utility-functions">Utility functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-functions">Utility functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-utility-functions">Linear utility functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithmic-utility-functions">Logarithmic utility functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Implementation</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Implementation</a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cobb-douglas-utility-functions">Cobb-Douglas utility functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Implementation</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Implementation</a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#leontief-utility-functions">Leontief utility functions</a></li>
