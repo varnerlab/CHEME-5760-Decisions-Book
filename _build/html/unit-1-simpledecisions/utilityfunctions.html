@@ -75,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-1-simpledecisions/utilityfunctions.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Marginal Rate of Substitution" href="marginal-utility.html" />
+    <link rel="next" title="Indifference Curves" href="indifference-curves.html" />
     <link rel="prev" title="Making simple decisions" href="simpledecisions-landing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -171,7 +171,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="simpledecisions-landing.html">Unit 1. Simple Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Utility Functions and Choice Theory</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="marginal-utility.html">Marginal Rate of Substitution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indifference-curves.html">Indifference Curves</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utlitymaximization.html">Maximizing Utility</a></li>
 
@@ -432,7 +431,15 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-utility">Marginal utility</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-utility">Marginal utility</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-marginal-utility-important">Why is marginal utility important?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-marginal-utility-functions">Examples: marginal utility functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-marginal-utility">Numerical marginal utility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decisions">Decisions</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
@@ -483,7 +490,16 @@ document.write(`
 </div>
 <section id="utility-functions">
 <span id="content-references-rational-choice-theory-utility-functions"></span><h3>Utility functions<a class="headerlink" href="#utility-functions" title="Permalink to this heading">#</a></h3>
-<p>To better understand utility functions, let’s explore them further. Utility functions are utilized to express preferences for various outcomes by assigning a numerical value to each option, which is referred to as <code class="docutils literal notranslate"><span class="pre">utility</span></code> and measured in <code class="docutils literal notranslate"><span class="pre">utils</span></code>. It’s important to note that these functions, or their parameters, are subjective and may differ from one person to another. There are various types of utility functions, and we’ll examine some examples and their characteristics:</p>
+<p>To better understand utility functions, let’s explore them further. Utility functions are utilized to express preferences for various outcomes by assigning a numerical value to each option, which is referred to as <code class="docutils literal notranslate"><span class="pre">utility</span></code> and measured in <code class="docutils literal notranslate"><span class="pre">utils</span></code>. Here are some properties that a utility function should possess:</p>
+<ul class="simple">
+<li><p><strong>Completeness</strong>: A utility function should be able to rank all possible outcomes or alternatives. In other words, for any two outcomes, the utility function should tell us which one is preferred or whether they are equally preferred.</p></li>
+<li><p><strong>Transitivity</strong>: If outcome A is preferred to outcome B, and outcome B is preferred to outcome C, then outcome A must be preferred to outcome C.</p></li>
+<li><p><strong>Monotonicity</strong>: If more of a good is always preferred to less, then the utility function should increase in that good. Conversely, if less of a bad is always preferred to more, then the utility function should decrease in that bad.</p></li>
+<li><p><strong>Continuity</strong>: Small changes in the outcome or alternatives should result in small changes in the utility function.</p></li>
+<li><p><strong>Concavity</strong>: The utility function should be concave if the person exhibits diminishing marginal utility. This means that as a person consumes more of a good, the additional satisfaction gained from each unit consumed decreases.</p></li>
+</ul>
+<p>These properties help ensure that a utility function accurately represents a person’s preferences and can be used to make rational choices between alternatives.</p>
+<p>It’s important to note that utility functions, or their parameters, are subjective and may differ from one person to another. There are various types of utility functions, and we’ll examine some examples and their characteristics:</p>
 <ul class="simple">
 <li><p><strong>Linear utility function</strong> assumes that an individual’s utility is directly proportional to the quantity of goods or services consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = \sum{\alpha_{i}x_{i}}\)</span>, where <span class="math notranslate nohighlight">\(\alpha_{i}&gt;0\)</span> is a positive constant, and <span class="math notranslate nohighlight">\(x_{i}\)</span> denotes the quantity of good or service <span class="math notranslate nohighlight">\(i\)</span> consumed.</p></li>
 <li><p><strong>Logarithmic utility function</strong> assumes that an individual’s utility is a function of the logarithm of the quantity consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x) = \ln(\alpha^{T}\cdot{x}+\beta)\)</span>, where <span class="math notranslate nohighlight">\(\beta&gt;0\)</span> is a positive constant, and <span class="math notranslate nohighlight">\(\alpha^{T}\cdot{x}\)</span> is the scalar product of the vector of parameters <span class="math notranslate nohighlight">\(\alpha\)</span> and goods or services <span class="math notranslate nohighlight">\(x\)</span>, where <span class="math notranslate nohighlight">\(x_{i}&gt;0\)</span> and <span class="math notranslate nohighlight">\(\alpha_{i}&gt;0\)</span>.</p></li>
@@ -491,16 +507,6 @@ document.write(`
 <li><p><strong>Cobb-Douglas utility function</strong> is commonly used in economics and assumes that an individual’s utility is a function of the quantity of two or more goods consumed, and is represented by the equation <span class="math notranslate nohighlight">\(U(x_{1},\dots,x_{n}) = \prod{x_{i}^{\alpha_{i}}}\)</span>, where <span class="math notranslate nohighlight">\(\alpha_{i}&gt;0\)</span> are positive constants, and <span class="math notranslate nohighlight">\(\sum{\alpha_{i}}=1\)</span>.</p></li>
 <li><p><strong>Leontief utility function</strong> assumes that an individual’s utility is based on the minimum amount of each attribute or variable required to achieve a certain level of satisfaction. The function is represented by the equation <span class="math notranslate nohighlight">\(U(x_{1},\dots, x_{n}) = \min\left\{x_{1}/\alpha_{1},\dots,x_{n}/\alpha_{n}\right\}\)</span>, where <span class="math notranslate nohighlight">\(\alpha_{i}\)</span> are the minimum amounts required for each variable, and <span class="math notranslate nohighlight">\(x_{i}\)</span> are the quantities consumed for variable <span class="math notranslate nohighlight">\(i\)</span>, or the system state in configuration <span class="math notranslate nohighlight">\(i\)</span>, etc.</p></li>
 </ul>
-<!-- 
-A utility function should obey the following properties: -->
-<!-- * __Completeness__: A utility function should be able to rank all possible outcomes or alternatives. In other words, for any two outcomes, the utility function should tell us which one is preferred or whether they are equally preferred.
-* __Transitivity__: If outcome A is preferred to outcome B, and outcome B is preferred to outcome C, then outcome A must be preferred to outcome C. This is known as the transitivity property.
-* __Monotonicity__: If more of a good is always preferred to less, then the utility function should increase in that good. Conversely, if less of a bad is always preferred to more, then the utility function should decrease in that bad.
-* __Continuity__: Small changes in the outcome or alternatives should result in small changes in the utility function. This is known as the continuity property.
-* __Concavity__: The utility function should be concave if the person exhibits diminishing marginal utility. This means that as a person consumes more of a good, the additional satisfaction gained from each unit consumed decreases. 
-
-These properties ensure that a utility function represents a person's preferences and can be used to make rational choices between alternatives.
--->
 <section id="linear-utility-functions">
 <span id="content-references-rational-choice-theory-utility-functions-linear"></span><h4>Linear utility functions<a class="headerlink" href="#linear-utility-functions" title="Permalink to this heading">#</a></h4>
 <p>A linear utility function is the simplest utility function. It assumes that an individual’s utility is directly proportional to the decision outcome, e.g., the quantity of a good or serice consumed, and is represented by:</p>
@@ -705,7 +711,7 @@ These properties ensure that a utility function represents a person's preference
 </section>
 <section id="leontief-utility-functions">
 <span id="content-references-rational-choice-theory-utility-functions-leontief"></span><h4>Leontief utility functions<a class="headerlink" href="#leontief-utility-functions" title="Permalink to this heading">#</a></h4>
-<p>The Leontief utility function, first developed by <a class="reference external" href="https://en.wikipedia.org/wiki/Wassily_Leontief">Wassily Leontief</a>, governs the choice between multiple states of the world and is given by:</p>
+<p>The Leontief utility function, first developed by <a class="reference external" href="https://en.wikipedia.org/wiki/Wassily_Leontief">Wassily Leontief</a>, governs the choice between multiple states (or configurations) of the world and is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-leontief-utility">
 <span class="eqno">(5)<a class="headerlink" href="#equation-eq-leontief-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots, x_{n}) = \min\left\{x_{1}/\alpha_{1},\dots,x_{n}/\alpha_{n}\right\}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\alpha_{i}&gt;{0}\)</span> and <span class="math notranslate nohighlight">\(x_{i}\geq{0}\)</span> for all <span class="math notranslate nohighlight">\(i\in{1\dots{n}}\)</span>.</p>
@@ -714,7 +720,7 @@ These properties ensure that a utility function represents a person's preference
 </section>
 <section id="marginal-utility">
 <span id="content-references-marginal-utility"></span><h2>Marginal utility<a class="headerlink" href="#marginal-utility" title="Permalink to this heading">#</a></h2>
-<p>The marginal utility of a good or service is the added satisfaction or benefit that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that the satisfaction or benefit from each extra unit decreases as a consumer increases the number of units consumed. Mathematically, the marginal utility is the partial derivative of the utility function with respect to the quantity of goods or services consumed (<a class="reference internal" href="#defn-marginal-utility">Definition 2</a>):</p>
+<p>The marginal utility of a good or service is the added satisfaction or benefit that a consumer gains from consuming one more unit of a good or service (<a class="reference internal" href="#defn-marginal-utility">Definition 2</a>):</p>
 <div class="proof definition admonition" id="defn-marginal-utility">
 <p class="admonition-title"><span class="caption-number">Definition 2 </span> (Marginal Utility)</p>
 <section class="definition-content" id="proof-content">
@@ -726,7 +732,83 @@ These properties ensure that a utility function represents a person's preference
 <span class="eqno">(6)<a class="headerlink" href="#equation-eqn-total-differential-ic" title="Permalink to this equation">#</a></span>\[dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\bar{U}_{x_{i}}\)</span> denotes the marginal utility of <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(dx_{i}\)</span> denotes the change in the consumption of good or service <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </section>
-</div></section>
+</div><p>This theory operates on the premise that the satisfaction or benefit from each extra unit decreases as a consumer increases the number of units consumed. The concept of Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.</p>
+<section id="why-is-marginal-utility-important">
+<h3>Why is marginal utility important?<a class="headerlink" href="#why-is-marginal-utility-important" title="Permalink to this heading">#</a></h3>
+<p>The concept of marginal utility holds great importance for various reasons:</p>
+<ol class="arabic simple">
+<li><p><strong>Consumer Choice and Preferences:</strong> Marginal utility helps explain how individuals make choices when allocating their limited resources (such as money and time) among different goods and services. Consumers typically aim to maximize their total utility, and they do this by allocating their resources in a way that equalizes the marginal utility per unit of money spent across different goods. In other words, consumers tend to purchase more of a good when its marginal utility is relatively high compared to its price.</p></li>
+<li><p><strong>Law of Diminishing Marginal Utility:</strong> This law states that as a person consumes more units of a good or service, the additional satisfaction (marginal utility) derived from each successive unit tends to decrease. This principle highlights why people are willing to pay more for the first few units of a good and why demand for a product decreases as consumption increases. It also explains why variety is preferred over excessive consumption of a single item.</p></li>
+<li><p><strong>Pricing and Demand:</strong> Businesses use the concept of marginal utility to determine the optimal pricing strategy for their products. They understand that consumers are more likely to purchase products with higher marginal utility at a given price point. By understanding how price changes affect consumers’ perceived marginal utility, businesses can adjust their pricing strategies to maximize profits and meet demand.</p></li>
+<li><p><strong>Resource Allocation:</strong> Beyond individual consumption choices, the marginal utility helps societies allocate resources efficiently. It assists policymakers and governments in making decisions related to resource allocation, taxation, and public goods provision. By understanding how marginal utility varies across different individuals and goods, policymakers can work toward improving overall social welfare.</p></li>
+<li><p><strong>Economic Efficiency:</strong> The concept of marginal utility is closely related to economic efficiency. Efficient resource allocation occurs when the last unit of a good is distributed so that the marginal utility is equal across different goods. This ensures that resources are allocated to their most valued uses, leading to a more productive and prosperous economy.</p></li>
+<li><p><strong>Consumer Surplus:</strong> Marginal utility is used to calculate consumer surplus, which represents the difference between the total amount consumers are willing to pay for a good and the amount they pay. Consumer surplus is a measure of the net benefit consumers receive from their purchases, providing insights into the overall economic welfare of consumers.</p></li>
+</ol>
+<p>In conclusion, the concept of marginal utility helps economists, businesses, and policymakers understand how individuals make choices and how markets function, ultimately contributing to a deeper understanding of financial systems.</p>
+</section>
+<section id="examples-marginal-utility-functions">
+<h3>Examples: marginal utility functions<a class="headerlink" href="#examples-marginal-utility-functions" title="Permalink to this heading">#</a></h3>
+<p>The marginal utility of a good or service for an agent that is governed by a linear utility function is constant and independent of the amount of the good or service consumed:</p>
+<div class="math notranslate nohighlight">
+\[\bar{U}_{x_{i}} = \alpha_{i}\]</div>
+<p>If both a product, such as potato chips, and a consumer, like yourself, follow a linear utility function, then the additional satisfaction gained from consuming each unit is constant and not influenced by the quantity already consumed. Thus, the first chip is just as enjoyable as the last.</p>
+<p>However, if an agent and goods are governed by a concave utility function, e.g., the <a class="reference internal" href="#content-references-rational-choice-theory-utility-functions-cobb-douglas"><span class="std std-ref">Cobb-Douglas utility function</span></a> then the marginal utility of a good or service decreases as the amount of the good or service consumed increases:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-mu-u-function">
+<span class="eqno">(7)<a class="headerlink" href="#equation-eqn-mu-u-function" title="Permalink to this equation">#</a></span>\[\bar{U}_{x_{i}} = \left(\alpha_{i}\cdot{x}^{\alpha_{i}-1}\right)\cdot\left(\prod_{j=1,i}^{n}x_{j}^{\alpha_{j}}\right)\]</div>
+<p>where the <span class="math notranslate nohighlight">\(j=1,i\)</span> notation denotes the <em>exclusion</em> of index <span class="math notranslate nohighlight">\(i\)</span>. As <span class="math notranslate nohighlight">\(x_{i}\rightarrow\infty\)</span>, the marginal utility <span class="math notranslate nohighlight">\(\bar{U}_{x_{i}}\rightarrow{0}\)</span> if <span class="math notranslate nohighlight">\(\alpha_{i}&lt;1\)</span>. To compute analytical expressions for the marginal utility, instead of remembering the <a class="reference external" href="https://en.wikipedia.org/wiki/Differentiation_rules">differentiation rules from calculus</a>, we can use one of many <a class="reference external" href="https://en.wikipedia.org/wiki/Computer_algebra_system">Computer Algebra Systems (CAS)</a>, e.g., the <a class="reference external" href="https://github.com/JuliaSymbolics/Symbolics.jl">Symbolics.jl</a> package in <a class="reference external" href="https://julialang.org">Julia</a> or the <a class="reference external" href="https://www.sympy.org/en/index.html">SymPy</a> library in <a class="reference external" href="https://www.python.org">Python</a>.</p>
+<p>Sample code to compute the marginal utility for the two-dimensional <a class="reference external" href="https://en.wikipedia.org/wiki/Cobb%E2%80%93Douglas_production_function">Cobb-Douglas utility function</a> using the <a class="reference external" href="https://github.com/JuliaSymbolics/Symbolics.jl">Symbolics.jl</a> package:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># load the Symbolics.jl package (assumed to be installed)</span>
+<span class="k">using</span> <span class="n">Symbolics</span>
+
+<span class="c"># declare variables (symbols in the eqn)</span>
+<span class="nd">@variables</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">α</span><span class="p">,</span><span class="n">β</span>
+
+<span class="c"># Build differential operators for x</span>
+<span class="n">Dₓ</span> <span class="o">=</span> <span class="n">Differential</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+
+<span class="c"># define the utility function</span>
+<span class="n">U</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="n">α</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">^</span><span class="n">β</span><span class="p">)</span>
+
+<span class="c"># compute the derivative -</span>
+<span class="n">∂Uₓ</span> <span class="o">=</span> <span class="n">Dₓ</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="n">expand_derivatives</span><span class="p">;</span>
+
+<span class="c"># print -</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;The value of ∂U/∂x = &quot;</span><span class="p">,</span><span class="n">∂Uₓ</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="numerical-marginal-utility">
+<h4>Numerical marginal utility<a class="headerlink" href="#numerical-marginal-utility" title="Permalink to this heading">#</a></h4>
+<p>However, sometimes it may not be convenient to analytically compute the derivative, e.g., the utility function is complicated. You can always approximate the marginal utility using a <a class="reference external" href="https://en.wikipedia.org/wiki/Finite_difference">finite difference approximation</a>, or <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_differentiation">automatic differentiation</a> approach.</p>
+<p>Sample code for <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_differentiation">automatic differentiation</a> of the Cobb-Douglas utility function using the <a class="reference external" href="https://juliadiff.org/ForwardDiff.jl/stable/">ForwardDiff.jl</a> package:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># load the ForwardDiff package</span>
+<span class="k">using</span> <span class="n">ForwardDiff</span>
+
+<span class="c"># Cobb-Douglas utility function</span>
+<span class="k">function</span> <span class="n">U</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c"># initialize</span>
+    <span class="n">α₁</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="n">α₂</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">α₁</span>
+    
+    <span class="c"># return</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="n">α₁</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="n">α₂</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c"># Estimate the MU -</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">20.0</span><span class="p">,</span><span class="mf">7.20</span><span class="p">];</span> <span class="c"># point A </span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
+</pre></div>
+</div>
+<!-- ### Marginal utility and the law of diminishing marginal utility
+The law of diminishing marginal utility states that as a person consumes more units of a good or service, the additional satisfaction derived from each successive unit tends to decrease. However, the law of diminishing marginal utility depends upon the utility function. For example, linear utility functions do not exhibit diminishing marginal utility. -->
+</section>
+</section>
+</section>
+<section id="decisions">
+<h2>Decisions<a class="headerlink" href="#decisions" title="Permalink to this heading">#</a></h2>
+<p>Ultimately, the goal of rational choice theory is to make decisions that maximize the utility of the decision maker.
+Let the decision maker have actions <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>, observations <span class="math notranslate nohighlight">\(\mathcal{O}\)</span> and states <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>. Then, the decision maker’s goal is to maximize their utility subject to various constraints, i.e., rules of the world such a budget constraints, time constraints, physical constraints such as walls, etc.</p>
+</section>
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="summary">
@@ -779,11 +861,11 @@ These properties ensure that a utility function represents a person's preference
       </div>
     </a>
     <a class="right-next"
-       href="marginal-utility.html"
+       href="indifference-curves.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Marginal Rate of Substitution</p>
+        <p class="prev-next-title">Indifference Curves</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -825,7 +907,15 @@ These properties ensure that a utility function represents a person's preference
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-utility">Marginal utility</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-utility">Marginal utility</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-marginal-utility-important">Why is marginal utility important?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples-marginal-utility-functions">Examples: marginal utility functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-marginal-utility">Numerical marginal utility</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#decisions">Decisions</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>

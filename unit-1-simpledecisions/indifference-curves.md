@@ -109,11 +109,6 @@ where the exponents $\alpha_{i}$, also known as the elasticities, are constraine
 ### Derivation of Marginal Rate of Substitution
 The [Cobb–Douglas utility function](https://en.wikipedia.org/wiki/Cobb–Douglas_production_function) has the marginal utility: 
 
-```{math}
-:label: eqn-mu-u-function
-
-\bar{U}_{x_{i}} = \left(\alpha_{i}\cdot{x}^{\alpha_{i}-1}\right)\cdot\left(\prod_{j=1,i}^{n}x_{j}^{\alpha_{j}}\right)
-```
 
 ### Implementation
 Fill me in.

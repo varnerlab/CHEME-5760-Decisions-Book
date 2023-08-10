@@ -9,7 +9,6 @@ chapters:
   title: Unit 1. Simple Decisions
   sections:
   - file: unit-1-simpledecisions/utilityfunctions
-  - file: unit-1-simpledecisions/marginal-utility
   - file: unit-1-simpledecisions/indifference-curves
   - file: unit-1-simpledecisions/utlitymaximization
 - file: unit-2-uncertainty/uncertainty-landing
