@@ -285,10 +285,18 @@ The Leontief utility function, first developed by [Wassily Leontief](https://en.
 
 ```{math}
 :label: eq-leontief-utility
-U(x_{1},\dots, x_{n}) = \min\left\{x_{1}/\alpha_{1},\dots,x_{n}/\alpha_{n}\right\}
+U(x_{1},\dots, x_{n}) = \min\left\{\frac{x_{1}}{\alpha_{1}},\dots,\frac{x_{n}}{\alpha_{n}}\right\}
 ```
 
-where $\alpha_{i}>{0}$ and $x_{i}\geq{0}$ for all $i\in{1\dots{n}}$. 
+where $\alpha_{i}>{0}$ and $x_{i}\geq{0}$ for all $i\in{1\dots{n}}$. For example, suppose you want to make cheese sandwhich. For this, you need two slices of bread, and one slice of cheese where $X = {\text{bread},\text{cheese}}$. The Leontief utility function $U(\dots)_{\text{sandwhich}}$ for the sandwhich is given by:
+
+```{math}
+:label: eq-leontief-utility-sandwhich
+U(x_{1},x_{2})_{\text{sandwhich}} = \min\left\{\frac{x_{1}}{2},\frac{x_{2}}{1}\right\}
+```
+
+where $x_{1}$ and $x_{2}$ denote the number of slices of bread and cheese we use, respectively.
+
 
 (content:references:marginal-utility)=
 ## Marginal utility
@@ -373,7 +381,7 @@ U = (x^α)*(y^β)
 println("The value of ∂U/∂x = ",∂Uₓ)
 ```
 
-##### Numerical marginal utility 
+#### Numerical marginal utility 
 However, sometimes it may not be convenient to analytically compute the derivative, e.g., the utility function is complicated. You can always approximate the marginal utility using a [finite difference approximation](https://en.wikipedia.org/wiki/Finite_difference), or [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) approach.
 
 Sample code for [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation) of the Cobb-Douglas utility function using the [ForwardDiff.jl](https://juliadiff.org/ForwardDiff.jl/stable/) package:
