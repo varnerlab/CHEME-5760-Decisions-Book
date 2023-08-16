@@ -1,5 +1,6 @@
-# Indifference Curves
-Indifference curves are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `iso-happiness` or `iso-satisfaction` curve in the space of choices. They are a key tool in consumer theory, and are used to model the preferences of consumers.
+(content:references:indifference-curves-and-trades)=
+# Indifference Curves and Trades
+
 
 ```{topic} Outline
 In this lecture, we introduce indifference curves for some common utility functions and discuss the properties of indifference curves, particularly the marginal rate of substitution of each type of utility function. 
@@ -12,6 +13,12 @@ In this lecture, we introduce indifference curves for some common utility functi
 ```
 
 ---
+
+
+## Introduction
+Indifference curves are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `iso-happiness` curve in the space of choices. They are a key tool in consumer theory, and are used to model the preferences of consumers.
+
+
 
 
 (content:references:indifference-curves-perfect-sub)=

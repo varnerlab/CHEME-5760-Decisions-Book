@@ -76,7 +76,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Decision-making in uncertain situations" href="../unit-2-uncertainty/uncertainty-landing.html" />
-    <link rel="prev" title="Indifference Curves" href="indifference-curves.html" />
+    <link rel="prev" title="Indifference Curves and Trades" href="indifference-curves.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -169,9 +169,9 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="simpledecisions-landing.html">Unit 1. Simple Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="utilityfunctions.html">Utility Functions and Choice Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilityfunctions.html">Utility Functions and Choices</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="indifference-curves.html">Indifference Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indifference-curves.html">Indifference Curves and Trades</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Maximizing Utility</a></li>
 
 </ul>
@@ -482,15 +482,15 @@ document.write(`
 </section>
 </div><section id="two-good-budget-constraint-apples-and-oranges">
 <h4>Two good budget constraint: Apples and oranges<a class="headerlink" href="#two-good-budget-constraint-apples-and-oranges" title="Permalink to this heading">#</a></h4>
-<p>To better understand <a class="reference internal" href="#defn-budget-constraint">Definition 4</a>, let’s consider the case when we have only two goods in the set of goods <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, i.e., <span class="math notranslate nohighlight">\(\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}\)</span>. In this case, the budget constraint becomes a line in the <span class="math notranslate nohighlight">\(\text{apples}\)</span> versus <span class="math notranslate nohighlight">\(\text{oranges}\)</span> plane (<a class="reference internal" href="#fig-two-dim-bc"><span class="std std-numref">Fig. 4</span></a>).</p>
+<p>To better understand <a class="reference internal" href="#defn-budget-constraint">Definition 4</a>, let’s consider the case when we have only two goods in the set of goods <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>, i.e., <span class="math notranslate nohighlight">\(\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}\)</span>. In this case, the budget constraint becomes a line in the <span class="math notranslate nohighlight">\(\text{apples}\)</span> versus <span class="math notranslate nohighlight">\(\text{oranges}\)</span> plane (<a class="reference internal" href="#fig-two-dim-bc"><span class="std std-numref">Fig. 5</span></a>).</p>
 <figure class="align-default" id="fig-two-dim-bc">
 <a class="reference internal image-reference" href="../_images/Fig-TwoDim-BudgetConstraint-Schematic.pdf"><img alt="../_images/Fig-TwoDim-BudgetConstraint-Schematic.pdf" src="../_images/Fig-TwoDim-BudgetConstraint-Schematic.pdf" style="height: 420px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Two-dimensional budget constraint for the <span class="math notranslate nohighlight">\(\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}\)</span> set of goods.</span><a class="headerlink" href="#fig-two-dim-bc" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Two-dimensional budget constraint for the <span class="math notranslate nohighlight">\(\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}\)</span> set of goods.</span><a class="headerlink" href="#fig-two-dim-bc" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The intercepts of the budget constraint shown in <a class="reference internal" href="#fig-two-dim-bc"><span class="std std-numref">Fig. 4</span></a> give the maximum amount of a good or service that can be consumed. For example, the x-intercept of the budget constraint in gives the maximum number of apples that can be purchased given the budget constraint and the price of the apple. Similarly, the y-intercept gives the maximum number of oranges that can be purchased given the budget constraint and the price of oranges.</p>
-<p>Every point on the budget constraint line shown in <a class="reference internal" href="#fig-two-dim-bc"><span class="std std-numref">Fig. 4</span></a> indicates a possible combination of apples and oranges that could be bought within the given budget. The task at hand is to determine the optimal combination of apples and oranges that maximizes the utility function.</p>
+<p>The intercepts of the budget constraint shown in <a class="reference internal" href="#fig-two-dim-bc"><span class="std std-numref">Fig. 5</span></a> give the maximum amount of a good or service that can be consumed. For example, the x-intercept of the budget constraint in gives the maximum number of apples that can be purchased given the budget constraint and the price of the apple. Similarly, the y-intercept gives the maximum number of oranges that can be purchased given the budget constraint and the price of oranges.</p>
+<p>Every point on the budget constraint line shown in <a class="reference internal" href="#fig-two-dim-bc"><span class="std std-numref">Fig. 5</span></a> indicates a possible combination of apples and oranges that could be bought within the given budget. The task at hand is to determine the optimal combination of apples and oranges that maximizes the utility function.</p>
 </section>
 </section>
 <section id="lagrange-multipliers-and-utility-maximization">
@@ -657,7 +657,7 @@ These conditions provide a necessary condition for optimality, which means that 
 </div>
 <p>Finally, we’ll put it all together and solve the problem. We build the problem object using the <code class="docutils literal notranslate"><span class="pre">build(...)</span></code> function, and then call the <code class="docutils literal notranslate"><span class="pre">solve(...)</span></code> function to estimate the optimal solution:</p>
 <div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-number">Listing 4 </span><span class="caption-text">runme-cobb-douglas.jl</span><a class="headerlink" href="#id1" title="Permalink to this code">#</a></div>
+<div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">runme-cobb-douglas.jl</span><a class="headerlink" href="#id1" title="Permalink to this code">#</a></div>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c"># include the include (load the reqd packages) -</span>
 <span class="linenos"> 2</span><span class="n">include</span><span class="p">(</span><span class="s">&quot;Include.jl&quot;</span><span class="p">)</span>
 <span class="linenos"> 3</span>
@@ -685,11 +685,11 @@ These conditions provide a necessary condition for optimality, which means that 
 </pre></div>
 </div>
 </div>
-<p>The optimal solution for the consumption of good <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span> subject to the budget constraint is a point of tangency between the indifference curve and the budget constraint (<a class="reference internal" href="#fig-two-dim-bc-cd-soln"><span class="std std-numref">Fig. 5</span></a>):</p>
+<p>The optimal solution for the consumption of good <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span> subject to the budget constraint is a point of tangency between the indifference curve and the budget constraint (<a class="reference internal" href="#fig-two-dim-bc-cd-soln"><span class="std std-numref">Fig. 6</span></a>):</p>
 <figure class="align-default" id="fig-two-dim-bc-cd-soln">
 <a class="reference internal image-reference" href="../_images/Fig-Single-Budget-CD-Soln.pdf"><img alt="../_images/Fig-Single-Budget-CD-Soln.pdf" src="../_images/Fig-Single-Budget-CD-Soln.pdf" style="height: 420px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Optimal solution for the two-dimensional goods problem assuming a Cobb-Douglas utility function. Parameters: <span class="math notranslate nohighlight">\(\alpha_{1} = 0.55\)</span>, <span class="math notranslate nohighlight">\(\alpha_{2} = 0.45\)</span>, <span class="math notranslate nohighlight">\(c_{1} = 2\)</span>, <span class="math notranslate nohighlight">\(c_{2} = 4\)</span>, and <span class="math notranslate nohighlight">\(I = 100\)</span>. The optimal combination: <span class="math notranslate nohighlight">\(x_{1}^{*} = 27.5\)</span>, <span class="math notranslate nohighlight">\(x_{2}^{*} = 11.25\)</span>.</span><a class="headerlink" href="#fig-two-dim-bc-cd-soln" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Optimal solution for the two-dimensional goods problem assuming a Cobb-Douglas utility function. Parameters: <span class="math notranslate nohighlight">\(\alpha_{1} = 0.55\)</span>, <span class="math notranslate nohighlight">\(\alpha_{2} = 0.45\)</span>, <span class="math notranslate nohighlight">\(c_{1} = 2\)</span>, <span class="math notranslate nohighlight">\(c_{2} = 4\)</span>, and <span class="math notranslate nohighlight">\(I = 100\)</span>. The optimal combination: <span class="math notranslate nohighlight">\(x_{1}^{*} = 27.5\)</span>, <span class="math notranslate nohighlight">\(x_{2}^{*} = 11.25\)</span>.</span><a class="headerlink" href="#fig-two-dim-bc-cd-soln" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Let’s check the first-order optimality conditions to make sure the solution is optimal:</p>
@@ -775,7 +775,7 @@ These conditions provide a necessary condition for optimality, which means that 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Indifference Curves</p>
+        <p class="prev-next-title">Indifference Curves and Trades</p>
       </div>
     </a>
     <a class="right-next"

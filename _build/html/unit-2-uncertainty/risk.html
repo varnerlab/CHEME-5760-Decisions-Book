@@ -169,9 +169,9 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Simple Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Choice Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Choices</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/indifference-curves.html">Indifference Curves</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/indifference-curves.html">Indifference Curves and Trades</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility</a></li>
 
 </ul>
@@ -492,21 +492,21 @@ document.write(`
 <span class="k">end</span>
 </pre></div>
 </div>
-<p>We can use the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> function to calculate the experimental outcome for different values of the wealth <span class="math notranslate nohighlight">\(w\)</span> bet on each flip and the expected return (<a class="reference internal" href="#fig-coin-flip-simulation"><span class="std std-numref">Fig. 6</span></a>):</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> function to calculate the experimental outcome for different values of the wealth <span class="math notranslate nohighlight">\(w\)</span> bet on each flip and the expected return (<a class="reference internal" href="#fig-coin-flip-simulation"><span class="std std-numref">Fig. 7</span></a>):</p>
 <figure class="align-default" id="fig-coin-flip-simulation">
 <a class="reference internal image-reference" href="../_images/Fig-CoinFlip-Game-Simulation.pdf"><img alt="../_images/Fig-CoinFlip-Game-Simulation.pdf" src="../_images/Fig-CoinFlip-Game-Simulation.pdf" style="height: 260px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Simulation of the cumulative cash position of <span class="math notranslate nohighlight">\(M\)</span> players following <span class="math notranslate nohighlight">\(N\)</span> flips of a fair coin for <span class="math notranslate nohighlight">\(w = 1\)</span> (left) and <span class="math notranslate nohighlight">\(w = 10\)</span> (right). Regardless of the amount bet on each flip, the expected value computed over the population of players is near zero.</span><a class="headerlink" href="#fig-coin-flip-simulation" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Simulation of the cumulative cash position of <span class="math notranslate nohighlight">\(M\)</span> players following <span class="math notranslate nohighlight">\(N\)</span> flips of a fair coin for <span class="math notranslate nohighlight">\(w = 1\)</span> (left) and <span class="math notranslate nohighlight">\(w = 10\)</span> (right). Regardless of the amount bet on each flip, the expected value computed over the population of players is near zero.</span><a class="headerlink" href="#fig-coin-flip-simulation" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The expected value of the coin flip game is zero for <span class="math notranslate nohighlight">\(M\)</span> trials with <span class="math notranslate nohighlight">\(N\)</span> flips per trial for <span class="math notranslate nohighlight">\(w = 1\)</span> and <span class="math notranslate nohighlight">\(w = 10\)</span>; this result would be true even as <span class="math notranslate nohighlight">\(w\rightarrow\infty\)</span>. Thus, why do people react differently to betting a small versus a large amount on each coin flip if they will always break even eventually? This is the essence of an interesting characteristic of individuals, namely, risk aversion.</p>
 <section id="modes-of-risk-aversion">
 <h3>Modes of Risk Aversion<a class="headerlink" href="#modes-of-risk-aversion" title="Permalink to this heading">#</a></h3>
-<p>Picture yourself having to choose between two options: a definite amount of money, known as the certainty equivalent (CE), or a risky payout that relies on the outcome of a coin flip, such as $100 or nothing. People’s varying attitudes towards risk cause them to opt for one choice over the other. There are three risk models that a decision-maker can adopt: risk-averse, risk-neutral, and risk-seeking (<a class="reference internal" href="#fig-risk-aversion-types"><span class="std std-numref">Fig. 7</span></a>):</p>
+<p>Picture yourself having to choose between two options: a definite amount of money, known as the certainty equivalent (CE), or a risky payout that relies on the outcome of a coin flip, such as $100 or nothing. People’s varying attitudes towards risk cause them to opt for one choice over the other. There are three risk models that a decision-maker can adopt: risk-averse, risk-neutral, and risk-seeking (<a class="reference internal" href="#fig-risk-aversion-types"><span class="std std-numref">Fig. 8</span></a>):</p>
 <figure class="align-default" id="fig-risk-aversion-types">
 <a class="reference internal image-reference" href="../_images/Fig-RiskAversion-Types.pdf"><img alt="../_images/Fig-RiskAversion-Types.pdf" src="../_images/Fig-RiskAversion-Types.pdf" style="height: 240px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Utility versus wealth <span class="math notranslate nohighlight">\(W\)</span> for three models of risk; risk-avoiding (left), risk-neutral (center), and risk-seeking (right). CE: certainty equivalent and <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> expected wealth.</span><a class="headerlink" href="#fig-risk-aversion-types" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Utility versus wealth <span class="math notranslate nohighlight">\(W\)</span> for three models of risk; risk-avoiding (left), risk-neutral (center), and risk-seeking (right). CE: certainty equivalent and <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> expected wealth.</span><a class="headerlink" href="#fig-risk-aversion-types" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Assuming a fair coin, the expected value of the game proposed is <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> = 50 USD. However, people may have different reactions when given the option of taking the bet or a certain payment:</p>
@@ -587,7 +587,7 @@ document.write(`
 <figure class="align-default" id="fig-abs-risk-aversion">
 <a class="reference internal image-reference" href="../_images/Fig-Abs-RiskAversion-Schematic.pdf"><img alt="../_images/Fig-Abs-RiskAversion-Schematic.pdf" src="../_images/Fig-Abs-RiskAversion-Schematic.pdf" style="height: 280px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Utility and risk aversion versus wealth for the utility function <span class="math notranslate nohighlight">\(U(w) = \ln\left(w+1\right)\)</span>. Left: Utility versus wealth <span class="math notranslate nohighlight">\(w\)</span>. Right: Absolute risk aversion versus wealth <span class="math notranslate nohighlight">\(w\)</span>.</span><a class="headerlink" href="#fig-abs-risk-aversion" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Utility and risk aversion versus wealth for the utility function <span class="math notranslate nohighlight">\(U(w) = \ln\left(w+1\right)\)</span>. Left: Utility versus wealth <span class="math notranslate nohighlight">\(w\)</span>. Right: Absolute risk aversion versus wealth <span class="math notranslate nohighlight">\(w\)</span>.</span><a class="headerlink" href="#fig-abs-risk-aversion" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
