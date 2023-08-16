@@ -1,8 +1,6 @@
-# Markov Chains
+# Understanding Markov Chains
 
-[Andrey Markov (1856 - 1922)](https://en.wikipedia.org/wiki/Andrey_Markov) introduced Markov chains in the early 20th century. These mathematical models have found wide-ranging applications in fields such as finance, physics, biology, engineering, and computer science. 
-
-Markov chains are stochastic processes that model the probability of moving from one state to another in discrete time steps. The model assumes that the probability of transitioning from one state to another depends solely on the current state and not on any past events. Markov chains are particularly useful for modeling complex systems that involve uncertainty and randomness.
+Markov chains were introduced by [Andrey Markov (1856 - 1922)](https://en.wikipedia.org/wiki/Andrey_Markov) during the early 20th century. These mathematical models have been extensively used in diverse fields such as finance, physics, biology, engineering, and computer science. Markov chains are stochastic processes that model the probability of moving from one state to another in discrete time steps. The model assumes that the probability of transitioning from one state to another solely depends on the current state and not on any past events. Markov chains are especially valuable for modeling complex systems that involve uncertainty and randomness.
 
 ```{topic} Outline
 

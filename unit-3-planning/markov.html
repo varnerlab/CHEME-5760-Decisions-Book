@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Markov Chains &#8212; CHEME 5760</title>
+    <title>Understanding Markov Chains &#8212; CHEME 5760</title>
   
   
   
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -77,7 +78,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Markov Decision Processes" href="mdp.html" />
     <link rel="prev" title="Sequential Planning Methods" href="planning-landing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -167,34 +168,52 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Utility and Simple Optimal Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Rational Choices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Simple Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Choices</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility Subject to Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/indifference-curves.html">Indifference Curves and Trades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility</a></li>
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Rational Uncertain Optimal Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Uncertain Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Multiagent Reasoning and Game Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk-and-decisions.html">Risk aversion and it’s relationship with decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contigencies.html">Contingencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contingencies-and-utility-max.html">Utility maximization, contingencies and information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Games and Multiagent Reasoning</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Markov Chains</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="planning-landing.html">Unit 3. Sequential Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Understanding Markov Chains</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="mdp.html">Markov Decision Processes</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="mdp.html">Markov Decision Processes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="sequential-decisions.html">Making Sequential Decisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="policy-evaluation.html">Value and Policy Evaluation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-4-learning/learning-landing.html">Unit 4. Machine Learning Methods and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="mcts.html">Monte Carlo Tree Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-4-learning/learning-landing.html">Unit 4. Machine Learning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandits.html">Multiarm Bandit Problems</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/rl.html">Reinforcement Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/imitation.html">Imitation Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandit-problems-ts.html">Thompson Sampling</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/rl.html">Reinforcement Learning</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-based-rl.html">Model Based Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-free-rl.html">Model Free Reinforcement Learning</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/imitation.html">Imitation Learning</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/behavior.html">Behavioral cloning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bayesian-rules.html">Bayesian Descision Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../appendix/random.html">Random variables and probability</a></li>
 </ul>
 </li>
@@ -382,7 +401,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Markov Chains</h1>
+    <h1>Understanding Markov Chains</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -392,7 +411,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Markov Chains</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Understanding Markov Chains</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-markov-chains">Discrete-time Markov chains</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-the-stationary-distribution">Sampling the stationary distribution</a></li>
 </ul>
@@ -413,33 +432,32 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="markov-chains">
-<h1>Markov Chains<a class="headerlink" href="#markov-chains" title="Permalink to this headline">#</a></h1>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Andrey_Markov">Andrey Markov (1856 - 1922)</a> introduced Markov chains in the early 20th century. These mathematical models have found wide-ranging applications in fields such as finance, physics, biology, engineering, and computer science.</p>
-<p>Markov chains are stochastic processes that model the probability of moving from one state to another in discrete time steps. The model assumes that the probability of transitioning from one state to another depends solely on the current state and not on any past events. Markov chains are particularly useful for modeling complex systems that involve uncertainty and randomness.</p>
-<div class="topic">
+  <section class="tex2jax_ignore mathjax_ignore" id="understanding-markov-chains">
+<h1>Understanding Markov Chains<a class="headerlink" href="#understanding-markov-chains" title="Permalink to this heading">#</a></h1>
+<p>Markov chains were introduced by <a class="reference external" href="https://en.wikipedia.org/wiki/Andrey_Markov">Andrey Markov (1856 - 1922)</a> during the early 20th century. These mathematical models have been extensively used in diverse fields such as finance, physics, biology, engineering, and computer science. Markov chains are stochastic processes that model the probability of moving from one state to another in discrete time steps. The model assumes that the probability of transitioning from one state to another solely depends on the current state and not on any past events. Markov chains are especially valuable for modeling complex systems that involve uncertainty and randomness.</p>
+<aside class="topic">
 <p class="topic-title">Outline</p>
 <p>In this lecture, we introduce the Markov property, Markov chains and Hidden Markov Models (HMM):</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-discrete-time-markov-chains"><span class="std std-ref">Discrete-time Markov chains</span></a> are mathematical models that describe the behavior of a system that transitions between a finite set of states at discrete time steps. The evolution of the system depends only on its current state and not on its previous history.</p></li>
 <li><p><a class="reference internal" href="#content-references-structure-of-an-hmm"><span class="std std-ref">Hidden Markov Models (HMMs)</span></a> is a probabilistic model that describes a system where the observations are generated by an underlying Markov process whose states are not directly observable. The goal is to infer the hidden states given only the observations.</p></li>
 </ul>
-</div>
+</aside>
 <hr class="docutils" />
 <section id="discrete-time-markov-chains">
-<span id="content-references-discrete-time-markov-chains"></span><h2>Discrete-time Markov chains<a class="headerlink" href="#discrete-time-markov-chains" title="Permalink to this headline">#</a></h2>
+<span id="content-references-discrete-time-markov-chains"></span><h2>Discrete-time Markov chains<a class="headerlink" href="#discrete-time-markov-chains" title="Permalink to this heading">#</a></h2>
 <figure class="align-default" id="fig-discrete-markov-model">
 <a class="reference internal image-reference" href="../_images/Fig-Discrete-MarkovChain-Schematic.pdf"><img alt="../_images/Fig-Discrete-MarkovChain-Schematic.pdf" src="../_images/Fig-Discrete-MarkovChain-Schematic.pdf" style="height: 120px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Schematic of a discrete two-state time-invariant Markov model; <span class="math notranslate nohighlight">\(p_{ij}\)</span> denotes the time-invariant transition probability between state <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>.</span><a class="headerlink" href="#fig-discrete-markov-model" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Schematic of a discrete two-state time-invariant Markov model; <span class="math notranslate nohighlight">\(p_{ij}\)</span> denotes the time-invariant transition probability between state <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>.</span><a class="headerlink" href="#fig-discrete-markov-model" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>A discrete-time Markov chain is a sequence of random variables <span class="math notranslate nohighlight">\(X_{1}\)</span>, <span class="math notranslate nohighlight">\(X_{2}\)</span>, <span class="math notranslate nohighlight">\(X_{3}\)</span>, …, <span class="math notranslate nohighlight">\(X_{n}\)</span> that have the <a class="reference external" href="https://en.wikipedia.org/wiki/Markov_property">Markov property</a>, i.e., the probability of moving to the <em>next state</em> depends only on the <em>present state</em> and not on the <em>previous states</em>:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-markov-property">
-<span class="eqno">(17)<a class="headerlink" href="#equation-eqn-markov-property" title="Permalink to this equation">#</a></span>\[P(X_{n+1} = x | X_{1}=x_{1}, \dots, X_{n}=x_{n}) = P(X_{n+1} = x | X_{n}=y)\]</div>
+<span class="eqno">(35)<a class="headerlink" href="#equation-eqn-markov-property" title="Permalink to this equation">#</a></span>\[P(X_{n+1} = x | X_{1}=x_{1}, \dots, X_{n}=x_{n}) = P(X_{n+1} = x | X_{n}=y)\]</div>
 <p>where <em>states</em> refer to a finite set of discrete values in which the system can exist.  If the state space is finite, the transition probability distribution, i.e., the probability of moving from the state(s) <span class="math notranslate nohighlight">\(i\rightarrow{j}\)</span>, can be encoded in the transition matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>. Elements of <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>, denoted as <span class="math notranslate nohighlight">\(p_{ij}\)</span>, encode the probability of moving from state <span class="math notranslate nohighlight">\(i\rightarrow{j}\)</span> during the next time step:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-transition-prob-matrix">
-<span class="eqno">(18)<a class="headerlink" href="#equation-eqn-transition-prob-matrix" title="Permalink to this equation">#</a></span>\[p_{ij} = P(X_{n+1}~=~j~|~X_{n}~=~i)\]</div>
+<span class="eqno">(36)<a class="headerlink" href="#equation-eqn-transition-prob-matrix" title="Permalink to this equation">#</a></span>\[p_{ij} = P(X_{n+1}~=~j~|~X_{n}~=~i)\]</div>
 <p>The transition matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> has interesting properties:</p>
 <ul class="simple">
 <li><p>First, the rows of transition matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> must sum to unity, i.e., each row encodes the probability of all possible outcomes. Thus, it must sum to one.</p></li>
@@ -472,7 +490,7 @@ document.write(`
 0.6 &amp; 0.4 \\
 \end{bmatrix}
 \end{split}\]</div>
-<p>shown in (<a class="reference internal" href="#fig-discrete-markov-model"><span class="std std-numref">Fig. 3</span></a>). This transition matrix admits a stationary (non-periodic) solution. As the number of iterations <span class="math notranslate nohighlight">\(n\)</span> becomes large the system state converges to a stationary distribution <span class="math notranslate nohighlight">\(\pi\)</span>. Thus, regardless of the starting state of this Markov chain, the long-term behavior is given by the stationary distribution <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
+<p>shown in (<a class="reference internal" href="#fig-discrete-markov-model"><span class="std std-numref">Fig. 10</span></a>). This transition matrix admits a stationary (non-periodic) solution. As the number of iterations <span class="math notranslate nohighlight">\(n\)</span> becomes large the system state converges to a stationary distribution <span class="math notranslate nohighlight">\(\pi\)</span>. Thus, regardless of the starting state of this Markov chain, the long-term behavior is given by the stationary distribution <span class="math notranslate nohighlight">\(\pi\)</span>.</p>
 <p>Develop a script to compute the stationary distribution <span class="math notranslate nohighlight">\(\pi\)</span>:</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># load package -</span>
 <span class="k">using</span> <span class="n">LinearAlgebra</span>
@@ -515,14 +533,14 @@ document.write(`
 </div>
 </section>
 </div><section id="sampling-the-stationary-distribution">
-<h3>Sampling the stationary distribution<a class="headerlink" href="#sampling-the-stationary-distribution" title="Permalink to this headline">#</a></h3>
+<h3>Sampling the stationary distribution<a class="headerlink" href="#sampling-the-stationary-distribution" title="Permalink to this heading">#</a></h3>
 <p>Once the stationary distribution <span class="math notranslate nohighlight">\(\pi\)</span> of the Markov chain has been estimated, we can use it to generate samples from that chain.
 For example, the stationary distribution for the two-state Markov chain in <a class="reference internal" href="#example-dicrete-mchain">Example 1</a> is given by:</p>
 <div class="math notranslate nohighlight">
 \[\pi = (0.857,0.143)\]</div>
 <p>We model this system as a <a class="reference external" href="https://en.wikipedia.org/wiki/Categorical_distribution">Categorical distribution</a>. A categorical distribution is a discrete probability distribution that models the probability of a random variable taking on one of a finite set of possible outcomes:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-categorical-dist">
-<span class="eqno">(19)<a class="headerlink" href="#equation-eqn-categorical-dist" title="Permalink to this equation">#</a></span>\[P(X = k) = \pi\left[k\right]\]</div>
+<span class="eqno">(37)<a class="headerlink" href="#equation-eqn-categorical-dist" title="Permalink to this equation">#</a></span>\[P(X = k) = \pi\left[k\right]\]</div>
 <p>Sampling a categorical distribution constructed from the stationary distribution <span class="math notranslate nohighlight">\(\pi\)</span> will return the stationary
 distribution (<a class="reference internal" href="#example-categorical-dist">Example 2</a>):</p>
 <div class="proof example dropdown admonition" id="example-categorical-dist">
@@ -557,17 +575,17 @@ distribution (<a class="reference internal" href="#example-categorical-dist">Exa
 </div></section>
 </section>
 <section id="hidden-markov-models-hmms">
-<span id="content-references-structure-of-an-hmm"></span><h2>Hidden Markov Models (HMMs)<a class="headerlink" href="#hidden-markov-models-hmms" title="Permalink to this headline">#</a></h2>
+<span id="content-references-structure-of-an-hmm"></span><h2>Hidden Markov Models (HMMs)<a class="headerlink" href="#hidden-markov-models-hmms" title="Permalink to this heading">#</a></h2>
 <p>Hidden Markov models (HMMs) are statistical models in which the system being modeled is assumed to be a Markov process with unobservable states <span class="math notranslate nohighlight">\(s\in\mathcal{S}\)</span> but observable outcomes <span class="math notranslate nohighlight">\(o\in\mathcal{O}\)</span>. HMMs have the same structural components as a standard Markov chain model. However, each hidden state can be considered sending an observable single, with the emission probability.</p>
 <figure class="align-default" id="fig-discrete-hidden-markov-model">
 <a class="reference internal image-reference" href="../_images/Fig-HMM-Schematic-23.pdf"><img alt="../_images/Fig-HMM-Schematic-23.pdf" src="../_images/Fig-HMM-Schematic-23.pdf" style="height: 280px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Schematic of a discrete two-state time-invariant hidden Markov model (HMM); <span class="math notranslate nohighlight">\(p_{ij}\)</span> denotes the time-invariant transition probability between state <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> while <span class="math notranslate nohighlight">\(t_{ij}\)</span> denotes the emission probability for state <span class="math notranslate nohighlight">\(i\)</span> and observation <span class="math notranslate nohighlight">\(j\)</span>.</span><a class="headerlink" href="#fig-discrete-hidden-markov-model" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Schematic of a discrete two-state time-invariant hidden Markov model (HMM); <span class="math notranslate nohighlight">\(p_{ij}\)</span> denotes the time-invariant transition probability between state <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> while <span class="math notranslate nohighlight">\(t_{ij}\)</span> denotes the emission probability for state <span class="math notranslate nohighlight">\(i\)</span> and observation <span class="math notranslate nohighlight">\(j\)</span>.</span><a class="headerlink" href="#fig-discrete-hidden-markov-model" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The emission probability refers to the likelihood of observing a particular output <span class="math notranslate nohighlight">\(Y = o_{t}\)</span>, given the current state of the Markov chain <span class="math notranslate nohighlight">\(X = s_{t}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-hmm-output">
-<span class="eqno">(20)<a class="headerlink" href="#equation-eqn-hmm-output" title="Permalink to this equation">#</a></span>\[P(Y = o_{t} | X = s_{t})\]</div>
+<span class="eqno">(38)<a class="headerlink" href="#equation-eqn-hmm-output" title="Permalink to this equation">#</a></span>\[P(Y = o_{t} | X = s_{t})\]</div>
 <p>Similar to the transition probability, the emission probability must sum to unity:</p>
 <div class="math notranslate nohighlight">
 \[\sum_{o\in\mathcal{O}} P(Y = o | X = s) = 1\qquad\forall{s\in\mathcal{S}}\]</div>
@@ -676,7 +694,7 @@ distribution (<a class="reference internal" href="#example-categorical-dist">Exa
 </section>
 <hr class="docutils" />
 <section class="tex2jax_ignore mathjax_ignore" id="summary">
-<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h1>
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
 <p>In this lecture, we discussed Markov models:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#content-references-discrete-time-markov-chains"><span class="std std-ref">Discrete-time Markov chains</span></a> are mathematical models that describe the behavior of a system that transitions between a finite set of states at discrete time steps. The evolution of the system depends only on its current state and not on its previous history.</p></li>
@@ -751,7 +769,7 @@ distribution (<a class="reference internal" href="#example-categorical-dist">Exa
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Markov Chains</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Understanding Markov Chains</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-markov-chains">Discrete-time Markov chains</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-the-stationary-distribution">Sampling the stationary distribution</a></li>
 </ul>

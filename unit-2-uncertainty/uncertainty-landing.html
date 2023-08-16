@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Decision-making in uncertain situations &#8212; CHEME 5760</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -73,9 +74,9 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Rational Uncertain Decisions" href="expected-utility.html" />
-    <link rel="prev" title="Maximizing Utility Subject to Constraints" href="../unit-1-simpledecisions/utlitymaximization.html" />
+    <link rel="prev" title="Maximizing Utility" href="../unit-1-simpledecisions/utlitymaximization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -165,34 +166,52 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Utility and Simple Optimal Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Rational Choices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Simple Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Choices</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility Subject to Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/indifference-curves.html">Indifference Curves and Trades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility</a></li>
 
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Unit 2. Rational Uncertain Optimal Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Unit 2. Uncertain Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="risk.html">Risk and Risk Aversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="games.html">Multiagent Reasoning and Game Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="risk-and-decisions.html">Risk aversion and it’s relationship with decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contigencies.html">Contingencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contingencies-and-utility-max.html">Utility maximization, contingencies and information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="games.html">Games and Multiagent Reasoning</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Markov Chains</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Understanding Markov Chains</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/mdp.html">Markov Decision Processes</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-3-planning/mdp.html">Markov Decision Processes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-3-planning/sequential-decisions.html">Making Sequential Decisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-3-planning/policy-evaluation.html">Value and Policy Evaluation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-4-learning/learning-landing.html">Unit 4. Machine Learning Methods and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/mcts.html">Monte Carlo Tree Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-4-learning/learning-landing.html">Unit 4. Machine Learning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandits.html">Multiarm Bandit Problems</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/rl.html">Reinforcement Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/imitation.html">Imitation Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandit-problems-ts.html">Thompson Sampling</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/rl.html">Reinforcement Learning</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-based-rl.html">Model Based Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-free-rl.html">Model Free Reinforcement Learning</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/imitation.html">Imitation Learning</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/behavior.html">Behavioral cloning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bayesian-rules.html">Bayesian Descision Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../appendix/random.html">Random variables and probability</a></li>
 </ul>
 </li>
@@ -404,18 +423,18 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="decision-making-in-uncertain-situations">
-<h1>Decision-making in uncertain situations<a class="headerlink" href="#decision-making-in-uncertain-situations" title="Permalink to this headline">#</a></h1>
+<h1>Decision-making in uncertain situations<a class="headerlink" href="#decision-making-in-uncertain-situations" title="Permalink to this heading">#</a></h1>
 <section id="topics">
-<h2>Topics<a class="headerlink" href="#topics" title="Permalink to this headline">#</a></h2>
+<h2>Topics<a class="headerlink" href="#topics" title="Permalink to this heading">#</a></h2>
 <p>Making decisions in uncertain situations, potentially involving multiple agents, can be challenging. Decision-making in uncertain situations involves uncertainty and risk. Thus, in this unit, we’ll introduce tools to model uncertainty, approaches to understand risk, and risk tolerance and model the actions of multiple actors involved in our decisions:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="expected-utility.html"><span class="doc std std-doc">Expected utility hypothesis</span></a> is a cornerstone concept in decision theory and economics. It proposes that individuals make choices based on their anticipated outcomes and corresponding utility or satisfaction. This hypothesis assumes that individuals are rational and seek to maximize their expected utility when making decisions.</p></li>
+<li><p><a class="reference internal" href="expected-utility.html"><span class="doc std std-doc">Expected utility hypothesis</span></a> is a cornerstone concept in decision theory and economics. It proposes that individuals make choices based on their anticipated outcomes and corresponding utility or satisfaction. This hypothesis assumes that individuals are rational and seek to maximize their expected utility when making decisions, subject to various constraints.</p></li>
 <li><p><a class="reference internal" href="risk.html"><span class="doc std std-doc">Risk</span></a> is the possibility of an adverse outcome or loss, typically resulting from uncertainty or exposure to danger. Risk aversion is the tendency of individuals or organizations to prefer a particular outcome over an uncertain one, even if the uncertain outcome has a potentially higher expected value. Understanding risk and risk aversion is crucial for making informed decisions that involve uncertainty and can help individuals and organizations manage and mitigate potential losses.</p></li>
 <li><p><a class="reference internal" href="games.html"><span class="doc std std-doc">Multi-agent decision making</span></a> involves situations where multiple agents or decision makers interact and influence each other’s choices. Game theory is a branch of mathematics that studies the strategic behavior of decision-makers in such situations. Game theory provides a framework for modeling and analyzing multi-agent decision-making, including how agents interact, what actions they might take, and how they choose among possible outcomes.</p></li>
 </ul>
 </section>
 <section id="assumptions">
-<h2>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this headline">#</a></h2>
+<h2>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this heading">#</a></h2>
 <p>This unit assumes a basic understanding of <a class="reference internal" href="../appendix/random.html"><span class="doc std std-doc">random variables and probability</span></a>. Random variables are fundamental concepts in probability theory and statistics, representing numerical outcomes of uncertain events. They can be discrete, taking on only a finite or countable number of values, or continuous, taking on any value within a specific range. Probability theory is used to describe and analyze the likelihood of different outcomes of these random variables.  For students uncomfortable with these topics, please consult the <a class="reference internal" href="../appendix/appendix-landing.html"><span class="doc std std-doc">appendicies</span></a> of these notes.</p>
 </section>
 <div class="toctree-wrapper compound">
@@ -459,7 +478,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Maximizing Utility Subject to Constraints</p>
+        <p class="prev-next-title">Maximizing Utility</p>
       </div>
     </a>
     <a class="right-next"

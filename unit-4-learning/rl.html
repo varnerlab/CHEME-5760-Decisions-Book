@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Reinforcement Learning &#8212; CHEME 5760</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -74,10 +75,10 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-4-learning/rl.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Imitation Learning" href="imitation.html" />
-    <link rel="prev" title="Multiarm Bandit Problems" href="bandits.html" />
+    <link rel="next" title="Model Based Reinforcement Learning" href="model-based-rl.html" />
+    <link rel="prev" title="Thompson Sampling" href="bandit-problems-ts.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -167,34 +168,52 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Utility and Simple Optimal Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Rational Choices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Simple Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Choices</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility Subject to Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/indifference-curves.html">Indifference Curves and Trades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility</a></li>
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Rational Uncertain Optimal Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Uncertain Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Multiagent Reasoning and Game Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk-and-decisions.html">Risk aversion and it’s relationship with decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contigencies.html">Contingencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contingencies-and-utility-max.html">Utility maximization, contingencies and information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Games and Multiagent Reasoning</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Markov Chains</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Understanding Markov Chains</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/mdp.html">Markov Decision Processes</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-3-planning/mdp.html">Markov Decision Processes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-3-planning/sequential-decisions.html">Making Sequential Decisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-3-planning/policy-evaluation.html">Value and Policy Evaluation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="learning-landing.html">Unit 4. Machine Learning Methods and Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/mcts.html">Monte Carlo Tree Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="learning-landing.html">Unit 4. Machine Learning and Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bandits.html">Multiarm Bandit Problems</a></li>
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Reinforcement Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imitation.html">Imitation Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bandit-problems-ts.html">Thompson Sampling</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Reinforcement Learning</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="model-based-rl.html">Model Based Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model-free-rl.html">Model Free Reinforcement Learning</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="imitation.html">Imitation Learning</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="behavior.html">Behavioral cloning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bayesian-rules.html">Bayesian Descision Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../appendix/random.html">Random variables and probability</a></li>
 </ul>
 </li>
@@ -410,52 +429,52 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reinforcement-learning">
-<h1>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Permalink to this headline">#</a></h1>
+<h1>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Permalink to this heading">#</a></h1>
 <p>In our discussion of <a class="reference internal" href="../unit-3-planning/mdp.html"><span class="doc std std-doc">Markov decision process (MDPs)</span></a>, we assumed that the transition and reward models were known precisely. However, these models may not be discovered in many actual problems. In these cases, the agent must learn to act through experience, e.g., by observing the outcomes of its actions. Then the agent chooses actions that maximize its long-term accumulation of reward.</p>
 <p>Several challenges must be addressed in cases of uncertain models. First, agents must balance between exploring the world and exploiting knowledge gained through experience. Second, rewards may be received long after decisions have been made. Finally, agents must generalize from limited experience.</p>
 <hr class="docutils" />
 <figure class="align-default" id="fig-rl-schematic">
 <a class="reference internal image-reference" href="../_images/Fig-Schematic-RL.pdf"><img alt="../_images/Fig-Schematic-RL.pdf" src="../_images/Fig-Schematic-RL.pdf" style="height: 260px;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Schematic of the reinforcement learning (RL) process. An agent takes action <span class="math notranslate nohighlight">\(a\)</span> and then observes reward <span class="math notranslate nohighlight">\(r\)</span> and changes in the state of the environment (<span class="math notranslate nohighlight">\(s\rightarrow{s^{\prime}}\)</span>) following the action <span class="math notranslate nohighlight">\(a\)</span>.</span><a class="headerlink" href="#fig-rl-schematic" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Schematic of the reinforcement learning (RL) process. An agent takes action <span class="math notranslate nohighlight">\(a\)</span> and then observes reward <span class="math notranslate nohighlight">\(r\)</span> and changes in the state of the environment (<span class="math notranslate nohighlight">\(s\rightarrow{s^{\prime}}\)</span>) following the action <span class="math notranslate nohighlight">\(a\)</span>.</span><a class="headerlink" href="#fig-rl-schematic" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="basic-concepts-of-reinforcement-learning">
-<span id="content-references-basic-concepts-reinforcement-learning"></span><h2>Basic concepts of reinforcement learning<a class="headerlink" href="#basic-concepts-of-reinforcement-learning" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Reinforcement_learning">Reinforcement Learning (RL)</a> agents learn by performing actions in the world and then analyzing the rewards they receive (<a class="reference internal" href="#fig-rl-schematic"><span class="std std-numref">Fig. 5</span></a>). Thus, reinforcement learning differs from other machine learning approaches, e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/Supervised_learning">supervised learning</a> because labeled input/output pairs, e.g., what actions lead to positive rewards are not presented to the agent <em>a priori</em>.  Instead, reinforcement learning agents learn what is good or bad by trying different actions.</p>
+<span id="content-references-basic-concepts-reinforcement-learning"></span><h2>Basic concepts of reinforcement learning<a class="headerlink" href="#basic-concepts-of-reinforcement-learning" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Reinforcement_learning">Reinforcement Learning (RL)</a> agents learn by performing actions in the world and then analyzing the rewards they receive (<a class="reference internal" href="#fig-rl-schematic"><span class="std std-numref">Fig. 12</span></a>). Thus, reinforcement learning differs from other machine learning approaches, e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/Supervised_learning">supervised learning</a> because labeled input/output pairs, e.g., what actions lead to positive rewards are not presented to the agent <em>a priori</em>.  Instead, reinforcement learning agents learn what is good or bad by trying different actions.</p>
 <p>Reinforcement learning agents learn optimal choices in different situations by balancing the exploration of their environment, e.g., by taking random actions and watching what happens, with the exploitation of the knowledge they have built up so far, i.e., choosing what the agent thinks is an optimal action based upon previous experience. The balance between exploration and exploitation is one of the critical concepts in reinforcement learning.</p>
 </section>
 <section id="model-free-reinforcement-learning">
-<span id="content-references-model-free-reinforcement-learning"></span><h2>Model-free reinforcement learning<a class="headerlink" href="#model-free-reinforcement-learning" title="Permalink to this headline">#</a></h2>
+<span id="content-references-model-free-reinforcement-learning"></span><h2>Model-free reinforcement learning<a class="headerlink" href="#model-free-reinforcement-learning" title="Permalink to this heading">#</a></h2>
 <p>Model-free reinforcement learning does not require transition or reward models. Instead, model-free methods, like bandit problems, iteratively construct a policy by interacting with the world. However, unlike bandit problems, model-free reinforcement learning builds the action value function <span class="math notranslate nohighlight">\(Q(s, a)\)</span> directly, e.g., by incrementally estimating the action value function <span class="math notranslate nohighlight">\(Q(s, a)\)</span> from samples using the <a class="reference external" href="https://en.wikipedia.org/wiki/Q-learning">Q-learning approach</a>.</p>
 <section id="incremental-updates">
-<h3>Incremental updates<a class="headerlink" href="#incremental-updates" title="Permalink to this headline">#</a></h3>
+<h3>Incremental updates<a class="headerlink" href="#incremental-updates" title="Permalink to this heading">#</a></h3>
 <p>Model-free methods incrementally estimate the action value function <span class="math notranslate nohighlight">\(Q(s, a)\)</span> by sampling the world. To understand the structure of the update procedures, which we’ll discuss later, let’s take a quick detour and look at how we incrementally estimate the mean of a single variable <span class="math notranslate nohighlight">\(X\)</span>. Suppose we are interested in computing the mean of <span class="math notranslate nohighlight">\(X\)</span> from <span class="math notranslate nohighlight">\(m\)</span> samples:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-simple-mean">
-<span class="eqno">(25)<a class="headerlink" href="#equation-eqn-simple-mean" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \frac{1}{m}\sum_{i=1}^{m}x^{(i)}\]</div>
+<span class="eqno">(43)<a class="headerlink" href="#equation-eqn-simple-mean" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \frac{1}{m}\sum_{i=1}^{m}x^{(i)}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x^{(i)}\)</span> denotes the ith sample. However, model-free RL incrementally updates <span class="math notranslate nohighlight">\(Q(s,a)\)</span>; thus, we need to develop an incremental estimation calculation.
-Equation <a class="reference internal" href="#equation-eqn-simple-mean">(25)</a> can be re-written as:</p>
+Equation <a class="reference internal" href="#equation-eqn-simple-mean">(43)</a> can be re-written as:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-simple-mean-1">
-<span class="eqno">(26)<a class="headerlink" href="#equation-eqn-simple-mean-1" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \frac{1}{m}\left(x^{(m)}+\sum_{i=1}^{m-1}x^{(i)}\right)\]</div>
+<span class="eqno">(44)<a class="headerlink" href="#equation-eqn-simple-mean-1" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \frac{1}{m}\left(x^{(m)}+\sum_{i=1}^{m-1}x^{(i)}\right)\]</div>
 <p>but the summation term is mean from <span class="math notranslate nohighlight">\(m-1\)</span> samples or:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-simple-mean-2">
-<span class="eqno">(27)<a class="headerlink" href="#equation-eqn-simple-mean-2" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \frac{1}{m}\left(x^{(m)}+(m-1)\hat{x}_{m-1}\right)\]</div>
+<span class="eqno">(45)<a class="headerlink" href="#equation-eqn-simple-mean-2" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \frac{1}{m}\left(x^{(m)}+(m-1)\hat{x}_{m-1}\right)\]</div>
 <p>which can be rearranged to give the incremental update expression:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-simple-mean-3">
-<span class="eqno">(28)<a class="headerlink" href="#equation-eqn-simple-mean-3" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \hat{x}_{m-1} + \frac{1}{m}\left(x^{(m)}-\hat{x}_{m-1}\right)\]</div>
-<p>Equation <a class="reference internal" href="#equation-eqn-simple-mean-3">(28)</a> can be generalized to give the incremental update rule (<a class="reference internal" href="#defn-incremental-update-rule">Definition 13</a>):</p>
+<span class="eqno">(46)<a class="headerlink" href="#equation-eqn-simple-mean-3" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \hat{x}_{m-1} + \frac{1}{m}\left(x^{(m)}-\hat{x}_{m-1}\right)\]</div>
+<p>Equation <a class="reference internal" href="#equation-eqn-simple-mean-3">(46)</a> can be generalized to give the incremental update rule (<a class="reference internal" href="#defn-incremental-update-rule">Definition 13</a>):</p>
 <div class="proof definition admonition" id="defn-incremental-update-rule">
 <p class="admonition-title"><span class="caption-number">Definition 13 </span> (Incremental update rule)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(\hat{x}_{m-1}\)</span> denote the mean value computed from <span class="math notranslate nohighlight">\(m-1\)</span> samples. The value of <span class="math notranslate nohighlight">\(\hat{x}_{m}\)</span> given the the next sample <span class="math notranslate nohighlight">\(x^{(m)}\)</span> can be written as:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-next-sample-mean">
-<span class="eqno">(29)<a class="headerlink" href="#equation-eqn-next-sample-mean" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \hat{x}_{m-1} + \alpha\left(m\right)\left(x^{(m)}-\hat{x}_{m-1}\right)\]</div>
+<span class="eqno">(47)<a class="headerlink" href="#equation-eqn-next-sample-mean" title="Permalink to this equation">#</a></span>\[\hat{x}_{m} = \hat{x}_{m-1} + \alpha\left(m\right)\left(x^{(m)}-\hat{x}_{m-1}\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(\alpha\left(m\right)\)</span> is the learning rate function. The learning rate can be any function of <span class="math notranslate nohighlight">\(m\)</span>; however, to ensure convergence
 <span class="math notranslate nohighlight">\(\alpha\left(m\right)\)</span> must have the properties: the sum of <span class="math notranslate nohighlight">\(\alpha\left(m\right)\)</span> as <span class="math notranslate nohighlight">\(m\rightarrow\infty\)</span> can be unbounded, but the sum of <span class="math notranslate nohighlight">\(\alpha\left(m\right)^{2}\)</span> as <span class="math notranslate nohighlight">\(m\rightarrow\infty\)</span> is bounded.</p>
 </section>
 </div></section>
 <section id="q-learning">
-<h3>Q-learning<a class="headerlink" href="#q-learning" title="Permalink to this headline">#</a></h3>
+<h3>Q-learning<a class="headerlink" href="#q-learning" title="Permalink to this heading">#</a></h3>
 <p>The Q-learning approach incrementally estimates the action value function <span class="math notranslate nohighlight">\(Q(s,a)\)</span> using the action value form of the <em>Bellman expectation equation</em>.  From our discussion of <a class="reference internal" href="../unit-3-planning/mdp.html"><span class="doc std std-doc">Markov decision process (MDPs)</span></a>, we know that the action-value function (the <span class="math notranslate nohighlight">\(Q\)</span>-function) is defined as:</p>
 <div class="math notranslate nohighlight">
 \[Q(s,a) = R(s,a) + \gamma\sum_{s^{\prime}\in\mathcal{S}}T(s^{\prime} | s, a)U(s^{\prime})\]</div>
@@ -464,13 +483,13 @@ Equation <a class="reference internal" href="#equation-eqn-simple-mean">(25)</a>
 \[U(s) = \max_{a} Q(s,a)\]</div>
 <p>thus:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-bellman-expectation-eqn">
-<span class="eqno">(30)<a class="headerlink" href="#equation-eqn-bellman-expectation-eqn" title="Permalink to this equation">#</a></span>\[Q(s,a) = R(s,a) + \gamma\sum_{s^{\prime}\in\mathcal{S}}T(s^{\prime} | s, a)\left(\max_{a^{\prime}}Q(s^{\prime},a^{\prime})\right)\]</div>
-<p>Here’s the catch: in a model-free universe, we don’t know the rewards or physics of the world, i.e., we don’t know the rewards <span class="math notranslate nohighlight">\(R(s, a)\)</span> or the probability array <span class="math notranslate nohighlight">\(T(s^{\prime} | s, a)\)</span> that appear in Eqn. <a class="reference internal" href="#equation-eqn-bellman-expectation-eqn">(30)</a>. Instead of computing the rewards <span class="math notranslate nohighlight">\(r\)</span> and transitions from a model, we must estimate them from samples received:</p>
+<span class="eqno">(48)<a class="headerlink" href="#equation-eqn-bellman-expectation-eqn" title="Permalink to this equation">#</a></span>\[Q(s,a) = R(s,a) + \gamma\sum_{s^{\prime}\in\mathcal{S}}T(s^{\prime} | s, a)\left(\max_{a^{\prime}}Q(s^{\prime},a^{\prime})\right)\]</div>
+<p>Here’s the catch: in a model-free universe, we don’t know the rewards or physics of the world, i.e., we don’t know the rewards <span class="math notranslate nohighlight">\(R(s, a)\)</span> or the probability array <span class="math notranslate nohighlight">\(T(s^{\prime} | s, a)\)</span> that appear in Eqn. <a class="reference internal" href="#equation-eqn-bellman-expectation-eqn">(48)</a>. Instead of computing the rewards <span class="math notranslate nohighlight">\(r\)</span> and transitions from a model, we must estimate them from samples received:</p>
 <div class="math notranslate nohighlight">
 \[Q(s,a) = \mathbb{E}_{r,s^{\prime}}\left[r+\gamma\cdot\max_{a^{\prime}}Q(s^{\prime},a^{\prime})\right]\]</div>
-<p>We can use the incremental update rule shown in Eqn. <a class="reference internal" href="#equation-eqn-next-sample-mean">(29)</a> to develop an an expression that incrementally updates our estimate of <span class="math notranslate nohighlight">\(Q(s,a)\)</span> as more data becomes available:</p>
+<p>We can use the incremental update rule shown in Eqn. <a class="reference internal" href="#equation-eqn-next-sample-mean">(47)</a> to develop an an expression that incrementally updates our estimate of <span class="math notranslate nohighlight">\(Q(s,a)\)</span> as more data becomes available:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-q-learning-update-rule">
-<span class="eqno">(31)<a class="headerlink" href="#equation-eqn-q-learning-update-rule" title="Permalink to this equation">#</a></span>\[Q(s,a)\leftarrow{Q(s,a)}+\alpha\left(r+\gamma\max_{a^{\prime}}Q(s^{\prime},a^{\prime}) - Q(s,a)\right)\]</div>
+<span class="eqno">(49)<a class="headerlink" href="#equation-eqn-q-learning-update-rule" title="Permalink to this equation">#</a></span>\[Q(s,a)\leftarrow{Q(s,a)}+\alpha\left(r+\gamma\max_{a^{\prime}}Q(s^{\prime},a^{\prime}) - Q(s,a)\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(\alpha\)</span> denotes a <em>learning rate hyperparameter</em>. Putting all these ideas together, gives a Q-learning definition (<a class="reference internal" href="#defn-q-learning-defn">Definition 14</a>):</p>
 <div class="proof definition admonition" id="defn-q-learning-defn">
 <p class="admonition-title"><span class="caption-number">Definition 14 </span> (Q-learning)</p>
@@ -525,6 +544,8 @@ Equation <a class="reference internal" href="#equation-eqn-simple-mean">(25)</a>
 </section>
 </div></section>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -559,20 +580,20 @@ Equation <a class="reference internal" href="#equation-eqn-simple-mean">(25)</a>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="bandits.html"
+       href="bandit-problems-ts.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Multiarm Bandit Problems</p>
+        <p class="prev-next-title">Thompson Sampling</p>
       </div>
     </a>
     <a class="right-next"
-       href="imitation.html"
+       href="model-based-rl.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Imitation Learning</p>
+        <p class="prev-next-title">Model Based Reinforcement Learning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

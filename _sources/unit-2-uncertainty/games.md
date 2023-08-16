@@ -1,2 +1,2 @@
-# Multiagent Reasoning and Game Theory
+# Games and Multiagent Reasoning
 Fill me in

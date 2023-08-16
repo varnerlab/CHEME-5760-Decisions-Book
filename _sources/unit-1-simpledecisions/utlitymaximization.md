@@ -1,48 +1,31 @@
-# Maximizing Utility Subject to Constraints
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Julia
+  language: julia
+  name: julia-1.9
+---
+
+# Maximizing Utility
 Utility maximization is the process of choosing the option that provides the highest level of utility, given a set of available options and the individual's preferences. It involves evaluating each option using a utility function and selecting the one that maximizes the utility subject to constraints.
 
 ```{topic} Outline
 
-* {ref}`content:references:rational-choice-budget-constraints` are a crucial factor in decision-making for individuals, businesses, and governments alike. They represent the finite resources available to make choices and allocate funds toward different options. A budget constraint forces decision-makers to weigh the costs and benefits of various options and make trade-offs based on their available resources.
+* {ref}`content:references:rational-choice-theory-opt` are based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets.
 
-* {ref}`content:references:rational-choice-theory-opt` is based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets. 
+* {ref}`content:references:rational-choice-income-and-prices`. Understanding the impact of income and prices on decision-making is crucial in comprehending the rationale behind the actions taken by decision makers. By studying the correlation between income, prices, and utility maximization within a budget constraint, we can gain valuable insights into consumer behavior, resource allocation, and market dynamics.
 
 ```
 
 ---
-
-(content:references:rational-choice-budget-constraints)=
-## Budget constraints
-Effective budget management involves prioritizing expenditures, making trade-offs, and seeking optimal ways to utilize the available funds within the defined buedget constraints. Budget constraints refer to the limitations imposed on an individual, organization, or government’s spending activities. These constraints arise from the finite availability of financial resources, requiring careful planning and allocation to meet various needs and goals ({prf:ref}`defn-budget-constraint`): 
-
-````{prf:definition} Budget constraint
-:label: defn-budget-constraint
-
-Let $I$ denote the income allocated to purchase goods in a set of goods $x\in\mathcal{X}$ where $c_{x}\geq{0}$ denotes the unit cost of item $x$. Then, the budget constraint for $\mathcal{X}$ is given by:
-
-```{math}
-:label: eqn-budget-constraint
-\sum_{x\in\mathcal{X}}c_{x}\cdot\dim(x)\leq{I}
-```
-
-The quantity $\dim(x)$ denotes the number of good $x$ purchased. The number of iterms purchased must be non-negative, i.e., $\dim(x)\geq{0}$.
-
-````
-
-### Two goods
-To better understand {prf:ref}`defn-budget-constraint`, let's consider the case when we have only two goods in the set of goods $\mathcal{X}$, i.e., $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$. In this case, the budget constraint becomes a line in the $\text{apples}$ versus $\text{oranges}$ plane ({numref}`fig-two-dim-bc`).
-
- ```{figure} ./figs/Fig-TwoDim-BudgetConstraint-Schematic.pdf
----
-height: 400px
-name: fig-two-dim-bc
----
-Two-dimensional budget constraint for the $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$ set of goods.
-```
 
 
 (content:references:rational-choice-theory-opt)=
-## Optimal rational choice
+## Optimal rational choices
 An optimal rational decision-making agent _maximizes_ its utility function, i.e., the agent searches for a combination of goods and services that gives the highest satisfaction subject to various constraints, e.g., a budget constraint ({prf:ref}`eqn-budget-constraint`):
 
 ````{prf:definition} Maximum utility and budget constraints
@@ -55,7 +38,7 @@ A decision making agent has a utility function $U\left(x_{1},\dots,x_{n}\right)$
 
 \begin{eqnarray}
 \text{maximize}~\mathcal{O} &=& U\left(x_{1},\dots,x_{n}\right) \\
-\text{subject to}~\sum_{i=1}^{n}c_{i}x_{i} & \leq & I\\
+\text{subject to}~\sum_{i=1}^{n}c_{i}x_{i} & = & I\\
 \text{and}~x_{i}&\geq&{0}\qquad{i=1,2,\dots,n}
 \end{eqnarray}
 
@@ -65,40 +48,174 @@ where $c_{i}\geq{0}~\forall{i}$ denotes the cost of good or service $i$, and $x_
 
 ````
 
-The problem in {prf:ref}`eqn-budget-constraint` can be solved for the unknown consumption levels of $x_{i}$ using various techniques. For example, we could use the [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier) or a [penalty method](https://en.wikipedia.org/wiki/Penalty_method) in combination with any number of heuristic optimization approaches, e.g., [simulated annealing](https://en.wikipedia.org/wiki/Simulated_annealing). Of course, if the utility function in {prf:ref}`eqn-budget-constraint` is linear, we could also use [linear programming](https://en.wikipedia.org/wiki/Linear_programming).
+The problem in {prf:ref}`eqn-budget-constraint` can be solved for the unknown consumption levels of $x_{i}$ using various techniques. 
 
-## Solving optimal choice problems
-To solve the constrained maximum utility problem, we could use classical calculus methods, i.e., the [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier) or numerical approaches such as the [method of gradient descent](https://en.wikipedia.org/wiki/Gradient_descent) or [metaheuristic approaches](https://en.wikipedia.org/wiki/Metaheuristic#Metaheuristic_Optimization_Frameworks) in combination with a [penalty](https://en.wikipedia.org/wiki/Penalty_method) or [barrier](https://en.wikipedia.org/wiki/Barrier_function) method to accommodate the constraints.
+<!-- Of course, if the utility function in {prf:ref}`eqn-budget-constraint` is linear, we could also use [linear programming](https://en.wikipedia.org/wiki/Linear_programming). -->
 
-### Lagrange multipliers
-The [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier) involves introducing additional variables, called Lagrange multipliers, which integrate the constraints into the objective function ({prf:ref}`defn-method-l-multipliers`):
+(content:references:rational-choice-budget-constraints)=
+### Budget constraints
+Effective budget management involves prioritizing expenditures, making trade-offs, and seeking optimal ways to utilize the available funds within the defined buedget constraints. Budget constraints refer to the limitations imposed on an individual, organization, or government’s spending activities. These constraints arise from the finite availability of financial resources, requiring careful planning and allocation to meet various needs and goals ({prf:ref}`defn-budget-constraint`): 
+
+````{prf:definition} Budget constraint
+:label: defn-budget-constraint
+
+Let $I$ denote the income allocated to purchase goods in a set of goods $x\in\mathcal{X}$ where $c_{x}\geq{0}$ denotes the unit cost of item $x$. Then, the budget constraint for $\mathcal{X}$ is given by:
+
+```{math}
+:label: eqn-budget-constraint
+\sum_{x\in\mathcal{X}}c_{x}\cdot\dim(x) = {I}
+```
+
+The quantity $\dim(x)$ denotes the number of good $x$ purchased. The number of iterms purchased must be non-negative, i.e., $\dim(x)\geq{0}$.
+
+````
+
+#### Two good budget constraint: Apples and oranges
+To better understand {prf:ref}`defn-budget-constraint`, let's consider the case when we have only two goods in the set of goods $\mathcal{X}$, i.e., $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$. In this case, the budget constraint becomes a line in the $\text{apples}$ versus $\text{oranges}$ plane ({numref}`fig-two-dim-bc`).
+
+ ```{figure} ./figs/Fig-TwoDim-BudgetConstraint-Schematic.pdf
+---
+height: 420px
+name: fig-two-dim-bc
+---
+Two-dimensional budget constraint for the $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$ set of goods.
+```
+
+The intercepts of the budget constraint shown in {numref}`fig-two-dim-bc` give the maximum amount of a good or service that can be consumed. For example, the x-intercept of the budget constraint in gives the maximum number of apples that can be purchased given the budget constraint and the price of the apple. Similarly, the y-intercept gives the maximum number of oranges that can be purchased given the budget constraint and the price of oranges.
+
+Every point on the budget constraint line shown in {numref}`fig-two-dim-bc` indicates a possible combination of apples and oranges that could be bought within the given budget. The task at hand is to determine the optimal combination of apples and oranges that maximizes the utility function. 
+
+### Lagrange multipliers and utility maximization
+Let's begin with a classical approach, the [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier). as it provides a good foundation for understanding more advanced methods and has some interesting theoretical properties. The [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier) involves introducing additional variables, called Lagrange multipliers, which integrate the constraints into a modified objective function called the Lagrangian function ({prf:ref}`defn-method-l-multipliers`):
 
 ````{prf:definition} Method of Lagrange multipliers
 :label: defn-method-l-multipliers
 
-To find the maximum or minimum of a function $f(x)$ subject to the equality constraint $g(x)$, we can form the Lagrangian function:
+To find the maximum or minimum of a function $f(x)$ subject to the equality constraint $g(x)$, we can form the Lagrangian function $\mathcal{L}(x,\lambda)$:
 
 ```{math}
 :label: eqn-lagrangian-1d
 \mathcal{L}(x,\lambda) = f(x) + \lambda\cdot{g}(x)
 ```
 
-where $\lambda$ is the Lagrange multiplier for constraint $g(x)$, and $\mathcal{L}(x,\lambda)$ is called the Lagrangian function. At a critical point (maximum or minimum), the partial derivatives of the 
+where $\lambda$ is the Lagrange multiplier for constraint $g(x)$. At a critical point (maximum or minimum), the partial derivatives of the 
 Lagrangian function with respect to $x$ and $\lambda$ vanish:
 
 ```{math}
 :label: eqn-first-order-condition-lagrange
 
 \begin{eqnarray}
-\frac{\partial\mathcal{L}}{\partial{x}} & = & 0\\
-\frac{\partial\mathcal{L}}{\partial{\lambda}} & = & 0\\
+\frac{\partial\mathcal{L}}{\partial{x}} & = & f^{\prime}(x) + \lambda\cdot{g^{\prime}(x)} = 0\\
+\frac{\partial\mathcal{L}}{\partial{\lambda}} & = & g(x) = 0 \\
 \end{eqnarray}
 ```
 
-The system of equations defined by Eqn. {eq}`eqn-first-order-condition-lagrange` callled the Lagrange equations, can be solved to find the critical points and, thus, the maximum or minimum value of the objective function.
+The system of equations defined by Eqn. {eq}`eqn-first-order-condition-lagrange` callled the Lagrange equations are first-order optimality conditions, which can be solved to find the critical points and, thus, the maximum or minimum value of the objective function.
 ````
 
-#### Karush-Kuhn-Tucker (KKT) conditions
+The utility maximization problem outlined in {prf:ref}`eqn-budget-constraint` has the Lagrangian function:
+
+```{math}
+\mathcal{L}(x,\lambda) = U(x_{1},\dots,x_{n}) + \lambda\cdot\left(I-\sum_{i=1}^{n}c_{i}x_{i}\right)
+```
+
+where $I$ is the amount of money (income) we have to spend on goods $x_{1},x_{2},\dots,x_{n}$, and $c_{i}$ is the cost of good $i$. The Lagrangian function $\mathcal{L}(x,\lambda)$ can be expanded into the $n+1$ system of equations (first-order optimality conditions):
+
+```{math}
+:label: eqn-two-good-utility-maximization
+\begin{eqnarray}
+\frac{\partial\mathcal{L}}{\partial{x_{1}}} & = & \bar{U}_{1} - \lambda\cdot{c_{1}} = 0 \\
+\vdots & = & \vdots \\
+\frac{\partial\mathcal{L}}{\partial{x_{n}}} & = & \bar{U}_{n} - \lambda\cdot{c_{n}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial\lambda} & = & I - \sum_{i=1}^{n}c_{i}x_{i} = 0 \\
+\end{eqnarray}
+```
+
+where $\bar{U}_{i}$ denotes the marginal utility of good $i$. The system of equations in Eqn. {eq}`eqn-two-good-utility-maximization` can be solved to find the optimal consumption levels of $x_{i}$. The first $n$ of the first-order optimality conditions can be solved to arrive at the following expression for the Lagrange multiplier:
+
+```{math}
+:label: eqn-lagrange-multiplier-marginal-utility-dollar
+\lambda = \frac{\bar{U}_{i}}{c_{i}}\qquad\forall{i}
+```
+
+which gives an interesting interpretation of the Lagrange multiplier: it is the marginal utility per dollar spent on good $i$. Further, it provides the basis for the matching condition at the optimum:
+
+```{math}
+:label: eqn-matching-condition-marginal-utility-dollar
+\frac{\bar{U}_{i}}{c_{i}} = \frac{\bar{U}_{j}}{c_{j}}\qquad\forall{i,j}
+```
+
+#### Example: Two-good Cobb-Douglas utility maximization problem
+Let's consider a utility maximization problem that uses a Cobb-Douglas utility function $U(x_{1},x_{2}) = x_{1}^{\alpha}x_{2}^{1-\alpha}$ that describes the satisfaction gained from consuming two goods, $x_{1}$ and $x_{2}$. The utility function is subject to a budget constraint $\sum c_{i}x_{i} = I$, where $I$ is the amount of money (income) we have to spend on goods $x_{1}$ and $x_{2}$, and $c_{i}$ is the cost of good $i$. The Lagrangian function for this problem is given by:
+
+```{math}
+:label: eqn-lagrangian-two-good-cobb-douglas-utility
+\mathcal{L}(x_{1},x_{2},\lambda) = x_{1}^{\alpha}x_{2}^{1-\alpha} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)
+```
+
+which gives the first-order optimality conditions:
+
+```{math}
+:label: eqn-two-good-cobb-douglas-utility-maximization
+\begin{eqnarray}
+\frac{\partial\mathcal{L}}{\partial{x_{1}}} & = & \alpha\cdot{x_{1}^{\alpha-1}}x_{2}^{1-\alpha} - \lambda\cdot{c_{1}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial{x_{2}}} & = & (1-\alpha)\cdot{x_{1}^{\alpha}x_{2}^{-\alpha}} - \lambda\cdot{c_{2}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial\lambda} & = & I - c_{1}x_{1} - c_{2}x_{2} = 0 \\
+\end{eqnarray}
+```
+
+The system of equations in Eqn. {eq}`eqn-two-good-cobb-douglas-utility-maximization` can be solved to find the optimal consumption levels of $x_{1}$ and $x_{2}$. However, these equations are non-linear and not easy to solve analytically. Thus, we must use numerical methods to find the optimal values of $x_{1}$ and $x_{2}$.
+
+
+#### Example: Two-good linear utility maximization problem
+Let's consider a two-good utility maximization problem that uses a linear utility function $U(x_{1},x_{2}) = a_{1}x_{1}+a_{2}x_{2}$ that describes the satisfaction gained from consuming two goods, $x_{1}$ and $x_{2}$. The utility function is subject to a budget constraint $\sum c_{i}x_{i} = I$, where $I$ is the amount of money (income) we have to spend on goods $x_{1}$ and $x_{2}$, and $c_{i}$ is the cost of good $i$. The Lagrangian function for this problem is given by:
+
+```{math}
+:label: eqn-lagrangian-two-good-linear-utility
+\mathcal{L}(x_{1},x_{2},\lambda) = a_{1}x_{1} + a_{2}x_{2} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)
+```
+
+which gives the first-order optimality conditions:
+
+```{math}
+:label: eqn-two-good-linear-utility-maximization
+\begin{eqnarray}
+\frac{\partial\mathcal{L}}{\partial{x_{1}}} & = & a_{1} - \lambda\cdot{c_{1}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial{x_{2}}} & = & a_{2} - \lambda\cdot{c_{2}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial\lambda} & = & I - c_{1}x_{1} - c_{2}x_{2} = 0 \\
+\end{eqnarray}
+```
+
+This system of equations can be represented as a $3\times{3}$ system of linear algebraic equations for the unknows $\theta = \left[x_{1},x_{2},\lambda\right]^{T}$:
+
+```{math}
+\begin{bmatrix}
+0 & 0 & -c_{1} \\
+0 & 0 & -c_{2} \\
+-c_{1} & -c_{2} & 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_{1} \\
+x_{2} \\
+\lambda \\
+\end{bmatrix} = 
+\begin{bmatrix}
+-a_{1} \\
+-a_{2} \\
+-I \\
+\end{bmatrix}
+```
+
+or $\mathbf{A}\mathbf{\theta} = \mathbf{b}$ which theoretically can be inverted to find the solution:
+
+```{math}
+\theta = \mathbf{A}^{-1}\mathbf{b}
+```
+
+if the matrix $\mathbf{A}$ has full rank. However, in this case, the rank of matrix $\text{rank}(\mathbf{A}) = 2$, which indicates that the system of equations is underdetermined. This means that there are an infinite number of solutions to the system of equations. To find the solution, we can use the [Moore-Penrose pseudo-inverse](https://en.wikipedia.org/wiki/Moore–Penrose_inverse) of the matrix $\mathbf{A}$, which is given by:
+
+
+<!-- #### Karush-Kuhn-Tucker (KKT) conditions
 The [Karush-Kuhn-Tucker (KKT) conditions](https://en.wikipedia.org/wiki/Karush–Kuhn–Tucker_conditions) are necessary conditions for finding the optimal solution to an optimization problem with constraints. The conditions are as follows:
 
 * __Stationarity condition__: The gradient of the objective function at the optimal point is orthogonal to the feasible region, taking into account the constraints.
@@ -106,122 +223,156 @@ The [Karush-Kuhn-Tucker (KKT) conditions](https://en.wikipedia.org/wiki/Karush�
 * __Dual feasibility condition__: The Lagrange multipliers associated with the constraints must be non-negative.
 * __Complementary slackness condition__: The product of the Lagrange multipliers and the difference between the left-hand side and right-hand side of each constraint must be zero.
 
-These conditions provide a necessary condition for optimality, which means that if a solution satisfies these conditions, it may be a candidate for the optimal solution. However, it is not guaranteed that the optimal solution satisfies all these conditions, and additional analysis may be necessary to confirm the optimality of a candidate solution.
+These conditions provide a necessary condition for optimality, which means that if a solution satisfies these conditions, it may be a candidate for the optimal solution. However, it is not guaranteed that the optimal solution satisfies all these conditions, and additional analysis may be necessary to confirm the optimality of a candidate solution. -->
 
-### Penalty and Barrier methods
-A penalty method transforms a constrained least squares problem into an unconstrained problem that can be solved. In a penalty method, a penalty is added to the loss function to encourage specific desirable properties of the solution. 
+### Numerical solutions of utility maximization problems
+The Cobb-Douglas utility function example above illustrates a case where the first-order optimality conditions are non-linear and not easy to solve analytically. In these cases, which are common, we must use numerical methods to find the optimal values for $x_{1},\dots,x_{n}$. 
 
-#### Quadratic penalty functions
-Before we look at the applications of penalty methods, let's consider a simple example to work out the basic strategy. This example was reproduced from the [Mathematical Optimization course at Stanford](https://web.stanford.edu/group/sisl/k12/optimization/#!index.md). Suppose we wanted to solve the problem:
+We'll make use of the [JuMP](https://jump.dev/JuMP.jl/stable/) and [MadNLP](https://github.com/MadNLP/MadNLP.jl) packages which provide numerical techniques for solving optimization problems:
+* The [JuMP](https://jump.dev/JuMP.jl/stable/) package provides a high-level interface for defining optimization problems.
+* The [MadNLP](https://github.com/MadNLP/MadNLP.jl) package is used by JuMP to solve optimization problems, but it can also be used directly to solve constrained optimization problems.
 
-```{math}
-:label: eqn-example-pmethod
-\begin{eqnarray}
-\arg \min_{x} \left(f(x) = \frac{100}{x}\right) & &  \\
-\text{subject to} & & \\
-x\leq{5} & &   
-\end{eqnarray}
-```
-Before starting, convert any constraints into the form (expression) $\leq{0}$, so the $x\leq{5}$ becomes:
+Let's revisit the Cobb-Douglas utility maximization problem from above, but this time we'll use [JuMP](https://jump.dev/JuMP.jl/stable/) and [MadNLP](https://github.com/MadNLP/MadNLP.jl) to solve the problem numerically. First, we'll define a type that represents the problem (and stores useful data about the problem):
 
-```{math}
-x - 5 \leq{0}
-```
+```julia
+mutable struct MySimpleCobbDouglasChoiceProblem <: AbstractSimpleChoiceProblem
 
-Once the constraints have been converted, the next step is to start charging a penalty for violating them. Since we’re trying to minimize $f(x)$, we need to _add value_ when the constraint is violated. If you are trying to maximize, the penalty will _subtract value_. With the constraint $x-5\leq{0}$ we need a penalty that is:
-* __Constraint satisfied__: 0 when $x-5\leq{0}$
-* __Constraint violated__: postive when $x-5>0$.
+    # data -
+    α::Array{Float64,1}
+    c::Array{Float64,1}
+    I::Float64
+    bounds::Array{Float64,2}
+    initial::Array{Float64,1}
 
-This can be done by using a penalty $P\left(x\right)$ of the form:
-
-```{math}
-:label: eqn-quad-penalty
-P(x) = \max\left(0,x-5\right)^{2}
+    # constructor
+    MySimpleCobbDouglasChoiceProblem() = new();
+end
 ```
 
-Eqn. {eq}`eqn-quad-penalty` is a quadratic penalty (loss) function. This approach works for equality constraints as well. For example, suppose we had the constraint $h(x) = c$, where $c$ is a constant. We can convert this type of constraint into a penalty of the form:
+Next, we'll define a function that takes an instance of the `MySimpleCobbDouglasChoiceProblem` problem object, solves the constrained utility maximization problem, and returns a [dictionary](https://docs.julialang.org/en/v1/base/collections/#Dictionaries) with the results:
 
-```{math}
-:label: eqn-equality-constraint-pm
-P(x) = \left(h(x) - c\right)^{2}
+
+```julia
+"""
+    solve(problem::MySimpleCobbDouglasChoiceProblem) -> Dict{String,Any}
+
+Solves the optimal decision problem with a budget constraint with a Cobb-Douglas utility function
+"""
+function solve(problem::MySimpleCobbDouglasChoiceProblem)::Dict{String,Any}
+
+    # initialize -
+    results = Dict{String,Any}()
+    α = problem.α;
+    c = problem.c;
+    bounds = problem.bounds;
+    I = problem.I;
+    xₒ = problem.initial
+
+    # how many variables do we have?
+    d = length(α);
+
+    # Setup the problem -
+    model = Model(()->MadNLP.Optimizer(print_level=MadNLP.INFO, max_iter=500))
+    @variable(model, bounds[i,1] <= x[i=1:d] <= bounds[i,2], start=xₒ[i]) # we have d variables
+    
+    # set objective function -   
+    @NLobjective(model, Max, (x[1]^α[1])*(x[2]^α[2]));
+    @constraints(model, 
+        begin
+            # my budget constraint
+            transpose(c)*x <= I
+        end
+    );
+
+    # run the optimization -
+    optimize!(model)
+
+    # populate -
+    x_opt = value.(x);
+    results["argmax"] = x_opt
+    results["budget"] = transpose(c)*x_opt; 
+    results["objective_value"] = objective_value(model);
+
+    # return -
+    return results
+end
 ```
 
-The lowest penalty value in {eq}`eqn-equality-constraint-pm` will occur when $h(x) = c$; thus, we satisfy the constraint. Once we have converted the constraints into penalty functions, we add all the penalty functions to the original objective function $f(x) + \lambda\cdot{P(x)}$ and minimize the total function (objective plus penalties). For example, the original problem in {eq}`eqn-example-pmethod` becomes:
+Finally, we'll put it all together and solve the problem. We build the problem object using the `build(...)` function, and then call the `solve(...)` function to estimate the optimal solution:
 
-```{math}
-:label: eqn-final-penality-form
-\arg \min_{x} \left(\frac{100}{x} +\lambda\cdot\max\left(0,x-5\right)^{2}\right)
+```{code-block} julia
+:caption: runme-cobb-douglas.jl
+:linenos:
+
+# include the include (load the reqd packages) -
+include("Include.jl")
+
+# initialize -
+α = [0.55, 0.45]; # coefficients
+c = [2.0, 4.0]; # price of x1 and x2
+
+# build my problem object -
+problem = build(MySimpleCobbDouglasChoiceProblem, (
+    
+    initial = 0.1*ones(2), # initial guess
+    α = α, # coefficients
+    c = c, # price of x1 and x2
+    I = 100.0, # income
+    
+    # how much of x₁ and x₂ can be we buy?
+    bounds = [
+        0.0 100.0; # L U
+        0.0 100.0; # L U
+    ]
+));
+
+# call tghe solve function. This will return a dictionary -
+solution = solve(problem);
 ```
 
-where $\lambda$ is a _hyper-parameter_ (a parameter associated with the method, not the problem) that is adjusted during the process to estimate the unknown value of $x$ according to the policy ({prf:ref}`obs-lambda-policy`):
+The optimal solution for the consumption of good $x_{1}$ and $x_{2}$ subject to the budget constraint is a point of tangency between the indifference curve and the budget constraint ({numref}`fig-two-dim-bc-cd-soln`):
 
-```{prf:observation} $\lambda$-policy penalty method
-:label: obs-lambda-policy
-For a penalty method, we start with a small $\lambda$ and repeat the $x$ estimation problem with larger and larger values of $\lambda$. This makes constraint violation more expensive for each subsequent refinement of the estimate of $x$.
+ ```{figure} ./figs/Fig-Single-Budget-CD-Soln.pdf
+---
+height: 420px
+name: fig-two-dim-bc-cd-soln
+---
+Optimal solution for the two-dimensional goods problem assuming a Cobb-Douglas utility function. Parameters: $\alpha_{1} = 0.55$, $\alpha_{2} = 0.45$, $c_{1} = 2$, $c_{2} = 4$, and $I = 100$. The optimal combination: $x_{1}^{*} = 27.5$, $x_{2}^{*} = 11.25$.
 ```
 
-With a penalty method, we can choose any value for the starting value of $x$.
+Let's check the first-order optimality conditions to make sure the solution is optimal:
 
-#### Barrier functions
-Let's rethink the problem shown in Eqn. {eq}`eqn-example-pmethod`. Suppose, instead of developing the penality function shown in Eqn. {eq}`eqn-quad-penalty` to minimize $f(x)$, for a ccontraint of the form $g(x)\leq{0}$ we developed a barrier function:
+```{code-cell} julia
+# specify parameters (and solution) from the problem
+α, c₁, c₂, x₁, x₂, I = 0.55, 2.0, 4.0, 27.5, 11.25, 100.0
 
-```{math}
-:label: eqn-barrier-function
-B\left(x\right) = - \frac{1}{g(x)}
+# compute the marginal utility at the optimum -
+Ū₁ = α*(x₁^(α-1))*(x₂^(1-α))
+Ū₂ = (1-α)*(x₁^(α))*(x₂^(-α))
+
+# compute the Lagrange multiplier -
+λ = Ū₁/c₁;
+
+# Compute the first-order conditions -
+E1 = Ū₁ - λ*c₁
+E2 = Ū₂ - λ*c₂
+E3 = I - (c₁*x₁ + c₂*x₂)
+
+# print -
+println("Optimality conditions: $(E1), $(E2), $(E3) with λ = $(λ)")
 ```
 
-As the $g(x)\rightarrow{0}$, i.e., we approach constraint violation, the value of $B\left(x\right)\rightarrow\infty$. In a similar way to penality approach shown in Eqn. {eq}`eqn-final-penality-form`, we could augment the objective (loss) function:
 
-```{math}
-:label: eqn-final-barrier-method
-\arg \min_{x}\left(f(x) -\frac{1}{\lambda}\cdot{B(x)}\right)
-```
-
-
-The challenge of the barrier method shown in Eqn. {eq}`eqn-final-barrier-method` is selecting a starting point. The initial guess of the $x$ must be inside the barrier. If this is true, we adjust the hyperparameter $\lambda$ using the policy ({prf:ref}`obs-barrier-method-lambda-policy`):
-
-```{prf:observation} $\lambda$-policy barrier method
-:label: obs-barrier-method-lambda-policy
-For a barrier method, we start with a large $\lambda$ and repeat the $x$ estimation problem with smaller and smaller values of $\lambda$. This allows us to solve the problem near the solution with limited input from the barrier. When
-we gradually reduce $\lambda$, using our previous solution as a starting point, we move closer and closer to the barrier.
-```
-
-Barrier methods have on critical pathology ({prf:ref}`remark-barrier-method`):
-
-```{prf:remark} Barrier method pathology
-:label: remark-barrier-method
-
-If, for some reason, we jump over the barrier, e.g., we start outside the feasible region (the set of $x$ values allowed by the constraints), or during the calculation, we generate a candidate solution outside the barrier, this approach can fail.
-```
-
-#### Application of penalty and barrier methods
-In the context of statistical modeling, penalty, and barrier methods are often used to regularize the model, which means imposing constraints on the model parameters to prevent overfitting and improve the model’s generalization ability
-
-Several different types of penalty methods are commonly used in statistical modeling, including:
-* [Ridge regression](https://en.wikipedia.org/wiki/Ridge_regression) adds a penalty term to the loss function, which is the sum of the squares of the model parameters. This has the effect of shrinking the parameters towards zero and can help reduce the model’s variance.
-* [Lasso regression](https://en.wikipedia.org/wiki/Lasso_(statistics)) adds a penalty term to the loss function, which is the sum of the absolute values of the model parameters. This has the effect of setting some of the parameters to zero, which can help to select a subset of essential features and reduce the complexity of the model.
-* [Group Lasso](https://en.wikipedia.org/wiki/Lasso_(statistics)#Group_lasso) is similar to [lasso regression](https://en.wikipedia.org/wiki/Lasso_(statistics)) but allows the user to group variables together and applies the penalty to the group rather than to each variable.
-* [Elastic net](https://en.wikipedia.org/wiki/Lasso_(statistics)#Elastic_net) combines the ridge and lasso regression penalties and allows users to tune the balance between the two penalties.
-
-Penalty methods can be combined with [optimization algorithms](https://optimization.cbe.cornell.edu/index.php?title=Main_Page) to find the best (optimal) values of the model parameters that minimize the loss function subject to the penalty constraints. These methods are often used in situations with many predictors, and the goal is to select a parsimonious model with a small number of essential features.
-
-### Heuristic optimization
-Heuristic optimization is a family of algorithms inspired by natural phenomena and human behavior. Heuristic methods are often used to solve complex, real-world problems where exact solutions are difficult to obtain or may not even exist. Unlike traditional optimization methods, heuristic approaches use rules of thumb, intuition, and trial-and-error to explore the search space and find the best solution.
-
-There are several types of heuristic optimization algorithms, including:
-
-* [Simulated Annealing (SA)](https://en.wikipedia.org/wiki/Simulated_annealing) is inspired by the process of annealing in metallurgy. It starts with an initial solution and gradually changes it by randomly perturbing it and accepting or rejecting the new solution based on a probability function. SA is commonly used for problems that involve finding the global minimum of a non-convex function.
-* [Genetic Algorithms (GA)](https://en.wikipedia.org/wiki/Genetic_algorithm) are inspired by the process of natural selection in biology. It starts with a population of potential solutions represented as chromosomes, which evolve through a series of selection, crossover, and mutation operations to create a new generation of solutions. GA is commonly used for problems that involve a large number of variables and constraints.
-* [Particle Swarm Optimization (PSO)](https://en.wikipedia.org/wiki/Particle_swarm_optimization) simulates the behavior of a swarm of particles moving in a multi-dimensional search space. Each particle represents a potential solution to the problem, and it adjusts its position and velocity based on the best solution found by the swarm. PSO is commonly used for problems that require continuous optimization.
-* [Ant Colony Optimization (ACO)](https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms) is inspired by the behavior of ant colonies. It involves a set of artificial ants that communicate with each other using pheromone trails to find the best path between a start and end point. ACO is commonly used for problems that find the shortest path in a graph.
-* [Artificial Bee Colony (ABC)](https://en.wikipedia.org/wiki/Artificial_bee_colony_algorithm) simulates the behavior of a colony of artificial honey bees. ABC is commonly used for problems that involve finding the optimal solution in a continuous search space. Each bee represents a potential solution to the problem and adjusts its position based on the quality of the nectar source it has found.
-* [Tabu Search (TS)](https://en.wikipedia.org/wiki/Tabu_search) uses a memory-based search strategy to avoid revisiting previously explored solutions. TS is commonly used for problems that involve finding the optimal solution in a combinatorial search space. It maintains a list of tabu moves, which are forbidden moves, to ensure that the search space is explored efficiently.
+(content:references:rational-choice-income-and-prices)=
+## The role of income and prices
+By examining the relationship between income, prices, and utility maximization subject to a budget constraint, we gain valuable insights into consumer behavior, resource allocation, and market dynamics.
 
 
 ---
 
-
-
-
 # Summary
-Fill me in
+In this set of lectures, we discussed optimal rational choices and constrained utility maximization. We learned how to solve constrained utility maximization problems using the Lagrangian method and numerical optimization. We also explored how the optimal solution changes as a function of available income and the prices of goods and services.
+
+* {ref}`content:references:rational-choice-theory-opt` are based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets.
+
+* {ref}`content:references:rational-choice-income-and-prices`. Understanding the impact of income and prices on decision-making is crucial in comprehending the rationale behind the actions taken by decision-makers. By studying the correlation between income, prices, and utility maximization within a budget constraint, we can gain valuable insights into consumer behavior, resource allocation, and market dynamics.

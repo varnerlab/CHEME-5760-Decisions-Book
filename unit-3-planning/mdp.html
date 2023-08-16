@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Markov Decision Processes &#8212; CHEME 5760</title>
   
@@ -45,6 +45,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -74,10 +75,10 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-3-planning/mdp.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Reinforcement and Imitation Learning" href="../unit-4-learning/learning-landing.html" />
-    <link rel="prev" title="Markov Chains" href="markov.html" />
+    <link rel="next" title="Making Sequential Decisions" href="sequential-decisions.html" />
+    <link rel="prev" title="Understanding Markov Chains" href="markov.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -167,34 +168,52 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Utility and Simple Optimal Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Rational Choices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Simple Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Choices</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility Subject to Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/indifference-curves.html">Indifference Curves and Trades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility</a></li>
 
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Rational Uncertain Optimal Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Uncertain Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Multiagent Reasoning and Game Theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk-and-decisions.html">Risk aversion and it’s relationship with decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contigencies.html">Contingencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contingencies-and-utility-max.html">Utility maximization, contingencies and information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Games and Multiagent Reasoning</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="planning-landing.html">Unit 3. Sequential Planning and Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="markov.html">Markov Chains</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="planning-landing.html">Unit 3. Sequential Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="markov.html">Understanding Markov Chains</a></li>
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Markov Decision Processes</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Markov Decision Processes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="sequential-decisions.html">Making Sequential Decisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="policy-evaluation.html">Value and Policy Evaluation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-4-learning/learning-landing.html">Unit 4. Machine Learning Methods and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="mcts.html">Monte Carlo Tree Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-4-learning/learning-landing.html">Unit 4. Machine Learning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandits.html">Multiarm Bandit Problems</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/rl.html">Reinforcement Learning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/imitation.html">Imitation Learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandit-problems-ts.html">Thompson Sampling</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/rl.html">Reinforcement Learning</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-based-rl.html">Model Based Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-free-rl.html">Model Free Reinforcement Learning</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/imitation.html">Imitation Learning</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/behavior.html">Behavioral cloning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bayesian-rules.html">Bayesian Descision Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../appendix/random.html">Random variables and probability</a></li>
 </ul>
 </li>
@@ -409,7 +428,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="markov-decision-processes">
-<h1>Markov Decision Processes<a class="headerlink" href="#markov-decision-processes" title="Permalink to this headline">#</a></h1>
+<h1>Markov Decision Processes<a class="headerlink" href="#markov-decision-processes" title="Permalink to this heading">#</a></h1>
 <p>A Markov decision process (MDP) is an approach for modeling decision-making in situations where outcomes are partly random but also partly under the control of a <em>decision-maker</em> who receives a reward (or penalty) for each decision.</p>
 <p>Markov decision processes (MDPs) involve actions, which allow choice, and rewards that motivate the decision-maker.</p>
 <p>At each time step, let’s assume the system in some state <span class="math notranslate nohighlight">\(s\)</span> in a set of possible states <span class="math notranslate nohighlight">\(s\in\mathcal{S}\)</span> and the decision maker may choose any action <span class="math notranslate nohighlight">\(a\)</span> from a set of possible actions <span class="math notranslate nohighlight">\(a\in\mathcal{A}\)</span> that are available in state <span class="math notranslate nohighlight">\(s\)</span>. The system responds at the next time step by <em>potentially</em> moving into a new state <span class="math notranslate nohighlight">\(s^{\prime}\)</span> and rewarding the decision maker <span class="math notranslate nohighlight">\(R_{a}\left(s, s^{\prime}\right)\)</span>. The probability that the system moves into a new state <span class="math notranslate nohighlight">\(s^{\prime}\)</span> depends upon the chosen action <span class="math notranslate nohighlight">\(a\)</span> and the current state <span class="math notranslate nohighlight">\(s\)</span>; this probability is governed by a state transition function <span class="math notranslate nohighlight">\(P_{a}\left(s,s^{\prime}\right)\)</span>.</p>
@@ -427,7 +446,7 @@ document.write(`
 <p>Finally, a policy function <span class="math notranslate nohighlight">\(\pi\)</span> is the (potentially probabilistic) mapping from states <span class="math notranslate nohighlight">\(s\in\mathcal{S}\)</span> to actions <span class="math notranslate nohighlight">\(a\in\mathcal{A}\)</span> used by the agent to solve the decision task.</p>
 </section>
 </div><section id="policy-evaluation">
-<h2>Policy evaluation<a class="headerlink" href="#policy-evaluation" title="Permalink to this headline">#</a></h2>
+<h2>Policy evaluation<a class="headerlink" href="#policy-evaluation" title="Permalink to this heading">#</a></h2>
 <p>One immediate question that jumps out is what is a policy function <span class="math notranslate nohighlight">\(\pi\)</span>, and how do we find the best possible policy for our decision problem? To do this, we need a way to estimate how good (or bad) a particular policy is; the approach we use is called <em>policy evaluation</em>. Let’s denote the expected utility gained by executing some policy <span class="math notranslate nohighlight">\(\pi(s)\)</span> from state <span class="math notranslate nohighlight">\(s\)</span> as <span class="math notranslate nohighlight">\(U^{\pi}(s)\)</span>. Then, an <em>optimal policy</em> function <span class="math notranslate nohighlight">\(\pi^{\star}\)</span> is one that maximizes the expected utility:</p>
 <div class="math notranslate nohighlight">
 \[\pi^{\star}\left(s\right) = \text{arg max}~U^{\pi}(s)\]</div>
@@ -444,31 +463,33 @@ the utility at iteration <span class="math notranslate nohighlight">\(k\)</span>
 <section class="definition-content" id="proof-content">
 <p>Suppose we have a Markov decision process with the tuple <span class="math notranslate nohighlight">\(\left(\mathcal{S}, \mathcal{A}, R_{a}\left(s, s^{\prime}\right), T_{a}\left(s,s^{\prime}\right), \gamma\right)\)</span>. Then, the utility of the policy function <span class="math notranslate nohighlight">\(\pi\)</span> equals:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-converged-policy-eval">
-<span class="eqno">(21)<a class="headerlink" href="#equation-eqn-converged-policy-eval" title="Permalink to this equation">#</a></span>\[U^{\pi}(s) = R(s,\pi(s)) + \gamma\sum_{s^{\prime}\in\mathcal{S}}T(s^{\prime} | s, \pi(s))U^{\pi}(s^{\prime})\]</div>
+<span class="eqno">(39)<a class="headerlink" href="#equation-eqn-converged-policy-eval" title="Permalink to this equation">#</a></span>\[U^{\pi}(s) = R(s,\pi(s)) + \gamma\sum_{s^{\prime}\in\mathcal{S}}T(s^{\prime} | s, \pi(s))U^{\pi}(s^{\prime})\]</div>
 </section>
 </div><section id="value-function-policies">
-<h3>Value function policies<a class="headerlink" href="#value-function-policies" title="Permalink to this headline">#</a></h3>
+<h3>Value function policies<a class="headerlink" href="#value-function-policies" title="Permalink to this heading">#</a></h3>
 <p><a class="reference internal" href="#defn-policy-evalution">Definition 11</a> gives us a method to compute the utility for a particular policy <span class="math notranslate nohighlight">\(U^{\pi}(s)\)</span>.
 However, we were given the utility and wanted to estimate the policy <span class="math notranslate nohighlight">\(\pi(s)\)</span> from that utility.
 Given a utility <span class="math notranslate nohighlight">\(U\)</span>, we can estimate a policy <span class="math notranslate nohighlight">\(\pi(s)\)</span> using the <span class="math notranslate nohighlight">\(Q\)</span>-function (action-value function):</p>
 <div class="math notranslate nohighlight" id="equation-eqn-action-value-function">
-<span class="eqno">(22)<a class="headerlink" href="#equation-eqn-action-value-function" title="Permalink to this equation">#</a></span>\[Q(s,a) = R(s,a) + \gamma\sum_{s^{\prime}\in\mathcal{S}}T(s^{\prime} | s, a)U(s^{\prime})\]</div>
-<p>Equation <a class="reference internal" href="#equation-eqn-action-value-function">(22)</a> gives a <span class="math notranslate nohighlight">\(|\mathcal{S}|\times|\mathcal{A}|\)</span> array, where the utility is given by:</p>
+<span class="eqno">(40)<a class="headerlink" href="#equation-eqn-action-value-function" title="Permalink to this equation">#</a></span>\[Q(s,a) = R(s,a) + \gamma\sum_{s^{\prime}\in\mathcal{S}}T(s^{\prime} | s, a)U(s^{\prime})\]</div>
+<p>Equation <a class="reference internal" href="#equation-eqn-action-value-function">(40)</a> gives a <span class="math notranslate nohighlight">\(|\mathcal{S}|\times|\mathcal{A}|\)</span> array, where the utility is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-utility-from-q">
-<span class="eqno">(23)<a class="headerlink" href="#equation-eqn-utility-from-q" title="Permalink to this equation">#</a></span>\[U(s) = \max_{a} Q(s,a)\]</div>
+<span class="eqno">(41)<a class="headerlink" href="#equation-eqn-utility-from-q" title="Permalink to this equation">#</a></span>\[U(s) = \max_{a} Q(s,a)\]</div>
 <p>and the policy <span class="math notranslate nohighlight">\(\pi(s)\)</span> is:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-policy-from-q">
-<span class="eqno">(24)<a class="headerlink" href="#equation-eqn-policy-from-q" title="Permalink to this equation">#</a></span>\[\pi(s) = \text{arg}\max_{a}Q(s,a)\]</div>
+<span class="eqno">(42)<a class="headerlink" href="#equation-eqn-policy-from-q" title="Permalink to this equation">#</a></span>\[\pi(s) = \text{arg}\max_{a}Q(s,a)\]</div>
 </section>
 </section>
 <section id="value-iteration">
-<h2>Value iteration<a class="headerlink" href="#value-iteration" title="Permalink to this headline">#</a></h2>
+<h2>Value iteration<a class="headerlink" href="#value-iteration" title="Permalink to this heading">#</a></h2>
 <p>In the previous section, we saw how we could develop <em>a policy</em> <span class="math notranslate nohighlight">\(\pi(s)\)</span> by looking at the values in the <span class="math notranslate nohighlight">\(Q\)</span>-array. However, this required the utility vector; thus, we needed to hypothesize a policy that may not be the <em>optimal policy</em>. There are two techniques to compute optimal policies, and we’ll explore the simpler of the two, namely <em>value iteration</em>.</p>
 <p>In <em>value iteration</em>, the value function (the vector of utility values) is updated iteratively using the <em>Bellman update</em>_ procedure:</p>
 <div class="math notranslate nohighlight">
 \[U_{k+1}(s) = \max_{a}\left(R(s,a) + \gamma\sum_{s^{\prime}\in\mathcal{S}}T(s^{\prime} | s, a)U_{k}(s^{\prime})\right)\]</div>
 <p>This procedure is guaranteed to converge to the optimal utility vector (value function).</p>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -508,15 +529,15 @@ Given a utility <span class="math notranslate nohighlight">\(U\)</span>, we can 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Markov Chains</p>
+        <p class="prev-next-title">Understanding Markov Chains</p>
       </div>
     </a>
     <a class="right-next"
-       href="../unit-4-learning/learning-landing.html"
+       href="sequential-decisions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Reinforcement and Imitation Learning</p>
+        <p class="prev-next-title">Making Sequential Decisions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
