@@ -12,33 +12,36 @@ This week, we'll introduce utility functions, and explore some mathematical and 
 ---
 
 ## Introduction
-Utility functions are mathematical expressions that show an individual’s preferences for different choices or outcomes. They give a numerical value, known as utility, for each available option or outcome based on the individual’s valuation of it, which is a proxy for happiness or satisfaction. Utility functions are used in economics to model preferences and choices and predict consumer behavior. They are also used in decision theory, game theory, and other fields that study human behavior.
+Utility functions are mathematical expressions that indicate an individual’s preferences for different choices, outcomes, or states of the word. They give a numerical value, known as `utility`, for each available option, outcome, or state of the world. The `utility` can be considered a proxy for happiness or satisfaction. Thus, a larger utility is always better than a smaller utility. 
 
-Utility functions are vital to the theory of choice, as they can be by individuals to assign numerical values to different available options ({prf:ref}`defn-individual-utility`):
+Utility functions are used in economics to model preferences and choices and predict consumer behavior. They are also used in decision theory, game theory, and other fields that study human behavior. Thus, utility functions are vital to the theory of choice, as they can be used by individuals to assign numerical values to different available options ({prf:ref}`defn-individual-utility`):
 
 ````{prf:definition} Ordinal utility function
 :label: defn-individual-utility
 
-An individual decision-making agent is presented with a bundle (set) of $n$ objects $X=\left\{x_{1},\dots,x_{n}\right\}$. A utility function represents the preference of the agent for combinations of these $n$ objects:
+An individual decision-maker (agent) is given a set of n objects,  $X=\left\{x_{1} \dotsc ,x_{n}\right\}$.  A `utility function` ranks the agent's preference for combinations of these objects:
+
 
 ```{math}
 :label: eqn-utility-function-generic
 U(x_{1},x_{2},\dots,x_{n}) = u
 ```
 
-where $u$ is a real number called the utility. The utility function $U:X\rightarrow\mathbb{R}$ is unique only up to an order-preserving transformation in period $t\rightarrow{t+dt}$. Further, utility functions are ordinal, i.e., they rank-order bundles but do not indicate how much better or worse a bundle is compared to another.
+where $u$ is a real number called the `utility` which has units of `utils`. 
+
+* The utility function $U:X\rightarrow\mathbb{R}$ is unique only up to an order-preserving transformation. 
+* Utility functions are `ordinal`, i.e., they rank-order bundles but do not measure differences between bundles
 ````
 
 (content:references:rational-choice-theory)=
 ## Rational choice theory
 [Rational Choice Theory](https://en.wikipedia.org/wiki/Rational_choice_theory) is founded on the idea that individuals make decisions that maximize their utility. The theory assumes that individuals always make prudent and logical decisions that provide them with the highest personal utility. In other words, when faced with competing alternatives, a decision-making agent will _always_ choose the option that maximizes their utility. This theory involves calculating the utility of various actions or outcomes using a utility function. 
 
-Thus, {prf:ref}`defn-individual-utility` establishes a critical concept; the utility function $U(\dots)$ can be used to rank order the preference for different choices. For example, suppose we have two choices, $A\in{X}$ and $B\in{X}$:
+The utility function $U(\dots)$ can be used to rank order the preference for different choices. For example, suppose we have two bundles of goods, services, or states $A\in{X}$ and $B\in{X}$ that we must decide between:
 
-* If $A\succ{B}$, the decision maker _strictly prefers_ $A$ to $B$. Then, the utility of choice $A$ is greater than $B$, or $U(A)>U(B)$.
-* If $A\sim{B}$, the decision maker is _indifferent_ between $A$ to $B$. Then, the utility of choice $A$ is the same as $B$, or $U(A)=U(B)$.
-* If $A\succsim{B}$, the decision maker _weakly prefers_ $A$ over $B$, or they are indifferent. Then, the utility of choice $A$ is greater than or equal to $B$, or $U(A)\geq{U(B)}$.
-
+* If $A$ is _strictly preferred_ over $B$ ($A\succ{B}$), the utility of choice $A$ is greater than $B$ ($U(A)>U(B)$). 
+* If the decision maker is _indifferent_ between $A$ and $B$ ($A\sim{B}$), then $U(A)=U(B)$. 
+* If the decision maker _weakly prefers_ $A$ over $B$ ($A\succsim{B}$) or is indifferent, then $U(A)\geq{U(B)}$.
 
 ```{admonition} Key Idea of Rational Choice Theory
 When faced with competing alternatives, i.e., different decision outcomes $A$ and $B$, a decision-making agent will _always_ choose the option that maximizes their utility.
@@ -66,14 +69,14 @@ It’s important to note that utility functions, or their parameters, are subjec
 
 (content:references:rational-choice-theory-utility-functions-linear)=
 #### Linear utility functions
-A linear utility function is the simplest utility function. It assumes that an individual's utility is directly proportional to the decision outcome, e.g., the quantity of a good or serice consumed, and is represented by: 
+A linear utility function assumes an individual's \texttt{utility} is directly proportional to the decision variables, e.g., the quantity of a good or service consumed, the state of the world, etc. A linear utility function is given by:
 
 ```{math}
 :label: eqn-linear-utility-function
 U(x) = \alpha^{T}\cdot{x}
 ```
 
-where $\alpha^{T}\cdot{x}$ denotes the dot product (or scalar product) of the vector of parameters $\alpha$ and the vector of goods or services $x$, where $x_{i}\geq{0}$ and $\alpha_{i}>0$. Let's consider a one-dimensional linear utility function for four decision making agents with $\alpha_{1}<\alpha_{2}<\alpha_{3}<\alpha_{4}$ ({numref}`fig-linear-utility-1d`).
+The term $\alpha^{T}\cdot{x}$ denotes the inner (or scalar) product between the $n\times{1}$ parameter vector $\alpha$ and the $n\times{1}$ vector of decision variables $x$, where $x_{i}\geq{0}$ and $\alpha_{i}>0$. Let's consider a one-dimensional linear utility function for four decision making agents with $\alpha_{1}<\alpha_{2}<\alpha_{3}<\alpha_{4}$ ({numref}`fig-linear-utility-1d`).
 
  ```{figure} ./figs/Fig-Linear-Utility-Schematic.png
 ---
@@ -140,14 +143,15 @@ ylabel!("Utility (utils)", fontsize=18);
 
 (content:references:rational-choice-theory-utility-functions-log)=
 #### Logarithmic utility functions
-A logarithmic utility function assumes that an individual's utility is a function of the logarithm of the quantity consumed:
+A `logarithmic` utility function assumes that an individual's utility is a function of the logarithm of the decision variables, e.g., the quantity of a good or service consumed, the state of the world, etc. A `logarithmic` utility function has the form:
+
 
 ```{math}
 :label: eq-log-utility
 U(x) = \ln(\alpha^{T}\cdot{x}+\beta)
 ```
 
-where $\beta>0$ is a positive constant, and $\alpha^{T}\cdot{x}$ is the scalar product of the vector of parameters $\alpha$ and the vector of goods or services $x$, where $x_{i}>0$ and $\alpha_{i}>0$. Let's consider four agents with incresing values of $\alpha$ but with the same value of $\beta$ ({numref}`fig-log-utility-1d`).
+where $\beta>0$ is a positive constant. The term $\alpha^{T}\cdot{x}$ denotes the inner (or scalar) product between the $n\times{1}$ parameter vector $\alpha$ and the $n\times{1}$ vector of decision variables $x$, where $x_{i}\geq{0}$ and $\alpha_{i}>0$.  Let's consider four agents with incresing values of $\alpha$ but with the same value of $\beta$ ({numref}`fig-log-utility-1d`).
 
  ```{figure} ./figs/Fig-Log-Utility-Schematic.png
 ---
@@ -210,14 +214,14 @@ ylabel!("Utility (utils)", fontsize=18);
 
 (content:references:rational-choice-theory-utility-functions-cobb-douglas)=
 #### Cobb-Douglas utility functions
-The Cobb-Douglas utility function governs the consumption of multiple goods or services and is given by:
+The `Cobb-Douglas` utility function governs the consumption of multiple goods or services. The `Cobb-Douglas` utility is a function of the product of the $n$ decision variables, e.g., the quantities of the goods consumed, where each factor is raised to a non-negative exponent:
 
 ```{math}
 :label: eq-cobb-douglas-utility
 U(x_{1},\dots,x_{n}) = \prod_{i\in{1\dots{n}}}{x_{i}^{\alpha_{i}}}
 ```
 
-where the exponents sum to unity $\sum_{i\in{1\dots{n}}}\alpha_{i} = 1$, and $\alpha_{i}\geq{0}$. 
+In our realization of the `Cobb-Douglas` utility, the exponents sum to unity $\sum_{i\in{1\dots{n}}}\alpha_{i} = 1$, $x_{i}\geq{0}$, and $\alpha_{i}\geq{0}$. 
 
  ```{figure} ./figs/Fig-CobbDouglas-Utility-Schematic.png
 ---
@@ -285,14 +289,15 @@ ylabel!("Utility (utils)", fontsize=18);
 
 (content:references:rational-choice-theory-utility-functions-leontief)=
 #### Leontief utility functions
-The Leontief utility function, first developed by [Wassily Leontief](https://en.wikipedia.org/wiki/Wassily_Leontief), governs the choice between multiple states (or configurations) of the world and is given by:
+The `Leontief` utility function, first developed by Wassily Leontief, computes the utility for complementary states (or configurations) 
+of the world, where each decision variable is scaled by a non-negative constant(s) $\alpha$. The `Leontief` utility function is given by:
 
 ```{math}
 :label: eq-leontief-utility
 U(x_{1},\dots, x_{n}) = \min\left\{\frac{x_{1}}{\alpha_{1}},\dots,\frac{x_{n}}{\alpha_{n}}\right\}
 ```
 
-where $\alpha_{i}>{0}$ and $x_{i}\geq{0}$ for all $i\in{1\dots{n}}$. For example, suppose you want to make a cheese sandwich. For this, you need two slices of bread and one slice of cheese where $X = {\text{bread},\text{cheese}}$. The Leontief utility function $U(\dots)_{\text{sandwich}}$ for the sandwich is given by:
+where $\alpha_{i}>{0}$ and $x_{i}\geq{0}$ for all $i\in{1\dots{n}}$. For example, suppose you want to make a cheese sandwich. For this, you need two slices of bread and one slice of cheese where $X = \left\{\text{bread},\text{cheese}\right\}$. The Leontief utility function $U(\dots)_{\text{sandwich}}$ for the sandwich is given by:
 
 ```{math}
 :label: eq-leontief-utility-sandwhich
