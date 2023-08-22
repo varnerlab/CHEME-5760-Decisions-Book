@@ -22,6 +22,9 @@ Lectures are organized into units, each having roughly four weeks of class time
 * [Unit 3: Sequential Decisions and Games](./unit-3-planning/planning-landing.md) This unit will introduce Markov Decision Processes (MDP) and Monte Carlo Tree Search (MCTS) to analyze multi-agent games and sequential decisions.
 * [Unit 4: Machine Learning Methods and Decisions](./unit-4-learning/learning-landing.md) In this unit, we will introduce machine learning methods and their role in decision-making. Specifically, we will focus on Reinforcement Learning (RL) and Imitation Learning (IL) and their applications to optimal decision-making.
 
+### Prerequisites
+There are no formal prerequisites for this course. However, general familiarity with common programming languages such as Python/Matlab/Julia and mathematical and computing topics such as probability, statistics, optimization, and data science tools such as Jupyter notebooks, DataFrames, etc., will be helpful.
+
 ## Grading
 We expect this course to draw from a spectrum of students, including “those less comfortable with computing,” “those more comfortable with computing,” and those in between. However, what ultimately matters is not where you end up relative to your classmates but where you are relative to yourself. 
 
