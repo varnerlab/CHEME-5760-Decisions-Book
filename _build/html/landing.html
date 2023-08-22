@@ -69,6 +69,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'landing';</script>
     <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/landing.html" />
     <link rel="index" title="Index" href="genindex.html" />
@@ -419,6 +421,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-policies-and-procedures">Course policies and procedures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-over-policy">Do over policy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disabilities-statement">Disabilities statement</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diversity-statement">Diversity statement</a></li>
 </ul>
@@ -450,19 +453,19 @@ document.write(`
 <h3>Outcomes<a class="headerlink" href="#outcomes" title="Permalink to this heading">#</a></h3>
 <p>In this course, students will:</p>
 <ul class="simple">
-<li><p>Identify personalized happiness functions and use these functions, along with key concepts such as utility maximization, to make optimal decisions in personal and professional contexts.</p></li>
-<li><p>Demonstrate fluency in developing and applying artificial intelligence and machine learning tools to problems in decision-making in personal and professional contexts.</p></li>
-<li><p>Interrogate process, product, and financial data sets to compute optimal decisions in offline and real-time contexts.</p></li>
+<li><p><strong>Outcome 1</strong>: Identify personalized happiness functions and use these functions, along with key concepts such as utility maximization, to make optimal decisions in personal and professional contexts.</p></li>
+<li><p><strong>Outcome 2</strong>: Demonstrate fluency in developing and applying artificial intelligence and machine learning tools to problems in decision-making in personal and professional contexts.</p></li>
+<li><p><strong>Outcome 3</strong>: Interrogate process, product, and financial data sets to compute optimal decisions in offline and real-time contexts.</p></li>
 </ul>
 </section>
 <section id="topics">
 <h3>Topics<a class="headerlink" href="#topics" title="Permalink to this heading">#</a></h3>
 <p>Lectures are organized into units, each having roughly four weeks of class time</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="unit-1-simpledecisions/simpledecisions-landing.html"><span class="doc std std-doc">Unit 1: Utility and Simple Optimal Decisions</span></a></p></li>
-<li><p><a class="reference internal" href="unit-2-uncertainty/uncertainty-landing.html"><span class="doc std std-doc">Unit 2: Rational Uncertain Optimal Decisions</span></a></p></li>
-<li><p><a class="reference internal" href="unit-3-planning/planning-landing.html"><span class="doc std std-doc">Unit 3: Sequential Planning and Decisions</span></a></p></li>
-<li><p><a class="reference internal" href="unit-4-learning/learning-landing.html"><span class="doc std std-doc">Unit 4: Machine Learning Methods and Decisions</span></a></p></li>
+<li><p><a class="reference internal" href="unit-1-simpledecisions/simpledecisions-landing.html"><span class="doc std std-doc">Unit 1: Utility and Simple Optimal Decisions</span></a> In this unit, we will introduce the concept of utility maximization using personalized happiness (utility) functions. We will also introduce the concept of simple optimal decisions using the Lagrange multiplier and numerical optimization methods.</p></li>
+<li><p><a class="reference internal" href="unit-2-uncertainty/uncertainty-landing.html"><span class="doc std std-doc">Unit 2: Rational Uncertain Optimal Decisions</span></a> In this unit, we will introduce the concept of rational uncertain optimal decisions where the decision-maker is uncertain about the state of the world (which can be random).</p></li>
+<li><p><a class="reference internal" href="unit-3-planning/planning-landing.html"><span class="doc std std-doc">Unit 3: Sequential Decisions and Games</span></a> This unit will introduce Markov Decision Processes (MDP) and Monte Carlo Tree Search (MCTS) to analyze multi-agent games and sequential decisions.</p></li>
+<li><p><a class="reference internal" href="unit-4-learning/learning-landing.html"><span class="doc std std-doc">Unit 4: Machine Learning Methods and Decisions</span></a> In this unit, we will introduce machine learning methods and their role in decision-making. Specifically, we will focus on Reinforcement Learning (RL) and Imitation Learning (IL) and their applications to optimal decision-making.</p></li>
 </ul>
 </section>
 </section>
@@ -481,7 +484,7 @@ document.write(`
 <td><p><strong>Participation</strong>. Course participation (code reviews, questions and TA/course evaluations) will be an important component of the course. Participation opportunities will be identified throughout the semester.</p></td>
 </tr>
 <tr class="row-odd"><td class="text-right"><p>40%</p></td>
-<td><p><strong>Problem sets</strong>. Approximately 10 problem sets will be administered over the semester. Problem sets will be distributed via Canvas (typically delivered on Friday afternoons and due one-week later). Problem sets can be completed in teams.</p></td>
+<td><p><strong>Problem sets</strong>. Approximately 10 problem sets will be administered over the semester. Problem sets will be distributed via Canvas or GitHub classroom (typically released on Friday afternoons and due one-week later). Problem sets can be completed in teams.</p></td>
 </tr>
 <tr class="row-even"><td class="text-right"><p>20%</p></td>
 <td><p><strong>Mid-term exam</strong>. One take-home, mid-term examination will be distributed. The distribution date will be announced ahead of time, and once distributed, students will have a specified number of hours (at least 36 hours) to complete the exam.</p></td>
@@ -503,13 +506,16 @@ document.write(`
 <section id="course-policies-and-procedures">
 <h2>Course policies and procedures<a class="headerlink" href="#course-policies-and-procedures" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Students must know and abide by Cornell’s Code of Academic Integrity. You may discuss problem sets with classmates, but all submitted work should be yours. Take-home exams must be completed individually without the help of students, teaching assistants, faculty, and other sources. <a class="reference external" href="http://cuinfo.cornell.edu/Academic/AIC.html">Please review Cornell’s academic integrity policy</a></p></li>
-<li><p>Late problem sets: 25% will be deducted from your grade each day the homework assignment is late. Homework regrade requests should be submitted in writing within two weeks of the assignment’s return.</p></li>
+<li><p>Students must know and abide by Cornell’s Code of Academic Integrity. You may discuss (and complete) problem sets with classmates. However, take-home exams must be completed individually without the help of students, teaching assistants, faculty, and other sources. <a class="reference external" href="http://cuinfo.cornell.edu/Academic/AIC.html">Please review Cornell’s academic integrity policy</a></p></li>
+<li><p>Late problem sets: You are granted 5 <span class="math notranslate nohighlight">\(\times\)</span> free late days to use throughout the semester. You may use these late days however you wish, but once they are used up, late homework will be penalized. After you consume your late-day budget, 25% will be deducted from your grade each day the homework assignment is late.</p></li>
 <li><p>Exam re-grade requests must be submitted in writing within one week of the return of the exam document. The entire exam document will be re-graded in addition to addressing the re-grade request.</p></li>
 <li><p>If you need to request an extension on a problem set because of an extenuating circumstance, please get in touch with Professor Varner before the problem set is due to discuss an extension.</p></li>
-<li><p>All required submissions (should there be any) must be sent to the teaching team email: (course email goes here). Each submission should include your name(s) or netID(s) on the first page of the assignment. Except for computer code, written submissions should consist of a single PDF document generated using the LaTeX document preparation system. For any computing assignments, you may be required to publish code to GitHub or submit files to Gradescope; in these cases, specific instructions and procedures will be given.</p></li>
-<li><p>The course will officially support numerical computing in various programming languages (open source and platform agnostic). We’ll use <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code (VSCode)</a> as our Integrated Development Environment (IDE).</p></li>
+<li><p>The course will officially support numerical computing in various programming languages (open source and platform agnostic). We’ll use <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code (VSCode)</a> as our Integrated Development Environment (IDE), and <a class="reference external" href="https://julialang.org/downloads/">Julia</a> as our primary programming language. However, students are free to use whatever <code class="docutils literal notranslate"><span class="pre">free</span> <span class="pre">open</span> <span class="pre">source</span> <span class="pre">language</span></code> they wish, e.g., <a class="reference external" href="https://www.python.org">Python</a>, the <a class="reference external" href="https://gcc.gnu.org">C-programming language</a> or <a class="reference external" href="https://www.r-project.org">R</a> for course assignments (but no help unless you use Julia).</p></li>
 </ul>
+</section>
+<section id="do-over-policy">
+<h2>Do over policy<a class="headerlink" href="#do-over-policy" title="Permalink to this heading">#</a></h2>
+<p>In addition to the free late days, you will be granted 3 <span class="math notranslate nohighlight">\(\times\)</span> do-overs for problem sets and prelim questions. You may use these do-overs in any way you wish, but re-submissions will not be accepted once they are used up.</p>
 </section>
 <section id="disabilities-statement">
 <h2>Disabilities statement<a class="headerlink" href="#disabilities-statement" title="Permalink to this heading">#</a></h2>
@@ -592,6 +598,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-policies-and-procedures">Course policies and procedures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-over-policy">Do over policy</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disabilities-statement">Disabilities statement</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diversity-statement">Diversity statement</a></li>
 </ul>
