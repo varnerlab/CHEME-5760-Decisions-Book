@@ -460,7 +460,7 @@ document.write(`
 <section class="definition-content" id="proof-content">
 <p>A decision making agent has a utility function <span class="math notranslate nohighlight">\(U\left(x_{1},\dots,x_{n}\right)\)</span> and <span class="math notranslate nohighlight">\(I\)</span> dollars to spend between <span class="math notranslate nohighlight">\(t\rightarrow{t+dt}\)</span>. An optimal agent maximizes its utility subject to its budget:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-max-ulity-problem">
-<span class="eqno">(17)<a class="headerlink" href="#equation-eqn-max-ulity-problem" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
+<span class="eqno">(19)<a class="headerlink" href="#equation-eqn-max-ulity-problem" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
 \text{maximize}~\mathcal{O} &amp;=&amp; U\left(x_{1},\dots,x_{n}\right) \\
 \text{subject to}~\sum_{i=1}^{n}c_{i}x_{i} &amp; = &amp; I\\
 \text{and}~x_{i}&amp;\geq&amp;{0}\qquad{i=1,2,\dots,n}
@@ -477,7 +477,7 @@ document.write(`
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(I\)</span> denote the income allocated to purchase goods in a set of goods <span class="math notranslate nohighlight">\(x\in\mathcal{X}\)</span> where <span class="math notranslate nohighlight">\(c_{x}\geq{0}\)</span> denotes the unit cost of item <span class="math notranslate nohighlight">\(x\)</span>. Then, the budget constraint for <span class="math notranslate nohighlight">\(\mathcal{X}\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-budget-constraint">
-<span class="eqno">(18)<a class="headerlink" href="#equation-eqn-budget-constraint" title="Permalink to this equation">#</a></span>\[\sum_{x\in\mathcal{X}}c_{x}\cdot\dim(x) = {I}\]</div>
+<span class="eqno">(20)<a class="headerlink" href="#equation-eqn-budget-constraint" title="Permalink to this equation">#</a></span>\[\sum_{x\in\mathcal{X}}c_{x}\cdot\dim(x) = {I}\]</div>
 <p>The quantity <span class="math notranslate nohighlight">\(\dim(x)\)</span> denotes the number of good <span class="math notranslate nohighlight">\(x\)</span> purchased. The number of iterms purchased must be non-negative, i.e., <span class="math notranslate nohighlight">\(\dim(x)\geq{0}\)</span>.</p>
 </section>
 </div><section id="two-good-budget-constraint-apples-and-oranges">
@@ -501,55 +501,55 @@ document.write(`
 <section class="definition-content" id="proof-content">
 <p>To find the maximum or minimum of a function <span class="math notranslate nohighlight">\(f(x)\)</span> subject to the equality constraint <span class="math notranslate nohighlight">\(g(x)\)</span>, we can form the Lagrangian function <span class="math notranslate nohighlight">\(\mathcal{L}(x,\lambda)\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-lagrangian-1d">
-<span class="eqno">(19)<a class="headerlink" href="#equation-eqn-lagrangian-1d" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x,\lambda) = f(x) + \lambda\cdot{g}(x)\]</div>
+<span class="eqno">(21)<a class="headerlink" href="#equation-eqn-lagrangian-1d" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x,\lambda) = f(x) + \lambda\cdot{g}(x)\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the Lagrange multiplier for constraint <span class="math notranslate nohighlight">\(g(x)\)</span>. At a critical point (maximum or minimum), the partial derivatives of the
 Lagrangian function with respect to <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> vanish:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-first-order-condition-lagrange">
-<span class="eqno">(20)<a class="headerlink" href="#equation-eqn-first-order-condition-lagrange" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
+<span class="eqno">(22)<a class="headerlink" href="#equation-eqn-first-order-condition-lagrange" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
 \frac{\partial\mathcal{L}}{\partial{x}} &amp; = &amp; f^{\prime}(x) + \lambda\cdot{g^{\prime}(x)} = 0\\
 \frac{\partial\mathcal{L}}{\partial{\lambda}} &amp; = &amp; g(x) = 0 \\
 \end{eqnarray}\end{split}\]</div>
-<p>The system of equations defined by Eqn. <a class="reference internal" href="#equation-eqn-first-order-condition-lagrange">(20)</a> callled the Lagrange equations are first-order optimality conditions, which can be solved to find the critical points and, thus, the maximum or minimum value of the objective function.</p>
+<p>The system of equations defined by Eqn. <a class="reference internal" href="#equation-eqn-first-order-condition-lagrange">(22)</a> callled the Lagrange equations are first-order optimality conditions, which can be solved to find the critical points and, thus, the maximum or minimum value of the objective function.</p>
 </section>
 </div><p>The utility maximization problem outlined in <a class="reference internal" href="#eqn-budget-constraint">Definition 3</a> has the Lagrangian function:</p>
 <div class="math notranslate nohighlight">
 \[\mathcal{L}(x,\lambda) = U(x_{1},\dots,x_{n}) + \lambda\cdot\left(I-\sum_{i=1}^{n}c_{i}x_{i}\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(I\)</span> is the amount of money (income) we have to spend on goods <span class="math notranslate nohighlight">\(x_{1},x_{2},\dots,x_{n}\)</span>, and <span class="math notranslate nohighlight">\(c_{i}\)</span> is the cost of good <span class="math notranslate nohighlight">\(i\)</span>. The Lagrangian function <span class="math notranslate nohighlight">\(\mathcal{L}(x,\lambda)\)</span> can be expanded into the <span class="math notranslate nohighlight">\(n+1\)</span> system of equations (first-order optimality conditions):</p>
 <div class="math notranslate nohighlight" id="equation-eqn-two-good-utility-maximization">
-<span class="eqno">(21)<a class="headerlink" href="#equation-eqn-two-good-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
+<span class="eqno">(23)<a class="headerlink" href="#equation-eqn-two-good-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
 \frac{\partial\mathcal{L}}{\partial{x_{1}}} &amp; = &amp; \bar{U}_{1} - \lambda\cdot{c_{1}} = 0 \\
 \vdots &amp; = &amp; \vdots \\
 \frac{\partial\mathcal{L}}{\partial{x_{n}}} &amp; = &amp; \bar{U}_{n} - \lambda\cdot{c_{n}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial\lambda} &amp; = &amp; I - \sum_{i=1}^{n}c_{i}x_{i} = 0 \\
 \end{eqnarray}\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\)</span> denotes the marginal utility of good <span class="math notranslate nohighlight">\(i\)</span>. The system of equations in Eqn. <a class="reference internal" href="#equation-eqn-two-good-utility-maximization">(21)</a> can be solved to find the optimal consumption levels of <span class="math notranslate nohighlight">\(x_{i}\)</span>. The first <span class="math notranslate nohighlight">\(n\)</span> of the first-order optimality conditions can be solved to arrive at the following expression for the Lagrange multiplier:</p>
+<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\)</span> denotes the marginal utility of good <span class="math notranslate nohighlight">\(i\)</span>. The system of equations in Eqn. <a class="reference internal" href="#equation-eqn-two-good-utility-maximization">(23)</a> can be solved to find the optimal consumption levels of <span class="math notranslate nohighlight">\(x_{i}\)</span>. The first <span class="math notranslate nohighlight">\(n\)</span> of the first-order optimality conditions can be solved to arrive at the following expression for the Lagrange multiplier:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-lagrange-multiplier-marginal-utility-dollar">
-<span class="eqno">(22)<a class="headerlink" href="#equation-eqn-lagrange-multiplier-marginal-utility-dollar" title="Permalink to this equation">#</a></span>\[\lambda = \frac{\bar{U}_{i}}{c_{i}}\qquad\forall{i}\]</div>
+<span class="eqno">(24)<a class="headerlink" href="#equation-eqn-lagrange-multiplier-marginal-utility-dollar" title="Permalink to this equation">#</a></span>\[\lambda = \frac{\bar{U}_{i}}{c_{i}}\qquad\forall{i}\]</div>
 <p>which gives an interesting interpretation of the Lagrange multiplier: it is the marginal utility per dollar spent on good <span class="math notranslate nohighlight">\(i\)</span>. Further, it provides the basis for the matching condition at the optimum:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-matching-condition-marginal-utility-dollar">
-<span class="eqno">(23)<a class="headerlink" href="#equation-eqn-matching-condition-marginal-utility-dollar" title="Permalink to this equation">#</a></span>\[\frac{\bar{U}_{i}}{c_{i}} = \frac{\bar{U}_{j}}{c_{j}}\qquad\forall{i,j}\]</div>
+<span class="eqno">(25)<a class="headerlink" href="#equation-eqn-matching-condition-marginal-utility-dollar" title="Permalink to this equation">#</a></span>\[\frac{\bar{U}_{i}}{c_{i}} = \frac{\bar{U}_{j}}{c_{j}}\qquad\forall{i,j}\]</div>
 <section id="example-two-good-cobb-douglas-utility-maximization-problem">
 <h4>Example: Two-good Cobb-Douglas utility maximization problem<a class="headerlink" href="#example-two-good-cobb-douglas-utility-maximization-problem" title="Permalink to this heading">#</a></h4>
 <p>Let’s consider a utility maximization problem that uses a Cobb-Douglas utility function <span class="math notranslate nohighlight">\(U(x_{1},x_{2}) = x_{1}^{\alpha}x_{2}^{1-\alpha}\)</span> that describes the satisfaction gained from consuming two goods, <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>. The utility function is subject to a budget constraint <span class="math notranslate nohighlight">\(\sum c_{i}x_{i} = I\)</span>, where <span class="math notranslate nohighlight">\(I\)</span> is the amount of money (income) we have to spend on goods <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>, and <span class="math notranslate nohighlight">\(c_{i}\)</span> is the cost of good <span class="math notranslate nohighlight">\(i\)</span>. The Lagrangian function for this problem is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-lagrangian-two-good-cobb-douglas-utility">
-<span class="eqno">(24)<a class="headerlink" href="#equation-eqn-lagrangian-two-good-cobb-douglas-utility" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x_{1},x_{2},\lambda) = x_{1}^{\alpha}x_{2}^{1-\alpha} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)\]</div>
+<span class="eqno">(26)<a class="headerlink" href="#equation-eqn-lagrangian-two-good-cobb-douglas-utility" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x_{1},x_{2},\lambda) = x_{1}^{\alpha}x_{2}^{1-\alpha} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)\]</div>
 <p>which gives the first-order optimality conditions:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-two-good-cobb-douglas-utility-maximization">
-<span class="eqno">(25)<a class="headerlink" href="#equation-eqn-two-good-cobb-douglas-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
+<span class="eqno">(27)<a class="headerlink" href="#equation-eqn-two-good-cobb-douglas-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
 \frac{\partial\mathcal{L}}{\partial{x_{1}}} &amp; = &amp; \alpha\cdot{x_{1}^{\alpha-1}}x_{2}^{1-\alpha} - \lambda\cdot{c_{1}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial{x_{2}}} &amp; = &amp; (1-\alpha)\cdot{x_{1}^{\alpha}x_{2}^{-\alpha}} - \lambda\cdot{c_{2}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial\lambda} &amp; = &amp; I - c_{1}x_{1} - c_{2}x_{2} = 0 \\
 \end{eqnarray}\end{split}\]</div>
-<p>The system of equations in Eqn. <a class="reference internal" href="#equation-eqn-two-good-cobb-douglas-utility-maximization">(25)</a> can be solved to find the optimal consumption levels of <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>. However, these equations are non-linear and not easy to solve analytically. Thus, we must use numerical methods to find the optimal values of <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>.</p>
+<p>The system of equations in Eqn. <a class="reference internal" href="#equation-eqn-two-good-cobb-douglas-utility-maximization">(27)</a> can be solved to find the optimal consumption levels of <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>. However, these equations are non-linear and not easy to solve analytically. Thus, we must use numerical methods to find the optimal values of <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>.</p>
 </section>
 <section id="example-two-good-linear-utility-maximization-problem">
 <h4>Example: Two-good linear utility maximization problem<a class="headerlink" href="#example-two-good-linear-utility-maximization-problem" title="Permalink to this heading">#</a></h4>
 <p>Let’s consider a two-good utility maximization problem that uses a linear utility function <span class="math notranslate nohighlight">\(U(x_{1},x_{2}) = a_{1}x_{1}+a_{2}x_{2}\)</span> that describes the satisfaction gained from consuming two goods, <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>. The utility function is subject to a budget constraint <span class="math notranslate nohighlight">\(\sum c_{i}x_{i} = I\)</span>, where <span class="math notranslate nohighlight">\(I\)</span> is the amount of money (income) we have to spend on goods <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>, and <span class="math notranslate nohighlight">\(c_{i}\)</span> is the cost of good <span class="math notranslate nohighlight">\(i\)</span>. The Lagrangian function for this problem is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-lagrangian-two-good-linear-utility">
-<span class="eqno">(26)<a class="headerlink" href="#equation-eqn-lagrangian-two-good-linear-utility" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x_{1},x_{2},\lambda) = a_{1}x_{1} + a_{2}x_{2} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)\]</div>
+<span class="eqno">(28)<a class="headerlink" href="#equation-eqn-lagrangian-two-good-linear-utility" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x_{1},x_{2},\lambda) = a_{1}x_{1} + a_{2}x_{2} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)\]</div>
 <p>which gives the first-order optimality conditions:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-two-good-linear-utility-maximization">
-<span class="eqno">(27)<a class="headerlink" href="#equation-eqn-two-good-linear-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
+<span class="eqno">(29)<a class="headerlink" href="#equation-eqn-two-good-linear-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
 \frac{\partial\mathcal{L}}{\partial{x_{1}}} &amp; = &amp; a_{1} - \lambda\cdot{c_{1}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial{x_{2}}} &amp; = &amp; a_{2} - \lambda\cdot{c_{2}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial\lambda} &amp; = &amp; I - c_{1}x_{1} - c_{2}x_{2} = 0 \\
