@@ -7,7 +7,12 @@ This week, we'll introduce utility functions, and explore some mathematical and 
 * {ref}`content:references:rational-choice-theory` is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.
 
 * {ref}`content:references:marginal-utility` describes the added satisfaction or benefits that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that the happiness or benefit from each extra unit decreases as a consumer increases the number of units consumed. Marginal utility is crucial in shaping consumer behavior, prices, and market equilibrium.
+
+* [Discrete choice theory](content:references:discrete-choice-experiments) is a framework for modeling choices made by individuals from a set of discrete alternatives. It is used to model the behavior of agents who have to choose among a finite set of alternatives. The theory is used in many fields, including economics, marketing, transportation planning, and environmental science.
+
 ```
+
+
 
 ---
 
@@ -19,7 +24,7 @@ Utility functions are used in economics to model preferences and choices and pre
 ````{prf:definition} Ordinal utility function
 :label: defn-individual-utility
 
-An individual decision-maker (agent) is given a set of n objects,  $X=\left\{x_{1} \dotsc ,x_{n}\right\}$.  A `utility function` ranks the agent's preference for combinations of these objects:
+An individual decision-maker (agent) is given a set of $n$ objects or features,  $X=\left\{x_{1} \dotsc ,x_{n}\right\}$.  A `utility function` ranks the agent's preference for combinations of these objects or features:
 
 
 ```{math}
@@ -76,7 +81,7 @@ A linear utility function assumes an individual's \texttt{utility} is directly p
 U(x) = \alpha^{T}\cdot{x}
 ```
 
-The term $\alpha^{T}\cdot{x}$ denotes the inner (or scalar) product between the $n\times{1}$ parameter vector $\alpha$ and the $n\times{1}$ vector of decision variables $x$, where $x_{i}\geq{0}$ and $\alpha_{i}>0$. Let's consider a one-dimensional linear utility function for four decision making agents with $\alpha_{1}<\alpha_{2}<\alpha_{3}<\alpha_{4}$ ({numref}`fig-linear-utility-1d`).
+The term $\alpha^{T}\cdot{x}$ denotes the inner (or scalar) product between the $n\times{1}$ parameter vector $\alpha$ and the $n\times{1}$ vector of feature variables $x$, where $x_{i}\geq{0}$ and $\alpha_{i}>0$. Let's consider a one-dimensional linear utility function for four decision-making agents with $\alpha_{1}<\alpha_{2}<\alpha_{3}<\alpha_{4}$ where the features are the quantity of a good or service ({numref}`fig-linear-utility-1d`).
 
  ```{figure} ./figs/Fig-Linear-Utility-Schematic.png
 ---
@@ -89,10 +94,10 @@ Linear utility function in one dimension as a function of the quantity of good o
 * Each agent has a different utility value at the consumption of 75 units of $x$, indicated as points B, C, D, and E. The agent with the highest value of $\alpha$, Agent 4, has the highest utility value at point E, while the one with the lowest value of $\alpha$, Agent 1, has the lowest utility value at point B.
 * Despite the difference in absolute utility values among the agents, their preferences remain the same. For instance, Agent 1 strictly prefers $B\succ{A}$
 , which means that they would choose to consume 75 units instead of 50 units of $x$. Similarly, Agent 4 strictly prefers $E\succ{F}$.
-* A linear utility function has constant [constant marginal utility](https://en.wikipedia.org/wiki/Marginal_utility), meaning the satisfaction gained from each additional $x$ remains constant.
+* A linear utility function has constant [constant marginal utility](https://en.wikipedia.org/wiki/Marginal_utility), meaning the satisfaction gained from each additional unit of $x$ remains constant.
 
 ##### Implementation
-We used the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) to build an instance of the `VLLinearUtilityFunction` utility function model. We plot the utility function using the [Plots.jl](https://github.com/JuliaPlots/Plots.jl) package.. The code that produced ({numref}`fig-linear-utility-1d`) is shown below:
+We used the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) to build an instance of the `VLLinearUtilityFunction` utility function model. We then plotted the utility function using the `plot` command from the [Plots.jl](https://github.com/JuliaPlots/Plots.jl) package:
 
 ```{code-block} julia
 :caption: Linear utility function model in Julia
@@ -143,7 +148,7 @@ ylabel!("Utility (utils)", fontsize=18);
 
 (content:references:rational-choice-theory-utility-functions-log)=
 #### Logarithmic utility functions
-A `logarithmic` utility function assumes that an individual's utility is a function of the logarithm of the decision variables, e.g., the quantity of a good or service consumed, the state of the world, etc. A `logarithmic` utility function has the form:
+A `logarithmic` utility function assumes that an individual's utility is a function of the logarithm of the weighted sum of the feature variables, e.g., the quantity of a good or service consumed, the state of the world, etc., plus a constant. A `logarithmic` utility function has the form:
 
 
 ```{math}
@@ -151,7 +156,7 @@ A `logarithmic` utility function assumes that an individual's utility is a funct
 U(x) = \ln(\alpha^{T}\cdot{x}+\beta)
 ```
 
-where $\beta>0$ is a positive constant. The term $\alpha^{T}\cdot{x}$ denotes the inner (or scalar) product between the $n\times{1}$ parameter vector $\alpha$ and the $n\times{1}$ vector of decision variables $x$, where $x_{i}\geq{0}$ and $\alpha_{i}>0$.  Let's consider four agents with incresing values of $\alpha$ but with the same value of $\beta$ ({numref}`fig-log-utility-1d`).
+where $\beta>0$ is a positive constant. The term $\alpha^{T}\cdot{x}$ denotes the inner (or scalar) product between the $n\times{1}$ parameter vector $\alpha$ and the $n\times{1}$ vector of featrure variables $x$, where $x_{i}\geq{0}$ and $\alpha_{i}>0$.  The `logarithmic` utility function is the log transformation of the `linear` utility function where $\beta=0$. Let's consider four agents with incresing values of $\alpha$ but with the same value of $\beta$ ({numref}`fig-log-utility-1d`).
 
  ```{figure} ./figs/Fig-Log-Utility-Schematic.png
 ---
@@ -161,12 +166,12 @@ name: fig-log-utility-1d
 Log utility function in one dimension as a function of the quantity of good or service consumed and the values of the utility function parameter $\alpha$ with $\beta = 1.0$
 ```
 
-
+**Properties of the Logarithmic utility function**
 * Despite the difference in absolute utility values among the agents, their preferences remain the same. For instance, Agent 2 strictly prefers $B\succ{A}$. 
 * Unlike the linear utility function, the logarithmic utility function exhibits [diminishing marginal utility](https://www.investopedia.com/terms/l/lawofdiminishingutility.asp), i.e., as a person consumes more of a good, the additional satisfaction gained from each unit consumed decreases. 
 
 ##### Implementation
-We used the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) to build an instance of the `VLLogUtilityFunction` model, and computed the utility values using the `evaluate(...)` function.  We plotted the utility function using the [Plots.jl](https://github.com/JuliaPlots/Plots.jl) package. The code that produced {numref}`fig-log-utility-1d` is shown below:
+We used the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) to build an instance of a `VLLogUtilityFunction` model, and computed the utility values using the `evaluate(...)` function.  We then plotted the utility function using the `plot(...)` command from the [Plots.jl](https://github.com/JuliaPlots/Plots.jl) package:
 
 ```{code-block} julia
 :caption: Log utility function model in Julia
@@ -214,7 +219,7 @@ ylabel!("Utility (utils)", fontsize=18);
 
 (content:references:rational-choice-theory-utility-functions-cobb-douglas)=
 #### Cobb-Douglas utility functions
-The `Cobb-Douglas` utility function governs the consumption of multiple goods or services. The `Cobb-Douglas` utility is a function of the product of the $n$ decision variables, e.g., the quantities of the goods consumed, where each factor is raised to a non-negative exponent:
+The `Cobb-Douglas` utility function is the product of the $n$ feature variables, thus, it models situations where the features (consumption of goods or services, traits like make, model and color of a car, etc) occur simultaneously. Each feature variable (or good, or service) is raised to a non-negative exponent:
 
 ```{math}
 :label: eq-cobb-douglas-utility
@@ -228,15 +233,16 @@ In our realization of the `Cobb-Douglas` utility, the exponents sum to unity $\s
 height: 380px
 name: fig-cobbdouglas-utility-1d
 ---
-Cobb utility function in one dimension as a function of the quantity of good or service consumed and the values of the utility function parameters $\alpha$. We assumed $x_{2} = 1.0$ for all values of $x_{1}$, and $\sum\alpha = 1$.
+Cobb-Douglas utility function in one dimension as a function of the quantity of good or service $x_{1}$ consumed and the values of the utility function parameters $\alpha$. We assumed $x_{2} = 1.0$ for all values of $x_{1}$, and $\sum\alpha = 1$.
 ```
 
+**Properties of the Cobb-Douglas utility function**
 * Different agents have varying utility values when consuming 75 units of $x$, labeled as points B, C, D, and E. Agent 4 has the highest value of $\alpha$ and obtains the highest utility value at point E, while Agent 1 has the lowest value of $\alpha$ and the lowest utility value at point B.
 * Preferences differ among the agents. Agent 1 appears to weakly prefer $B\succsim{A}$, which indicates that they are nearly indifferent to consuming 75 units of $x$ versus 50 units of $x$. However, Agent 4 strictly prefers $E\succ{F}$.
 * Like the log utility, the Cobb-Douglas utility function reflects [diminishing marginal utility](https://www.investopedia.com/terms/l/lawofdiminishingutility.asp), meaning that as a person consumes more of a good, the additional satisfaction gained from each unit consumed decreases.
 
 ##### Implementation
-We used the `build(...)` method of the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) package to build an instance of the `VLCobbDouglasUtilityFunction` model,  and then calculated the utility values using the `evaluate(...)` function.  Finally, we ploted the utility function values using the [Plots.jl](https://github.com/JuliaPlots/Plots.jl) package. The code that produced {numref}`fig-cobbdouglas-utility-1d` is shown below:
+We used the `build(...)` method of the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) package to build an instance of a `VLCobbDouglasUtilityFunction` model,  and then calculated the utility values using the `evaluate(...)` function.  Finally, we ploted the utility function values using the `plot(...)` command from the [Plots.jl](https://github.com/JuliaPlots/Plots.jl) package:
 
 ```{code-block} julia
 :caption: Cobb-Douglas utility function
@@ -289,25 +295,24 @@ ylabel!("Utility (utils)", fontsize=18);
 
 (content:references:rational-choice-theory-utility-functions-leontief)=
 #### Leontief utility functions
-The `Leontief` utility function, first developed by Wassily Leontief, computes the utility for complementary states (or configurations) 
-of the world, where each decision variable is scaled by a non-negative constant(s) $\alpha$. The `Leontief` utility function is given by:
+The `Leontief` utility function, first developed by [Wassily Leontief](https://en.wikipedia.org/wiki/Wassily_Leontief) who was later awared a [Nobel Prize in Economics for his work](https://www.nobelprize.org/prizes/economic-sciences/1973/leontief/facts/), computes the utility for `complementary` states (or configurations) of the world, where each feature variable is scaled by a non-negative constant(s) $\alpha$. The `Leontief` utility function is given by:
 
 ```{math}
 :label: eq-leontief-utility
 U(x_{1},\dots, x_{n}) = \min\left\{\frac{x_{1}}{\alpha_{1}},\dots,\frac{x_{n}}{\alpha_{n}}\right\}
 ```
 
-where $\alpha_{i}>{0}$ and $x_{i}\geq{0}$ for all $i\in{1\dots{n}}$. For example, suppose you want to make a cheese sandwich. For this, you need two slices of bread and one slice of cheese where $X = \left\{\text{bread},\text{cheese}\right\}$. The Leontief utility function $U(\dots)_{\text{sandwich}}$ for the sandwich is given by:
+where $\alpha_{i}>{0}$ and $x_{i}\geq{0}$ for all $i\in{1\dots{n}}$. For example, suppose we wanted to make a cheese sandwich. For this, we need two slices of bread and one slice of cheese where $X = \left\{\text{bread},\text{cheese}\right\}$, i.e., the number of slices of bread and pieces of cheese we have. The Leontief utility function $U(\dots)_{\text{sandwich}}$ for the sandwich is then given by:
 
 ```{math}
 :label: eq-leontief-utility-sandwhich
 U(x_{1},x_{2})_{\text{sandwich}} = \min\left\{\frac{x_{1}}{2},\frac{x_{2}}{1}\right\}
 ```
 
-where $x_{1}$ and $x_{2}$ denote the number of slices of bread and cheese we have, respectively. Let's simulate the utility function for the sandwich using the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) package
+where $x_{1}$ and $x_{2}$ denote the number of slices of bread and cheese we have, respectively. Let's simulate the utility function for the sandwich using the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) package.
 
 ##### Implementation
-We used the `build(...)` method of the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) package to build an instance of the `VLLeontiefUtilityFunction` utility model, and then calculated the utility values using the `evaluate(...)` function.  Finally, we ploted the utility function values using the [Plots.jl](https://github.com/JuliaPlots/Plots.jl) package. 
+We used the `build(...)` method of the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) package to build an instance of the `VLLeontiefUtilityFunction` utility model, and then calculated the utility values using the `evaluate(...)` function:
 
 ```{code-block} julia
 :caption: Leontief utility function
@@ -393,7 +398,6 @@ Leontief utility function for the cheese sandwich problem. The utility function 
 |     4 |      2 | 2.0 |
 |     4 |      3 | 2.0 |
 |     4 |      4 | 2.0 | -->
-
 
 (content:references:marginal-utility)=
 ## Marginal utility
@@ -524,6 +528,33 @@ Ultimately, the goal of rational choice theory is to make decisions that maximiz
 Let the decision maker have actions $\mathcal{A}$, observations $\mathcal{O}$ and states $\mathcal{S}$. Then, the decision maker's goal is to maximize their utility subject to various constraints, i.e., rules of the world such a budget constraints, time constraints, physical constraints such as walls, etc. -->
 
 
+(content:references:discrete-choice-experiments)=
+## Discrete Choice Models
+Discrete choice models can be used to select between competing alternatives, such as goods, services, or states of the world, based on modeled and unmodeled factors. Developed by McFadden and coworkers in the 1970s and 1980s {cite}`MCFADDEN1973,MCFADDEN1980,BALTAS2001115`, McFadden was later awarded the [Nobel Price in Economics](https://www.nobelprize.org/prizes/economic-sciences/2000/mcfadden/facts/) for his work on discrete choice models.
+
+Discrete choice models assume that people make decisions based on factors that are known to the decision maker, but perhaps unknown to an observer. Thus, there are observable features of the decision, and there are unobservable features that influence the decision that are not modeled. For example, suppose a person chooses one car over another based on its price, fuel efficiency, safety rating, and brand. However, the decision maker also consideres style or color as important, but these features are unobserved. Utility function of this type of decision take the form:
+
+```{math}
+:label: eqn-utility-function-dce
+U_{ij} = V_{ij} + \epsilon_{ij}
+```
+
+where $U_{ij}$ is the utility of alternative $j$ for individual $i$, $V_{ij}$ is the deterministic component of the utility, i.e., the utility associated with the observable features, and $\epsilon_{ij}$ is the random component of the utility. 
+
+```{admonition} Random utility functions (RUs)
+Discrete choice utility functions incorporate randomness into the utility calculation to account for unmodeled factors that affect decision-making. This randomness arises not from the world but from our inability to capture all influencing factors.
+```
+
+### Logit choice models
+The `logit` model assumes that the error terms $\epsilon_{nj}$ are independently, identically distributed (i.i.d) extreme values following a [Gumbel distribution](https://en.wikipedia.org/wiki/Gumbel_distribution). Given this assumption, and some algebraic manipulation, the probability that individual $i$ chooses alternative $j$ from a collection of $J$ choices in a `logit` model can be shown to be:
+
+```{math}
+:label: eqn-logit-probability
+P_{ij} = \frac{\displaystyle \exp\left(\frac{V_{ij}}{\lambda}\right)}{\displaystyle\sum_{k\in{J}}\exp\left(\frac{V_{ik}}{\lambda}\right)}
+```
+
+where $P_{ij}$ is the probability that individual $i$ chooses alternative $j$, $V_{ij}$ is the deterministic component of the utility, i.e., the utility associated with the observable features, $J$ is the set of all alternatives and $\lambda$ is a scale parameter. The scale parameter $\lambda$ is a positive constant that controls the degree of randomness in the model. The larger the value of $\lambda$, the more random the model becomes. 
+
 ---
 
 # Summary
@@ -532,3 +563,5 @@ In this lecture, we'll developed tools to compute rational choices and explored 
 * {ref}`content:references:rational-choice-theory` is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.
 
 * {ref}`content:references:marginal-utility` describes the added satisfaction or benefit that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that as a consumer increases the number of units consumed, the satisfaction or benefit from each extra unit decreases. The concept of Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.
+
+* [Discrete choice theory](content:references:discrete-choice-experiments) is a framework for modeling choices made by individuals from a set of discrete alternatives. It is used to model the behavior of agents who have to choose among a finite set of alternatives. The theory is used in many fields, including economics, marketing, transportation planning, and environmental science.
