@@ -6,10 +6,13 @@ This week, we'll introduce utility functions, and explore some mathematical and 
 
 * {ref}`content:references:rational-choice-theory` is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.
 
-
-
 * {ref}`content:references:marginal-utility` describes the added satisfaction or benefits that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that the happiness or benefit from each extra unit decreases as a consumer increases the number of units consumed. Marginal utility is crucial in shaping consumer behavior, prices, and market equilibrium.
+
+* [Discrete choice theory](content:references:discrete-choice-experiments) is a framework for modeling choices made by individuals from a set of discrete alternatives. It is used to model the behavior of agents who have to choose among a finite set of alternatives. The theory is used in many fields, including economics, marketing, transportation planning, and environmental science.
+
 ```
+
+
 
 ---
 
@@ -37,16 +40,16 @@ where $u$ is a real number called the `utility` which has units of `utils`.
 
 (content:references:rational-choice-theory)=
 ## Rational choice theory
-[Rational Choice Theory](https://en.wikipedia.org/wiki/Rational_choice_theory) is founded on the idea that individuals make decisions that maximize their utility. The theory assumes that individuals always make prudent and logical decisions that provide them with the highest personal utility. In other words, when faced with competing alternatives, a decision-making agent will _always_ choose the option that maximizes their utility. This theory involves calculating the utility of various actions or outcomes using a utility function. 
+[Rational choice theory](https://en.wikipedia.org/wiki/Rational_choice_theory) is founded on the idea that individuals make decisions that maximize their utility. The theory assumes that individuals always make prudent and logical decisions that provide them with the highest personal utility. In other words, when faced with competing alternatives, a decision-making agent will _always_ choose the option that maximizes their utility. 
 
-The utility function $U(\dots)$ can be used to rank order the preference for different choices. For example, suppose we have two bundles of goods, services, or states $A\in{X}$ and $B\in{X}$ that we must decide between:
+The utility function $U:X\rightarrow\mathbb{R}$ can be used to rank order the preference for different choices. For example, suppose we have two bundles of goods, services, or states option(s) $A\in{X}$ and $B\in{X}$ that we must decide between:
 
-* If $A$ is _strictly preferred_ over $B$ ($A\succ{B}$), the utility of choice $A$ is greater than $B$ ($U(A)>U(B)$). 
-* If the decision maker is _indifferent_ between $A$ and $B$ ($A\sim{B}$), then $U(A)=U(B)$. 
-* If the decision maker _weakly prefers_ $A$ over $B$ ($A\succsim{B}$) or is indifferent, then $U(A)\geq{U(B)}$.
+* If the decision maker _strictly prefers_  option $A$ over $B$, denoted as $A\succ{B}$, the utility $U(A)$ is always greater than $U(B)$, i.e., $U(A)>U(B)$. 
+* If the decision maker is _indifferent_ between option $A$ and $B$, denoted as $A\sim{B}$, then the utility $U(A)=U(B)$. 
+* If the decision maker _weakly prefers or is indifferent_ between option $A$ over $B$, denoted as $A\succsim{B}$, then the utility $U(A)\geq{U(B)}$.
 
 ```{admonition} Key Idea of Rational Choice Theory
-When faced with competing alternatives, i.e., different decision outcomes $A$ and $B$, a decision-making agent will _always_ choose the option that maximizes their utility.
+When faced with competing alternatives, i.e., different options $A$ and $B$, a rational decision maker will _always_ choose the option that maximizes their utility.
 ```
 
 (content:references:rational-choice-theory-utility-functions)=
@@ -71,7 +74,7 @@ It’s important to note that utility functions, or their parameters, are subjec
 
 (content:references:rational-choice-theory-utility-functions-linear)=
 #### Linear utility functions
-A linear utility function assumes an individual's \texttt{utility} is directly proportional to the decision variables, e.g., the quantity of a good or service consumed, the state of the world, etc. A linear utility function is given by:
+A  `linear` utility function assumes an individual's is directly proportional to the decision or feature variables, e.g., the quantity of a good or service consumed, the state of the world, etc. A `linear` utility function is given by:
 
 ```{math}
 :label: eqn-linear-utility-function
@@ -396,34 +399,6 @@ Leontief utility function for the cheese sandwich problem. The utility function 
 |     4 |      3 | 2.0 |
 |     4 |      4 | 2.0 | -->
 
-
-(content:references:discrete-choice-experiments)=
-## Discrete Choice Models
-Discrete choice models can be used to select between competing alternatives, such as goods, services, or states of the world, based on modeled and unmodeled factors. Developed by McFadden and coworkers in the 1970s and 1980s {cite}`MCFADDEN1973,MCFADDEN1980,BALTAS2001115`, McFadden was later awarded the [Nobel Price in Economics in 2000](https://www.nobelprize.org/prizes/economic-sciences/2000/mcfadden/facts/) for his work on discrete choice models.
-
-Discrete choice models assume that people make decisions based on factors that are known to the decision maker, but perhaps unknown to an observer. In other words, there are observable features of the decision, and there are unobservable features that influence the decision that are not modeled. For example, suppose a person chooses one car over another based on its price, fuel efficiency, safety rating, and brand. However, the decision maker also consideres style or color as important, but these features are unobserved. Utility function of this type of decision take the form:
-
-```{math}
-:label: eqn-utility-function-dce
-U_{ij} = V_{ij} + \epsilon_{ij}
-```
-
-where $U_{ij}$ is the utility of alternative $j$ for individual $i$, $V_{ij}$ is the deterministic component of the utility, i.e., the utility associated with the observable features, and $\epsilon_{ij}$ is the random component of the utility. 
-
-```{admonition} Random utility functions (RUs)
-Discrete choice utility functions incorporate randomness into the utility calculation to account for unmodeled factors that affect decision-making. This randomness arises not from the world but from our inability to capture all influencing factors.
-```
-
-### Logit models
-The `logit` model assumes that the error terms $\epsilon_{nj}$ are independently, identically distributed (i.i.d) extreme values following a [Gumbel distribution](https://en.wikipedia.org/wiki/Gumbel_distribution). After some algebraic manipulation, the probability that individual $i$ chooses alternative $j$ from a collection of $J$ choices in a `logit` model is given by:
-
-```{math}
-:label: eqn-logit-probability
-P_{ij} = \frac{\displaystyle \exp\left(\frac{V_{ij}}{\lambda}\right)}{\displaystyle\sum_{k\in{J}}\exp\left(\frac{V_{ik}}{\lambda}\right)}
-```
-
-where $P_{ij}$ is the probability that individual $i$ chooses alternative $j$, $V_{ij}$ is the deterministic component of the utility, i.e., the utility associated with the observable features, $J$ is the set of all alternatives and $\lambda$ is a scale parameter. The scale parameter $\lambda$ is a positive constant that controls the degree of randomness in the model. The larger the value of $\lambda$, the more random the model becomes. 
-
 (content:references:marginal-utility)=
 ## Marginal utility
 The marginal utility of a good or service is the added satisfaction or benefit that a consumer gains from consuming one more unit of a good or service ({prf:ref}`defn-marginal-utility`):
@@ -553,6 +528,33 @@ Ultimately, the goal of rational choice theory is to make decisions that maximiz
 Let the decision maker have actions $\mathcal{A}$, observations $\mathcal{O}$ and states $\mathcal{S}$. Then, the decision maker's goal is to maximize their utility subject to various constraints, i.e., rules of the world such a budget constraints, time constraints, physical constraints such as walls, etc. -->
 
 
+(content:references:discrete-choice-experiments)=
+## Discrete Choice Models
+Discrete choice models can be used to select between competing alternatives, such as goods, services, or states of the world, based on modeled and unmodeled factors. Developed by McFadden and coworkers in the 1970s and 1980s {cite}`MCFADDEN1973,MCFADDEN1980,BALTAS2001115`, McFadden was later awarded the [Nobel Price in Economics](https://www.nobelprize.org/prizes/economic-sciences/2000/mcfadden/facts/) for his work on discrete choice models.
+
+Discrete choice models assume that people make decisions based on factors that are known to the decision maker, but perhaps unknown to an observer. Thus, there are observable features of the decision, and there are unobservable features that influence the decision that are not modeled. For example, suppose a person chooses one car over another based on its price, fuel efficiency, safety rating, and brand. However, the decision maker also consideres style or color as important, but these features are unobserved. Utility function of this type of decision take the form:
+
+```{math}
+:label: eqn-utility-function-dce
+U_{ij} = V_{ij} + \epsilon_{ij}
+```
+
+where $U_{ij}$ is the utility of alternative $j$ for individual $i$, $V_{ij}$ is the deterministic component of the utility, i.e., the utility associated with the observable features, and $\epsilon_{ij}$ is the random component of the utility. 
+
+```{admonition} Random utility functions (RUs)
+Discrete choice utility functions incorporate randomness into the utility calculation to account for unmodeled factors that affect decision-making. This randomness arises not from the world but from our inability to capture all influencing factors.
+```
+
+### Logit choice models
+The `logit` model assumes that the error terms $\epsilon_{nj}$ are independently, identically distributed (i.i.d) extreme values following a [Gumbel distribution](https://en.wikipedia.org/wiki/Gumbel_distribution). Given this assumption, and some algebraic manipulation, the probability that individual $i$ chooses alternative $j$ from a collection of $J$ choices in a `logit` model can be shown to be:
+
+```{math}
+:label: eqn-logit-probability
+P_{ij} = \frac{\displaystyle \exp\left(\frac{V_{ij}}{\lambda}\right)}{\displaystyle\sum_{k\in{J}}\exp\left(\frac{V_{ik}}{\lambda}\right)}
+```
+
+where $P_{ij}$ is the probability that individual $i$ chooses alternative $j$, $V_{ij}$ is the deterministic component of the utility, i.e., the utility associated with the observable features, $J$ is the set of all alternatives and $\lambda$ is a scale parameter. The scale parameter $\lambda$ is a positive constant that controls the degree of randomness in the model. The larger the value of $\lambda$, the more random the model becomes. 
+
 ---
 
 # Summary
@@ -561,3 +563,5 @@ In this lecture, we'll developed tools to compute rational choices and explored 
 * {ref}`content:references:rational-choice-theory` is a framework that seeks to explain human behavior by assuming that individuals make rational choices based on their preferences and goals. This theory suggests that people are motivated by self-interest and will choose actions that maximize their benefits, i.e., their utility while minimizing their costs.
 
 * {ref}`content:references:marginal-utility` describes the added satisfaction or benefit that a consumer gains from consuming one more unit of a good or service. This theory operates on the premise that as a consumer increases the number of units consumed, the satisfaction or benefit from each extra unit decreases. The concept of Marginal Utility is crucial in shaping consumer behavior, prices, and market equilibrium.
+
+* [Discrete choice theory](content:references:discrete-choice-experiments) is a framework for modeling choices made by individuals from a set of discrete alternatives. It is used to model the behavior of agents who have to choose among a finite set of alternatives. The theory is used in many fields, including economics, marketing, transportation planning, and environmental science.

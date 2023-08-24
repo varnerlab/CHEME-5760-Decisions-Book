@@ -40,16 +40,16 @@ where $u$ is a real number called the `utility` which has units of `utils`.
 
 (content:references:rational-choice-theory)=
 ## Rational choice theory
-[Rational choice theory](https://en.wikipedia.org/wiki/Rational_choice_theory) is founded on the idea that individuals make decisions that maximize their utility. The theory assumes that individuals always make prudent and logical decisions that provide them with the highest personal utility. In other words, when faced with competing alternatives, a decision-making agent will _always_ choose the option that maximizes their utility. 
+[Rational Choice Theory](https://en.wikipedia.org/wiki/Rational_choice_theory) is founded on the idea that individuals make decisions that maximize their utility. The theory assumes that individuals always make prudent and logical decisions that provide them with the highest personal utility. In other words, when faced with competing alternatives, a decision-making agent will _always_ choose the option that maximizes their utility. This theory involves calculating the utility of various actions or outcomes using a utility function. 
 
-The utility function $U:X\rightarrow\mathbb{R}$ can be used to rank order the preference for different choices. For example, suppose we have two bundles of goods, services, or states option(s) $A\in{X}$ and $B\in{X}$ that we must decide between:
+The utility function $U(\dots)$ can be used to rank order the preference for different choices. For example, suppose we have two bundles of goods, services, or states $A\in{X}$ and $B\in{X}$ that we must decide between:
 
-* If the decision maker _strictly prefers_  option $A$ over $B$, denoted as $A\succ{B}$, the utility $U(A)$ is always greater than $U(B)$, i.e., $U(A)>U(B)$. 
-* If the decision maker is _indifferent_ between option $A$ and $B$, denoted as $A\sim{B}$, then the utility $U(A)=U(B)$. 
-* If the decision maker _weakly prefers or is indifferent_ between option $A$ over $B$, denoted as $A\succsim{B}$, then the utility $U(A)\geq{U(B)}$.
+* If $A$ is _strictly preferred_ over $B$ ($A\succ{B}$), the utility of choice $A$ is greater than $B$ ($U(A)>U(B)$). 
+* If the decision maker is _indifferent_ between $A$ and $B$ ($A\sim{B}$), then $U(A)=U(B)$. 
+* If the decision maker _weakly prefers_ $A$ over $B$ ($A\succsim{B}$) or is indifferent, then $U(A)\geq{U(B)}$.
 
 ```{admonition} Key Idea of Rational Choice Theory
-When faced with competing alternatives, i.e., different options $A$ and $B$, a rational decision maker will _always_ choose the option that maximizes their utility.
+When faced with competing alternatives, i.e., different decision outcomes $A$ and $B$, a decision-making agent will _always_ choose the option that maximizes their utility.
 ```
 
 (content:references:rational-choice-theory-utility-functions)=

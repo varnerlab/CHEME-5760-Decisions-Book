@@ -1,0 +1,739 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Risk and Risk Aversion &#8212; CHEME 5760</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-VQRVBL1C02"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-VQRVBL1C02');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unit-2-uncertainty/risk';</script>
+    <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-2-uncertainty/risk.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Risk aversion and it’s relationship with decisions" href="risk-and-decisions.html" />
+    <link rel="prev" title="Rational Uncertain Decisions" href="expected-utility.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../landing.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cornell_seal_simple_black-164.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/cornell_seal_simple_black-164.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../landing.html">
+                    Quantitative Decisions in Life, Love, and Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Simple Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Choices</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/indifference-curves.html">Indifference Curves and Trades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="uncertainty-landing.html">Unit 2. Uncertain Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="expected-utility.html">Rational Uncertain Decisions</a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Risk and Risk Aversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="risk-and-decisions.html">Risk aversion and it’s relationship with decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contigencies.html">Contingencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contingencies-and-utility-max.html">Utility maximization, contingencies and information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="games.html">Games and Multiagent Reasoning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Understanding Markov Chains</a></li>
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-3-planning/mdp.html">Markov Decision Processes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-3-planning/sequential-decisions.html">Making Sequential Decisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-3-planning/policy-evaluation.html">Value and Policy Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/mcts.html">Monte Carlo Tree Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-4-learning/learning-landing.html">Unit 4. Machine Learning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandits.html">Multiarm Bandit Problems</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandit-problems-ts.html">Thompson Sampling</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/rl.html">Reinforcement Learning</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-based-rl.html">Model Based Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-free-rl.html">Model Free Reinforcement Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/imitation.html">Imitation Learning</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/behavior.html">Behavioral cloning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bayesian-rules.html">Bayesian Descision Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/random.html">Random variables and probability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../References.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book/issues/new?title=Issue%20on%20page%20%2Funit-2-uncertainty/risk.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unit-2-uncertainty/risk.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Risk and Risk Aversion</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-aversion">Risk aversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-risk-aversion">Modes of Risk Aversion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model-of-risk-aversion">Arrow-Pratt model of Risk Aversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-computing-risk-aversion-parameters">Example: Computing risk aversion parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="risk-and-risk-aversion">
+<h1>Risk and Risk Aversion<a class="headerlink" href="#risk-and-risk-aversion" title="Permalink to this heading">#</a></h1>
+<p>When individuals make decisions, they often prefer options that have lower levels of uncertainty or potential loss. This preference for minimizing potential risks over maximizing potential gains is known as risk aversion in decision-making. This cognitive bias can have an impact on a range of decisions, including investment choices, career decisions, and even personal choices related to health and safety.</p>
+<aside class="topic">
+<p class="topic-title">Outline</p>
+<p>This week we discuss risk, risk aversion, and its role in decisions:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-risk-aversion"><span class="std std-ref">Risk aversion</span></a> is important for understanding how people choose between safe and risky options. This knowledge can help decision-makers develop strategies that match people’s risk preferences.</p></li>
+<li><p>The <a class="reference internal" href="#content-references-measuring-risk-aversion"><span class="std std-ref">Arrow-Pratt model of Risk Aversion</span></a> helps us quantify risk and its role in decision-making. The model provides insights into how people weigh potential gains and losses in uncertain situations, and aid in developing strategies that align with individuals’ risk preferences.</p></li>
+</ul>
+</aside>
+<hr class="docutils" />
+<section id="risk-aversion">
+<span id="content-references-risk-aversion"></span><h2>Risk aversion<a class="headerlink" href="#risk-aversion" title="Permalink to this heading">#</a></h2>
+<p>Understanding risk aversion is crucial for evaluating investment preferences, insurance choices, and risk management strategies. It is a fundamental concept that plays a crucial role in decision-making in uncertain situations, and it varies from person to person.</p>
+<div class="attention admonition">
+<p class="admonition-title">Coin flip game</p>
+<p>Let’s explore how an individual responds to a <em>fair game</em>. Suppose we are given a choice to participate in a coin-flipping game where you bet on the result of the flip of a <em>fair coin</em>:</p>
+<ul class="simple">
+<li><p><strong>Heads</strong>: If the coin flip gives heads <code class="docutils literal notranslate"><span class="pre">H</span></code>, you win <span class="math notranslate nohighlight">\(w\)</span> USD.</p></li>
+<li><p><strong>Tails</strong>: If the coin flip gives tails <code class="docutils literal notranslate"><span class="pre">T</span></code>, you lose <span class="math notranslate nohighlight">\(w\)</span> USD</p></li>
+</ul>
+<p>Because the coin is fair, the expected outcome of this game is <code class="docutils literal notranslate"><span class="pre">0</span></code>. However, how much would you risk, i.e., would you play if <span class="math notranslate nohighlight">\(w\)</span> is large?</p>
+</div>
+<p>Let’s develop a code to simulate this game, and use it to answer some questions. We model the coin flip as a <a class="reference external" href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli random variable</a> with <span class="math notranslate nohighlight">\(p = 0.50\)</span> (fair coin), and assume we have <span class="math notranslate nohighlight">\(M\)</span> players, each performing <span class="math notranslate nohighlight">\(N\)</span> flips:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">    simulate(w::Float64; N::Int64 = 100, M::Int64 = 100) -&gt; Array{Float64,2}</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span> <span class="n">simulate</span><span class="p">(</span><span class="n">w</span><span class="o">::</span><span class="kt">Float64</span><span class="p">;</span> <span class="n">N</span><span class="o">::</span><span class="kt">Int64</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">M</span><span class="o">::</span><span class="kt">Int64</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>
+
+    <span class="c"># initialize -</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span> <span class="c"># holds the simulation results</span>
+    <span class="n">fill!</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="mf">0.0</span><span class="p">);</span> <span class="c"># fill up the data array w/0.0 -</span>
+
+    <span class="c"># build a Bernoulli distribution, and sample it</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+    <span class="n">flips</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="n">Bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+    <span class="c"># simulation loop -</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">∈</span> <span class="mi">1</span><span class="o">:</span><span class="n">M</span> <span class="c"># we have M players</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="o">∈</span> <span class="mi">2</span><span class="o">:</span><span class="n">N</span> <span class="c"># each player does N flips -</span>
+            
+            <span class="c"># grab a flip for player i and trial j -</span>
+            <span class="n">flip</span> <span class="o">=</span> <span class="n">flips</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">];</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="n">flip</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="c"># heads</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c"># add w to current balance</span>
+            <span class="k">else</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">w</span><span class="p">;</span> <span class="c"># substract w from current balance</span>
+            <span class="k">end</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="c"># return -</span>
+    <span class="k">return</span> <span class="n">data</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">simulate</span></code> function to calculate the experimental outcome for different values of the wealth <span class="math notranslate nohighlight">\(w\)</span> bet on each flip and the expected return (<a class="reference internal" href="#fig-coin-flip-simulation"><span class="std std-numref">Fig. 7</span></a>):</p>
+<figure class="align-default" id="fig-coin-flip-simulation">
+<a class="reference internal image-reference" href="../_images/Fig-CoinFlip-Game-Simulation.pdf"><img alt="../_images/Fig-CoinFlip-Game-Simulation.pdf" src="../_images/Fig-CoinFlip-Game-Simulation.pdf" style="height: 260px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Simulation of the cumulative cash position of <span class="math notranslate nohighlight">\(M\)</span> players following <span class="math notranslate nohighlight">\(N\)</span> flips of a fair coin for <span class="math notranslate nohighlight">\(w = 1\)</span> (left) and <span class="math notranslate nohighlight">\(w = 10\)</span> (right). Regardless of the amount bet on each flip, the expected value computed over the population of players is near zero.</span><a class="headerlink" href="#fig-coin-flip-simulation" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The expected value of the coin flip game is zero for <span class="math notranslate nohighlight">\(M\)</span> trials with <span class="math notranslate nohighlight">\(N\)</span> flips per trial for <span class="math notranslate nohighlight">\(w = 1\)</span> and <span class="math notranslate nohighlight">\(w = 10\)</span>; this result would be true even as <span class="math notranslate nohighlight">\(w\rightarrow\infty\)</span>. Thus, why do people react differently to betting a small versus a large amount on each coin flip if they will always break even eventually? This is the essence of an interesting characteristic of individuals, namely, risk aversion.</p>
+<section id="modes-of-risk-aversion">
+<h3>Modes of Risk Aversion<a class="headerlink" href="#modes-of-risk-aversion" title="Permalink to this heading">#</a></h3>
+<p>Picture yourself having to choose between two options: a definite amount of money, known as the certainty equivalent (CE), or a risky payout that relies on the outcome of a coin flip, such as $100 or nothing. People’s varying attitudes towards risk cause them to opt for one choice over the other. There are three risk models that a decision-maker can adopt: risk-averse, risk-neutral, and risk-seeking (<a class="reference internal" href="#fig-risk-aversion-types"><span class="std std-numref">Fig. 8</span></a>):</p>
+<figure class="align-default" id="fig-risk-aversion-types">
+<a class="reference internal image-reference" href="../_images/Fig-RiskAversion-Types.pdf"><img alt="../_images/Fig-RiskAversion-Types.pdf" src="../_images/Fig-RiskAversion-Types.pdf" style="height: 240px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Utility versus wealth <span class="math notranslate nohighlight">\(W\)</span> for three models of risk; risk-avoiding (left), risk-neutral (center), and risk-seeking (right). CE: certainty equivalent and <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> expected wealth.</span><a class="headerlink" href="#fig-risk-aversion-types" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Assuming a fair coin, the expected value of the game proposed is <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> = 50 USD. However, people may have different reactions when given the option of taking the bet or a certain payment:</p>
+<ul class="simple">
+<li><p><strong>Risk-averse</strong> individuals would prefer a certainty equivalent of less than 50 USD (for instance, 10 USD) instead of taking the gamble and possibly ending up with nothing. This means that <span class="math notranslate nohighlight">\(\text{CE} &lt; \mathbb{E}(W)\)</span> for a risk-averse individual.</p></li>
+<li><p><strong>Risk-neutral</strong> individuals are indifferent between the bet and a certain payment of 50 USD. Therefore, <span class="math notranslate nohighlight">\(\text{CE} = \mathbb{E}(W)\)</span>.</p></li>
+<li><p><strong>Risk-seeking</strong> individuals would take the bet even when the guaranteed payment is greater than 50 USD. This implies that <span class="math notranslate nohighlight">\(\text{CE} &gt; \mathbb{E}(W)\)</span>. In other words, a risk-seeking individual is willing to pay to accept uncertainty.</p></li>
+</ul>
+<p>The difference between the certainty equivalent and the expected payout of the game <span class="math notranslate nohighlight">\(\mathbb{E}(W)\)</span> is referred to as the <em>risk premium</em> or <span class="math notranslate nohighlight">\(\text{RP}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-risk-premimum">
+<span class="eqno">(32)<a class="headerlink" href="#equation-eqn-risk-premimum" title="Permalink to this equation">#</a></span>\[\text{RP} = \mathbb{E}(W) - \text{CE}\]</div>
+<p>For risk-averse individuals, the risk premium is positive. For risk-neutral decision-makers, the risk premium is zero. However, for risk-seeking individuals, the risk premium is negative. This means that the decision maker is willing to pay to take a chance.</p>
+</section>
+</section>
+<section id="arrow-pratt-model-of-risk-aversion">
+<span id="content-references-measuring-risk-aversion"></span><h2>Arrow-Pratt model of Risk Aversion<a class="headerlink" href="#arrow-pratt-model-of-risk-aversion" title="Permalink to this heading">#</a></h2>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Risk_aversion">Arrow-Pratt risk aversion model</a> is a widely used framework in economics and decision theory for measuring and analyzing individuals’ risk preferences <span id="id1">[<a class="reference internal" href="../References.html#id5" title="C. F. Menezes and D. L. Hanson. On the theory of risk aversion. International Economic Review, 11(3):481–487, 1970. URL: http://www.jstor.org/stable/2525326 (visited on 2023-05-21).">Menezes and Hanson, 1970</a>]</span>. Proposed by economists <a class="reference external" href="https://en.wikipedia.org/wiki/Kenneth_Arrow">Kenneth Arrow</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/John_W._Pratt">John W. Pratt</a>, this model quantifies the degree of risk aversion by examining how individuals’ utility functions respond to changes in wealth and uncertainty <span id="id2">[<a class="reference internal" href="../References.html#id6" title="John W. Pratt. Risk aversion in the small and in the large. Econometrica, 32(1/2):122–136, 1964. URL: http://www.jstor.org/stable/1913738 (visited on 2023-05-21).">Pratt, 1964</a>]</span>.</p>
+<p>The Arrow-Pratt model measures absolute and relative risk aversion, which allows decision-makers to assess the sensitivity of individuals to risk, informing optimal decision-making strategies in various domains, such as finance, insurance, and investment (<a class="reference internal" href="#defn-arrow-pratt-model">Definition 8</a>):</p>
+<div class="proof definition admonition" id="defn-arrow-pratt-model">
+<p class="admonition-title"><span class="caption-number">Definition 8 </span> (Arrow-Pratt model)</p>
+<section class="definition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(U(w)\)</span> be a utility function describing an individuals satisfaction gained from a unit of wealth <span class="math notranslate nohighlight">\(w\)</span>. Further, let <span class="math notranslate nohighlight">\(U(w)\)</span> be at least twice differentiable with respect to the wealth <span class="math notranslate nohighlight">\(w\)</span>. Then, the absolute risk aversion <span class="math notranslate nohighlight">\(r(w)\)</span> is defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-abs-risk-aversion-model">
+<span class="eqno">(33)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-model" title="Permalink to this equation">#</a></span>\[r(w) = - \frac{U^{\prime\prime}(w)}{U^{\prime}(w)}\]</div>
+<p>and the relative risk aversion <span class="math notranslate nohighlight">\(\bar{r}(w)\)</span> is defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-relative-risk-aversion-model">
+<span class="eqno">(34)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-model" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = - w\cdot\frac{U^{\prime\prime}(w)}{U^{\prime}(w)} = w\cdot{r(w)}\]</div>
+<p>where <span class="math notranslate nohighlight">\(U^{\prime}(w)\)</span> and <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)\)</span> denote the first and second derivative of the utility function with respect to the weath.</p>
+</section>
+</div><ul class="simple">
+<li><p>For a <strong>risk avoiding</strong> individual, the absolute risk aversion <span class="math notranslate nohighlight">\(r(w)&gt;0~\forall{w}\)</span>, because the utility function <span class="math notranslate nohighlight">\(U(w)\)</span> is concave, meaning that first detivative <span class="math notranslate nohighlight">\(U^{\prime}(w)&gt;0\)</span> but the second derivative <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)&lt;0\)</span>.</p></li>
+<li><p>For a <strong>risk neutral</strong> individual, the absolute risk aversion <span class="math notranslate nohighlight">\(r(w)=0~\forall{w}\)</span>, because the utility function <span class="math notranslate nohighlight">\(U(w)\)</span> is linear, meaning that first detivative <span class="math notranslate nohighlight">\(U^{\prime}(w) = \text{slope}\)</span>, but the second derivative <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)=0\)</span>.</p></li>
+<li><p>For a <strong>risk seeking</strong> individual, the absolute risk aversion <span class="math notranslate nohighlight">\(r(w)&lt;0~\forall{w}\)</span>, because the utility function <span class="math notranslate nohighlight">\(U(w)\)</span> is convex, meaning that first detivative <span class="math notranslate nohighlight">\(U^{\prime}(w)&gt;0\)</span> and the second derivative <span class="math notranslate nohighlight">\(U^{\prime\prime}(w)&gt;0\)</span>.</p></li>
+</ul>
+<!-- and the relative risk aversion $\bar{r}(w)$ is increasing in wealth $w$. For a __risk neutral__ individual, the absolute risk aversion $r(w)$ is zero, and the relative risk aversion $\bar{r}(w)$ is constant in wealth $w$. For a __risk seeking__ individual, the absolute risk aversion $r(w)$ is negative, and the relative risk aversion $\bar{r}(w)$ is increasing in wealth $w$. -->
+<section id="example-computing-risk-aversion-parameters">
+<h3>Example: Computing risk aversion parameters<a class="headerlink" href="#example-computing-risk-aversion-parameters" title="Permalink to this heading">#</a></h3>
+<p>Let’s compute the absolute and relative risk aversion parameters for a typical <em>risk adverse</em> utility function using the <a class="reference external" href="https://github.com/JuliaDiff/ForwardDiff.jl">FowardDiff.jl</a> package. For example, consider the utility function <span class="math notranslate nohighlight">\(U(w) = \log(w+1)\)</span>, which is a concave utility function. The absolute risk aversion for <span class="math notranslate nohighlight">\(U(w) = \log(w+1)\)</span> is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-abs-risk-aversion-example">
+<span class="eqno">(35)<a class="headerlink" href="#equation-eqn-abs-risk-aversion-example" title="Permalink to this equation">#</a></span>\[r(w) = \frac{1}{w+1}\]</div>
+<p>while the releative risk aversion is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-relative-risk-aversion-example">
+<span class="eqno">(36)<a class="headerlink" href="#equation-eqn-relative-risk-aversion-example" title="Permalink to this equation">#</a></span>\[\bar{r}(w) = \frac{w}{w+1}\]</div>
+<p>A quick investigation of the above equations reveals that the absolute risk aversion is decreasing in wealth <span class="math notranslate nohighlight">\(w\)</span>, while the relative risk aversion is increasing in wealth <span class="math notranslate nohighlight">\(w\)</span>, i.e., <span class="math notranslate nohighlight">\(\lim r(w) = 0\)</span> and <span class="math notranslate nohighlight">\(\lim \bar{r}(w) = 1\)</span> as <span class="math notranslate nohighlight">\({w\rightarrow\infty}\)</span>.</p>
+<section id="implementation">
+<h4>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h4>
+<p>The code block below will compute the utility function and its first and second derivatives and then compute the absolute and relative risk aversion parameters for wealth values ranging from 1 to 100:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># include packages -</span>
+<span class="k">using</span> <span class="n">ForwardDiff</span>
+
+<span class="c"># define the utility function U(w), and its derivative U&#39;(w) -</span>
+<span class="n">U</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">=</span> <span class="n">log</span><span class="p">(</span><span class="n">w</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c"># setup the wealth range -</span>
+<span class="n">wealth_array</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">:</span><span class="mf">1.0</span><span class="o">:</span><span class="mf">100.0</span> <span class="o">|&gt;</span> <span class="n">collect</span><span class="p">;</span>
+<span class="n">number_of_points</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">wealth_array</span><span class="p">);</span>
+
+<span class="c"># main: compute the utility, and risk aversion for each wealth value -</span>
+<span class="n">risk_aversion_array</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="n">number_of_points</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">∈</span> <span class="mi">1</span><span class="o">:</span><span class="n">number_of_points</span>
+    
+    <span class="c"># grab the wealth from the wealth array -</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">wealth_array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+
+    <span class="c"># compute the risk aversion -</span>
+    <span class="n">D1</span> <span class="o">=</span> <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">derivative</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">w</span><span class="p">);</span>
+    <span class="n">D2</span> <span class="o">=</span> <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">derivative</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">derivative</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">x</span><span class="p">),</span> <span class="n">w</span><span class="p">)</span>
+
+    <span class="c"># store data -</span>
+    <span class="n">risk_aversion_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="p">;</span>           <span class="c"># 1 wealth</span>
+    <span class="n">risk_aversion_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>        <span class="c"># 2 utility</span>
+    <span class="n">risk_aversion_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">D2</span><span class="o">/</span><span class="n">D1</span><span class="p">);</span>    <span class="c"># 3 risk aversion (absolute))</span>
+    <span class="n">risk_aversion_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">w</span><span class="o">*</span><span class="p">(</span><span class="n">D2</span><span class="o">/</span><span class="n">D1</span><span class="p">);</span>  <span class="c"># 4 risk aversion (relative)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>A higher absolute risk aversion coefficient indicates greater aversion to risk, implying that individuals are less willing to take on additional risk for potential gains. On the other hand, the relative risk aversion coefficient is a measure of the risk aversion that is independent of the scale of wealth.</p>
+<figure class="align-default" id="fig-abs-risk-aversion">
+<a class="reference internal image-reference" href="../_images/Fig-Abs-RiskAversion-Schematic.pdf"><img alt="../_images/Fig-Abs-RiskAversion-Schematic.pdf" src="../_images/Fig-Abs-RiskAversion-Schematic.pdf" style="height: 280px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Utility and risk aversion versus wealth for the utility function <span class="math notranslate nohighlight">\(U(w) = \ln\left(w+1\right)\)</span>. Left: Utility versus wealth <span class="math notranslate nohighlight">\(w\)</span>. Right: Absolute risk aversion versus wealth <span class="math notranslate nohighlight">\(w\)</span>.</span><a class="headerlink" href="#fig-abs-risk-aversion" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>This week we discussed risk, risk aversion, and its role in decisions:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-risk-aversion"><span class="std std-ref">Risk aversion</span></a> is important for understanding how people choose between safe and risky options. This knowledge can help decision-makers develop strategies that match people’s risk preferences.</p></li>
+<li><p><a class="reference internal" href="#content-references-measuring-risk-aversion"><span class="std std-ref">Arrow-Pratt model of Risk Aversion</span></a> helps us understand risk and decision-making. The model provides insights into how people weigh potential gains and losses in uncertain situations, and aid in developing strategies that align with individuals’ risk preferences.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unit-2-uncertainty"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="expected-utility.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Rational Uncertain Decisions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="risk-and-decisions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Risk aversion and it’s relationship with decisions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#risk-aversion">Risk aversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modes-of-risk-aversion">Modes of Risk Aversion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrow-pratt-model-of-risk-aversion">Arrow-Pratt model of Risk Aversion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-computing-risk-aversion-parameters">Example: Computing risk aversion parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Varner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
