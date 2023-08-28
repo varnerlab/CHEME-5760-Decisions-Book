@@ -424,7 +424,9 @@ While the marginal utility may seem like a mathematical curiosity, it has import
 dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}
 ```
 
-where $dU\approx\left(U - U_{\star}\right)$ denotes the change in utility, $\bar{U}_{x_{i}}$ denotes the marginal utility of $x_{i}$ evaluated at the starting point, and $dx_{i}\approx(x_{i}-x_{i,\star})$ is the change in $x_{i}$. Equation. {eq}`eqn-total-differential-ic` is a powerful equation that we will use to derive the [marginal rate of substitution](https://en.wikipedia.org/wiki/Marginal_rate_of_substitution), which is how much of one thing we would willingly give up for another. Further, in the context of a trade between agents, Eqn. {eq}`eqn-total-differential-ic` can be used to evaluate the goodness of the trade, i.e., the change in the utility of the decision-maker experiences resulting from a trade:
+where $dU\approx\left(U - U_{\star}\right)$ denotes the change in utility, $\bar{U}_{x_{i}}$ denotes the marginal utility of $x_{i}$ evaluated at the starting point, and $dx_{i}\approx(x_{i}-x_{i,\star})$ is the change in $x_{i}$. 
+
+Equation. {eq}`eqn-total-differential-ic` is a powerful equation that we will use to derive the [marginal rate of substitution](https://en.wikipedia.org/wiki/Marginal_rate_of_substitution), which is how much of one thing we would willingly give up for another. Further, in the context of a trade between agents, Eqn. {eq}`eqn-total-differential-ic` can be used to evaluate the goodness of the trade, i.e., the change in the utility of the decision-maker experiences resulting from a trade:
 
  * If a trade is a `good trade` the change in utility should always be non-negative, i.e., $dU\geq{0}$.
  * If a trade is a `bad trade` the change in utility is always negative, i.e., $dU<{0}$.

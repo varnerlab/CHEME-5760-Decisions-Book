@@ -75,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-1-simpledecisions/utilityfunctions.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Indifference Curves and Trades" href="indifference-curves.html" />
+    <link rel="next" title="Marginal Utility, Indifference and Trades" href="indifference-curves.html" />
     <link rel="prev" title="Making simple decisions" href="simpledecisions-landing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -171,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="simpledecisions-landing.html">Unit 1. Simple Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Utility Functions and Choices</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="indifference-curves.html">Indifference Curves and Trades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indifference-curves.html">Marginal Utility, Indifference and Trades</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utlitymaximization.html">Maximizing Utility</a></li>
 
 </ul>
@@ -548,45 +548,45 @@ document.write(`
 <div class="literal-block-wrapper docutils container" id="id5">
 <div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">Linear utility function model in Julia</span><a class="headerlink" href="#id5" title="Permalink to this code">#</a></div>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c"># load packages -</span>
-<span class="linenos"> 2</span><span class="k">using</span> <span class="n">VLDecisionsPackage</span>
-<span class="linenos"> 3</span><span class="k">using</span> <span class="n">Plots</span>
-<span class="linenos"> 4</span><span class="k">using</span> <span class="n">Colors</span>
+<span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="n">VLDecisionsPackage</span>
+<span class="linenos"> 3</span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span>
+<span class="linenos"> 4</span><span class="k">using</span><span class="w"> </span><span class="n">Colors</span>
 <span class="linenos"> 5</span>
 <span class="linenos"> 6</span><span class="c"># setup colors -</span>
-<span class="linenos"> 7</span><span class="n">colors</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">{</span><span class="kt">Int</span><span class="p">,</span><span class="kt">RGB</span><span class="p">}()</span>
-<span class="linenos"> 8</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#D81B60&quot;</span><span class="p">)</span>
-<span class="linenos"> 9</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#1E88E5&quot;</span><span class="p">)</span>
-<span class="linenos">10</span><span class="n">colors</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#FFC107&quot;</span><span class="p">)</span>
-<span class="linenos">11</span><span class="n">colors</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#004D40&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Dict</span><span class="p">{</span><span class="kt">Int</span><span class="p">,</span><span class="kt">RGB</span><span class="p">}()</span>
+<span class="linenos"> 8</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#D81B60&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#1E88E5&quot;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">colors</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#FFC107&quot;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">colors</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#004D40&quot;</span><span class="p">)</span>
 <span class="linenos">12</span>
 <span class="linenos">13</span><span class="c"># setup ranges and parameters -</span>
-<span class="linenos">14</span><span class="n">goods_array</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="n">collect</span><span class="p">;</span>
-<span class="linenos">15</span><span class="n">parameter_value_array</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">];</span>
+<span class="linenos">14</span><span class="n">goods_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">collect</span><span class="p">;</span>
+<span class="linenos">15</span><span class="n">parameter_value_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">];</span>
 <span class="linenos">16</span>
 <span class="linenos">17</span><span class="c"># goods array -</span>
-<span class="linenos">18</span><span class="n">goods_array</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="n">collect</span><span class="p">;</span>
-<span class="linenos">19</span><span class="n">parameter_value_array</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">];</span>
+<span class="linenos">18</span><span class="n">goods_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">collect</span><span class="p">;</span>
+<span class="linenos">19</span><span class="n">parameter_value_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">];</span>
 <span class="linenos">20</span>
-<span class="linenos">21</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="linenos">22</span><span class="k">for</span> <span class="n">p</span> <span class="o">∈</span> <span class="n">parameter_value_array</span>
-<span class="linenos">23</span>    
-<span class="linenos">24</span>    <span class="c"># utility function -</span>
-<span class="linenos">25</span>    <span class="n">my_utility_model</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="n">VLLinearUtilityFunction</span><span class="p">,</span> <span class="p">(</span>
-<span class="linenos">26</span>        <span class="n">α</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span>
-<span class="linenos">27</span>    <span class="p">));</span>
+<span class="linenos">21</span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos">22</span><span class="k">for</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">∈</span><span class="w"> </span><span class="n">parameter_value_array</span>
+<span class="linenos">23</span><span class="w">    </span>
+<span class="linenos">24</span><span class="w">    </span><span class="c"># utility function -</span>
+<span class="linenos">25</span><span class="w">    </span><span class="n">my_utility_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">VLLinearUtilityFunction</span><span class="p">,</span><span class="w"> </span><span class="p">(</span>
+<span class="linenos">26</span><span class="w">        </span><span class="n">α</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">p</span><span class="p">],</span>
+<span class="linenos">27</span><span class="w">    </span><span class="p">));</span>
 <span class="linenos">28</span>
-<span class="linenos">29</span>    <span class="c"># evaluate the utility function -</span>
-<span class="linenos">30</span>    <span class="n">utility_array</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">my_utility_model</span><span class="p">,</span> <span class="n">goods_array</span><span class="p">);</span>
+<span class="linenos">29</span><span class="w">    </span><span class="c"># evaluate the utility function -</span>
+<span class="linenos">30</span><span class="w">    </span><span class="n">utility_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evaluate</span><span class="p">(</span><span class="n">my_utility_model</span><span class="p">,</span><span class="w"> </span><span class="n">goods_array</span><span class="p">);</span>
 <span class="linenos">31</span>
-<span class="linenos">32</span>    <span class="c"># plot -</span>
-<span class="linenos">33</span>    <span class="n">plot!</span><span class="p">(</span><span class="n">goods_array</span><span class="p">,</span> <span class="n">utility_array</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;α = </span><span class="si">$</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">counter</span><span class="p">],</span>
-<span class="linenos">34</span>        <span class="n">bg</span><span class="o">=</span><span class="ss">:snow2</span><span class="p">,</span> <span class="n">background_color_outside</span><span class="o">=</span><span class="s">&quot;white&quot;</span><span class="p">,</span> <span class="n">framestyle</span> <span class="o">=</span> <span class="ss">:box</span><span class="p">,</span> <span class="n">fg_legend</span> <span class="o">=</span> <span class="ss">:transparent</span><span class="p">);</span>
+<span class="linenos">32</span><span class="w">    </span><span class="c"># plot -</span>
+<span class="linenos">33</span><span class="w">    </span><span class="n">plot!</span><span class="p">(</span><span class="n">goods_array</span><span class="p">,</span><span class="w"> </span><span class="n">utility_array</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;α = </span><span class="si">$</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">counter</span><span class="p">],</span>
+<span class="linenos">34</span><span class="w">        </span><span class="n">bg</span><span class="o">=</span><span class="ss">:snow2</span><span class="p">,</span><span class="w"> </span><span class="n">background_color_outside</span><span class="o">=</span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">framestyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">:box</span><span class="p">,</span><span class="w"> </span><span class="n">fg_legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">:transparent</span><span class="p">);</span>
 <span class="linenos">35</span>
-<span class="linenos">36</span>    <span class="k">global</span> <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="linenos">36</span><span class="w">    </span><span class="k">global</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="linenos">37</span><span class="k">end</span>
 <span class="linenos">38</span><span class="n">current</span><span class="p">()</span>
-<span class="linenos">39</span><span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;Good or Service 1 (units)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
-<span class="linenos">40</span><span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;Utility (utils)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+<span class="linenos">39</span><span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;Good or Service 1 (units)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+<span class="linenos">40</span><span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;Utility (utils)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -615,43 +615,43 @@ document.write(`
 <div class="literal-block-wrapper docutils container" id="id6">
 <div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">Log utility function model in Julia</span><a class="headerlink" href="#id6" title="Permalink to this code">#</a></div>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c"># load packages -</span>
-<span class="linenos"> 2</span><span class="k">using</span> <span class="n">VLDecisionsPackage</span>
-<span class="linenos"> 3</span><span class="k">using</span> <span class="n">Plots</span>
-<span class="linenos"> 4</span><span class="k">using</span> <span class="n">Colors</span>
+<span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="n">VLDecisionsPackage</span>
+<span class="linenos"> 3</span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span>
+<span class="linenos"> 4</span><span class="k">using</span><span class="w"> </span><span class="n">Colors</span>
 <span class="linenos"> 5</span>
 <span class="linenos"> 6</span><span class="c"># setup colors -</span>
-<span class="linenos"> 7</span><span class="n">colors</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">{</span><span class="kt">Int</span><span class="p">,</span><span class="kt">RGB</span><span class="p">}()</span>
-<span class="linenos"> 8</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#D81B60&quot;</span><span class="p">)</span>
-<span class="linenos"> 9</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#1E88E5&quot;</span><span class="p">)</span>
-<span class="linenos">10</span><span class="n">colors</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#FFC107&quot;</span><span class="p">)</span>
-<span class="linenos">11</span><span class="n">colors</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#004D40&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Dict</span><span class="p">{</span><span class="kt">Int</span><span class="p">,</span><span class="kt">RGB</span><span class="p">}()</span>
+<span class="linenos"> 8</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#D81B60&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#1E88E5&quot;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">colors</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#FFC107&quot;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">colors</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#004D40&quot;</span><span class="p">)</span>
 <span class="linenos">12</span>
 <span class="linenos">13</span><span class="c"># setup ranges and parameters -</span>
-<span class="linenos">14</span><span class="n">goods_array</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="n">collect</span><span class="p">;</span>
-<span class="linenos">15</span><span class="n">parameter_value_array</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">];</span>
+<span class="linenos">14</span><span class="n">goods_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="n">stop</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">collect</span><span class="p">;</span>
+<span class="linenos">15</span><span class="n">parameter_value_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">];</span>
 <span class="linenos">16</span>
 <span class="linenos">17</span><span class="c"># main loop -</span>
-<span class="linenos">18</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="linenos">19</span><span class="k">for</span> <span class="n">p</span> <span class="o">∈</span> <span class="n">parameter_value_array</span>
-<span class="linenos">20</span>    
-<span class="linenos">21</span>    <span class="c"># build a utility function model -</span>
-<span class="linenos">22</span>    <span class="n">my_utility_model</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="n">VLLogUtilityFunction</span><span class="p">,</span> <span class="p">(</span>
-<span class="linenos">23</span>        <span class="n">α</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">],</span> <span class="n">β</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="linenos">24</span>    <span class="p">));</span>
+<span class="linenos">18</span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos">19</span><span class="k">for</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">∈</span><span class="w"> </span><span class="n">parameter_value_array</span>
+<span class="linenos">20</span><span class="w">    </span>
+<span class="linenos">21</span><span class="w">    </span><span class="c"># build a utility function model -</span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">my_utility_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">VLLogUtilityFunction</span><span class="p">,</span><span class="w"> </span><span class="p">(</span>
+<span class="linenos">23</span><span class="w">        </span><span class="n">α</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">p</span><span class="p">],</span><span class="w"> </span><span class="n">β</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="linenos">24</span><span class="w">    </span><span class="p">));</span>
 <span class="linenos">25</span>
-<span class="linenos">26</span>    <span class="c"># evaluate the utility function model for the goods array -</span>
-<span class="linenos">27</span>    <span class="n">utility_array</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">my_utility_model</span><span class="p">,</span> <span class="n">goods_array</span><span class="p">);</span>
+<span class="linenos">26</span><span class="w">    </span><span class="c"># evaluate the utility function model for the goods array -</span>
+<span class="linenos">27</span><span class="w">    </span><span class="n">utility_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evaluate</span><span class="p">(</span><span class="n">my_utility_model</span><span class="p">,</span><span class="w"> </span><span class="n">goods_array</span><span class="p">);</span>
 <span class="linenos">28</span>
-<span class="linenos">29</span>    <span class="c"># plot -</span>
-<span class="linenos">30</span>    <span class="n">plot!</span><span class="p">(</span><span class="n">goods_array</span><span class="p">,</span> <span class="n">utility_array</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;α = </span><span class="si">$</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">counter</span><span class="p">],</span>
-<span class="linenos">31</span>        <span class="n">bg</span><span class="o">=</span><span class="ss">:snow2</span><span class="p">,</span> <span class="n">background_color_outside</span><span class="o">=</span><span class="s">&quot;white&quot;</span><span class="p">,</span> <span class="n">framestyle</span> <span class="o">=</span> <span class="ss">:box</span><span class="p">,</span> 
-<span class="linenos">32</span>        <span class="n">fg_legend</span> <span class="o">=</span> <span class="ss">:transparent</span><span class="p">);</span>
+<span class="linenos">29</span><span class="w">    </span><span class="c"># plot -</span>
+<span class="linenos">30</span><span class="w">    </span><span class="n">plot!</span><span class="p">(</span><span class="n">goods_array</span><span class="p">,</span><span class="w"> </span><span class="n">utility_array</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;α = </span><span class="si">$</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">counter</span><span class="p">],</span>
+<span class="linenos">31</span><span class="w">        </span><span class="n">bg</span><span class="o">=</span><span class="ss">:snow2</span><span class="p">,</span><span class="w"> </span><span class="n">background_color_outside</span><span class="o">=</span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">framestyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">:box</span><span class="p">,</span><span class="w"> </span>
+<span class="linenos">32</span><span class="w">        </span><span class="n">fg_legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">:transparent</span><span class="p">);</span>
 <span class="linenos">33</span>
-<span class="linenos">34</span>    <span class="k">global</span> <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="linenos">34</span><span class="w">    </span><span class="k">global</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="linenos">35</span><span class="k">end</span>
 <span class="linenos">36</span><span class="n">current</span><span class="p">()</span>
-<span class="linenos">37</span><span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;Good or Service 1 (units)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
-<span class="linenos">38</span><span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;Utility (utils)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+<span class="linenos">37</span><span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;Good or Service 1 (units)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+<span class="linenos">38</span><span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;Utility (utils)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -681,48 +681,48 @@ document.write(`
 <div class="literal-block-wrapper docutils container" id="id7">
 <div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">Cobb-Douglas utility function</span><a class="headerlink" href="#id7" title="Permalink to this code">#</a></div>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c"># load packages -</span>
-<span class="linenos"> 2</span><span class="k">using</span> <span class="n">VLDecisionsPackage</span>
-<span class="linenos"> 3</span><span class="k">using</span> <span class="n">Plots</span>
-<span class="linenos"> 4</span><span class="k">using</span> <span class="n">Colors</span>
+<span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="n">VLDecisionsPackage</span>
+<span class="linenos"> 3</span><span class="k">using</span><span class="w"> </span><span class="n">Plots</span>
+<span class="linenos"> 4</span><span class="k">using</span><span class="w"> </span><span class="n">Colors</span>
 <span class="linenos"> 5</span>
 <span class="linenos"> 6</span><span class="c"># setup colors -</span>
-<span class="linenos"> 7</span><span class="n">colors</span> <span class="o">=</span> <span class="kt">Dict</span><span class="p">{</span><span class="kt">Int</span><span class="p">,</span><span class="kt">RGB</span><span class="p">}()</span>
-<span class="linenos"> 8</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#D81B60&quot;</span><span class="p">)</span>
-<span class="linenos"> 9</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#1E88E5&quot;</span><span class="p">)</span>
-<span class="linenos">10</span><span class="n">colors</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#FFC107&quot;</span><span class="p">)</span>
-<span class="linenos">11</span><span class="n">colors</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span> <span class="s">&quot;#004D40&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="n">colors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Dict</span><span class="p">{</span><span class="kt">Int</span><span class="p">,</span><span class="kt">RGB</span><span class="p">}()</span>
+<span class="linenos"> 8</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#D81B60&quot;</span><span class="p">)</span>
+<span class="linenos"> 9</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#1E88E5&quot;</span><span class="p">)</span>
+<span class="linenos">10</span><span class="n">colors</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#FFC107&quot;</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">colors</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parse</span><span class="p">(</span><span class="n">Colorant</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;#004D40&quot;</span><span class="p">)</span>
 <span class="linenos">12</span>
 <span class="linenos">13</span><span class="c"># goods array -</span>
-<span class="linenos">14</span><span class="n">number_of_steps</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-<span class="linenos">15</span><span class="n">goods_array</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">number_of_steps</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
-<span class="linenos">16</span><span class="k">for</span> <span class="n">i</span> <span class="o">∈</span> <span class="mi">1</span><span class="o">:</span><span class="n">number_of_steps</span>
-<span class="linenos">17</span>    <span class="n">goods_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span> <span class="o">|&gt;</span> <span class="kt">Float64</span><span class="p">;</span>
-<span class="linenos">18</span>    <span class="n">goods_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="linenos">14</span><span class="n">number_of_steps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="linenos">15</span><span class="n">goods_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="n">number_of_steps</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="linenos">16</span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">∈</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="n">number_of_steps</span>
+<span class="linenos">17</span><span class="w">    </span><span class="n">goods_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="kt">Float64</span><span class="p">;</span>
+<span class="linenos">18</span><span class="w">    </span><span class="n">goods_array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
 <span class="linenos">19</span><span class="k">end</span>
-<span class="linenos">20</span><span class="n">parameter_value_array</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">];</span>
+<span class="linenos">20</span><span class="n">parameter_value_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">];</span>
 <span class="linenos">21</span>
 <span class="linenos">22</span><span class="c"># main loop -</span>
-<span class="linenos">23</span><span class="n">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="linenos">24</span><span class="k">for</span> <span class="n">p</span> <span class="o">∈</span> <span class="n">parameter_value_array</span>
+<span class="linenos">23</span><span class="n">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="linenos">24</span><span class="k">for</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">∈</span><span class="w"> </span><span class="n">parameter_value_array</span>
 <span class="linenos">25</span>
-<span class="linenos">26</span>    <span class="c"># utility function -</span>
-<span class="linenos">27</span>    <span class="n">my_utility_model</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="n">VLCobbDouglasUtilityFunction</span><span class="p">,</span> <span class="p">(</span>
-<span class="linenos">28</span>        <span class="n">α</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">-</span><span class="n">p</span><span class="p">],</span>
-<span class="linenos">29</span>    <span class="p">));</span>
+<span class="linenos">26</span><span class="w">    </span><span class="c"># utility function -</span>
+<span class="linenos">27</span><span class="w">    </span><span class="n">my_utility_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">VLCobbDouglasUtilityFunction</span><span class="p">,</span><span class="w"> </span><span class="p">(</span>
+<span class="linenos">28</span><span class="w">        </span><span class="n">α</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="o">-</span><span class="n">p</span><span class="p">],</span>
+<span class="linenos">29</span><span class="w">    </span><span class="p">));</span>
 <span class="linenos">30</span>
-<span class="linenos">31</span>    <span class="c"># evaluate the utility function -</span>
-<span class="linenos">32</span>    <span class="n">utility_array</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">my_utility_model</span><span class="p">,</span> <span class="n">goods_array</span><span class="p">);</span>
+<span class="linenos">31</span><span class="w">    </span><span class="c"># evaluate the utility function -</span>
+<span class="linenos">32</span><span class="w">    </span><span class="n">utility_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evaluate</span><span class="p">(</span><span class="n">my_utility_model</span><span class="p">,</span><span class="w"> </span><span class="n">goods_array</span><span class="p">);</span>
 <span class="linenos">33</span>
-<span class="linenos">34</span>    <span class="c"># plot -</span>
-<span class="linenos">35</span>    <span class="n">plot!</span><span class="p">(</span><span class="n">goods_array</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">utility_array</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&quot;α = </span><span class="si">$</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">counter</span><span class="p">],</span>
-<span class="linenos">36</span>        <span class="n">bg</span><span class="o">=</span><span class="ss">:snow2</span><span class="p">,</span> <span class="n">background_color_outside</span><span class="o">=</span><span class="s">&quot;white&quot;</span><span class="p">,</span> <span class="n">framestyle</span> <span class="o">=</span> <span class="ss">:box</span><span class="p">,</span> 
-<span class="linenos">37</span>        <span class="n">fg_legend</span> <span class="o">=</span> <span class="ss">:transparent</span><span class="p">);</span>
+<span class="linenos">34</span><span class="w">    </span><span class="c"># plot -</span>
+<span class="linenos">35</span><span class="w">    </span><span class="n">plot!</span><span class="p">(</span><span class="n">goods_array</span><span class="p">[</span><span class="o">:</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">utility_array</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="o">=</span><span class="s">&quot;α = </span><span class="si">$</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">counter</span><span class="p">],</span>
+<span class="linenos">36</span><span class="w">        </span><span class="n">bg</span><span class="o">=</span><span class="ss">:snow2</span><span class="p">,</span><span class="w"> </span><span class="n">background_color_outside</span><span class="o">=</span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">framestyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">:box</span><span class="p">,</span><span class="w"> </span>
+<span class="linenos">37</span><span class="w">        </span><span class="n">fg_legend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">:transparent</span><span class="p">);</span>
 <span class="linenos">38</span>
-<span class="linenos">39</span>    <span class="k">global</span> <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="linenos">39</span><span class="w">    </span><span class="k">global</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="linenos">40</span><span class="k">end</span>
 <span class="linenos">41</span><span class="n">current</span><span class="p">()</span>
-<span class="linenos">42</span><span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;Good or Service 1 (units)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
-<span class="linenos">43</span><span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;Utility (utils)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+<span class="linenos">42</span><span class="n">xlabel!</span><span class="p">(</span><span class="s">&quot;Good or Service 1 (units)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
+<span class="linenos">43</span><span class="n">ylabel!</span><span class="p">(</span><span class="s">&quot;Utility (utils)&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -746,39 +746,39 @@ document.write(`
 <span class="linenos"> 2</span><span class="n">include</span><span class="p">(</span><span class="s">&quot;Include.jl&quot;</span><span class="p">)</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="c"># initialize -</span>
-<span class="linenos"> 5</span><span class="n">max_number_of_bread_slices</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="linenos"> 6</span><span class="n">max_number_of_cheese_slices</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="linenos"> 7</span><span class="n">bread_array</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">max_number_of_bread_slices</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="n">collect</span><span class="p">;</span>
-<span class="linenos"> 8</span><span class="n">cheese_array</span> <span class="o">=</span> <span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">max_number_of_cheese_slices</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="n">collect</span><span class="p">;</span>
-<span class="linenos"> 9</span><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">();</span>
+<span class="linenos"> 5</span><span class="n">max_number_of_bread_slices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="linenos"> 6</span><span class="n">max_number_of_cheese_slices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<span class="linenos"> 7</span><span class="n">bread_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">max_number_of_bread_slices</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">collect</span><span class="p">;</span>
+<span class="linenos"> 8</span><span class="n">cheese_array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">max_number_of_cheese_slices</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">collect</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DataFrame</span><span class="p">();</span>
 <span class="linenos">10</span>
 <span class="linenos">11</span><span class="c"># # build a utility function model -</span>
-<span class="linenos">12</span><span class="n">model</span> <span class="o">=</span> <span class="n">build</span><span class="p">(</span><span class="n">VLLeontiefUtilityFunction</span><span class="p">,</span> <span class="p">(</span>
-<span class="linenos">13</span>    <span class="n">α</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="c"># parameters: bread, cheese</span>
+<span class="linenos">12</span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">VLLeontiefUtilityFunction</span><span class="p">,</span><span class="w"> </span><span class="p">(</span>
+<span class="linenos">13</span><span class="w">    </span><span class="n">α</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span><span class="w"> </span><span class="c"># parameters: bread, cheese</span>
 <span class="linenos">14</span><span class="p">));</span>
 <span class="linenos">15</span>
 <span class="linenos">16</span><span class="c"># main -</span>
-<span class="linenos">17</span><span class="k">for</span> <span class="n">i</span> <span class="o">∈</span> <span class="n">eachindex</span><span class="p">(</span><span class="n">bread_array</span><span class="p">)</span>
-<span class="linenos">18</span>    
-<span class="linenos">19</span>    <span class="c"># get the number of bread slices -</span>
-<span class="linenos">20</span>    <span class="n">number_of_bread_slices</span> <span class="o">=</span> <span class="n">bread_array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-<span class="linenos">21</span>    
-<span class="linenos">22</span>    <span class="k">for</span> <span class="n">j</span> <span class="o">∈</span> <span class="n">eachindex</span><span class="p">(</span><span class="n">cheese_array</span><span class="p">)</span>
+<span class="linenos">17</span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">∈</span><span class="w"> </span><span class="n">eachindex</span><span class="p">(</span><span class="n">bread_array</span><span class="p">)</span>
+<span class="linenos">18</span><span class="w">    </span>
+<span class="linenos">19</span><span class="w">    </span><span class="c"># get the number of bread slices -</span>
+<span class="linenos">20</span><span class="w">    </span><span class="n">number_of_bread_slices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bread_array</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="linenos">21</span><span class="w">    </span>
+<span class="linenos">22</span><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">∈</span><span class="w"> </span><span class="n">eachindex</span><span class="p">(</span><span class="n">cheese_array</span><span class="p">)</span>
 <span class="linenos">23</span>
-<span class="linenos">24</span>        <span class="c"># get the number of cheese slices -</span>
-<span class="linenos">25</span>        <span class="n">number_of_cheese_slices</span> <span class="o">=</span> <span class="n">cheese_array</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-<span class="linenos">26</span>        
-<span class="linenos">27</span>        <span class="c"># compute -</span>
-<span class="linenos">28</span>        <span class="n">value</span> <span class="o">=</span> <span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">[</span><span class="n">number_of_bread_slices</span><span class="p">,</span> <span class="n">number_of_cheese_slices</span><span class="p">]);</span>
+<span class="linenos">24</span><span class="w">        </span><span class="c"># get the number of cheese slices -</span>
+<span class="linenos">25</span><span class="w">        </span><span class="n">number_of_cheese_slices</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cheese_array</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+<span class="linenos">26</span><span class="w">        </span>
+<span class="linenos">27</span><span class="w">        </span><span class="c"># compute -</span>
+<span class="linenos">28</span><span class="w">        </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evaluate</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">number_of_bread_slices</span><span class="p">,</span><span class="w"> </span><span class="n">number_of_cheese_slices</span><span class="p">]);</span>
 <span class="linenos">29</span>
-<span class="linenos">30</span>        <span class="c"># package -</span>
-<span class="linenos">31</span>        <span class="n">results_tuple</span> <span class="o">=</span> <span class="p">(</span>
-<span class="linenos">32</span>            <span class="n">bread</span> <span class="o">=</span> <span class="n">number_of_bread_slices</span><span class="p">,</span>
-<span class="linenos">33</span>            <span class="n">cheese</span> <span class="o">=</span> <span class="n">number_of_cheese_slices</span><span class="p">,</span>
-<span class="linenos">34</span>            <span class="n">U</span> <span class="o">=</span> <span class="n">value</span>
-<span class="linenos">35</span>        <span class="p">);</span>
-<span class="linenos">36</span>        <span class="n">push!</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">results_tuple</span><span class="p">);</span>
-<span class="linenos">37</span>    <span class="k">end</span>
+<span class="linenos">30</span><span class="w">        </span><span class="c"># package -</span>
+<span class="linenos">31</span><span class="w">        </span><span class="n">results_tuple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span>
+<span class="linenos">32</span><span class="w">            </span><span class="n">bread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number_of_bread_slices</span><span class="p">,</span>
+<span class="linenos">33</span><span class="w">            </span><span class="n">cheese</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number_of_cheese_slices</span><span class="p">,</span>
+<span class="linenos">34</span><span class="w">            </span><span class="n">U</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span>
+<span class="linenos">35</span><span class="w">        </span><span class="p">);</span>
+<span class="linenos">36</span><span class="w">        </span><span class="n">push!</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">results_tuple</span><span class="p">);</span>
+<span class="linenos">37</span><span class="w">    </span><span class="k">end</span>
 <span class="linenos">38</span><span class="k">end</span>
 </pre></div>
 </div>
@@ -839,7 +839,8 @@ document.write(`
 <p>While the marginal utility may seem like a mathematical curiosity, it has important applications. First, the marginal utility quantifies how changing the quantity of a good or service consumed (or moving from one state of the world to another) affects the utility. In particular, the change in the utility <span class="math notranslate nohighlight">\(U(\dots)\)</span> of the decision maker can be computed using the <a class="reference external" href="https://en.wikipedia.org/wiki/Differential_of_a_function#Differentials_in_several_variables">total differential</a> around some starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-total-differential-ic">
 <span class="eqno">(7)<a class="headerlink" href="#equation-eqn-total-differential-ic" title="Permalink to this equation">#</a></span>\[dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(dU\approx\left(U - U_{\star}\right)\)</span> denotes the change in utility, <span class="math notranslate nohighlight">\(\bar{U}_{x_{i}}\)</span> denotes the marginal utility of <span class="math notranslate nohighlight">\(x_{i}\)</span> evaluated at the starting point, and <span class="math notranslate nohighlight">\(dx_{i}\approx(x_{i}-x_{i,\star})\)</span> is the change in <span class="math notranslate nohighlight">\(x_{i}\)</span>. Equation. <a class="reference internal" href="#equation-eqn-total-differential-ic">(7)</a> is a powerful equation that we will use to derive the <a class="reference external" href="https://en.wikipedia.org/wiki/Marginal_rate_of_substitution">marginal rate of substitution</a>, which is how much of one thing we would willingly give up for another. Further, in the context of a trade between agents, Eqn. <a class="reference internal" href="#equation-eqn-total-differential-ic">(7)</a> can be used to evaluate the goodness of the trade, i.e., the change in the utility of the decision-maker experiences resulting from a trade:</p>
+<p>where <span class="math notranslate nohighlight">\(dU\approx\left(U - U_{\star}\right)\)</span> denotes the change in utility, <span class="math notranslate nohighlight">\(\bar{U}_{x_{i}}\)</span> denotes the marginal utility of <span class="math notranslate nohighlight">\(x_{i}\)</span> evaluated at the starting point, and <span class="math notranslate nohighlight">\(dx_{i}\approx(x_{i}-x_{i,\star})\)</span> is the change in <span class="math notranslate nohighlight">\(x_{i}\)</span>.</p>
+<p>Equation. <a class="reference internal" href="#equation-eqn-total-differential-ic">(7)</a> is a powerful equation that we will use to derive the <a class="reference external" href="https://en.wikipedia.org/wiki/Marginal_rate_of_substitution">marginal rate of substitution</a>, which is how much of one thing we would willingly give up for another. Further, in the context of a trade between agents, Eqn. <a class="reference internal" href="#equation-eqn-total-differential-ic">(7)</a> can be used to evaluate the goodness of the trade, i.e., the change in the utility of the decision-maker experiences resulting from a trade:</p>
 <ul class="simple">
 <li><p>If a trade is a <code class="docutils literal notranslate"><span class="pre">good</span> <span class="pre">trade</span></code> the change in utility should always be non-negative, i.e., <span class="math notranslate nohighlight">\(dU\geq{0}\)</span>.</p></li>
 <li><p>If a trade is a <code class="docutils literal notranslate"><span class="pre">bad</span> <span class="pre">trade</span></code> the change in utility is always negative, i.e., <span class="math notranslate nohighlight">\(dU&lt;{0}\)</span>.</p></li>
@@ -872,19 +873,19 @@ document.write(`
 <div class="literal-block-wrapper docutils container" id="id9">
 <div class="code-block-caption"><span class="caption-number">Listing 5 </span><span class="caption-text">Marginal utility of the Cobb-Douglas utility function</span><a class="headerlink" href="#id9" title="Permalink to this code">#</a></div>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c"># load the Symbolics.jl package (assumed to be installed)</span>
-<span class="linenos"> 2</span><span class="k">using</span> <span class="n">Symbolics</span>
+<span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="n">Symbolics</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="c"># declare variables (symbols in the eqn)</span>
-<span class="linenos"> 5</span><span class="nd">@variables</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">α</span><span class="p">,</span><span class="n">β</span>
+<span class="linenos"> 5</span><span class="nd">@variables</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">α</span><span class="p">,</span><span class="n">β</span>
 <span class="linenos"> 6</span>
 <span class="linenos"> 7</span><span class="c"># Build differential operators for x</span>
-<span class="linenos"> 8</span><span class="n">Dₓ</span> <span class="o">=</span> <span class="n">Differential</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="linenos"> 8</span><span class="n">Dₓ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Differential</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="linenos"> 9</span>
 <span class="linenos">10</span><span class="c"># define the utility function</span>
-<span class="linenos">11</span><span class="n">U</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="n">α</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">^</span><span class="n">β</span><span class="p">)</span>
+<span class="linenos">11</span><span class="n">U</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="n">α</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">^</span><span class="n">β</span><span class="p">)</span>
 <span class="linenos">12</span>
 <span class="linenos">13</span><span class="c"># compute the derivative -</span>
-<span class="linenos">14</span><span class="n">∂Uₓ</span> <span class="o">=</span> <span class="n">Dₓ</span><span class="p">(</span><span class="n">U</span><span class="p">)</span> <span class="o">|&gt;</span> <span class="n">expand_derivatives</span><span class="p">;</span>
+<span class="linenos">14</span><span class="n">∂Uₓ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Dₓ</span><span class="p">(</span><span class="n">U</span><span class="p">)</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="n">expand_derivatives</span><span class="p">;</span>
 <span class="linenos">15</span>
 <span class="linenos">16</span><span class="c"># print -</span>
 <span class="linenos">17</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;The value of ∂U/∂x = &quot;</span><span class="p">,</span><span class="n">∂Uₓ</span><span class="p">)</span>
@@ -899,22 +900,22 @@ document.write(`
 <div class="literal-block-wrapper docutils container" id="id10">
 <div class="code-block-caption"><span class="caption-number">Listing 6 </span><span class="caption-text">Numerical marginal utility of the Cobb-Douglas utility function</span><a class="headerlink" href="#id10" title="Permalink to this code">#</a></div>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c"># load the ForwardDiff package</span>
-<span class="linenos"> 2</span><span class="k">using</span> <span class="n">ForwardDiff</span>
+<span class="linenos"> 2</span><span class="k">using</span><span class="w"> </span><span class="n">ForwardDiff</span>
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="c"># Cobb-Douglas utility function</span>
-<span class="linenos"> 5</span><span class="k">function</span> <span class="n">U</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos"> 5</span><span class="k">function</span><span class="w"> </span><span class="n">U</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="linenos"> 6</span>
-<span class="linenos"> 7</span>    <span class="c"># initialize</span>
-<span class="linenos"> 8</span>    <span class="n">α₁</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
-<span class="linenos"> 9</span>    <span class="n">α₂</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">α₁</span>
-<span class="linenos">10</span>    
-<span class="linenos">11</span>    <span class="c"># return</span>
-<span class="linenos">12</span>    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="n">α₁</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="n">α₂</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="c"># initialize</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="n">α₁</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="p">;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="n">α₂</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">α₁</span>
+<span class="linenos">10</span><span class="w">    </span>
+<span class="linenos">11</span><span class="w">    </span><span class="c"># return</span>
+<span class="linenos">12</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="n">α₁</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="n">α₂</span><span class="p">)</span>
 <span class="linenos">13</span><span class="k">end</span>
 <span class="linenos">14</span>
 <span class="linenos">15</span><span class="c"># Estimate the MU -</span>
-<span class="linenos">16</span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mf">20.0</span><span class="p">,</span><span class="mf">7.20</span><span class="p">];</span> <span class="c"># point A </span>
-<span class="linenos">17</span><span class="n">U</span> <span class="o">=</span> <span class="n">ForwardDiff</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
+<span class="linenos">16</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">20.0</span><span class="p">,</span><span class="mf">7.20</span><span class="p">];</span><span class="w"> </span><span class="c"># point A </span>
+<span class="linenos">17</span><span class="n">U</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ForwardDiff</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -1002,7 +1003,7 @@ Let the decision maker have actions $\mathcal{A}$, observations $\mathcal{O}$ an
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Indifference Curves and Trades</p>
+        <p class="prev-next-title">Marginal Utility, Indifference and Trades</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
