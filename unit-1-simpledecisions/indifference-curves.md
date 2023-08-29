@@ -76,7 +76,7 @@ x_{i} \simeq x^{\star}_{i} - \frac{\bar{U}_{x_{i}}}{\bar{U}_{x_{j}}}\left(x_{j} 
 
 (content:references:marginal-rate-of-sub)=
 ## Marginal Rate of Substitution
-The marginal rate of substitution describes the rate at which a consumer is willing to trade one good (or feature) for another. We can derive the marginal rate of substitution from the local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects. For some utility function $U:X\rightarrow\mathbb{R}$, the marginal rate of substitution between any two goods (or features) $x_{i}$ and $x_{j}$ along the indifference curve, i.e., a curve where `dU = 0`, is given by:
+The marginal rate of substitution describes the rate at which a consumer is willing to trade one good (or feature) for another. We can derive the marginal rate of substitution from the local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects. For utility function $U:X\rightarrow\mathbb{R}$, the marginal rate of substitution between any two goods (or features) $x_{i}$ and $x_{j}$ along the indifference curve, i.e., a curve where `dU = 0`, is given by:
 
 ```{math}
 \bar{U}_{x_{i}}\,dx_{i} = -\bar{U}_{x_{j}}\,dx_{j}\qquad{\forall{i\neq{j}}}
