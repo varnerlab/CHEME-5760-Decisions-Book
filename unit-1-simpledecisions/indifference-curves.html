@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Indifference Curves and Trades &#8212; CHEME 5760</title>
+    <title>Marginal Utility, Indifference and Trades &#8212; CHEME 5760</title>
   
   
   
@@ -171,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="simpledecisions-landing.html">Unit 1. Simple Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="utilityfunctions.html">Utility Functions and Choices</a></li>
 
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Indifference Curves and Trades</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Marginal Utility, Indifference and Trades</a></li>
 <li class="toctree-l2"><a class="reference internal" href="utlitymaximization.html">Maximizing Utility</a></li>
 
 </ul>
@@ -401,7 +401,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Indifference Curves and Trades</h1>
+    <h1>Marginal Utility, Indifference and Trades</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -412,21 +412,15 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-perfect-substitutes">Indifference curves for perfect substitutes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-marginal-rate-of-substitution">Derivation of Marginal Rate of Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-calculation-of-indifference">Global calculation of indifference</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-perfect-complements">Indifference curves for perfect complements</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Derivation of Marginal Rate of Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-approximation-of-indifference">Local approximation of indifference</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-cobb-douglas-utility-functions">Indifference curves for Cobb-Douglas utility functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Derivation of Marginal Rate of Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Implementation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-rate-of-substitution">Marginal Rate of Substitution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
@@ -439,109 +433,86 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="indifference-curves-and-trades">
-<span id="content-references-indifference-curves-and-trades"></span><h1>Indifference Curves and Trades<a class="headerlink" href="#indifference-curves-and-trades" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="marginal-utility-indifference-and-trades">
+<span id="content-references-indifference-curves-and-trades"></span><h1>Marginal Utility, Indifference and Trades<a class="headerlink" href="#marginal-utility-indifference-and-trades" title="Permalink to this heading">#</a></h1>
 <aside class="topic">
 <p class="topic-title">Outline</p>
-<p>In this lecture, we introduce indifference curves for some common utility functions and discuss the properties of indifference curves, particularly the marginal rate of substitution of each type of utility function.</p>
+<p>In this lecture, we will introduce two new concepts, indifference curves and the marginal rate of substitution.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#content-references-indifference-curves-perfect-sub"><span class="std std-ref">Indifference curves for perfect substitutes</span></a> are linear where a consumer is willing to trade one good for another at a fixed ratio, i.e., the marginal rate of substitution is constant.</p></li>
-<li><p><a class="reference internal" href="#content-references-indifference-curves-perfect-complement"><span class="std std-ref">Indifference curves for perfect complements</span></a> are L-shaped where a consumer is willing to either zero or infinite units of one good for a unit of another good, i.e., the marginal rate of substitution is either zero or infinite.</p></li>
-<li><p><a class="reference internal" href="#content-references-indifference-curves-cobb-douglas"><span class="std std-ref">Indifference curves for Cobb-Douglas utility functions</span></a> are convex, where a consumer is willing to trade one good for another at a varying ratio, i.e., the marginal rate of substitution is not constant and varies with the amount of each good consumed.</p></li>
+<li><p><a class="reference internal" href="#content-references-indifference-curves"><span class="std std-ref">Indifference curves</span></a> are combinations of choices or fearures that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of possible choices (or features).</p></li>
+<li><p><a class="reference internal" href="#content-references-marginal-rate-of-sub"><span class="std std-ref">The marginal rate of substitution</span></a> is the rate at which a consumer is willing to trade one good for another and remain equally satisfied, i.e., the decision-maker is indifferent between the two choices. The marginal rate of substitution is derived from a local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects.</p></li>
 </ul>
 </aside>
 <hr class="docutils" />
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>Indifference curves are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">iso-happiness</span></code> curve in the space of choices. They are a key tool in consumer theory, and are used to model the preferences of consumers.</p>
-</section>
-<section id="indifference-curves-for-perfect-substitutes">
-<span id="content-references-indifference-curves-perfect-sub"></span><h2>Indifference curves for perfect substitutes<a class="headerlink" href="#indifference-curves-for-perfect-substitutes" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://en.wikipedia.org/wiki/Substitute_good">Perfect substitutes</a> are goods that can be used interchangeably. In a collection of perfect substitutes, the utility function is linear, creating constant slope indifference curves. This means a decision-maker is willing to switch between goods at a fixed ratio, and the marginal rate of substitution between perfect substitutes is constant.</p>
-<div class="admonition-examples-of-perfect-substitutes admonition">
-<p class="admonition-title">Examples of perfect substitutes</p>
-<ul class="simple">
-<li><p>Goods that are very similar from different providers, such as hard drives, memory chips, pens, pencils, etc.</p></li>
-<li><p>Electricity from different power plants, which cannot be differentiated by the user</p></li>
-<li><p>One dollar bill can be replaced perfectly by another dollar bill</p></li>
-</ul>
+<p>The rational choice theory posits that individuals make choices to maximize their utility. To determine how individuals make choices, we must understand how they value different options. We previously introduced utility functions, which assign a numerical value, called <code class="docutils literal notranslate"><span class="pre">utility</span></code>, to each possible choice or outcome based on how much the individual values it. Additionally, we introduced the concept of <a class="reference internal" href="utilityfunctions.html#content-references-marginal-utility"><span class="std std-ref">marginal utility</span></a>, which is the change in utility resulting from a change in the consumption of a good or service or the change in a feature variable associated with a good or service.</p>
+<p>In this lecture, we will introduce the concept of indifference curves, which are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of choices. Indifference curves are a key tool in consumer theory, and are used to model the preferences of consumers.</p>
+<div class="admonition-key-idea-indifference admonition">
+<p class="admonition-title">Key Idea: Indifference</p>
+<p>An indifference curve is a curve in the space of choices that represents a set of choices that provide the same level of utility to the decision-maker, i.e., <span class="math notranslate nohighlight">\(dU=0\)</span>. Decision-makers are indifferent between any choices that lie on the same indifference curve.</p>
 </div>
-<section id="derivation-of-marginal-rate-of-substitution">
-<h3>Derivation of Marginal Rate of Substitution<a class="headerlink" href="#derivation-of-marginal-rate-of-substitution" title="Permalink to this heading">#</a></h3>
-<p>Let’s consider a collection of <span class="math notranslate nohighlight">\(n\)</span> goods or services which are perfect substitutes that is governed by the linear utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-linear-utility">
-<span class="eqno">(11)<a class="headerlink" href="#equation-eqn-linear-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots,x_{n}) = \sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{x_{i}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\equiv\alpha_{i}\)</span> is the marginal utility of <span class="math notranslate nohighlight">\(U(\dots)\)</span> with respect to good <span class="math notranslate nohighlight">\(x_{i}\)</span>. Expanding the utility function around an operating point <span class="math notranslate nohighlight">\(x^{\star}_{1},\dots,x^{\star}_{n}\)</span> yields:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-total-differential-linear-utility">
-<span class="eqno">(12)<a class="headerlink" href="#equation-eqn-total-differential-linear-utility" title="Permalink to this equation">#</a></span>\[dU = \sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{dx_{i}}\]</div>
-<p>However, along a line of constant utility, i.e., an indifference curve, the change in utility is zero:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-total-differential-linear-utility-zero">
-<span class="eqno">(13)<a class="headerlink" href="#equation-eqn-total-differential-linear-utility-zero" title="Permalink to this equation">#</a></span>\[\sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{dx_{i}} = 0\]</div>
-<p>Thus, the marginal rate of substitution between any two substitutable goods <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(x_{j}\)</span> along the indifference curve is given by:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-marginal-rate-substitution-linear-utility">
-<span class="eqno">(14)<a class="headerlink" href="#equation-eqn-marginal-rate-substitution-linear-utility" title="Permalink to this equation">#</a></span>\[\alpha_{i}dx_{i} = -\alpha_{j}dx_{j}\qquad{\forall{i\neq{j}}}\]</div>
-<p>or equivalently:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-marginal-rate-substitution-linear-utility-2">
-<span class="eqno">(15)<a class="headerlink" href="#equation-eqn-marginal-rate-substitution-linear-utility-2" title="Permalink to this equation">#</a></span>\[\frac{dx_{i}}{dx_{j}} = -\frac{\alpha_{j}}{\alpha_{i}}\qquad{\forall{i\neq{j}}}\]</div>
 </section>
+<section id="indifference-curves">
+<span id="content-references-indifference-curves"></span><h2>Indifference curves<a class="headerlink" href="#indifference-curves" title="Permalink to this heading">#</a></h2>
+<p>If a decision-maker is indifferent between any two choices that provide the same level of utility, then we can plot the set of all choices that provide the same level of utility. This set of choices is called an indifference curve. Let the decision maker’s utility function be <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. Then, the indifference curve is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-indifference-curve">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eqn-indifference-curve" title="Permalink to this equation">#</a></span>\[U(x^{\star}_{1},\dots,x^{\star}_{m}) - U^{\star} = 0\]</div>
+<p>where <span class="math notranslate nohighlight">\(U^{\star}\)</span> is the level of utility provided by the set of choices on the indifference curve, and <span class="math notranslate nohighlight">\(x^{\star}_{1},\dots,x^{\star}_{m}\)</span> are the choices that provide the level of utility <span class="math notranslate nohighlight">\(U_{\star}\)</span>.</p>
+<div class="admonition-key-idea-indifference-curves admonition">
+<p class="admonition-title">Key Idea: Indifference curves</p>
+<p>Indifference curves are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of choices.</p>
+</div>
+<p>The challenge that we have is to solve for the set of choices that provide the same level of utility. This is difficult because the utility functions are not necessarily linear. Thus, often we cannot simply solve for the set of choices that provide the same level of utility by setting the utility function equal to a constant.</p>
+<section id="global-calculation-of-indifference">
+<h3>Global calculation of indifference<a class="headerlink" href="#global-calculation-of-indifference" title="Permalink to this heading">#</a></h3>
+<p>We can recast the calculation of the set of choice (or feartures) that provide the same level of utility as an optimization problem. We can solve for the set of choices that provide the same level of utility by minimizing the objective function:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\min_{x}\,\Bigl(U(x^{\star}_{1},\dots,x^{\star}_{m}) - U^{\star}\Bigr)^{2}
+\end{equation}
+\]</div>
+<p>subject to bounds on the choice variables <span class="math notranslate nohighlight">\(x_{i}\)</span>, i.e., <span class="math notranslate nohighlight">\(x_{i}\in{[x_{i,\min},x_{i,\max}]}\)</span>. This optimization problem is a non-linear least-squares problem, and can be solved using a variety of numerical methods.</p>
 <section id="implementation">
-<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h3>
-<p>Fill me in.</p>
-</section>
-</section>
-<section id="indifference-curves-for-perfect-complements">
-<span id="content-references-indifference-curves-perfect-complement"></span><h2>Indifference curves for perfect complements<a class="headerlink" href="#indifference-curves-for-perfect-complements" title="Permalink to this heading">#</a></h2>
-<p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Complementary_good">perfect complement</a> is a good or service that must be consumed along with another good. Such preferences can be represented by a <a class="reference external" href="https://en.wikipedia.org/wiki/Leontief_utilities">Leontief utility function</a> of the form:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-leontief-utility">
-<span class="eqno">(16)<a class="headerlink" href="#equation-eqn-leontief-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots,x_{n}) = \min\left\{\frac{x_{1}}{w_{1}},\dots,\frac{x_{n}}{w_{n}}\right\}\]</div>
-<p>where <span class="math notranslate nohighlight">\(w_{i}~(\text{for}~i\in{1\dots{n}})\)</span> is the weight of good <span class="math notranslate nohighlight">\(x_{i}\)</span> in the utility function, <span class="math notranslate nohighlight">\(x_{i}~(\text{for}~i\in{1\dots{n}})\)</span> is the quantity of good or service <span class="math notranslate nohighlight">\(x_{i}\)</span> consumed, and <span class="math notranslate nohighlight">\(n\)</span> is the number of goods in the collection. If two goods are <a class="reference external" href="https://en.wikipedia.org/wiki/Complementary_good">perfect complements</a>, then the indifference curves will be L-shaped.</p>
-<div class="admonition-example-of-perfect-complements admonition">
-<p class="admonition-title">Example of perfect complements</p>
-<ul class="simple">
-<li><p>Suppose <span class="math notranslate nohighlight">\(x_{1}\)</span> is the number of left shoes and <span class="math notranslate nohighlight">\(x_{2}\)</span> is the number of right shoes. A consumer can only use pairs of shoes. Thus, their utility is <span class="math notranslate nohighlight">\(U(x_{1},x_{2}) = \min\left\{x_{1},x_{2}\right\}\)</span>.</p></li>
-</ul>
+<h4>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/varnerlab/VLDecisionsPackage.jl">VLDecisionsPackage.jl</a> implements a calculation of the indifference curve for a two-choice problem in the <code class="docutils literal notranslate"><span class="pre">indifference(...)</span></code> method for various utility functions. The calling syntax is similar for each utility function:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">indifference</span><span class="p">(</span><span class="n">model</span><span class="o">::</span><span class="kt">VLCobbDouglasUtilityFunction</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">utility</span><span class="o">::</span><span class="kt">Float64</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">bounds</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="w"> </span><span class="n">ϵ</span><span class="o">::</span><span class="kt">Float64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.01</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Real</span>
+</pre></div>
 </div>
-<section id="id1">
-<h3>Derivation of Marginal Rate of Substitution<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
-<p>Fill me in.</p>
-</section>
-<section id="id2">
-<h3>Implementation<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
-<p>Fill me in.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">model</span></code> argument is an instance of a utility function model, e.g., a Cobb-Douglas model, <code class="docutils literal notranslate"><span class="pre">utility</span></code> is the level of utility provided by the indifference curve, <code class="docutils literal notranslate"><span class="pre">bounds</span></code> is an <code class="docutils literal notranslate"><span class="pre">Array{Number,2}</span></code> that describes the bounds of the features, where the features are on the rows, the first column is the lower bound, and the second column is the upper bound. Finally, the <code class="docutils literal notranslate"><span class="pre">ϵ</span></code> is parameter controls step size of the search. The <code class="docutils literal notranslate"><span class="pre">indifference(...)</span></code> method returns an array that contains the solution to the optimization problem, i.e., the values for <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span> that provide the level of utility <code class="docutils literal notranslate"><span class="pre">utility</span></code>.</p>
 </section>
 </section>
-<section id="indifference-curves-for-cobb-douglas-utility-functions">
-<span id="content-references-indifference-curves-cobb-douglas"></span><h2>Indifference curves for Cobb-Douglas utility functions<a class="headerlink" href="#indifference-curves-for-cobb-douglas-utility-functions" title="Permalink to this heading">#</a></h2>
-<p>The Cobb–Douglas function is a <a class="reference external" href="https://en.wikipedia.org/wiki/Utility">utility function</a> over a collection of <span class="math notranslate nohighlight">\(n\)</span> goods or services that takes the form:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-cobb-douglas-utility">
-<span class="eqno">(17)<a class="headerlink" href="#equation-eqn-cobb-douglas-utility" title="Permalink to this equation">#</a></span>\[U(x_{1},\dots,x_{n}) = \prod_{i\in{1\dots{n}}}x_{i}^{\alpha_{i}}\]</div>
-<p>where the exponents <span class="math notranslate nohighlight">\(\alpha_{i}\)</span>, also known as the elasticities, are constrained to sum to one:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-cobb-douglas-utility-constraint">
-<span class="eqno">(18)<a class="headerlink" href="#equation-eqn-cobb-douglas-utility-constraint" title="Permalink to this equation">#</a></span>\[\sum_{i\in{1\dots{n}}}\alpha_{i} = 1\]</div>
-<div class="admonition-cobb-douglas-utility-functions admonition">
-<p class="admonition-title">Cobb-Douglas utility functions</p>
-<ul class="simple">
-<li><p>A consumer with Cobb-Douglas preferences will always buy some of each good or service in the collection.</p></li>
-<li><p>The marginal rate of substitution between any two goods or services <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(x_{j}\)</span> that are governed by the Cobb-Douglas utility is equal to the ratio of prices.</p></li>
-</ul>
-</div>
-<section id="id3">
-<h3>Derivation of Marginal Rate of Substitution<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Cobb%E2%80%93Douglas_production_function">Cobb–Douglas utility function</a> has the marginal utility:</p>
+<section id="local-approximation-of-indifference">
+<h3>Local approximation of indifference<a class="headerlink" href="#local-approximation-of-indifference" title="Permalink to this heading">#</a></h3>
+<p>Instead, of solving for the global indifference set, we can use a local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. For some utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>, the local expansion of the utility function around <span class="math notranslate nohighlight">\(x^{\star}\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[dU = \sum_{i\in{1\dots{m}}}\bar{U}_{x_{i}}\cdot{dx_{i}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(dU\approx\left(U - U_{\star}\right)\)</span> denotes the change in utility, <span class="math notranslate nohighlight">\(\bar{U}_{x_{i}}\)</span> denotes the marginal utility of <span class="math notranslate nohighlight">\(x_{i}\)</span> evaluated at the starting point, and <span class="math notranslate nohighlight">\(dx_{i}\approx(x_{i}-x_{i,\star})\)</span> is the change in <span class="math notranslate nohighlight">\(x_{i}\)</span>. However, in the local area around <span class="math notranslate nohighlight">\(x^{\star}\)</span>, the indifference curve has the condition <span class="math notranslate nohighlight">\(dU = 0\)</span> which gives:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-indifference-curve-local">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eqn-indifference-curve-local" title="Permalink to this equation">#</a></span>\[\sum_{i\in{1\dots{m}}}\bar{U}_{x_{i}}\cdot{dx_{i}} = 0\]</div>
+<p>which we can rearrange to get for any <span class="math notranslate nohighlight">\(i-j\)</span> pair (all else held constant):</p>
+<div class="math notranslate nohighlight" id="equation-eqn-indifference-curve-local-pair">
+<span class="eqno">(13)<a class="headerlink" href="#equation-eqn-indifference-curve-local-pair" title="Permalink to this equation">#</a></span>\[x_{i} \simeq x^{\star}_{i} - \frac{\bar{U}_{x_{i}}}{\bar{U}_{x_{j}}}\left(x_{j} - x^{\star}_{j}\right)\qquad{\forall{i\neq{j}}}\]</div>
 </section>
-<section id="id4">
-<h3>Implementation<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
-<p>Fill me in.</p>
 </section>
+<section id="marginal-rate-of-substitution">
+<span id="content-references-marginal-rate-of-sub"></span><h2>Marginal Rate of Substitution<a class="headerlink" href="#marginal-rate-of-substitution" title="Permalink to this heading">#</a></h2>
+<p>The marginal rate of substitution describes the rate at which a consumer is willing to trade one good (or feature) for another. We can derive the marginal rate of substitution from the local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. For utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>, the marginal rate of substitution between any two goods (or features) <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(x_{j}\)</span> along the indifference curve, i.e., a curve where <code class="docutils literal notranslate"><span class="pre">dU</span> <span class="pre">=</span> <span class="pre">0</span></code>, is given by:</p>
+<div class="math notranslate nohighlight">
+\[\bar{U}_{x_{i}}\,dx_{i} = -\bar{U}_{x_{j}}\,dx_{j}\qquad{\forall{i\neq{j}}}\]</div>
+<p>or equivalently:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dx_{i}}{dx_{j}} = -\frac{\bar{U}_{x_{j}}}{\bar{U}_{x_{i}}}\qquad{\forall{i\neq{j}}}\]</div>
 </section>
 <hr class="docutils" />
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
-<p>In this lecture, we introduced indifference curves for some common utility functions and discussed the properties of indifference curves, particularly the marginal rate of substitution of each type of utility function.</p>
+<p>In this lecture, we introduced two new concepts, indifference curves and the marginal rate of substitution.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#content-references-indifference-curves-perfect-sub"><span class="std std-ref">Indifference curves for perfect substitutes</span></a> are linear where a consumer is willing to trade one good for another at a fixed ratio, i.e., the marginal rate of substitution is constant.</p></li>
-<li><p><a class="reference internal" href="#content-references-indifference-curves-perfect-complement"><span class="std std-ref">Indifference curves for perfect complements</span></a> are L-shaped where a consumer is willing to either zero or infinite units of one good for a unit of another good, i.e., the marginal rate of substitution is either zero or infinite.</p></li>
-<li><p><a class="reference internal" href="#content-references-indifference-curves-cobb-douglas"><span class="std std-ref">Indifference curves for Cobb-Douglas utility functions</span></a> are convex, where a consumer is willing to trade one good for another at a varying ratio, i.e., the marginal rate of substitution is not constant and varies with the amount of each good consumed.</p></li>
+<li><p><a class="reference internal" href="#content-references-indifference-curves"><span class="std std-ref">Indifference curves</span></a> are combinations of choices or fearures that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of possible choices (or features).</p></li>
+<li><p><a class="reference internal" href="#content-references-marginal-rate-of-sub"><span class="std std-ref">The marginal rate of substitution</span></a> is the rate at which a consumer is willing to trade one good for another and remain equally satisfied, i.e., the decision-maker is indifferent between the two choices. The marginal rate of substitution is derived from a local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects.</p></li>
 </ul>
 </section>
 </section>
@@ -614,21 +585,15 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-perfect-substitutes">Indifference curves for perfect substitutes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivation-of-marginal-rate-of-substitution">Derivation of Marginal Rate of Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-calculation-of-indifference">Global calculation of indifference</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-perfect-complements">Indifference curves for perfect complements</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Derivation of Marginal Rate of Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Implementation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-approximation-of-indifference">Local approximation of indifference</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves-for-cobb-douglas-utility-functions">Indifference curves for Cobb-Douglas utility functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Derivation of Marginal Rate of Substitution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Implementation</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-rate-of-substitution">Marginal Rate of Substitution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>

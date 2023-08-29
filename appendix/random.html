@@ -171,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Simple Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Choices</a></li>
 
-<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/indifference-curves.html">Indifference Curves and Trades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/indifference-curves.html">Marginal Utility, Indifference and Trades</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unit-1-simpledecisions/utlitymaximization.html">Maximizing Utility</a></li>
 
 </ul>
@@ -648,37 +648,37 @@ outcome (<a class="reference internal" href="#defn-pmf-bernouli">Definition 18</
 </section>
 </div><p>Bernoulli random variables, named after the Swiss mathematician <a class="reference external" href="https://en.wikipedia.org/wiki/Jacob_Bernoulli">Jacob Bernoulli</a>, have two states: either <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>. The probability of getting <code class="docutils literal notranslate"><span class="pre">1</span></code> is <span class="math notranslate nohighlight">\(p\)</span>, while the likelihood of getting a value of <code class="docutils literal notranslate"><span class="pre">0</span></code> is <span class="math notranslate nohighlight">\(1 − p\)</span>. Bernoulli random variables model many binary events: coin flips (H or T), binary bits (1 or 0), true or false, yes or no, present or absent, etc.</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># load the distributions package, and some other stuff</span>
-<span class="k">using</span> <span class="n">Distributions</span>
-<span class="k">using</span> <span class="n">Statistics</span>
-<span class="k">using</span> <span class="n">PrettyTables</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Distributions</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Statistics</span>
+<span class="k">using</span><span class="w"> </span><span class="n">PrettyTables</span>
 
 <span class="c"># Details of Bernoulli distribution: </span>
 <span class="c"># https://juliastats.org/Distributions.jl/stable/univariate/#Discrete-Distributions</span>
 
 <span class="c"># setup constants -</span>
-<span class="n">p</span> <span class="o">=</span> <span class="mf">0.64</span><span class="p">;</span>
-<span class="n">number_of_samples</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.64</span><span class="p">;</span>
+<span class="n">number_of_samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 
 <span class="c"># build a Bernoulli distribution</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">Bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 
 <span class="c"># sample (check expectation, and variance)</span>
-<span class="n">samples</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">number_of_samples</span><span class="p">);</span>
+<span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">number_of_samples</span><span class="p">);</span>
 
 <span class="c"># build a table -</span>
-<span class="n">data_for_table</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">2</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">table_header</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;E(X)&quot;</span><span class="p">,</span> <span class="s">&quot;Var(X)&quot;</span><span class="p">]</span>
+<span class="n">data_for_table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">2</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="n">table_header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;E(X)&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Var(X)&quot;</span><span class="p">]</span>
 
 <span class="c"># row 1: model</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;model&quot;</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;model&quot;</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
 
 <span class="c"># row 2: samples</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;samples&quot;</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
-<span class="n">pretty_table</span><span class="p">(</span><span class="n">data_for_table</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">table_header</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;samples&quot;</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
+<span class="n">pretty_table</span><span class="p">(</span><span class="n">data_for_table</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="n">table_header</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -703,38 +703,38 @@ of a successful trial and:</p>
 \[\text{Var}\left[X\right] = np(1-p)\]</div>
 </section>
 </div><div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># load the distributions package, and some other stuff</span>
-<span class="k">using</span> <span class="n">Distributions</span>
-<span class="k">using</span> <span class="n">Statistics</span>
-<span class="k">using</span> <span class="n">PrettyTables</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Distributions</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Statistics</span>
+<span class="k">using</span><span class="w"> </span><span class="n">PrettyTables</span>
 
 <span class="c"># Details of Binomial distribution: </span>
 <span class="c"># https://juliastats.org/Distributions.jl/stable/univariate/#Distributions.Binomial</span>
 
 <span class="c"># setup constants -</span>
-<span class="n">number_of_trials</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-<span class="n">p</span> <span class="o">=</span> <span class="mf">0.64</span><span class="p">;</span>
-<span class="n">number_of_samples</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="n">number_of_trials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.64</span><span class="p">;</span>
+<span class="n">number_of_samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 
 <span class="c"># build a Bernoulli distribution</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">Binomial</span><span class="p">(</span><span class="n">number_of_trials</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Binomial</span><span class="p">(</span><span class="n">number_of_trials</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
 
 <span class="c"># sample (check expectation, and variance)</span>
-<span class="n">samples</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">number_of_samples</span><span class="p">);</span>
+<span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">number_of_samples</span><span class="p">);</span>
 
 <span class="c"># build a table -</span>
-<span class="n">data_for_table</span> <span class="o">=</span> <span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">2</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">table_header</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;E(X)&quot;</span><span class="p">,</span> <span class="s">&quot;Var(X)&quot;</span><span class="p">]</span>
+<span class="n">data_for_table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">2</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="n">table_header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;E(X)&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Var(X)&quot;</span><span class="p">]</span>
 
 <span class="c"># row 1: model</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;model&quot;</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;model&quot;</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
 
 <span class="c"># row 2: samples</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;samples&quot;</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
-<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
-<span class="n">pretty_table</span><span class="p">(</span><span class="n">data_for_table</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">table_header</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;samples&quot;</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
+<span class="n">pretty_table</span><span class="p">(</span><span class="n">data_for_table</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="n">table_header</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -786,7 +786,7 @@ of a successful trial and:</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> denote a discrete random variable with the probability space <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}, P\right)\)</span>, where <span class="math notranslate nohighlight">\(\Omega\)</span> denotes the sample space, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> denotes the event space, and <span class="math notranslate nohighlight">\(P\)</span> denotes the probability measure. Then, the expected value of the random variable <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-expectation">
-<span class="eqno">(52)<a class="headerlink" href="#equation-eqn-expectation" title="Permalink to this equation">#</a></span>\[\mathbb{E}\left[X\right] = \sum_{x\in\Omega}xp_{X}(x)\]</div>
+<span class="eqno">(47)<a class="headerlink" href="#equation-eqn-expectation" title="Permalink to this equation">#</a></span>\[\mathbb{E}\left[X\right] = \sum_{x\in\Omega}xp_{X}(x)\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> denotes a value for the discrete random variable <span class="math notranslate nohighlight">\(X\)</span>, and <span class="math notranslate nohighlight">\(p_{X}(x)\)</span> denotes the probability of <span class="math notranslate nohighlight">\(X=x\)</span>. The value of <span class="math notranslate nohighlight">\(p_{X}(x)\)</span> is governed by a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">Probability Mass Function (PMF)</a>.</p>
 </section>
 </div><p>The expectation of a discrete random variable has a few interesting properties (<a class="reference internal" href="#obs-expectation-props">Observation 1</a>):</p>
@@ -812,7 +812,7 @@ individual values of a random variable <span class="math notranslate nohighlight
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> denote a discrete random variable with the probability space <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span>, where <span class="math notranslate nohighlight">\(\Omega\)</span> denotes the sample space, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> denotes the event space, and <span class="math notranslate nohighlight">\(P\)</span> denotes the probability measure. Then, the variance of the random variable <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-variance">
-<span class="eqno">(53)<a class="headerlink" href="#equation-eqn-variance" title="Permalink to this equation">#</a></span>\[\text{Var}(X) = \mathbb{E}\Bigl[(X-\mu)^{2}\Bigr]\]</div>
+<span class="eqno">(48)<a class="headerlink" href="#equation-eqn-variance" title="Permalink to this equation">#</a></span>\[\text{Var}(X) = \mathbb{E}\Bigl[(X-\mu)^{2}\Bigr]\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mu = \mathbb{E}(X)\)</span> denotes the expected value of the random variable <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </section>
 </div><p>The variance of a discrete random variable has a few interesting properties (<a class="reference internal" href="#obs-variances-var">Observation 2</a>):</p>

@@ -1,132 +1,107 @@
 (content:references:indifference-curves-and-trades)=
-# Indifference Curves and Trades
+# Marginal Utility, Indifference and Trades
 
 
 ```{topic} Outline
-In this lecture, we introduce indifference curves for some common utility functions and discuss the properties of indifference curves, particularly the marginal rate of substitution of each type of utility function. 
+In this lecture, we will introduce two new concepts, indifference curves and the marginal rate of substitution.
 
-* [Indifference curves for perfect substitutes](content:references:indifference-curves-perfect-sub) are linear where a consumer is willing to trade one good for another at a fixed ratio, i.e., the marginal rate of substitution is constant.
+* [Indifference curves](content:references:indifference-curves) are combinations of choices or fearures that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `isohappiness` curve in the space of possible choices (or features). 
 
-* [Indifference curves for perfect complements](content:references:indifference-curves-perfect-complement) are L-shaped where a consumer is willing to either zero or infinite units of one good for a unit of another good, i.e., the marginal rate of substitution is either zero or infinite.
-
-* [Indifference curves for Cobb-Douglas utility functions](content:references:indifference-curves-cobb-douglas) are convex, where a consumer is willing to trade one good for another at a varying ratio, i.e., the marginal rate of substitution is not constant and varies with the amount of each good consumed.
+* [The marginal rate of substitution](content:references:marginal-rate-of-sub) is the rate at which a consumer is willing to trade one good for another and remain equally satisfied, i.e., the decision-maker is indifferent between the two choices. The marginal rate of substitution is derived from a local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects.
 ```
 
 ---
 
-
 ## Introduction
-Indifference curves are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `iso-happiness` curve in the space of choices. They are a key tool in consumer theory, and are used to model the preferences of consumers.
+The rational choice theory posits that individuals make choices to maximize their utility. To determine how individuals make choices, we must understand how they value different options. We previously introduced utility functions, which assign a numerical value, called `utility`, to each possible choice or outcome based on how much the individual values it. Additionally, we introduced the concept of [marginal utility](content:references:marginal-utility), which is the change in utility resulting from a change in the consumption of a good or service or the change in a feature variable associated with a good or service.
 
+In this lecture, we will introduce the concept of indifference curves, which are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `isohappiness` curve in the space of choices. Indifference curves are a key tool in consumer theory, and are used to model the preferences of consumers. 
 
-
-
-(content:references:indifference-curves-perfect-sub)=
-## Indifference curves for perfect substitutes
-[Perfect substitutes](https://en.wikipedia.org/wiki/Substitute_good) are goods that can be used interchangeably. In a collection of perfect substitutes, the utility function is linear, creating constant slope indifference curves. This means a decision-maker is willing to switch between goods at a fixed ratio, and the marginal rate of substitution between perfect substitutes is constant.
-
-```{admonition} Examples of perfect substitutes
-* Goods that are very similar from different providers, such as hard drives, memory chips, pens, pencils, etc.
-* Electricity from different power plants, which cannot be differentiated by the user
-* One dollar bill can be replaced perfectly by another dollar bill
+```{admonition} Key Idea: Indifference
+An indifference curve is a curve in the space of choices that represents a set of choices that provide the same level of utility to the decision-maker, i.e., $dU=0$. Decision-makers are indifferent between any choices that lie on the same indifference curve.
 ```
 
-### Derivation of Marginal Rate of Substitution
-Let’s consider a collection of $n$ goods or services which are perfect substitutes that is governed by the linear utility function $U:X\rightarrow\mathbb{R}$:
+(content:references:indifference-curves)=
+## Indifference curves
+If a decision-maker is indifferent between any two choices that provide the same level of utility, then we can plot the set of all choices that provide the same level of utility. This set of choices is called an indifference curve. Let the decision maker's utility function be $U:X\rightarrow\mathbb{R}$, where $X$ is the set of all possible objects. Then, the indifference curve is given by:
 
 ```{math}
-:label: eqn-linear-utility
-U(x_{1},\dots,x_{n}) = \sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{x_{i}}
+:label: eqn-indifference-curve
+U(x^{\star}_{1},\dots,x^{\star}_{m}) - U^{\star} = 0
 ```
 
-where $\bar{U}_{i}\equiv\alpha_{i}$ is the marginal utility of $U(\dots)$ with respect to good $x_{i}$. Expanding the utility function around an operating point $x^{\star}_{1},\dots,x^{\star}_{n}$ yields:
+where $U^{\star}$ is the level of utility provided by the set of choices on the indifference curve, and $x^{\star}_{1},\dots,x^{\star}_{m}$ are the choices that provide the level of utility $U_{\star}$. 
 
-```{math}
-:label: eqn-total-differential-linear-utility
-dU = \sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{dx_{i}}
+```{admonition} Key Idea: Indifference curves
+Indifference curves are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `isohappiness` curve in the space of choices. 
 ```
 
-However, along a line of constant utility, i.e., an indifference curve, the change in utility is zero: 
+The challenge that we have is to solve for the set of choices that provide the same level of utility. This is difficult because the utility functions are not necessarily linear. Thus, often we cannot simply solve for the set of choices that provide the same level of utility by setting the utility function equal to a constant. 
 
-```{math}
-:label: eqn-total-differential-linear-utility-zero
-\sum_{i\in{1\dots{n}}}\alpha_{i}\cdot{dx_{i}} = 0
+### Global calculation of indifference
+We can recast the calculation of the set of choice (or feartures) that provide the same level of utility as an optimization problem. We can solve for the set of choices that provide the same level of utility by minimizing the objective function:
+
+$$
+\begin{equation}
+\min_{x}\,\Bigl(U(x^{\star}_{1},\dots,x^{\star}_{m}) - U^{\star}\Bigr)^{2}
+\end{equation}
+$$
+
+subject to bounds on the choice variables $x_{i}$, i.e., $x_{i}\in{[x_{i,\min},x_{i,\max}]}$. This optimization problem is a non-linear least-squares problem, and can be solved using a variety of numerical methods. 
+
+#### Implementation
+[VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) implements a calculation of the indifference curve for a two-choice problem in the `indifference(...)` method for various utility functions. The calling syntax is similar for each utility function:
+
+```julia
+function indifference(model::VLCobbDouglasUtilityFunction; 
+    utility::Float64=1.0, bounds::Array{T,2}, ϵ::Float64 = 0.01) where T <: Real
 ```
 
-Thus, the marginal rate of substitution between any two substitutable goods $x_{i}$ and $x_{j}$ along the indifference curve is given by:
+The `model` argument is an instance of a utility function model, e.g., a Cobb-Douglas model, `utility` is the level of utility provided by the indifference curve, `bounds` is an `Array{Number,2}` that describes the bounds of the features, where the features are on the rows, the first column is the lower bound, and the second column is the upper bound. Finally, the `ϵ` is parameter controls step size of the search. The `indifference(...)` method returns an array that contains the solution to the optimization problem, i.e., the values for $x_{1}$ and $x_{2}$ that provide the level of utility `utility`. 
+
+
+### Local approximation of indifference
+Instead, of solving for the global indifference set, we can use a local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects. For some utility function $U:X\rightarrow\mathbb{R}$, the local expansion of the utility function around $x^{\star}$ is given by:
 
 ```{math}
-:label: eqn-marginal-rate-substitution-linear-utility
-\alpha_{i}dx_{i} = -\alpha_{j}dx_{j}\qquad{\forall{i\neq{j}}}
+dU = \sum_{i\in{1\dots{m}}}\bar{U}_{x_{i}}\cdot{dx_{i}}
+```
+
+where $dU\approx\left(U - U_{\star}\right)$ denotes the change in utility, $\bar{U}_{x_{i}}$ denotes the marginal utility of $x_{i}$ evaluated at the starting point, and $dx_{i}\approx(x_{i}-x_{i,\star})$ is the change in $x_{i}$. However, in the local area around $x^{\star}$, the indifference curve has the condition $dU = 0$ which gives:
+
+```{math}
+:label: eqn-indifference-curve-local
+\sum_{i\in{1\dots{m}}}\bar{U}_{x_{i}}\cdot{dx_{i}} = 0
+```
+
+which we can rearrange to get for any $i-j$ pair (all else held constant):
+
+```{math}
+:label: eqn-indifference-curve-local-pair
+x_{i} \simeq x^{\star}_{i} - \frac{\bar{U}_{x_{i}}}{\bar{U}_{x_{j}}}\left(x_{j} - x^{\star}_{j}\right)\qquad{\forall{i\neq{j}}}
+```
+
+
+
+(content:references:marginal-rate-of-sub)=
+## Marginal Rate of Substitution
+The marginal rate of substitution describes the rate at which a consumer is willing to trade one good (or feature) for another. We can derive the marginal rate of substitution from the local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects. For utility function $U:X\rightarrow\mathbb{R}$, the marginal rate of substitution between any two goods (or features) $x_{i}$ and $x_{j}$ along the indifference curve, i.e., a curve where `dU = 0`, is given by:
+
+```{math}
+\bar{U}_{x_{i}}\,dx_{i} = -\bar{U}_{x_{j}}\,dx_{j}\qquad{\forall{i\neq{j}}}
 ```
 
 or equivalently:
 
 ```{math}
-:label: eqn-marginal-rate-substitution-linear-utility-2
-\frac{dx_{i}}{dx_{j}} = -\frac{\alpha_{j}}{\alpha_{i}}\qquad{\forall{i\neq{j}}}
+\frac{dx_{i}}{dx_{j}} = -\frac{\bar{U}_{x_{j}}}{\bar{U}_{x_{i}}}\qquad{\forall{i\neq{j}}}
 ```
-
-### Implementation
-Fill me in.
-
-(content:references:indifference-curves-perfect-complement)=
-## Indifference curves for perfect complements
-A [perfect complement](https://en.wikipedia.org/wiki/Complementary_good) is a good or service that must be consumed along with another good. Such preferences can be represented by a [Leontief utility function](https://en.wikipedia.org/wiki/Leontief_utilities) of the form:
-
-```{math}
-:label: eqn-leontief-utility
-U(x_{1},\dots,x_{n}) = \min\left\{\frac{x_{1}}{w_{1}},\dots,\frac{x_{n}}{w_{n}}\right\}
-```
-
-where $w_{i}~(\text{for}~i\in{1\dots{n}})$ is the weight of good $x_{i}$ in the utility function, $x_{i}~(\text{for}~i\in{1\dots{n}})$ is the quantity of good or service $x_{i}$ consumed, and $n$ is the number of goods in the collection. If two goods are [perfect complements](https://en.wikipedia.org/wiki/Complementary_good), then the indifference curves will be L-shaped. 
-
-```{admonition} Example of perfect complements
-* Suppose $x_{1}$ is the number of left shoes and $x_{2}$ is the number of right shoes. A consumer can only use pairs of shoes. Thus, their utility is $U(x_{1},x_{2}) = \min\left\{x_{1},x_{2}\right\}$.
-```
-
-### Derivation of Marginal Rate of Substitution
-Fill me in.
-
-### Implementation
-Fill me in.
-
-(content:references:indifference-curves-cobb-douglas)=
-## Indifference curves for Cobb-Douglas utility functions
-The Cobb–Douglas function is a [utility function](https://en.wikipedia.org/wiki/Utility) over a collection of $n$ goods or services that takes the form:
-
-```{math}
-:label: eqn-cobb-douglas-utility
-U(x_{1},\dots,x_{n}) = \prod_{i\in{1\dots{n}}}x_{i}^{\alpha_{i}}
-```
-
-where the exponents $\alpha_{i}$, also known as the elasticities, are constrained to sum to one:
-
-```{math}
-:label: eqn-cobb-douglas-utility-constraint
-\sum_{i\in{1\dots{n}}}\alpha_{i} = 1
-```
-
-```{admonition} Cobb-Douglas utility functions
-* A consumer with Cobb-Douglas preferences will always buy some of each good or service in the collection. 
-* The marginal rate of substitution between any two goods or services $x_{i}$ and $x_{j}$ that are governed by the Cobb-Douglas utility is equal to the ratio of prices.
-```
-
-
-### Derivation of Marginal Rate of Substitution
-The [Cobb–Douglas utility function](https://en.wikipedia.org/wiki/Cobb–Douglas_production_function) has the marginal utility: 
-
-
-### Implementation
-Fill me in.
 
 ---
 
 ## Summary
-In this lecture, we introduced indifference curves for some common utility functions and discussed the properties of indifference curves, particularly the marginal rate of substitution of each type of utility function. 
+In this lecture, we introduced two new concepts, indifference curves and the marginal rate of substitution.
 
-* [Indifference curves for perfect substitutes](content:references:indifference-curves-perfect-sub) are linear where a consumer is willing to trade one good for another at a fixed ratio, i.e., the marginal rate of substitution is constant.
+* [Indifference curves](content:references:indifference-curves) are combinations of choices or fearures that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `isohappiness` curve in the space of possible choices (or features). 
 
-* [Indifference curves for perfect complements](content:references:indifference-curves-perfect-complement) are L-shaped where a consumer is willing to either zero or infinite units of one good for a unit of another good, i.e., the marginal rate of substitution is either zero or infinite.
-
-* [Indifference curves for Cobb-Douglas utility functions](content:references:indifference-curves-cobb-douglas) are convex, where a consumer is willing to trade one good for another at a varying ratio, i.e., the marginal rate of substitution is not constant and varies with the amount of each good consumed.
+* [The marginal rate of substitution](content:references:marginal-rate-of-sub) is the rate at which a consumer is willing to trade one good for another and remain equally satisfied, i.e., the decision-maker is indifferent between the two choices. The marginal rate of substitution is derived from a local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects.
