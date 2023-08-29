@@ -37,17 +37,42 @@ where $U^{\star}$ is the level of utility provided by the set of choices on the 
 Indifference curves are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `isohappiness` curve in the space of choices. 
 ```
 
-The challenge that we have to solve for the set of choices that provide the same level of utility, which is difficult because the utility function is not necessarily linear. Thus, we cannot simply solve for the set of choices that provide the same level of utility by setting the utility function equal to a constant. 
+The challenge that we have is to solve for the set of choices that provide the same level of utility. This is difficult because the utility functions are not necessarily linear. Thus, often we cannot simply solve for the set of choices that provide the same level of utility by setting the utility function equal to a constant. 
 
-Instead, we must use the local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects. For some utility function $U:X\rightarrow\mathbb{R}$, the local expansion of the utility function around $x^{\star}$ is given by:
+### Global calculation of indifference
+We can recast the calculation of the set of choice (or feartures) that provide the same level of utility as an optimization problem. We can solve for the set of choices that provide the same level of utility by minimizing the objective function:
 
-We can use marginal utility to approximate how utility changes when consumption or features of a good or service are changed around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects. The total change in utility is given by:
+$$
+\begin{equation}
+\min_{x}\,\Bigl(U(x^{\star}_{1},\dots,x^{\star}_{m}) - U^{\star}\Bigr)^{2}
+\end{equation}
+$$
+
+subject to bounds on the choice variables $x_{i}$, i.e., $x_{i}\in{[x_{i,\min},x_{i,\max}]}$. This optimization problem is a least-squares problem, and can be solved using a variety of numerical methods. 
+
+
+### Local approximation of indifference
+Instead, of solving for the global indifference set, we can use a local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects. For some utility function $U:X\rightarrow\mathbb{R}$, the local expansion of the utility function around $x^{\star}$ is given by:
 
 ```{math}
 dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}
 ```
 
-where $dU\approx\left(U - U_{\star}\right)$ denotes the change in utility, $\bar{U}_{x_{i}}$ denotes the marginal utility of $x_{i}$ evaluated at the starting point, and $dx_{i}\approx(x_{i}-x_{i,\star})$ is the change in $x_{i}$. In the local area around $x^{\star}$, 
+where $dU\approx\left(U - U_{\star}\right)$ denotes the change in utility, $\bar{U}_{x_{i}}$ denotes the marginal utility of $x_{i}$ evaluated at the starting point, and $dx_{i}\approx(x_{i}-x_{i,\star})$ is the change in $x_{i}$. However, in the local area around $x^{\star}$, the indifference curve has the condition $dU = 0$ which gives:
+
+```{math}
+:label: eqn-indifference-curve-local
+\sum_{i\in{1\dots{m}}}\bar{U}_{x_{i}}\cdot{dx_{i}} = 0
+```
+
+which we can rearrange to get for any $i-j$ pair (all else held constant):
+
+```{math}
+:label: eqn-indifference-curve-local-pair
+x_{i} \simeq x^{\star}_{i} - \frac{\bar{U}_{x_{i}}}{\bar{U}_{x_{j}}}\left(x_{j} - x^{\star}_{j}\right)\qquad{\forall{i\neq{j}}}
+```
+
+
 
 (content:references:marginal-rate-of-sub)=
 ## Marginal Rate of Substitution

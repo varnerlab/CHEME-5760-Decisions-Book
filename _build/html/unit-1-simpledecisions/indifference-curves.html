@@ -412,7 +412,11 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-calculation-of-indifference">Global calculation of indifference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-approximation-of-indifference">Local approximation of indifference</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-rate-of-substitution">Marginal Rate of Substitution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
@@ -450,17 +454,36 @@ document.write(`
 <span id="content-references-indifference-curves"></span><h2>Indifference curves<a class="headerlink" href="#indifference-curves" title="Permalink to this heading">#</a></h2>
 <p>If a decision-maker is indifferent between any two choices that provide the same level of utility, then we can plot the set of all choices that provide the same level of utility. This set of choices is called an indifference curve. Let the decision maker’s utility function be <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. Then, the indifference curve is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-indifference-curve">
-<span class="eqno">(11)<a class="headerlink" href="#equation-eqn-indifference-curve" title="Permalink to this equation">#</a></span>\[U(x^{\star}_{1},\dots,x^{\star}_{n}) - U^{\star} = 0\]</div>
-<p>where <span class="math notranslate nohighlight">\(U_{\star}\)</span> is the level of utility provided by the set of choices on the indifference curve, and <span class="math notranslate nohighlight">\(x^{\star}_{1},\dots,x^{\star}_{n}\)</span> are the choices that provide the level of utility <span class="math notranslate nohighlight">\(U_{\star}\)</span>.</p>
+<span class="eqno">(11)<a class="headerlink" href="#equation-eqn-indifference-curve" title="Permalink to this equation">#</a></span>\[U(x^{\star}_{1},\dots,x^{\star}_{m}) - U^{\star} = 0\]</div>
+<p>where <span class="math notranslate nohighlight">\(U^{\star}\)</span> is the level of utility provided by the set of choices on the indifference curve, and <span class="math notranslate nohighlight">\(x^{\star}_{1},\dots,x^{\star}_{m}\)</span> are the choices that provide the level of utility <span class="math notranslate nohighlight">\(U_{\star}\)</span>.</p>
 <div class="admonition-key-idea-indifference-curves admonition">
 <p class="admonition-title">Key Idea: Indifference curves</p>
 <p>Indifference curves are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of choices.</p>
 </div>
-<p>The challenge that we have to solve for</p>
-<p>We can use marginal utility to approximate how utility changes when consumption or features of a good or service are changed around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. The total change in utility is given by:</p>
+<p>The challenge that we have is to solve for the set of choices that provide the same level of utility. This is difficult because the utility functions are not necessarily linear. Thus, often we cannot simply solve for the set of choices that provide the same level of utility by setting the utility function equal to a constant.</p>
+<section id="global-calculation-of-indifference">
+<h3>Global calculation of indifference<a class="headerlink" href="#global-calculation-of-indifference" title="Permalink to this heading">#</a></h3>
+<p>We can recast the calculation of the set of choice (or feartures) that provide the same level of utility as an optimization problem. We can solve for the set of choices that provide the same level of utility by minimizing the objective function:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\min_{x}\,\Bigl(U(x^{\star}_{1},\dots,x^{\star}_{m}) - U^{\star}\Bigr)^{2}
+\end{equation}
+\]</div>
+<p>subject to bounds on the choice variables <span class="math notranslate nohighlight">\(x_{i}\)</span>, i.e., <span class="math notranslate nohighlight">\(x_{i}\in{[x_{i,\min},x_{i,\max}]}\)</span>. This optimization problem is a least-squares problem, and can be solved using a variety of numerical methods.</p>
+</section>
+<section id="local-approximation-of-indifference">
+<h3>Local approximation of indifference<a class="headerlink" href="#local-approximation-of-indifference" title="Permalink to this heading">#</a></h3>
+<p>Instead, of solving for the global indifference set, we can use a local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. For some utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>, the local expansion of the utility function around <span class="math notranslate nohighlight">\(x^{\star}\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
 \[dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}\]</div>
-<p>where <span class="math notranslate nohighlight">\(dU\approx\left(U - U_{\star}\right)\)</span> denotes the change in utility, <span class="math notranslate nohighlight">\(\bar{U}_{x_{i}}\)</span> denotes the marginal utility of <span class="math notranslate nohighlight">\(x_{i}\)</span> evaluated at the starting point, and <span class="math notranslate nohighlight">\(dx_{i}\approx(x_{i}-x_{i,\star})\)</span> is the change in <span class="math notranslate nohighlight">\(x_{i}\)</span>. In the local area around <span class="math notranslate nohighlight">\(x^{\star}\)</span>,</p>
+<p>where <span class="math notranslate nohighlight">\(dU\approx\left(U - U_{\star}\right)\)</span> denotes the change in utility, <span class="math notranslate nohighlight">\(\bar{U}_{x_{i}}\)</span> denotes the marginal utility of <span class="math notranslate nohighlight">\(x_{i}\)</span> evaluated at the starting point, and <span class="math notranslate nohighlight">\(dx_{i}\approx(x_{i}-x_{i,\star})\)</span> is the change in <span class="math notranslate nohighlight">\(x_{i}\)</span>. However, in the local area around <span class="math notranslate nohighlight">\(x^{\star}\)</span>, the indifference curve has the condition <span class="math notranslate nohighlight">\(dU = 0\)</span> which gives:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-indifference-curve-local">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eqn-indifference-curve-local" title="Permalink to this equation">#</a></span>\[\sum_{i\in{1\dots{m}}}\bar{U}_{x_{i}}\cdot{dx_{i}} = 0\]</div>
+<p>which we can rearrange to get for any <span class="math notranslate nohighlight">\(i-j\)</span> pair (all else held constant):</p>
+<div class="math notranslate nohighlight" id="equation-eqn-indifference-curve-local-pair">
+<span class="eqno">(13)<a class="headerlink" href="#equation-eqn-indifference-curve-local-pair" title="Permalink to this equation">#</a></span>\[x_{i} \simeq x^{\star}_{i} - \frac{\bar{U}_{x_{i}}}{\bar{U}_{x_{j}}}\left(x_{j} - x^{\star}_{j}\right)\qquad{\forall{i\neq{j}}}\]</div>
+</section>
 </section>
 <section id="marginal-rate-of-substitution">
 <span id="content-references-marginal-rate-of-sub"></span><h2>Marginal Rate of Substitution<a class="headerlink" href="#marginal-rate-of-substitution" title="Permalink to this heading">#</a></h2>
@@ -546,7 +569,11 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-calculation-of-indifference">Global calculation of indifference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-approximation-of-indifference">Local approximation of indifference</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-rate-of-substitution">Marginal Rate of Substitution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>

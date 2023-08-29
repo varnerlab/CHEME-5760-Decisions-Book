@@ -1,15 +1,11 @@
 (content:references:indifference-curves-and-trades)=
-# Indifference Curves and Trades
+# Marginal Utility, Indifference and Trades
 
 
 ```{topic} Outline
-In this lecture, we introduce indifference curves for some common utility functions and discuss the properties of indifference curves, particularly the marginal rate of substitution of each type of utility function. 
+In this lecture, we will:
 
-* [Indifference curves for perfect substitutes](content:references:indifference-curves-perfect-sub) are linear where a consumer is willing to trade one good for another at a fixed ratio, i.e., the marginal rate of substitution is constant.
 
-* [Indifference curves for perfect complements](content:references:indifference-curves-perfect-complement) are L-shaped where a consumer is willing to either zero or infinite units of one good for a unit of another good, i.e., the marginal rate of substitution is either zero or infinite.
-
-* [Indifference curves for Cobb-Douglas utility functions](content:references:indifference-curves-cobb-douglas) are convex, where a consumer is willing to trade one good for another at a varying ratio, i.e., the marginal rate of substitution is not constant and varies with the amount of each good consumed.
 ```
 
 ---
