@@ -413,7 +413,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-calculation-of-indifference">Global calculation of indifference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-calculation-of-indifference">Global calculation of indifference</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-approximation-of-indifference">Local approximation of indifference</a></li>
 </ul>
 </li>
@@ -434,10 +437,10 @@ document.write(`
 <span id="content-references-indifference-curves-and-trades"></span><h1>Marginal Utility, Indifference and Trades<a class="headerlink" href="#marginal-utility-indifference-and-trades" title="Permalink to this heading">#</a></h1>
 <aside class="topic">
 <p class="topic-title">Outline</p>
-<p>In this lecture, we will introduce the concept of indifference curves and marginal rate of substitution.</p>
+<p>In this lecture, we will introduce two new concepts, indifference curves and the marginal rate of substitution.</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#content-references-indifference-curves"><span class="std std-ref">Indifference curves</span></a> are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of choices.</p></li>
-<li><p><a class="reference internal" href="#content-references-marginal-rate-of-sub"><span class="std std-ref">Marginal rate of substitution</span></a> is the rate at which a consumer is willing to trade one good for another. The marginal rate of substitution is derived from the local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects.</p></li>
+<li><p><a class="reference internal" href="#content-references-indifference-curves"><span class="std std-ref">Indifference curves</span></a> are combinations of choices or fearures that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of possible choices (or features).</p></li>
+<li><p><a class="reference internal" href="#content-references-marginal-rate-of-sub"><span class="std std-ref">The marginal rate of substitution</span></a> is the rate at which a consumer is willing to trade one good for another and remain equally satisfied, i.e., the decision-maker is indifferent between the two choices. The marginal rate of substitution is derived from a local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects.</p></li>
 </ul>
 </aside>
 <hr class="docutils" />
@@ -470,13 +473,22 @@ document.write(`
 \min_{x}\,\Bigl(U(x^{\star}_{1},\dots,x^{\star}_{m}) - U^{\star}\Bigr)^{2}
 \end{equation}
 \]</div>
-<p>subject to bounds on the choice variables <span class="math notranslate nohighlight">\(x_{i}\)</span>, i.e., <span class="math notranslate nohighlight">\(x_{i}\in{[x_{i,\min},x_{i,\max}]}\)</span>. This optimization problem is a least-squares problem, and can be solved using a variety of numerical methods.</p>
+<p>subject to bounds on the choice variables <span class="math notranslate nohighlight">\(x_{i}\)</span>, i.e., <span class="math notranslate nohighlight">\(x_{i}\in{[x_{i,\min},x_{i,\max}]}\)</span>. This optimization problem is a non-linear least-squares problem, and can be solved using a variety of numerical methods.</p>
+<section id="implementation">
+<h4>Implementation<a class="headerlink" href="#implementation" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://github.com/varnerlab/VLDecisionsPackage.jl">VLDecisionsPackage.jl</a> implements a calculation of the indifference curve for a two-choice problem in the <code class="docutils literal notranslate"><span class="pre">indifference(...)</span></code> method for various utility functions. The calling syntax is similar for each utility function:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="n">indifference</span><span class="p">(</span><span class="n">model</span><span class="o">::</span><span class="kt">VLCobbDouglasUtilityFunction</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">utility</span><span class="o">::</span><span class="kt">Float64</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">bounds</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span><span class="w"> </span><span class="n">ϵ</span><span class="o">::</span><span class="kt">Float64</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.01</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Real</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">model</span></code> argument is an instance of a utility function model, e.g., a Cobb-Douglas model, <code class="docutils literal notranslate"><span class="pre">utility</span></code> is the level of utility provided by the indifference curve, <code class="docutils literal notranslate"><span class="pre">bounds</span></code> is an <code class="docutils literal notranslate"><span class="pre">Array{Number,2}</span></code> that describes the bounds of the features, where the features are on the rows, the first column is the lower bound, and the second column is the upper bound. Finally, the <code class="docutils literal notranslate"><span class="pre">ϵ</span></code> is parameter controls step size of the search. The <code class="docutils literal notranslate"><span class="pre">indifference(...)</span></code> method returns an array that contains the solution to the optimization problem, i.e., the values for <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span> that provide the level of utility <code class="docutils literal notranslate"><span class="pre">utility</span></code>.</p>
+</section>
 </section>
 <section id="local-approximation-of-indifference">
 <h3>Local approximation of indifference<a class="headerlink" href="#local-approximation-of-indifference" title="Permalink to this heading">#</a></h3>
 <p>Instead, of solving for the global indifference set, we can use a local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. For some utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>, the local expansion of the utility function around <span class="math notranslate nohighlight">\(x^{\star}\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
-\[dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}\]</div>
+\[dU = \sum_{i\in{1\dots{m}}}\bar{U}_{x_{i}}\cdot{dx_{i}}\]</div>
 <p>where <span class="math notranslate nohighlight">\(dU\approx\left(U - U_{\star}\right)\)</span> denotes the change in utility, <span class="math notranslate nohighlight">\(\bar{U}_{x_{i}}\)</span> denotes the marginal utility of <span class="math notranslate nohighlight">\(x_{i}\)</span> evaluated at the starting point, and <span class="math notranslate nohighlight">\(dx_{i}\approx(x_{i}-x_{i,\star})\)</span> is the change in <span class="math notranslate nohighlight">\(x_{i}\)</span>. However, in the local area around <span class="math notranslate nohighlight">\(x^{\star}\)</span>, the indifference curve has the condition <span class="math notranslate nohighlight">\(dU = 0\)</span> which gives:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-indifference-curve-local">
 <span class="eqno">(12)<a class="headerlink" href="#equation-eqn-indifference-curve-local" title="Permalink to this equation">#</a></span>\[\sum_{i\in{1\dots{m}}}\bar{U}_{x_{i}}\cdot{dx_{i}} = 0\]</div>
@@ -487,7 +499,7 @@ document.write(`
 </section>
 <section id="marginal-rate-of-substitution">
 <span id="content-references-marginal-rate-of-sub"></span><h2>Marginal Rate of Substitution<a class="headerlink" href="#marginal-rate-of-substitution" title="Permalink to this heading">#</a></h2>
-<p>The marginal rate of substitution describes the rate at which a consumer is willing to trade one good (or feature) for another. We can derive the marginal rate of substitution from the local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. For some utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>, the marginal rate of substitution between any two goods (or features) <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(x_{j}\)</span> along the indifference curve, i.e., a curve where <code class="docutils literal notranslate"><span class="pre">dU</span> <span class="pre">=</span> <span class="pre">0</span></code>, is given by:</p>
+<p>The marginal rate of substitution describes the rate at which a consumer is willing to trade one good (or feature) for another. We can derive the marginal rate of substitution from the local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. For utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>, the marginal rate of substitution between any two goods (or features) <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(x_{j}\)</span> along the indifference curve, i.e., a curve where <code class="docutils literal notranslate"><span class="pre">dU</span> <span class="pre">=</span> <span class="pre">0</span></code>, is given by:</p>
 <div class="math notranslate nohighlight">
 \[\bar{U}_{x_{i}}\,dx_{i} = -\bar{U}_{x_{j}}\,dx_{j}\qquad{\forall{i\neq{j}}}\]</div>
 <p>or equivalently:</p>
@@ -497,7 +509,11 @@ document.write(`
 <hr class="docutils" />
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
-<p>Fill me in.</p>
+<p>In this lecture, we introduced two new concepts, indifference curves and the marginal rate of substitution.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-indifference-curves"><span class="std std-ref">Indifference curves</span></a> are combinations of choices or fearures that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of possible choices (or features).</p></li>
+<li><p><a class="reference internal" href="#content-references-marginal-rate-of-sub"><span class="std std-ref">The marginal rate of substitution</span></a> is the rate at which a consumer is willing to trade one good for another and remain equally satisfied, i.e., the decision-maker is indifferent between the two choices. The marginal rate of substitution is derived from a local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects.</p></li>
+</ul>
 </section>
 </section>
 
@@ -570,7 +586,10 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-calculation-of-indifference">Global calculation of indifference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-calculation-of-indifference">Global calculation of indifference</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation">Implementation</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-approximation-of-indifference">Local approximation of indifference</a></li>
 </ul>
 </li>

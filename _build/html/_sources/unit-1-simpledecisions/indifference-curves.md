@@ -3,12 +3,11 @@
 
 
 ```{topic} Outline
-In this lecture, we will introduce the concept of indifference curves and marginal rate of substitution.
+In this lecture, we will introduce two new concepts, indifference curves and the marginal rate of substitution.
 
-* [Indifference curves](content:references:indifference-curves) are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `isohappiness` curve in the space of choices. 
+* [Indifference curves](content:references:indifference-curves) are combinations of choices or fearures that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `isohappiness` curve in the space of possible choices (or features). 
 
-* [Marginal rate of substitution](content:references:marginal-rate-of-sub) is the rate at which a consumer is willing to trade one good for another. The marginal rate of substitution is derived from the local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects.
-
+* [The marginal rate of substitution](content:references:marginal-rate-of-sub) is the rate at which a consumer is willing to trade one good for another and remain equally satisfied, i.e., the decision-maker is indifferent between the two choices. The marginal rate of substitution is derived from a local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects.
 ```
 
 ---
@@ -48,14 +47,24 @@ $$
 \end{equation}
 $$
 
-subject to bounds on the choice variables $x_{i}$, i.e., $x_{i}\in{[x_{i,\min},x_{i,\max}]}$. This optimization problem is a least-squares problem, and can be solved using a variety of numerical methods. 
+subject to bounds on the choice variables $x_{i}$, i.e., $x_{i}\in{[x_{i,\min},x_{i,\max}]}$. This optimization problem is a non-linear least-squares problem, and can be solved using a variety of numerical methods. 
+
+#### Implementation
+[VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) implements a calculation of the indifference curve for a two-choice problem in the `indifference(...)` method for various utility functions. The calling syntax is similar for each utility function:
+
+```julia
+function indifference(model::VLCobbDouglasUtilityFunction; 
+    utility::Float64=1.0, bounds::Array{T,2}, ϵ::Float64 = 0.01) where T <: Real
+```
+
+The `model` argument is an instance of a utility function model, e.g., a Cobb-Douglas model, `utility` is the level of utility provided by the indifference curve, `bounds` is an `Array{Number,2}` that describes the bounds of the features, where the features are on the rows, the first column is the lower bound, and the second column is the upper bound. Finally, the `ϵ` is parameter controls step size of the search. The `indifference(...)` method returns an array that contains the solution to the optimization problem, i.e., the values for $x_{1}$ and $x_{2}$ that provide the level of utility `utility`. 
 
 
 ### Local approximation of indifference
 Instead, of solving for the global indifference set, we can use a local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects. For some utility function $U:X\rightarrow\mathbb{R}$, the local expansion of the utility function around $x^{\star}$ is given by:
 
 ```{math}
-dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}
+dU = \sum_{i\in{1\dots{m}}}\bar{U}_{x_{i}}\cdot{dx_{i}}
 ```
 
 where $dU\approx\left(U - U_{\star}\right)$ denotes the change in utility, $\bar{U}_{x_{i}}$ denotes the marginal utility of $x_{i}$ evaluated at the starting point, and $dx_{i}\approx(x_{i}-x_{i,\star})$ is the change in $x_{i}$. However, in the local area around $x^{\star}$, the indifference curve has the condition $dU = 0$ which gives:
@@ -76,7 +85,7 @@ x_{i} \simeq x^{\star}_{i} - \frac{\bar{U}_{x_{i}}}{\bar{U}_{x_{j}}}\left(x_{j} 
 
 (content:references:marginal-rate-of-sub)=
 ## Marginal Rate of Substitution
-The marginal rate of substitution describes the rate at which a consumer is willing to trade one good (or feature) for another. We can derive the marginal rate of substitution from the local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects. For some utility function $U:X\rightarrow\mathbb{R}$, the marginal rate of substitution between any two goods (or features) $x_{i}$ and $x_{j}$ along the indifference curve, i.e., a curve where `dU = 0`, is given by:
+The marginal rate of substitution describes the rate at which a consumer is willing to trade one good (or feature) for another. We can derive the marginal rate of substitution from the local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects. For utility function $U:X\rightarrow\mathbb{R}$, the marginal rate of substitution between any two goods (or features) $x_{i}$ and $x_{j}$ along the indifference curve, i.e., a curve where `dU = 0`, is given by:
 
 ```{math}
 \bar{U}_{x_{i}}\,dx_{i} = -\bar{U}_{x_{j}}\,dx_{j}\qquad{\forall{i\neq{j}}}
@@ -91,4 +100,8 @@ or equivalently:
 ---
 
 ## Summary
-Fill me in.
+In this lecture, we introduced two new concepts, indifference curves and the marginal rate of substitution.
+
+* [Indifference curves](content:references:indifference-curves) are combinations of choices or fearures that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a `isohappiness` curve in the space of possible choices (or features). 
+
+* [The marginal rate of substitution](content:references:marginal-rate-of-sub) is the rate at which a consumer is willing to trade one good for another and remain equally satisfied, i.e., the decision-maker is indifferent between the two choices. The marginal rate of substitution is derived from a local expansion of the utility function around a starting point $x^{\star}\in{X}$, where $X$ is the set of all possible objects.

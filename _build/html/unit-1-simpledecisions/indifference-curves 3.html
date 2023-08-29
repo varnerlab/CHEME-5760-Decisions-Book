@@ -1,0 +1,636 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Marginal Utility, Indifference and Trades &#8212; CHEME 5760</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-VQRVBL1C02"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-VQRVBL1C02');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unit-1-simpledecisions/indifference-curves';</script>
+    <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-1-simpledecisions/indifference-curves.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Maximizing Utility" href="utlitymaximization.html" />
+    <link rel="prev" title="Utility Functions and Choices" href="utilityfunctions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../landing.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cornell_seal_simple_black-164.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/cornell_seal_simple_black-164.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../landing.html">
+                    Quantitative Decisions in Life, Love, and Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="simpledecisions-landing.html">Unit 1. Simple Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="utilityfunctions.html">Utility Functions and Choices</a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Marginal Utility, Indifference and Trades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utlitymaximization.html">Maximizing Utility</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Uncertain Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk-and-decisions.html">Risk aversion and it’s relationship with decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contigencies.html">Contingencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contingencies-and-utility-max.html">Utility maximization, contingencies and information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Games and Multiagent Reasoning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Understanding Markov Chains</a></li>
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-3-planning/mdp.html">Markov Decision Processes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-3-planning/sequential-decisions.html">Making Sequential Decisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-3-planning/policy-evaluation.html">Value and Policy Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/mcts.html">Monte Carlo Tree Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-4-learning/learning-landing.html">Unit 4. Machine Learning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandits.html">Multiarm Bandit Problems</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandit-problems-ts.html">Thompson Sampling</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/rl.html">Reinforcement Learning</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-based-rl.html">Model Based Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-free-rl.html">Model Free Reinforcement Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/imitation.html">Imitation Learning</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/behavior.html">Behavioral cloning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bayesian-rules.html">Bayesian Descision Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/random.html">Random variables and probability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../References.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book/issues/new?title=Issue%20on%20page%20%2Funit-1-simpledecisions/indifference-curves.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unit-1-simpledecisions/indifference-curves.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Marginal Utility, Indifference and Trades</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-calculation-of-indifference">Global calculation of indifference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-approximation-of-indifference">Local approximation of indifference</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-rate-of-substitution">Marginal Rate of Substitution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="marginal-utility-indifference-and-trades">
+<span id="content-references-indifference-curves-and-trades"></span><h1>Marginal Utility, Indifference and Trades<a class="headerlink" href="#marginal-utility-indifference-and-trades" title="Permalink to this heading">#</a></h1>
+<aside class="topic">
+<p class="topic-title">Outline</p>
+<p>In this lecture, we will introduce two new concepts, indifference curves and the marginal rate of substitution.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-indifference-curves"><span class="std std-ref">Indifference curves</span></a> are combinations of choices or fearures that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of possible choices (or features).</p></li>
+<li><p><a class="reference internal" href="#content-references-marginal-rate-of-sub"><span class="std std-ref">The marginal rate of substitution</span></a> is the rate at which a consumer is willing to trade one good for another and remain equally satisfied, i.e., the decision-maker is indifferent between the two choices. The marginal rate of substitution is derived from a local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects.</p></li>
+</ul>
+</aside>
+<hr class="docutils" />
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<p>The rational choice theory posits that individuals make choices to maximize their utility. To determine how individuals make choices, we must understand how they value different options. We previously introduced utility functions, which assign a numerical value, called <code class="docutils literal notranslate"><span class="pre">utility</span></code>, to each possible choice or outcome based on how much the individual values it. Additionally, we introduced the concept of <a class="reference internal" href="utilityfunctions.html#content-references-marginal-utility"><span class="std std-ref">marginal utility</span></a>, which is the change in utility resulting from a change in the consumption of a good or service or the change in a feature variable associated with a good or service.</p>
+<p>In this lecture, we will introduce the concept of indifference curves, which are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of choices. Indifference curves are a key tool in consumer theory, and are used to model the preferences of consumers.</p>
+<div class="admonition-key-idea-indifference admonition">
+<p class="admonition-title">Key Idea: Indifference</p>
+<p>An indifference curve is a curve in the space of choices that represents a set of choices that provide the same level of utility to the decision-maker, i.e., <span class="math notranslate nohighlight">\(dU=0\)</span>. Decision-makers are indifferent between any choices that lie on the same indifference curve.</p>
+</div>
+</section>
+<section id="indifference-curves">
+<span id="content-references-indifference-curves"></span><h2>Indifference curves<a class="headerlink" href="#indifference-curves" title="Permalink to this heading">#</a></h2>
+<p>If a decision-maker is indifferent between any two choices that provide the same level of utility, then we can plot the set of all choices that provide the same level of utility. This set of choices is called an indifference curve. Let the decision maker’s utility function be <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. Then, the indifference curve is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-indifference-curve">
+<span class="eqno">(11)<a class="headerlink" href="#equation-eqn-indifference-curve" title="Permalink to this equation">#</a></span>\[U(x^{\star}_{1},\dots,x^{\star}_{m}) - U^{\star} = 0\]</div>
+<p>where <span class="math notranslate nohighlight">\(U^{\star}\)</span> is the level of utility provided by the set of choices on the indifference curve, and <span class="math notranslate nohighlight">\(x^{\star}_{1},\dots,x^{\star}_{m}\)</span> are the choices that provide the level of utility <span class="math notranslate nohighlight">\(U_{\star}\)</span>.</p>
+<div class="admonition-key-idea-indifference-curves admonition">
+<p class="admonition-title">Key Idea: Indifference curves</p>
+<p>Indifference curves are combinations of choices that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of choices.</p>
+</div>
+<p>The challenge that we have is to solve for the set of choices that provide the same level of utility. This is difficult because the utility functions are not necessarily linear. Thus, often we cannot simply solve for the set of choices that provide the same level of utility by setting the utility function equal to a constant.</p>
+<section id="global-calculation-of-indifference">
+<h3>Global calculation of indifference<a class="headerlink" href="#global-calculation-of-indifference" title="Permalink to this heading">#</a></h3>
+<p>We can recast the calculation of the set of choice (or feartures) that provide the same level of utility as an optimization problem. We can solve for the set of choices that provide the same level of utility by minimizing the objective function:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\min_{x}\,\Bigl(U(x^{\star}_{1},\dots,x^{\star}_{m}) - U^{\star}\Bigr)^{2}
+\end{equation}
+\]</div>
+<p>subject to bounds on the choice variables <span class="math notranslate nohighlight">\(x_{i}\)</span>, i.e., <span class="math notranslate nohighlight">\(x_{i}\in{[x_{i,\min},x_{i,\max}]}\)</span>. This optimization problem is a least-squares problem, and can be solved using a variety of numerical methods.</p>
+</section>
+<section id="local-approximation-of-indifference">
+<h3>Local approximation of indifference<a class="headerlink" href="#local-approximation-of-indifference" title="Permalink to this heading">#</a></h3>
+<p>Instead, of solving for the global indifference set, we can use a local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. For some utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>, the local expansion of the utility function around <span class="math notranslate nohighlight">\(x^{\star}\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[dU = \sum_{i\in{1\dots{n}}}\bar{U}_{x_{i}}\cdot{dx_{i}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(dU\approx\left(U - U_{\star}\right)\)</span> denotes the change in utility, <span class="math notranslate nohighlight">\(\bar{U}_{x_{i}}\)</span> denotes the marginal utility of <span class="math notranslate nohighlight">\(x_{i}\)</span> evaluated at the starting point, and <span class="math notranslate nohighlight">\(dx_{i}\approx(x_{i}-x_{i,\star})\)</span> is the change in <span class="math notranslate nohighlight">\(x_{i}\)</span>. However, in the local area around <span class="math notranslate nohighlight">\(x^{\star}\)</span>, the indifference curve has the condition <span class="math notranslate nohighlight">\(dU = 0\)</span> which gives:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-indifference-curve-local">
+<span class="eqno">(12)<a class="headerlink" href="#equation-eqn-indifference-curve-local" title="Permalink to this equation">#</a></span>\[\sum_{i\in{1\dots{m}}}\bar{U}_{x_{i}}\cdot{dx_{i}} = 0\]</div>
+<p>which we can rearrange to get for any <span class="math notranslate nohighlight">\(i-j\)</span> pair (all else held constant):</p>
+<div class="math notranslate nohighlight" id="equation-eqn-indifference-curve-local-pair">
+<span class="eqno">(13)<a class="headerlink" href="#equation-eqn-indifference-curve-local-pair" title="Permalink to this equation">#</a></span>\[x_{i} \simeq x^{\star}_{i} - \frac{\bar{U}_{x_{i}}}{\bar{U}_{x_{j}}}\left(x_{j} - x^{\star}_{j}\right)\qquad{\forall{i\neq{j}}}\]</div>
+</section>
+</section>
+<section id="marginal-rate-of-substitution">
+<span id="content-references-marginal-rate-of-sub"></span><h2>Marginal Rate of Substitution<a class="headerlink" href="#marginal-rate-of-substitution" title="Permalink to this heading">#</a></h2>
+<p>The marginal rate of substitution describes the rate at which a consumer is willing to trade one good (or feature) for another. We can derive the marginal rate of substitution from the local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects. For utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>, the marginal rate of substitution between any two goods (or features) <span class="math notranslate nohighlight">\(x_{i}\)</span> and <span class="math notranslate nohighlight">\(x_{j}\)</span> along the indifference curve, i.e., a curve where <code class="docutils literal notranslate"><span class="pre">dU</span> <span class="pre">=</span> <span class="pre">0</span></code>, is given by:</p>
+<div class="math notranslate nohighlight">
+\[\bar{U}_{x_{i}}\,dx_{i} = -\bar{U}_{x_{j}}\,dx_{j}\qquad{\forall{i\neq{j}}}\]</div>
+<p>or equivalently:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dx_{i}}{dx_{j}} = -\frac{\bar{U}_{x_{j}}}{\bar{U}_{x_{i}}}\qquad{\forall{i\neq{j}}}\]</div>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>In this lecture, we introduced two new concepts, indifference curves and the marginal rate of substitution.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-indifference-curves"><span class="std std-ref">Indifference curves</span></a> are combinations of choices or fearures that provide a decision-making agent with the same level of utility. Thus, an indiffrence curve is a <code class="docutils literal notranslate"><span class="pre">isohappiness</span></code> curve in the space of possible choices (or features).</p></li>
+<li><p><a class="reference internal" href="#content-references-marginal-rate-of-sub"><span class="std std-ref">The marginal rate of substitution</span></a> is the rate at which a consumer is willing to trade one good for another and remain equally satisfied, i.e., the decision-maker is indifferent between the two choices. The marginal rate of substitution is derived from a local expansion of the utility function around a starting point <span class="math notranslate nohighlight">\(x^{\star}\in{X}\)</span>, where <span class="math notranslate nohighlight">\(X\)</span> is the set of all possible objects.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./unit-1-simpledecisions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="utilityfunctions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Utility Functions and Choices</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="utlitymaximization.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Maximizing Utility</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indifference-curves">Indifference curves</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-calculation-of-indifference">Global calculation of indifference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-approximation-of-indifference">Local approximation of indifference</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-rate-of-substitution">Marginal Rate of Substitution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Varner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
