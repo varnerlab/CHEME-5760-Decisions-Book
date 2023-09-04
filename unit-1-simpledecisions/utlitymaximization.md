@@ -10,7 +10,7 @@ kernelspec:
   name: julia-1.9
 ---
 
-# Maximizing Utility
+# Constrained Utility Maximization
 Utility maximization is the process of choosing the option that provides the highest level of utility, given a set of available options and the individual's preferences. It involves evaluating each option using a utility function and selecting the one that maximizes the utility subject to constraints.
 
 ```{topic} Outline
@@ -31,21 +31,21 @@ An optimal rational decision-making agent _maximizes_ its utility function, i.e.
 ````{prf:definition} Maximum utility and budget constraints
 :label: eqn-budget-constraint
 
-A decision making agent has a utility function $U\left(x_{1},\dots,x_{n}\right)$ and $I$ dollars to spend between $t\rightarrow{t+dt}$. An optimal agent maximizes its utility subject to its budget:
+An agent has a set of $n$ objects $X = \left\{x_{i}\right\}_{i=1}^{n}$, a utility function $U:X\rightarrow\mathbb{R}$, 
+and a total of $I$ units of resource to allocate, e.g., money, time, etc. 
+An optimal rational agent maximizes its utility subject to its resource budget:
 
-```{math}
-:label: eqn-max-ulity-problem
 
+$$
 \begin{eqnarray}
 \text{maximize}~\mathcal{O} &=& U\left(x_{1},\dots,x_{n}\right) \\
-\text{subject to}~\sum_{i=1}^{n}c_{i}x_{i} & = & I\\
+\text{subject to}~\sum_{i\in{1,\dotsc,n}}c_{i}x_{i} & = & I\\
 \text{and}~x_{i}&\geq&{0}\qquad{i=1,2,\dots,n}
 \end{eqnarray}
+$$
 
-```
-
-where $c_{i}\geq{0}~\forall{i}$ denotes the cost of good or service $i$, and $x_{i}$ represents the amount of good or service purchased or consumed by the agent during time period $t\rightarrow{t+dt}$.
-
+The quantity $c_{i}\geq{0}~\forall{i}$ denotes the cost of object $i$, 
+and $x_{i}\geq{0}$ represents the amount of object $i$ purchased or consumed by the agent.
 ````
 
 The problem in {prf:ref}`eqn-budget-constraint` can be solved for the unknown consumption levels of $x_{i}$ using various techniques. 
@@ -53,126 +53,143 @@ The problem in {prf:ref}`eqn-budget-constraint` can be solved for the unknown co
 <!-- Of course, if the utility function in {prf:ref}`eqn-budget-constraint` is linear, we could also use [linear programming](https://en.wikipedia.org/wiki/Linear_programming). -->
 
 (content:references:rational-choice-budget-constraints)=
-### Budget constraints
-Effective budget management involves prioritizing expenditures, making trade-offs, and seeking optimal ways to utilize the available funds within the defined buedget constraints. Budget constraints refer to the limitations imposed on an individual, organization, or government’s spending activities. These constraints arise from the finite availability of financial resources, requiring careful planning and allocation to meet various needs and goals ({prf:ref}`defn-budget-constraint`): 
+### Resource constraints
+To manage resources effectively, you need to prioritize your expenses, make trade-offs, and find the best ways to use what you have, such as time, money, and people. These limitations come from the fact that resources are finite and scarce, so you need to plan carefully and allocate them wisely to meet your needs and goals. 
+
+In the context of optimal decision problems, we represent the utilization of scarce resources using budget constraints. Budget constraints are a mathematical representation of the trade-offs between two or more goods or services brought about by resource limitation ({prf:ref}`defn-budget-constraint`): 
 
 ````{prf:definition} Budget constraint
 :label: defn-budget-constraint
 
-Let $I$ denote the income allocated to purchase goods in a set of goods $x\in\mathcal{X}$ where $c_{x}\geq{0}$ denotes the unit cost of item $x$. Then, the budget constraint for $\mathcal{X}$ is given by:
+Let $I\geq{0}$ denote a scarce resource, e.g., time, money, etc., that is allocated to consume, purchase, etc., the set of $n$ objects $X = \left\{x_{i}\right\}_{i=1}^{n}$. The budget constraint for the set $X$ is given by:
 
-```{math}
-:label: eqn-budget-constraint
-\sum_{x\in\mathcal{X}}c_{x}\cdot\dim(x) = {I}
-```
-
-The quantity $\dim(x)$ denotes the number of good $x$ purchased. The number of iterms purchased must be non-negative, i.e., $\dim(x)\geq{0}$.
-
+$$
+\begin{equation}
+\sum_{i\in{1,\dotsc,n}}c_{i}x_{i} = I
+\end{equation}
+$$
+    
+The terms $x_{i}\geq{0}$ denote the quanity of object $i$ consumed, purchased, etc, and $c_{i}\geq{0}$ denotes the unit cost of object $i$.
 ````
 
-#### Two good budget constraint: Apples and oranges
-To better understand {prf:ref}`defn-budget-constraint`, let's consider the case when we have only two goods in the set of goods $\mathcal{X}$, i.e., $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$. In this case, the budget constraint becomes a line in the $\text{apples}$ versus $\text{oranges}$ plane ({numref}`fig-two-dim-bc`).
+#### Two goods: Apples and Oranges
+Let's consider a case where we have the budget $I$, and two goods `X = {apples, oranges}`. In this case, the budget constraint is a line in the `apples` versus `oranges` plane ({numref}`fig-two-dim-bc`).
 
- ```{figure} ./figs/Fig-TwoDim-BudgetConstraint-Schematic.pdf
+ ```{figure} ./figs/Fig-TwoDim-BudgetConstraint-Schematic.png
 ---
-height: 420px
+height: 440px
 name: fig-two-dim-bc
 ---
-Two-dimensional budget constraint for the $\mathcal{X}=\left\{\text{apples},\text{oranges}\right\}$ set of goods.
+Two-dimensional budget constraint for the `X = {apples, oranges}` set of goods.
 ```
 
-The intercepts of the budget constraint shown in {numref}`fig-two-dim-bc` give the maximum amount of a good or service that can be consumed. For example, the x-intercept of the budget constraint in gives the maximum number of apples that can be purchased given the budget constraint and the price of the apple. Similarly, the y-intercept gives the maximum number of oranges that can be purchased given the budget constraint and the price of oranges.
+There are some interesting points to note about the budget constraint shown in {numref}`fig-two-dim-bc`:
 
-Every point on the budget constraint line shown in {numref}`fig-two-dim-bc` indicates a possible combination of apples and oranges that could be bought within the given budget. The task at hand is to determine the optimal combination of apples and oranges that maximizes the utility function. 
+* The slope of the resource constraint line $m_{B}$ is the negative ratio of the unit costs of `apples` and `oranges`.
+* Point `S` represents the maximum number of `apples` and `oranges` that can be purchased at the store (supply constraint).
+* The intercepts $\hat{x}_{1}$ and $\hat{x}_{2}$ indicate the maximum amount of `apples` and `oranges` that can be bought based on the budget constraint and the price of each fruit. For instance, $\hat{x}_{1}$ refers to the maximum number of `apples` that can be bought, while $\hat{x}_{2}$ refers to the maximum number of `oranges` that can be purchased.
+* Any point on the budget constraint line, such as point `A`, represents a potential combination of `apples` and `oranges` that can be purchased that exactly satisfies the budget constraint.
+* Any point within the gray area, such as point `B`, also represents a possible combination of `apples` and `oranges` that can be purchased, but there will be leftover resources, such as money.
+
+The objective is to determine the best combination of `apples` and `oranges` that maximizes the utility function and exactly satisfies the budget. This means finding the point on the budget constraint line that offers the highest utility. 
 
 ### Lagrange multipliers and utility maximization
-Let's begin with a classical approach, the [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier). as it provides a good foundation for understanding more advanced methods and has some interesting theoretical properties. The [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier) involves introducing additional variables, called Lagrange multipliers, which integrate the constraints into a modified objective function called the Lagrangian function ({prf:ref}`defn-method-l-multipliers`):
+Let's begin with a classical approach, the [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier). The [method of Lagrange multipliers](https://en.wikipedia.org/wiki/Lagrange_multiplier) introduces additional variables, called `Lagrange multipliers`, which integrate the constraints into a modified objective function called the `Lagrangian` ({prf:ref}`defn-method-l-multipliers`):
 
 ````{prf:definition} Method of Lagrange multipliers
 :label: defn-method-l-multipliers
 
-To find the maximum or minimum of a function $f(x)$ subject to the equality constraint $g(x)$, we can form the Lagrangian function $\mathcal{L}(x,\lambda)$:
+To find the optimum of a function $f(x)$ subject to the equality constraint $g(x)$, 
+we form the Lagrangian $\mathcal{L}(x,\lambda)$:
 
-```{math}
-:label: eqn-lagrangian-1d
+$$
+\begin{equation}
 \mathcal{L}(x,\lambda) = f(x) + \lambda\cdot{g}(x)
-```
+\end{equation}
+$$
 
-where $\lambda$ is the Lagrange multiplier for constraint $g(x)$. At a critical point (maximum or minimum), the partial derivatives of the 
-Lagrangian function with respect to $x$ and $\lambda$ vanish:
+where $\lambda$ is the Lagrange multiplier for constraint $g(x)$. 
+At a critical point (maximum or minimum), the partial derivatives of the 
+Lagrangian with respect to $x$ and $\lambda$ vanish:
 
-```{math}
-:label: eqn-first-order-condition-lagrange
-
+$$
 \begin{eqnarray}
 \frac{\partial\mathcal{L}}{\partial{x}} & = & f^{\prime}(x) + \lambda\cdot{g^{\prime}(x)} = 0\\
-\frac{\partial\mathcal{L}}{\partial{\lambda}} & = & g(x) = 0 \\
+\frac{\partial\mathcal{L}}{\partial{\lambda}} & = & g(x) = 0
 \end{eqnarray}
-```
+$$
 
-The system of equations defined by Eqn. {eq}`eqn-first-order-condition-lagrange` callled the Lagrange equations are first-order optimality conditions, which can be solved to find the critical points and, thus, the maximum or minimum value of the objective function.
+This system of equations, which represents first-order optimality conditions, can be solved for the critical points and, 
+thus, the maximum or minimum value of the objective function.
 ````
 
-The utility maximization problem outlined in {prf:ref}`eqn-budget-constraint` has the Lagrangian function:
+The constrained utility maximization problem has the `Lagrangian`:
 
-```{math}
-\mathcal{L}(x,\lambda) = U(x_{1},\dots,x_{n}) + \lambda\cdot\left(I-\sum_{i=1}^{n}c_{i}x_{i}\right)
-```
+$$
+\begin{equation*}
+\mathcal{L}(x,\lambda) = U(x_{1},\dots,x_{n}) + \lambda\cdot\left(I-\sum_{i\in{1,\dotsc,n}}c_{i}x_{i}\right)
+\end{equation*}
+$$
 
-where $I$ is the amount of money (income) we have to spend on goods $x_{1},x_{2},\dots,x_{n}$, and $c_{i}$ is the cost of good $i$. The Lagrangian function $\mathcal{L}(x,\lambda)$ can be expanded into the $n+1$ system of equations (first-order optimality conditions):
+which then gives the system of equations:
 
-```{math}
-:label: eqn-two-good-utility-maximization
-\begin{eqnarray}
-\frac{\partial\mathcal{L}}{\partial{x_{1}}} & = & \bar{U}_{1} - \lambda\cdot{c_{1}} = 0 \\
-\vdots & = & \vdots \\
-\frac{\partial\mathcal{L}}{\partial{x_{n}}} & = & \bar{U}_{n} - \lambda\cdot{c_{n}} = 0 \\
-\frac{\partial\mathcal{L}}{\partial\lambda} & = & I - \sum_{i=1}^{n}c_{i}x_{i} = 0 \\
-\end{eqnarray}
-```
+$$
+\begin{eqnarray*}
+\frac{\partial\mathcal{L}}{\partial{x_{i}}} & = & \bar{U}_{i} - \lambda\cdot{c_{i}} = 0 \qquad{i=1,2,\dots,n} \\
+\frac{\partial\mathcal{L}}{\partial\lambda} & = & I - \sum_{i\in{1,\dotsc,n}}c_{i}x_{i} = 0
+\end{eqnarray*}
+$$
 
-where $\bar{U}_{i}$ denotes the marginal utility of good $i$. The system of equations in Eqn. {eq}`eqn-two-good-utility-maximization` can be solved to find the optimal consumption levels of $x_{i}$. The first $n$ of the first-order optimality conditions can be solved to arrive at the following expression for the Lagrange multiplier:
+where $\bar{U}_{i}$ denotes the marginal utility of good or service $i$. The system of $n+1$ equations can be solved to find the optimal consumption levels of $x_{i}$.
+
+#### The secret meaning of Lagrange multipliers
+The first $n$ of the first-order optimality conditions can be solved to arrive at the following expression for the `Lagrange multiplier`:
 
 ```{math}
 :label: eqn-lagrange-multiplier-marginal-utility-dollar
 \lambda = \frac{\bar{U}_{i}}{c_{i}}\qquad\forall{i}
 ```
 
-which gives an interesting interpretation of the Lagrange multiplier: it is the marginal utility per dollar spent on good $i$. Further, it provides the basis for the matching condition at the optimum:
+This gives an interesting interpretation of the `Lagrange multiplier`: 
+
+````{admonition} The secret meaning of Lagrange multipliers
+The `Lagrange multiplier` is the marginal utility per dollar spent on good $i$. Further, it provides the basis for the matching condition at the optimum:
 
 ```{math}
 :label: eqn-matching-condition-marginal-utility-dollar
 \frac{\bar{U}_{i}}{c_{i}} = \frac{\bar{U}_{j}}{c_{j}}\qquad\forall{i,j}
 ```
+````
 
-#### Example: Two-good Cobb-Douglas utility maximization problem
-Let's consider a utility maximization problem that uses a Cobb-Douglas utility function $U(x_{1},x_{2}) = x_{1}^{\alpha}x_{2}^{1-\alpha}$ that describes the satisfaction gained from consuming two goods, $x_{1}$ and $x_{2}$. The utility function is subject to a budget constraint $\sum c_{i}x_{i} = I$, where $I$ is the amount of money (income) we have to spend on goods $x_{1}$ and $x_{2}$, and $c_{i}$ is the cost of good $i$. The Lagrangian function for this problem is given by:
+### Cobb-Douglas utility maximization problem
+Consider a utility maximization problem with the Cobb-Douglas utility function, 
+$U(x_{1},x_{2}) = x_{1}^{\alpha}x_{2}^{1-\alpha}$, subject to a budget constraint. The `Lagrangian` is given by:
 
-```{math}
-:label: eqn-lagrangian-two-good-cobb-douglas-utility
-\mathcal{L}(x_{1},x_{2},\lambda) = x_{1}^{\alpha}x_{2}^{1-\alpha} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)
-```
+$$
+\begin{equation*}
+\mathcal{L}(x,\lambda) = x_{1}^{\alpha}x_{2}^{1-\alpha} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)
+\end{equation*}
+$$
 
 which gives the first-order optimality conditions:
 
-```{math}
-:label: eqn-two-good-cobb-douglas-utility-maximization
-\begin{eqnarray}
+$$
+\begin{eqnarray*}
 \frac{\partial\mathcal{L}}{\partial{x_{1}}} & = & \alpha\cdot{x_{1}^{\alpha-1}}x_{2}^{1-\alpha} - \lambda\cdot{c_{1}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial{x_{2}}} & = & (1-\alpha)\cdot{x_{1}^{\alpha}x_{2}^{-\alpha}} - \lambda\cdot{c_{2}} = 0 \\
-\frac{\partial\mathcal{L}}{\partial\lambda} & = & I - c_{1}x_{1} - c_{2}x_{2} = 0 \\
-\end{eqnarray}
-```
+\frac{\partial\mathcal{L}}{\partial\lambda} & = & I - c_{1}x_{1} - c_{2}x_{2} = 0
+\end{eqnarray*}
+$$
 
-The system of equations in Eqn. {eq}`eqn-two-good-cobb-douglas-utility-maximization` can be solved to find the optimal consumption levels of $x_{1}$ and $x_{2}$. However, these equations are non-linear and not easy to solve analytically. Thus, we must use numerical methods to find the optimal values of $x_{1}$ and $x_{2}$.
+This system can be solved for the optimal consumption levels of $x_{1}$ and $x_{2}$.  However, it is non-linear. Thus, we often need to use numerical methods to find the optimal values of $x_{1}$ and $x_{2}$. The Cobb-Douglas utility function will give a unique optimal solution.
 
 
-#### Example: Two-good linear utility maximization problem
-Let's consider a two-good utility maximization problem that uses a linear utility function $U(x_{1},x_{2}) = a_{1}x_{1}+a_{2}x_{2}$ that describes the satisfaction gained from consuming two goods, $x_{1}$ and $x_{2}$. The utility function is subject to a budget constraint $\sum c_{i}x_{i} = I$, where $I$ is the amount of money (income) we have to spend on goods $x_{1}$ and $x_{2}$, and $c_{i}$ is the cost of good $i$. The Lagrangian function for this problem is given by:
+### Linear utility maximization problem
+Consider utility maximization problem that uses a linear utility function $U(x_{1},x_{2}) = \alpha_{1}x_{1}+\alpha_{2}x_{2}$ subject to a budget constraint. The `Lagrangian` for this problem is given by:
 
 ```{math}
 :label: eqn-lagrangian-two-good-linear-utility
-\mathcal{L}(x_{1},x_{2},\lambda) = a_{1}x_{1} + a_{2}x_{2} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)
+\mathcal{L}(x,\lambda) = \alpha_{1}x_{1} + \alpha_{2}x_{2} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)
 ```
 
 which gives the first-order optimality conditions:
@@ -180,13 +197,14 @@ which gives the first-order optimality conditions:
 ```{math}
 :label: eqn-two-good-linear-utility-maximization
 \begin{eqnarray}
-\frac{\partial\mathcal{L}}{\partial{x_{1}}} & = & a_{1} - \lambda\cdot{c_{1}} = 0 \\
-\frac{\partial\mathcal{L}}{\partial{x_{2}}} & = & a_{2} - \lambda\cdot{c_{2}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial{x_{1}}} & = & \alpha_{1} - \lambda\cdot{c_{1}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial{x_{2}}} & = & \alpha_{2} - \lambda\cdot{c_{2}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial\lambda} & = & I - c_{1}x_{1} - c_{2}x_{2} = 0 \\
 \end{eqnarray}
 ```
 
-This system of equations can be represented as a $3\times{3}$ system of linear algebraic equations for the unknows $\theta = \left[x_{1},x_{2},\lambda\right]^{T}$:
+The first-order optimality conditions are $3\times{3}$ system of linear algebraic equations, which are underdetermined. 
+To see this, let's perform a `rank test`. The optimality conditions can be written in matrix-vector form as:
 
 ```{math}
 \begin{bmatrix}
@@ -206,14 +224,30 @@ x_{2} \\
 \end{bmatrix}
 ```
 
-or $\mathbf{A}\mathbf{\theta} = \mathbf{b}$ which theoretically can be inverted to find the solution:
+or $\mathbf{A}\mathbf{\theta} = \mathbf{b}$ which can (theoretically) be inverted 
+to find the solution if the matrix $\mathbf{A}$ has [full rank](https://en.wikipedia.org/wiki/Rank_(linear_algebra)):
 
 ```{math}
 \theta = \mathbf{A}^{-1}\mathbf{b}
 ```
 
-if the matrix $\mathbf{A}$ has full rank. However, in this case, the rank of matrix $\text{rank}(\mathbf{A}) = 2$, which indicates that the system of equations is underdetermined. This means that there are an infinite number of solutions to the system of equations. To find the solution, we can use the [Moore-Penrose pseudo-inverse](https://en.wikipedia.org/wiki/Moore–Penrose_inverse) of the matrix $\mathbf{A}$, which is given by:
+However, the rank of matrix $\text{rank}(\mathbf{A}) = 2$, which indicates the system of equations is `underdetermined`. This means that there are more unknowns than equations, leading to an infinite number of possible solutions. 
 
+#### Solving the system of equations for linear utility maximization
+To find a solution to the first-order optimality conditions, we could use the [Moore-Penrose pseudo-inverse](https://en.wikipedia.org/wiki/Moore–Penrose_inverse) of the matrix $\mathbf{A}$. Alternatively, in the two-dimensional case, we find, after some analysis, that the optimal solution depends upon the slope of the budget constraint line, $m_{B}$ and the slope of the linear indifference curve, $m_{U}$ {numref}`fig-two-linear-solns`:
+
+ ```{figure} ./figs/Fig-Linear-Utility-Solns-Schematic.png
+---
+height: 280px
+name: fig-two-linear-solns
+---
+Solutions of the utility maximization problem with a linear utility function. The yellow regions highlight the optimal solution.
+```
+
+The optimal solution is given by:
+* __Case A__: If $m_{U} > m_{B}$, the optimal solution is the x-intercept of the budget constraint line, i.e., $\hat{x}_{1} = \frac{I}{c_{1}}$ and $\hat{x}_{2} = 0$.
+* __Case B__: If $m_{U} < m_{B}$, the optimal solution is the y-intercept of the budget constraint line, i.e., $\hat{x}_{1} = 0$ and $\hat{x}_{2} = \frac{I}{c_{2}}$.
+* __Case C__: If $m_{U} = m_{B}$, the optimal solution is any point on the budget constraint line, i.e., any point betweem $\hat{x}_{1} = \frac{I}{c_{1}}$ and $\hat{x}_{2} = \frac{I}{c_{2}}$.
 
 <!-- #### Karush-Kuhn-Tucker (KKT) conditions
 The [Karush-Kuhn-Tucker (KKT) conditions](https://en.wikipedia.org/wiki/Karush–Kuhn–Tucker_conditions) are necessary conditions for finding the optimal solution to an optimization problem with constraints. The conditions are as follows:
