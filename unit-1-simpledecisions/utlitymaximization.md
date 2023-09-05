@@ -140,24 +140,19 @@ $$
 \end{eqnarray*}
 $$
 
-where $\bar{U}_{i}$ denotes the marginal utility of good or service $i$. The system of $n+1$ equations can be solved to find the optimal consumption levels of $x_{i}$.
+where $\bar{U}_{i}$ denotes the marginal utility of good or service $i$. The system of $n+1$ equations can be solved to find the optimal consumption levels of $x_{i}$ and the `Lagrange multiplier` $\lambda$.
 
-#### The secret meaning of Lagrange multipliers
-The first $n$ of the first-order optimality conditions can be solved to arrive at the following expression for the `Lagrange multiplier`:
+````{admonition} The secret meaning of Lagrange multipliers
+The first $n$ first-order optimality conditions can be solved to arrive at an expression for the `Lagrange multiplier` $\lambda$:
 
 ```{math}
-:label: eqn-lagrange-multiplier-marginal-utility-dollar
 \lambda = \frac{\bar{U}_{i}}{c_{i}}\qquad\forall{i}
 ```
 
-This gives an interesting interpretation of the `Lagrange multiplier`: 
-
-````{admonition} The secret meaning of Lagrange multipliers
-The `Lagrange multiplier` is the marginal utility per dollar spent on good $i$. Further, it provides the basis for the matching condition at the optimum:
+Thus, the Lagrange multiplier is the marginal utility per dollar spent on good $i$. Further, the Lagrange multiplier provides the basis for the matching condition at the optimum:
 
 ```{math}
-:label: eqn-matching-condition-marginal-utility-dollar
-\frac{\bar{U}_{i}}{c_{i}} = \frac{\bar{U}_{j}}{c_{j}}\qquad\forall{i,j}
+\frac{\bar{U}_{j}}{c_{j}} = \frac{\bar{U}_{k}}{c_{k}}\qquad\forall{j,k}
 ```
 ````
 
