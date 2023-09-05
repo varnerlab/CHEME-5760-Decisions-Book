@@ -6,7 +6,10 @@ Decision-making is essential to almost everything facet of life. However, are yo
 ### Times, places and websites
 * __Credits__: 3-credits
 * __Lectures and discussions__: Lectures TuTh 11:15 AM - 12:05 PM, Discussions Fr 1:25 PM - 2:15 PM
-* __Website__: Canvas and GitHub. The labs, other codes and data used throughout the course are available on our [GitHub lab repository](https://github.com/varnerlab/CHEME-5760-Labs-F23.git) and in the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) package.
+* __Website__: Canvas and GitHub. 
+    - The labs are available on our [GitHub lab repository](https://github.com/varnerlab/CHEME-5760-Labs-F23.git) 
+    - The lecture examples are available on our [GitHub example repository](https://github.com/varnerlab/CHEME-5760-Examples-F23.git)
+    - Lectures, labs and problem sets will use the the [VLDecisionsPackage.jl](https://github.com/varnerlab/VLDecisionsPackage.jl) package.
 * __Schedule__: The lecture, lab and problem set schedule can be viewed [here (requires Cornell login)](https://cornell.box.com/s/t28fw49opylf5kdfwwwmdg5pgtgy0kc3).
 
 ### Outcomes
