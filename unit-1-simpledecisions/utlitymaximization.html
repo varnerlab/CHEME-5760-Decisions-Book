@@ -417,10 +417,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-goods-apples-and-oranges">Two goods: Apples and Oranges</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-multipliers-and-utility-maximization">Lagrange multipliers and utility maximization</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-secret-meaning-of-lagrange-multipliers">The secret meaning of Lagrange multipliers</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-multipliers-and-utility-maximization">Lagrange multipliers and utility maximization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cobb-douglas-utility-maximization-problem">Cobb-Douglas utility maximization problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-utility-maximization-problem">Linear utility maximization problem</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-system-of-equations-for-linear-utility-maximization">Solving the system of equations for linear utility maximization</a></li>
@@ -556,20 +553,16 @@ thus, the maximum or minimum value of the objective function.</p>
 \frac{\partial\mathcal{L}}{\partial\lambda} &amp; = &amp; I - \sum_{i\in{1,\dotsc,n}}c_{i}x_{i} = 0
 \end{eqnarray*}
 \end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\)</span> denotes the marginal utility of good or service <span class="math notranslate nohighlight">\(i\)</span>. The system of <span class="math notranslate nohighlight">\(n+1\)</span> equations can be solved to find the optimal consumption levels of <span class="math notranslate nohighlight">\(x_{i}\)</span>.</p>
-<section id="the-secret-meaning-of-lagrange-multipliers">
-<h4>The secret meaning of Lagrange multipliers<a class="headerlink" href="#the-secret-meaning-of-lagrange-multipliers" title="Permalink to this heading">#</a></h4>
-<p>The first <span class="math notranslate nohighlight">\(n\)</span> of the first-order optimality conditions can be solved to arrive at the following expression for the <code class="docutils literal notranslate"><span class="pre">Lagrange</span> <span class="pre">multiplier</span></code>:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-lagrange-multiplier-marginal-utility-dollar">
-<span class="eqno">(14)<a class="headerlink" href="#equation-eqn-lagrange-multiplier-marginal-utility-dollar" title="Permalink to this equation">#</a></span>\[\lambda = \frac{\bar{U}_{i}}{c_{i}}\qquad\forall{i}\]</div>
-<p>This gives an interesting interpretation of the <code class="docutils literal notranslate"><span class="pre">Lagrange</span> <span class="pre">multiplier</span></code>:</p>
+<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\)</span> denotes the marginal utility of good or service <span class="math notranslate nohighlight">\(i\)</span>. The system of <span class="math notranslate nohighlight">\(n+1\)</span> equations can be solved to find the optimal consumption levels of <span class="math notranslate nohighlight">\(x_{i}\)</span> and the <code class="docutils literal notranslate"><span class="pre">Lagrange</span> <span class="pre">multiplier</span></code> <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
 <div class="admonition-the-secret-meaning-of-lagrange-multipliers admonition">
 <p class="admonition-title">The secret meaning of Lagrange multipliers</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">Lagrange</span> <span class="pre">multiplier</span></code> is the marginal utility per dollar spent on good <span class="math notranslate nohighlight">\(i\)</span>. Further, it provides the basis for the matching condition at the optimum:</p>
-<div class="math notranslate nohighlight" id="equation-eqn-matching-condition-marginal-utility-dollar">
-<span class="eqno">(15)<a class="headerlink" href="#equation-eqn-matching-condition-marginal-utility-dollar" title="Permalink to this equation">#</a></span>\[\frac{\bar{U}_{i}}{c_{i}} = \frac{\bar{U}_{j}}{c_{j}}\qquad\forall{i,j}\]</div>
+<p>The first <span class="math notranslate nohighlight">\(n\)</span> first-order optimality conditions can be solved to arrive at an expression for the <code class="docutils literal notranslate"><span class="pre">Lagrange</span> <span class="pre">multiplier</span></code> <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\lambda = \frac{\bar{U}_{i}}{c_{i}}\qquad\forall{i}\]</div>
+<p>Thus, the Lagrange multiplier is the marginal utility per dollar spent on good <span class="math notranslate nohighlight">\(i\)</span>. Further, the Lagrange multiplier provides the basis for the matching condition at the optimum:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\bar{U}_{j}}{c_{j}} = \frac{\bar{U}_{k}}{c_{k}}\qquad\forall{j,k}\]</div>
 </div>
-</section>
 </section>
 <section id="cobb-douglas-utility-maximization-problem">
 <h3>Cobb-Douglas utility maximization problem<a class="headerlink" href="#cobb-douglas-utility-maximization-problem" title="Permalink to this heading">#</a></h3>
@@ -596,10 +589,10 @@ thus, the maximum or minimum value of the objective function.</p>
 <h3>Linear utility maximization problem<a class="headerlink" href="#linear-utility-maximization-problem" title="Permalink to this heading">#</a></h3>
 <p>Consider utility maximization problem that uses a linear utility function <span class="math notranslate nohighlight">\(U(x_{1},x_{2}) = \alpha_{1}x_{1}+\alpha_{2}x_{2}\)</span> subject to a budget constraint. The <code class="docutils literal notranslate"><span class="pre">Lagrangian</span></code> for this problem is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-lagrangian-two-good-linear-utility">
-<span class="eqno">(16)<a class="headerlink" href="#equation-eqn-lagrangian-two-good-linear-utility" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x,\lambda) = \alpha_{1}x_{1} + \alpha_{2}x_{2} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)\]</div>
+<span class="eqno">(14)<a class="headerlink" href="#equation-eqn-lagrangian-two-good-linear-utility" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x,\lambda) = \alpha_{1}x_{1} + \alpha_{2}x_{2} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)\]</div>
 <p>which gives the first-order optimality conditions:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-two-good-linear-utility-maximization">
-<span class="eqno">(17)<a class="headerlink" href="#equation-eqn-two-good-linear-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
+<span class="eqno">(15)<a class="headerlink" href="#equation-eqn-two-good-linear-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
 \frac{\partial\mathcal{L}}{\partial{x_{1}}} &amp; = &amp; \alpha_{1} - \lambda\cdot{c_{1}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial{x_{2}}} &amp; = &amp; \alpha_{2} - \lambda\cdot{c_{2}} = 0 \\
 \frac{\partial\mathcal{L}}{\partial\lambda} &amp; = &amp; I - c_{1}x_{1} - c_{2}x_{2} = 0 \\
@@ -878,10 +871,7 @@ These conditions provide a necessary condition for optimality, which means that 
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-goods-apples-and-oranges">Two goods: Apples and Oranges</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-multipliers-and-utility-maximization">Lagrange multipliers and utility maximization</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-secret-meaning-of-lagrange-multipliers">The secret meaning of Lagrange multipliers</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-multipliers-and-utility-maximization">Lagrange multipliers and utility maximization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cobb-douglas-utility-maximization-problem">Cobb-Douglas utility maximization problem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-utility-maximization-problem">Linear utility maximization problem</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-system-of-equations-for-linear-utility-maximization">Solving the system of equations for linear utility maximization</a></li>

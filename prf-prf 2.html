@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proof Index &#8212; CHEME 5760</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-VQRVBL1C02"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-VQRVBL1C02');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'prf-prf';</script>
+    <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/prf-prf.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+
+    <script>
+      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
+    </script>
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="landing.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/cornell_seal_simple_black-164.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/cornell_seal_simple_black-164.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="landing.html">
+                    Quantitative Decisions in Life, Love, and Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="unit-1-simpledecisions/simpledecisions-landing.html">Unit 1. Simple Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="unit-1-simpledecisions/utilityfunctions.html">Utility Functions and Choices</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="unit-1-simpledecisions/indifference-curves.html">Marginal Utility, Indifference and Trades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit-1-simpledecisions/utlitymaximization.html">Constrained Utility Maximization</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="unit-2-uncertainty/uncertainty-landing.html">Unit 2. Uncertain Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit-2-uncertainty/risk-and-decisions.html">Risk aversion and it’s relationship with decisions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit-2-uncertainty/contigencies.html">Contingencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit-2-uncertainty/contingencies-and-utility-max.html">Utility maximization, contingencies and information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unit-2-uncertainty/games.html">Games and Multiagent Reasoning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="unit-3-planning/planning-landing.html">Unit 3. Sequential Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="unit-3-planning/markov.html">Understanding Markov Chains</a></li>
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="unit-3-planning/mdp.html">Markov Decision Processes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="unit-3-planning/sequential-decisions.html">Making Sequential Decisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unit-3-planning/policy-evaluation.html">Value and Policy Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="unit-3-planning/mcts.html">Monte Carlo Tree Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="unit-4-learning/learning-landing.html">Unit 4. Machine Learning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="unit-4-learning/bandits.html">Multiarm Bandit Problems</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="unit-4-learning/bandit-problems-ts.html">Thompson Sampling</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="unit-4-learning/rl.html">Reinforcement Learning</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="unit-4-learning/model-based-rl.html">Model Based Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="unit-4-learning/model-free-rl.html">Model Free Reinforcement Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="unit-4-learning/imitation.html">Imitation Learning</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="unit-4-learning/behavior.html">Behavioral cloning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="unit-4-learning/bayesian-rules.html">Bayesian Descision Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="appendix/random.html">Random variables and probability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book/issues/new?title=Issue%20on%20page%20%2Fprf-prf.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+
+   <h1>Proof Index</h1>
+
+   <div class="modindex-jumpbox">
+   <a href="#cap-algo-e-greedy"><strong>algo-e-greedy</strong></a> | 
+   <a href="#cap-algo-e-greedy-q-learning"><strong>algo-e-greedy-q-learning</strong></a> | 
+   <a href="#cap-algo-thompson-sampling"><strong>algo-thompson-sampling</strong></a> | 
+   <a href="#cap-axiom-probability"><strong>axiom-probability</strong></a> | 
+   <a href="#cap-bayes-theorem"><strong>bayes-theorem</strong></a> | 
+   <a href="#cap-defn-arrow-pratt-model"><strong>defn-arrow-pratt-model</strong></a> | 
+   <a href="#cap-defn-budget-constraint"><strong>defn-budget-constraint</strong></a> | 
+   <a href="#cap-defn-discrete-random-variable-expectation"><strong>defn-discrete-random-variable-expectation</strong></a> | 
+   <a href="#cap-defn-discrete-random-variable-variance"><strong>defn-discrete-random-variable-variance</strong></a> | 
+   <a href="#cap-defn-expected-utility-hypothesis-cont"><strong>defn-expected-utility-hypothesis-cont</strong></a> | 
+   <a href="#cap-defn-expected-utility-hypothesis-discrete"><strong>defn-expected-utility-hypothesis-discrete</strong></a> | 
+   <a href="#cap-defn-formal-mdp"><strong>defn-formal-mdp</strong></a> | 
+   <a href="#cap-defn-incremental-update-rule"><strong>defn-incremental-update-rule</strong></a> | 
+   <a href="#cap-defn-independence"><strong>defn-independence</strong></a> | 
+   <a href="#cap-defn-individual-utility"><strong>defn-individual-utility</strong></a> | 
+   <a href="#cap-defn-law-total-probability"><strong>defn-law-total-probability</strong></a> | 
+   <a href="#cap-defn-marginal-utility"><strong>defn-marginal-utility</strong></a> | 
+   <a href="#cap-defn-method-l-multipliers"><strong>defn-method-l-multipliers</strong></a> | 
+   <a href="#cap-defn-multi-arm-bernoulli-bandit-problem"><strong>defn-multi-arm-bernoulli-bandit-problem</strong></a> | 
+   <a href="#cap-defn-n-transition"><strong>defn-n-transition</strong></a> | 
+   <a href="#cap-defn-pmf"><strong>defn-pmf</strong></a> | 
+   <a href="#cap-defn-pmf-bernouli"><strong>defn-pmf-bernouli</strong></a> | 
+   <a href="#cap-defn-pmf-binomial"><strong>defn-pmf-binomial</strong></a> | 
+   <a href="#cap-defn-pmf-geometric"><strong>defn-pmf-geometric</strong></a> | 
+   <a href="#cap-defn-pmf-poisson"><strong>defn-pmf-poisson</strong></a> | 
+   <a href="#cap-defn-policy-evalution"><strong>defn-policy-evalution</strong></a> | 
+   <a href="#cap-defn-prob-space-kolmogorov"><strong>defn-prob-space-kolmogorov</strong></a> | 
+   <a href="#cap-defn-q-learning-defn"><strong>defn-q-learning-defn</strong></a> | 
+   <a href="#cap-eqn-budget-constraint"><strong>eqn-budget-constraint</strong></a> | 
+   <a href="#cap-ex-event-card-suits"><strong>ex-event-card-suits</strong></a> | 
+   <a href="#cap-ex-sample-space-dice"><strong>ex-sample-space-dice</strong></a> | 
+   <a href="#cap-example-categorical-dist"><strong>example-categorical-dist</strong></a> | 
+   <a href="#cap-example-dicrete-mchain"><strong>example-dicrete-mchain</strong></a> | 
+   <a href="#cap-example-dicrete-mchain-hmm"><strong>example-dicrete-mchain-hmm</strong></a> | 
+   <a href="#cap-obs-expectation-props"><strong>obs-expectation-props</strong></a> | 
+   <a href="#cap-obs-variances-var"><strong>obs-variances-var</strong></a>
+   </div>
+
+   <table class="indextable modindextable">
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-algo-e-greedy"><td></td><td>
+       <strong>algo-e-greedy</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/bandits.html#algo-e-greedy"><code class="xref">algo-e-greedy</code></a> <em>(unit-4-learning/bandits)</em></td><td>
+       <em>algorithm</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-algo-e-greedy-q-learning"><td></td><td>
+       <strong>algo-e-greedy-q-learning</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/rl.html#algo-e-greedy-q-learning"><code class="xref">algo-e-greedy-q-learning</code></a> <em>(unit-4-learning/rl)</em></td><td>
+       <em>algorithm</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-algo-thompson-sampling"><td></td><td>
+       <strong>algo-thompson-sampling</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/bandits.html#algo-thompson-sampling"><code class="xref">algo-thompson-sampling</code></a> <em>(unit-4-learning/bandits)</em></td><td>
+       <em>algorithm</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-axiom-probability"><td></td><td>
+       <strong>axiom-probability</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#axiom-probability"><code class="xref">axiom-probability</code></a> <em>(appendix/random)</em></td><td>
+       <em>axiom</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-bayes-theorem"><td></td><td>
+       <strong>bayes-theorem</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#bayes-theorem"><code class="xref">bayes-theorem</code></a> <em>(appendix/random)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-arrow-pratt-model"><td></td><td>
+       <strong>defn-arrow-pratt-model</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/risk.html#defn-arrow-pratt-model"><code class="xref">defn-arrow-pratt-model</code></a> <em>(unit-2-uncertainty/risk)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-budget-constraint"><td></td><td>
+       <strong>defn-budget-constraint</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-1-simpledecisions/utlitymaximization.html#defn-budget-constraint"><code class="xref">defn-budget-constraint</code></a> <em>(unit-1-simpledecisions/utlitymaximization)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-discrete-random-variable-expectation"><td></td><td>
+       <strong>defn-discrete-random-variable-expectation</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#defn-discrete-random-variable-expectation"><code class="xref">defn-discrete-random-variable-expectation</code></a> <em>(appendix/random)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-discrete-random-variable-variance"><td></td><td>
+       <strong>defn-discrete-random-variable-variance</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#defn-discrete-random-variable-variance"><code class="xref">defn-discrete-random-variable-variance</code></a> <em>(appendix/random)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-expected-utility-hypothesis-cont"><td></td><td>
+       <strong>defn-expected-utility-hypothesis-cont</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/expected-utility.html#defn-expected-utility-hypothesis-cont"><code class="xref">defn-expected-utility-hypothesis-cont</code></a> <em>(unit-2-uncertainty/expected-utility)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-expected-utility-hypothesis-discrete"><td></td><td>
+       <strong>defn-expected-utility-hypothesis-discrete</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-2-uncertainty/expected-utility.html#defn-expected-utility-hypothesis-discrete"><code class="xref">defn-expected-utility-hypothesis-discrete</code></a> <em>(unit-2-uncertainty/expected-utility)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-formal-mdp"><td></td><td>
+       <strong>defn-formal-mdp</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-3-planning/mdp.html#defn-formal-mdp"><code class="xref">defn-formal-mdp</code></a> <em>(unit-3-planning/mdp)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-incremental-update-rule"><td></td><td>
+       <strong>defn-incremental-update-rule</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/rl.html#defn-incremental-update-rule"><code class="xref">defn-incremental-update-rule</code></a> <em>(unit-4-learning/rl)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-independence"><td></td><td>
+       <strong>defn-independence</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#defn-independence"><code class="xref">defn-independence</code></a> <em>(appendix/random)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-individual-utility"><td></td><td>
+       <strong>defn-individual-utility</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-1-simpledecisions/utilityfunctions.html#defn-individual-utility"><code class="xref">defn-individual-utility</code></a> <em>(unit-1-simpledecisions/utilityfunctions)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-law-total-probability"><td></td><td>
+       <strong>defn-law-total-probability</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#defn-law-total-probability"><code class="xref">defn-law-total-probability</code></a> <em>(appendix/random)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-marginal-utility"><td></td><td>
+       <strong>defn-marginal-utility</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-1-simpledecisions/utilityfunctions.html#defn-marginal-utility"><code class="xref">defn-marginal-utility</code></a> <em>(unit-1-simpledecisions/utilityfunctions)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-method-l-multipliers"><td></td><td>
+       <strong>defn-method-l-multipliers</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-1-simpledecisions/utlitymaximization.html#defn-method-l-multipliers"><code class="xref">defn-method-l-multipliers</code></a> <em>(unit-1-simpledecisions/utlitymaximization)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-multi-arm-bernoulli-bandit-problem"><td></td><td>
+       <strong>defn-multi-arm-bernoulli-bandit-problem</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/bandits.html#defn-multi-arm-bernoulli-bandit-problem"><code class="xref">defn-multi-arm-bernoulli-bandit-problem</code></a> <em>(unit-4-learning/bandits)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-n-transition"><td></td><td>
+       <strong>defn-n-transition</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-3-planning/markov.html#defn-n-transition"><code class="xref">defn-n-transition</code></a> <em>(unit-3-planning/markov)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-pmf"><td></td><td>
+       <strong>defn-pmf</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#defn-pmf"><code class="xref">defn-pmf</code></a> <em>(appendix/random)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-pmf-bernouli"><td></td><td>
+       <strong>defn-pmf-bernouli</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#defn-pmf-bernouli"><code class="xref">defn-pmf-bernouli</code></a> <em>(appendix/random)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-pmf-binomial"><td></td><td>
+       <strong>defn-pmf-binomial</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#defn-pmf-binomial"><code class="xref">defn-pmf-binomial</code></a> <em>(appendix/random)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-pmf-geometric"><td></td><td>
+       <strong>defn-pmf-geometric</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#defn-pmf-geometric"><code class="xref">defn-pmf-geometric</code></a> <em>(appendix/random)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-pmf-poisson"><td></td><td>
+       <strong>defn-pmf-poisson</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#defn-pmf-poisson"><code class="xref">defn-pmf-poisson</code></a> <em>(appendix/random)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-policy-evalution"><td></td><td>
+       <strong>defn-policy-evalution</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-3-planning/mdp.html#defn-policy-evalution"><code class="xref">defn-policy-evalution</code></a> <em>(unit-3-planning/mdp)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-prob-space-kolmogorov"><td></td><td>
+       <strong>defn-prob-space-kolmogorov</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#defn-prob-space-kolmogorov"><code class="xref">defn-prob-space-kolmogorov</code></a> <em>(appendix/random)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-defn-q-learning-defn"><td></td><td>
+       <strong>defn-q-learning-defn</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-4-learning/rl.html#defn-q-learning-defn"><code class="xref">defn-q-learning-defn</code></a> <em>(unit-4-learning/rl)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-eqn-budget-constraint"><td></td><td>
+       <strong>eqn-budget-constraint</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-1-simpledecisions/utlitymaximization.html#eqn-budget-constraint"><code class="xref">eqn-budget-constraint</code></a> <em>(unit-1-simpledecisions/utlitymaximization)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-event-card-suits"><td></td><td>
+       <strong>ex-event-card-suits</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#ex-event-card-suits"><code class="xref">ex-event-card-suits</code></a> <em>(appendix/random)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-ex-sample-space-dice"><td></td><td>
+       <strong>ex-sample-space-dice</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#ex-sample-space-dice"><code class="xref">ex-sample-space-dice</code></a> <em>(appendix/random)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-categorical-dist"><td></td><td>
+       <strong>example-categorical-dist</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-3-planning/markov.html#example-categorical-dist"><code class="xref">example-categorical-dist</code></a> <em>(unit-3-planning/markov)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-dicrete-mchain"><td></td><td>
+       <strong>example-dicrete-mchain</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-3-planning/markov.html#example-dicrete-mchain"><code class="xref">example-dicrete-mchain</code></a> <em>(unit-3-planning/markov)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-dicrete-mchain-hmm"><td></td><td>
+       <strong>example-dicrete-mchain-hmm</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="unit-3-planning/markov.html#example-dicrete-mchain-hmm"><code class="xref">example-dicrete-mchain-hmm</code></a> <em>(unit-3-planning/markov)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-obs-expectation-props"><td></td><td>
+       <strong>obs-expectation-props</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#obs-expectation-props"><code class="xref">obs-expectation-props</code></a> <em>(appendix/random)</em></td><td>
+       <em>observation</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-obs-variances-var"><td></td><td>
+       <strong>obs-variances-var</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="appendix/random.html#obs-variances-var"><code class="xref">obs-variances-var</code></a> <em>(appendix/random)</em></td><td>
+       <em>observation</em></td></tr>
+   </table>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Varner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
