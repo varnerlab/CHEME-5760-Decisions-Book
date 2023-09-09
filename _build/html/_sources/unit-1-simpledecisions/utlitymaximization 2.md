@@ -233,10 +233,10 @@ To find a solution to the first-order optimality conditions, we could use the [M
 
  ```{figure} ./figs/Fig-Linear-Utility-Solns-Schematic.png
 ---
-height: 260px
+height: 280px
 name: fig-two-linear-solns
 ---
-Solutions of the utility maximization problem with a linear utility function. The yellow regions highlight the optimal solution for each of the cases. The optimal solution depends upon the slope of the budget constraint line, $m_{B}$ and the slope of the linear indifference curve, $m_{I}$.
+Solutions of the utility maximization problem with a linear utility function. The yellow regions highlight the optimal solution.
 ```
 
 The optimal solution is given by:
