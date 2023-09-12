@@ -1,0 +1,940 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Constrained Utility Maximization &#8212; CHEME 5760</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-VQRVBL1C02"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-VQRVBL1C02');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'unit-1-simpledecisions/utlitymaximization';</script>
+    <link rel="canonical" href="https://varnerlab.github.io/CHEME-5760-Decisions-Book/landing.html/unit-1-simpledecisions/utlitymaximization.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Decision-making in uncertain situations" href="../unit-2-uncertainty/uncertainty-landing.html" />
+    <link rel="prev" title="Marginal Utility, Indifference and Trades" href="indifference-curves.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../landing.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cornell_seal_simple_black-164.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/cornell_seal_simple_black-164.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../landing.html">
+                    Quantitative Decisions in Life, Love, and Finance
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="simpledecisions-landing.html">Unit 1. Simple Decisions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="utilityfunctions.html">Utility Functions and Choices</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="indifference-curves.html">Marginal Utility, Indifference and Trades</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Constrained Utility Maximization</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-2-uncertainty/uncertainty-landing.html">Unit 2. Uncertain Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contigencies.html">Contingencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contingencies-and-utility-max.html">Utility maximization, contingencies and information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Games and Multiagent Reasoning</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-3-planning/planning-landing.html">Unit 3. Sequential Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/markov.html">Understanding Markov Chains</a></li>
+
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-3-planning/mdp.html">Markov Decision Processes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-3-planning/sequential-decisions.html">Making Sequential Decisions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-3-planning/policy-evaluation.html">Value and Policy Evaluation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-3-planning/mcts.html">Monte Carlo Tree Search</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../unit-4-learning/learning-landing.html">Unit 4. Machine Learning and Decisions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandits.html">Multiarm Bandit Problems</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bandit-problems-ts.html">Thompson Sampling</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/rl.html">Reinforcement Learning</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-based-rl.html">Model Based Reinforcement Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/model-free-rl.html">Model Free Reinforcement Learning</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../unit-4-learning/imitation.html">Imitation Learning</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../unit-4-learning/behavior.html">Behavioral cloning</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../unit-4-learning/bayesian-rules.html">Bayesian Descision Rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../appendix/appendix-landing.html">Appendices</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../appendix/random.html">Random variables and probability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../References.html">References</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/varnerlab/CHEME-5760-Decisions-Book/issues/new?title=Issue%20on%20page%20%2Funit-1-simpledecisions/utlitymaximization.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/unit-1-simpledecisions/utlitymaximization.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Constrained Utility Maximization</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Constrained Utility Maximization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-rational-choices">Optimal rational choices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-constraints">Resource constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-goods-apples-and-oranges">Two goods: Apples and Oranges</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-multipliers-and-utility-maximization">Lagrange multipliers and utility maximization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cobb-douglas-utility-maximization-problem">Cobb-Douglas utility maximization problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-utility-maximization-problem">Linear utility maximization problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-system-of-equations-for-linear-utility-maximization">Solving the system of equations for linear utility maximization</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solutions-of-utility-maximization-problems">Numerical solutions of utility maximization problems</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-income-and-prices">The role of income and prices</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="constrained-utility-maximization">
+<h1>Constrained Utility Maximization<a class="headerlink" href="#constrained-utility-maximization" title="Permalink to this heading">#</a></h1>
+<p>Utility maximization is the process of choosing the option that provides the highest level of utility, given a set of available options and the individual’s preferences. It involves evaluating each option using a utility function and selecting the one that maximizes the utility subject to constraints.</p>
+<aside class="topic">
+<p class="topic-title">Outline</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-rational-choice-theory-opt"><span class="std std-ref">Optimal rational choices</span></a> are based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets.</p></li>
+<li><p><a class="reference internal" href="#content-references-rational-choice-income-and-prices"><span class="std std-ref">The role of income and prices</span></a>. Understanding the impact of income and prices on decision-making is crucial in comprehending the rationale behind the actions taken by decision makers. By studying the correlation between income, prices, and utility maximization within a budget constraint, we can gain valuable insights into consumer behavior, resource allocation, and market dynamics.</p></li>
+</ul>
+</aside>
+<hr class="docutils" />
+<section id="optimal-rational-choices">
+<span id="content-references-rational-choice-theory-opt"></span><h2>Optimal rational choices<a class="headerlink" href="#optimal-rational-choices" title="Permalink to this heading">#</a></h2>
+<p>An optimal rational decision-making agent <em>maximizes</em> its utility function, i.e., the agent searches for a combination of goods and services that gives the highest satisfaction subject to various constraints, e.g., a budget constraint (<a class="reference internal" href="#eqn-budget-constraint">Definition 3</a>):</p>
+<div class="proof definition admonition" id="eqn-budget-constraint">
+<p class="admonition-title"><span class="caption-number">Definition 3 </span> (Maximum utility and budget constraints)</p>
+<section class="definition-content" id="proof-content">
+<p>An agent has a set of <span class="math notranslate nohighlight">\(n\)</span> objects <span class="math notranslate nohighlight">\(X = \left\{x_{i}\right\}_{i=1}^{n}\)</span>, a utility function <span class="math notranslate nohighlight">\(U:X\rightarrow\mathbb{R}\)</span>,
+and a total of <span class="math notranslate nohighlight">\(I\)</span> units of resource to allocate, e.g., money, time, etc.
+An optimal rational agent maximizes its utility subject to its resource budget:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+\text{maximize}~\mathcal{O} &amp;=&amp; U\left(x_{1},\dots,x_{n}\right) \\
+\text{subject to}~\sum_{i\in{1,\dotsc,n}}c_{i}x_{i} &amp; = &amp; I\\
+\text{and}~x_{i}&amp;\geq&amp;{0}\qquad{i=1,2,\dots,n}
+\end{eqnarray}
+\end{split}\]</div>
+<p>The quantity <span class="math notranslate nohighlight">\(c_{i}\geq{0}~\forall{i}\)</span> denotes the cost of object <span class="math notranslate nohighlight">\(i\)</span>,
+and <span class="math notranslate nohighlight">\(x_{i}\geq{0}\)</span> represents the amount of object <span class="math notranslate nohighlight">\(i\)</span> purchased or consumed by the agent.</p>
+</section>
+</div><p>The problem in <a class="reference internal" href="#eqn-budget-constraint">Definition 3</a> can be solved for the unknown consumption levels of <span class="math notranslate nohighlight">\(x_{i}\)</span> using various techniques.</p>
+<!-- Of course, if the utility function in {prf:ref}`eqn-budget-constraint` is linear, we could also use [linear programming](https://en.wikipedia.org/wiki/Linear_programming). -->
+<section id="resource-constraints">
+<span id="content-references-rational-choice-budget-constraints"></span><h3>Resource constraints<a class="headerlink" href="#resource-constraints" title="Permalink to this heading">#</a></h3>
+<p>To manage resources effectively, you need to prioritize your expenses, make trade-offs, and find the best ways to use what you have, such as time, money, and people. These limitations come from the fact that resources are finite and scarce, so you need to plan carefully and allocate them wisely to meet your needs and goals.</p>
+<p>In the context of optimal decision problems, we represent the utilization of scarce resources using budget constraints. Budget constraints are a mathematical representation of the trade-offs between two or more goods or services brought about by resource limitation (<a class="reference internal" href="#defn-budget-constraint">Definition 4</a>):</p>
+<div class="proof definition admonition" id="defn-budget-constraint">
+<p class="admonition-title"><span class="caption-number">Definition 4 </span> (Budget constraint)</p>
+<section class="definition-content" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(I\geq{0}\)</span> denote a scarce resource, e.g., time, money, etc., that is allocated to consume, purchase, etc., the set of <span class="math notranslate nohighlight">\(n\)</span> objects <span class="math notranslate nohighlight">\(X = \left\{x_{i}\right\}_{i=1}^{n}\)</span>. The budget constraint for the set <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\sum_{i\in{1,\dotsc,n}}c_{i}x_{i} = I
+\end{equation}
+\]</div>
+<p>The terms <span class="math notranslate nohighlight">\(x_{i}\geq{0}\)</span> denote the quanity of object <span class="math notranslate nohighlight">\(i\)</span> consumed, purchased, etc, and <span class="math notranslate nohighlight">\(c_{i}\geq{0}\)</span> denotes the unit cost of object <span class="math notranslate nohighlight">\(i\)</span>.</p>
+</section>
+</div><section id="two-goods-apples-and-oranges">
+<h4>Two goods: Apples and Oranges<a class="headerlink" href="#two-goods-apples-and-oranges" title="Permalink to this heading">#</a></h4>
+<p>Let’s consider a case where we have the budget <span class="math notranslate nohighlight">\(I\)</span>, and two goods <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">{apples,</span> <span class="pre">oranges}</span></code>. In this case, the budget constraint is a line in the <code class="docutils literal notranslate"><span class="pre">apples</span></code> versus <code class="docutils literal notranslate"><span class="pre">oranges</span></code> plane (<a class="reference internal" href="#fig-two-dim-bc"><span class="std std-numref">Fig. 5</span></a>).</p>
+<figure class="align-default" id="fig-two-dim-bc">
+<a class="reference internal image-reference" href="../_images/Fig-TwoDim-BudgetConstraint-Schematic.png"><img alt="../_images/Fig-TwoDim-BudgetConstraint-Schematic.png" src="../_images/Fig-TwoDim-BudgetConstraint-Schematic.png" style="height: 440px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Two-dimensional budget constraint for the <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">{apples,</span> <span class="pre">oranges}</span></code> set of goods.</span><a class="headerlink" href="#fig-two-dim-bc" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>There are some interesting points to note about the budget constraint shown in <a class="reference internal" href="#fig-two-dim-bc"><span class="std std-numref">Fig. 5</span></a>:</p>
+<ul class="simple">
+<li><p>The slope of the resource constraint line <span class="math notranslate nohighlight">\(m_{B}\)</span> is the negative ratio of the unit costs of <code class="docutils literal notranslate"><span class="pre">apples</span></code> and <code class="docutils literal notranslate"><span class="pre">oranges</span></code>.</p></li>
+<li><p>Point <code class="docutils literal notranslate"><span class="pre">S</span></code> represents the maximum number of <code class="docutils literal notranslate"><span class="pre">apples</span></code> and <code class="docutils literal notranslate"><span class="pre">oranges</span></code> that can be purchased at the store (supply constraint).</p></li>
+<li><p>The intercepts <span class="math notranslate nohighlight">\(\hat{x}_{1}\)</span> and <span class="math notranslate nohighlight">\(\hat{x}_{2}\)</span> indicate the maximum amount of <code class="docutils literal notranslate"><span class="pre">apples</span></code> and <code class="docutils literal notranslate"><span class="pre">oranges</span></code> that can be bought based on the budget constraint and the price of each fruit. For instance, <span class="math notranslate nohighlight">\(\hat{x}_{1}\)</span> refers to the maximum number of <code class="docutils literal notranslate"><span class="pre">apples</span></code> that can be bought, while <span class="math notranslate nohighlight">\(\hat{x}_{2}\)</span> refers to the maximum number of <code class="docutils literal notranslate"><span class="pre">oranges</span></code> that can be purchased.</p></li>
+<li><p>Any point on the budget constraint line, such as point <code class="docutils literal notranslate"><span class="pre">A</span></code>, represents a potential combination of <code class="docutils literal notranslate"><span class="pre">apples</span></code> and <code class="docutils literal notranslate"><span class="pre">oranges</span></code> that can be purchased that exactly satisfies the budget constraint.</p></li>
+<li><p>Any point within the gray area, such as point <code class="docutils literal notranslate"><span class="pre">B</span></code>, also represents a possible combination of <code class="docutils literal notranslate"><span class="pre">apples</span></code> and <code class="docutils literal notranslate"><span class="pre">oranges</span></code> that can be purchased, but there will be leftover resources, such as money.</p></li>
+</ul>
+<p>The objective is to determine the best combination of <code class="docutils literal notranslate"><span class="pre">apples</span></code> and <code class="docutils literal notranslate"><span class="pre">oranges</span></code> that maximizes the utility function and exactly satisfies the budget. This means finding the point on the budget constraint line that offers the highest utility.</p>
+</section>
+</section>
+<section id="lagrange-multipliers-and-utility-maximization">
+<h3>Lagrange multipliers and utility maximization<a class="headerlink" href="#lagrange-multipliers-and-utility-maximization" title="Permalink to this heading">#</a></h3>
+<p>Let’s begin with a classical approach, the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a>. The <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">method of Lagrange multipliers</a> introduces additional variables, called <code class="docutils literal notranslate"><span class="pre">Lagrange</span> <span class="pre">multipliers</span></code>, which integrate the constraints into a modified objective function called the <code class="docutils literal notranslate"><span class="pre">Lagrangian</span></code> (<a class="reference internal" href="#defn-method-l-multipliers">Definition 5</a>):</p>
+<div class="proof definition admonition" id="defn-method-l-multipliers">
+<p class="admonition-title"><span class="caption-number">Definition 5 </span> (Method of Lagrange multipliers)</p>
+<section class="definition-content" id="proof-content">
+<p>To find the optimum of a function <span class="math notranslate nohighlight">\(f(x)\)</span> subject to the equality constraint <span class="math notranslate nohighlight">\(g(x)\)</span>,
+we form the Lagrangian <span class="math notranslate nohighlight">\(\mathcal{L}(x,\lambda)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation}
+\mathcal{L}(x,\lambda) = f(x) + \lambda\cdot{g}(x)
+\end{equation}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda\)</span> is the Lagrange multiplier for constraint <span class="math notranslate nohighlight">\(g(x)\)</span>.
+At a critical point (maximum or minimum), the partial derivatives of the
+Lagrangian with respect to <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> vanish:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray}
+\frac{\partial\mathcal{L}}{\partial{x}} &amp; = &amp; f^{\prime}(x) + \lambda\cdot{g^{\prime}(x)} = 0\\
+\frac{\partial\mathcal{L}}{\partial{\lambda}} &amp; = &amp; g(x) = 0
+\end{eqnarray}
+\end{split}\]</div>
+<p>This system of equations, which represents first-order optimality conditions, can be solved for the critical points and,
+thus, the maximum or minimum value of the objective function.</p>
+</section>
+</div><p>The constrained utility maximization problem has the <code class="docutils literal notranslate"><span class="pre">Lagrangian</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation*}
+\mathcal{L}(x,\lambda) = U(x_{1},\dots,x_{n}) + \lambda\cdot\left(I-\sum_{i\in{1,\dotsc,n}}c_{i}x_{i}\right)
+\end{equation*}
+\]</div>
+<p>which then gives the system of equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+\frac{\partial\mathcal{L}}{\partial{x_{i}}} &amp; = &amp; \bar{U}_{i} - \lambda\cdot{c_{i}} = 0 \qquad{i=1,2,\dots,n} \\
+\frac{\partial\mathcal{L}}{\partial\lambda} &amp; = &amp; I - \sum_{i\in{1,\dotsc,n}}c_{i}x_{i} = 0
+\end{eqnarray*}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\bar{U}_{i}\)</span> denotes the marginal utility of good or service <span class="math notranslate nohighlight">\(i\)</span>. The system of <span class="math notranslate nohighlight">\(n+1\)</span> equations can be solved to find the optimal consumption levels of <span class="math notranslate nohighlight">\(x_{i}\)</span> and the <code class="docutils literal notranslate"><span class="pre">Lagrange</span> <span class="pre">multiplier</span></code> <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<div class="admonition-the-secret-meaning-of-lagrange-multipliers admonition">
+<p class="admonition-title">The secret meaning of Lagrange multipliers</p>
+<p>The first <span class="math notranslate nohighlight">\(n\)</span> first-order optimality conditions can be solved to arrive at an expression for the <code class="docutils literal notranslate"><span class="pre">Lagrange</span> <span class="pre">multiplier</span></code> <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\lambda = \frac{\bar{U}_{i}}{c_{i}}\qquad\forall{i}\]</div>
+<p>Thus, the Lagrange multiplier is the marginal utility per dollar spent on good <span class="math notranslate nohighlight">\(i\)</span>. Further, the Lagrange multiplier provides the basis for the matching condition at the optimum:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\bar{U}_{j}}{c_{j}} = \frac{\bar{U}_{k}}{c_{k}}\qquad\forall{j,k}\]</div>
+</div>
+</section>
+<section id="cobb-douglas-utility-maximization-problem">
+<h3>Cobb-Douglas utility maximization problem<a class="headerlink" href="#cobb-douglas-utility-maximization-problem" title="Permalink to this heading">#</a></h3>
+<p>Consider a utility maximization problem with the Cobb-Douglas utility function,
+<span class="math notranslate nohighlight">\(U(x_{1},x_{2}) = x_{1}^{\alpha}x_{2}^{1-\alpha}\)</span>, subject to a budget constraint. The <code class="docutils literal notranslate"><span class="pre">Lagrangian</span></code> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation*}
+\mathcal{L}(x,\lambda) = x_{1}^{\alpha}x_{2}^{1-\alpha} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)
+\end{equation*}
+\]</div>
+<p>which gives the first-order optimality conditions:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{eqnarray*}
+\frac{\partial\mathcal{L}}{\partial{x_{1}}} &amp; = &amp; \alpha\cdot{x_{1}^{\alpha-1}}x_{2}^{1-\alpha} - \lambda\cdot{c_{1}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial{x_{2}}} &amp; = &amp; (1-\alpha)\cdot{x_{1}^{\alpha}x_{2}^{-\alpha}} - \lambda\cdot{c_{2}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial\lambda} &amp; = &amp; I - c_{1}x_{1} - c_{2}x_{2} = 0
+\end{eqnarray*}
+\end{split}\]</div>
+<p>This system can be solved for the optimal consumption levels of <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>.  However, it is non-linear. Thus, we often need to use numerical methods to find the optimal values of <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span>. The Cobb-Douglas utility function will give a unique optimal solution.</p>
+</section>
+<section id="linear-utility-maximization-problem">
+<h3>Linear utility maximization problem<a class="headerlink" href="#linear-utility-maximization-problem" title="Permalink to this heading">#</a></h3>
+<p>Consider utility maximization problem that uses a linear utility function <span class="math notranslate nohighlight">\(U(x_{1},x_{2}) = \alpha_{1}x_{1}+\alpha_{2}x_{2}\)</span> subject to a budget constraint. The <code class="docutils literal notranslate"><span class="pre">Lagrangian</span></code> for this problem is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-lagrangian-two-good-linear-utility">
+<span class="eqno">(14)<a class="headerlink" href="#equation-eqn-lagrangian-two-good-linear-utility" title="Permalink to this equation">#</a></span>\[\mathcal{L}(x,\lambda) = \alpha_{1}x_{1} + \alpha_{2}x_{2} + \lambda\cdot\left(I-c_{1}x_{1}-c_{2}x_{2}\right)\]</div>
+<p>which gives the first-order optimality conditions:</p>
+<div class="math notranslate nohighlight" id="equation-eqn-two-good-linear-utility-maximization">
+<span class="eqno">(15)<a class="headerlink" href="#equation-eqn-two-good-linear-utility-maximization" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{eqnarray}
+\frac{\partial\mathcal{L}}{\partial{x_{1}}} &amp; = &amp; \alpha_{1} - \lambda\cdot{c_{1}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial{x_{2}}} &amp; = &amp; \alpha_{2} - \lambda\cdot{c_{2}} = 0 \\
+\frac{\partial\mathcal{L}}{\partial\lambda} &amp; = &amp; I - c_{1}x_{1} - c_{2}x_{2} = 0 \\
+\end{eqnarray}\end{split}\]</div>
+<p>The first-order optimality conditions are <span class="math notranslate nohighlight">\(3\times{3}\)</span> system of linear algebraic equations, which are underdetermined.
+To see this, let’s perform a <code class="docutils literal notranslate"><span class="pre">rank</span> <span class="pre">test</span></code>. The optimality conditions can be written in matrix-vector form as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix}
+0 &amp; 0 &amp; -c_{1} \\
+0 &amp; 0 &amp; -c_{2} \\
+-c_{1} &amp; -c_{2} &amp; 0 \\
+\end{bmatrix}
+\begin{bmatrix}
+x_{1} \\
+x_{2} \\
+\lambda \\
+\end{bmatrix} = 
+\begin{bmatrix}
+-a_{1} \\
+-a_{2} \\
+-I \\
+\end{bmatrix}\end{split}\]</div>
+<p>or <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{\theta} = \mathbf{b}\)</span> which can (theoretically) be inverted
+to find the solution if the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> has <a class="reference external" href="https://en.wikipedia.org/wiki/Rank_(linear_algebra)">full rank</a>:</p>
+<div class="math notranslate nohighlight">
+\[\theta = \mathbf{A}^{-1}\mathbf{b}\]</div>
+<p>However, the rank of matrix <span class="math notranslate nohighlight">\(\text{rank}(\mathbf{A}) = 2\)</span>, which indicates the system of equations is <code class="docutils literal notranslate"><span class="pre">underdetermined</span></code>. This means that there are more unknowns than equations, leading to an infinite number of possible solutions.</p>
+<section id="solving-the-system-of-equations-for-linear-utility-maximization">
+<h4>Solving the system of equations for linear utility maximization<a class="headerlink" href="#solving-the-system-of-equations-for-linear-utility-maximization" title="Permalink to this heading">#</a></h4>
+<p>To find a solution to the first-order optimality conditions, we could use the <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse">Moore-Penrose pseudo-inverse</a> of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>. Alternatively, in the two-dimensional case, we find, after some analysis, that the optimal solution depends upon the slope of the budget constraint line, <span class="math notranslate nohighlight">\(m_{B}\)</span> and the slope of the linear indifference curve, <span class="math notranslate nohighlight">\(m_{U}\)</span> <a class="reference internal" href="#fig-two-linear-solns"><span class="std std-numref">Fig. 6</span></a>:</p>
+<figure class="align-default" id="fig-two-linear-solns">
+<a class="reference internal image-reference" href="../_images/Fig-Linear-Utility-Solns-Schematic.png"><img alt="../_images/Fig-Linear-Utility-Solns-Schematic.png" src="../_images/Fig-Linear-Utility-Solns-Schematic.png" style="height: 260px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Solutions of the utility maximization problem with a linear utility function. The yellow regions highlight the optimal solution for each of the cases. The optimal solution depends upon the slope of the budget constraint line, <span class="math notranslate nohighlight">\(m_{B}\)</span> and the slope of the linear indifference curve, <span class="math notranslate nohighlight">\(m_{I}\)</span>.</span><a class="headerlink" href="#fig-two-linear-solns" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The optimal solution is given by:</p>
+<ul class="simple">
+<li><p><strong>Case A</strong>: If <span class="math notranslate nohighlight">\(m_{U} &gt; m_{B}\)</span>, the optimal solution is the x-intercept of the budget constraint line, i.e., <span class="math notranslate nohighlight">\(\hat{x}_{1} = \frac{I}{c_{1}}\)</span> and <span class="math notranslate nohighlight">\(\hat{x}_{2} = 0\)</span>.</p></li>
+<li><p><strong>Case B</strong>: If <span class="math notranslate nohighlight">\(m_{U} &lt; m_{B}\)</span>, the optimal solution is the y-intercept of the budget constraint line, i.e., <span class="math notranslate nohighlight">\(\hat{x}_{1} = 0\)</span> and <span class="math notranslate nohighlight">\(\hat{x}_{2} = \frac{I}{c_{2}}\)</span>.</p></li>
+<li><p><strong>Case C</strong>: If <span class="math notranslate nohighlight">\(m_{U} = m_{B}\)</span>, the optimal solution is any point on the budget constraint line, i.e., any point betweem <span class="math notranslate nohighlight">\(\hat{x}_{1} = \frac{I}{c_{1}}\)</span> and <span class="math notranslate nohighlight">\(\hat{x}_{2} = \frac{I}{c_{2}}\)</span>.</p></li>
+</ul>
+<!-- #### Karush-Kuhn-Tucker (KKT) conditions
+The [Karush-Kuhn-Tucker (KKT) conditions](https://en.wikipedia.org/wiki/Karush–Kuhn–Tucker_conditions) are necessary conditions for finding the optimal solution to an optimization problem with constraints. The conditions are as follows:
+
+* __Stationarity condition__: The gradient of the objective function at the optimal point is orthogonal to the feasible region, taking into account the constraints.
+* __Primal feasibility condition__: The optimal solution must satisfy the constraints of the optimization problem.
+* __Dual feasibility condition__: The Lagrange multipliers associated with the constraints must be non-negative.
+* __Complementary slackness condition__: The product of the Lagrange multipliers and the difference between the left-hand side and right-hand side of each constraint must be zero.
+
+These conditions provide a necessary condition for optimality, which means that if a solution satisfies these conditions, it may be a candidate for the optimal solution. However, it is not guaranteed that the optimal solution satisfies all these conditions, and additional analysis may be necessary to confirm the optimality of a candidate solution. -->
+</section>
+</section>
+<section id="numerical-solutions-of-utility-maximization-problems">
+<h3>Numerical solutions of utility maximization problems<a class="headerlink" href="#numerical-solutions-of-utility-maximization-problems" title="Permalink to this heading">#</a></h3>
+<p>The Cobb-Douglas utility function example above illustrates a case where the first-order optimality conditions are non-linear and not easy to solve analytically. In these cases, which are common, we must use numerical methods to find the optimal values for <span class="math notranslate nohighlight">\(x_{1},\dots,x_{n}\)</span>.</p>
+<p>We’ll make use of the <a class="reference external" href="https://jump.dev/JuMP.jl/stable/">JuMP</a> and <a class="reference external" href="https://github.com/MadNLP/MadNLP.jl">MadNLP</a> packages which provide numerical techniques for solving optimization problems:</p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://jump.dev/JuMP.jl/stable/">JuMP</a> package provides a high-level interface for defining optimization problems.</p></li>
+<li><p>The <a class="reference external" href="https://github.com/MadNLP/MadNLP.jl">MadNLP</a> package is used by JuMP to solve optimization problems, but it can also be used directly to solve constrained optimization problems.</p></li>
+</ul>
+<p>Let’s revisit the Cobb-Douglas utility maximization problem from above, but this time we’ll use <a class="reference external" href="https://jump.dev/JuMP.jl/stable/">JuMP</a> and <a class="reference external" href="https://github.com/MadNLP/MadNLP.jl">MadNLP</a> to solve the problem numerically. First, we’ll define a type that represents the problem (and stores useful data about the problem):</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="k">mutable</span><span class="w"> </span><span class="k">struct</span> <span class="kt">MySimpleCobbDouglasChoiceProblem</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">AbstractSimpleChoiceProblem</span>
+
+<span class="w">    </span><span class="c"># data -</span>
+<span class="w">    </span><span class="n">α</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span>
+<span class="w">    </span><span class="n">c</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span>
+<span class="w">    </span><span class="n">I</span><span class="o">::</span><span class="kt">Float64</span>
+<span class="w">    </span><span class="n">bounds</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span>
+<span class="w">    </span><span class="n">initial</span><span class="o">::</span><span class="kt">Array</span><span class="p">{</span><span class="kt">Float64</span><span class="p">,</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="w">    </span><span class="c"># constructor</span>
+<span class="w">    </span><span class="n">MySimpleCobbDouglasChoiceProblem</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="p">();</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Next, we’ll define a function that takes an instance of the <code class="docutils literal notranslate"><span class="pre">MySimpleCobbDouglasChoiceProblem</span></code> problem object, solves the constrained utility maximization problem, and returns a <a class="reference external" href="https://docs.julialang.org/en/v1/base/collections/#Dictionaries">dictionary</a> with the results:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">    solve(problem::MySimpleCobbDouglasChoiceProblem) -&gt; Dict{String,Any}</span>
+
+<span class="s">Solves the optimal decision problem with a budget constraint with a Cobb-Douglas utility function</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="k">function</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">problem</span><span class="o">::</span><span class="kt">MySimpleCobbDouglasChoiceProblem</span><span class="p">)</span><span class="o">::</span><span class="kt">Dict</span><span class="p">{</span><span class="kt">String</span><span class="p">,</span><span class="kt">Any</span><span class="p">}</span>
+
+<span class="w">    </span><span class="c"># initialize -</span>
+<span class="w">    </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Dict</span><span class="p">{</span><span class="kt">String</span><span class="p">,</span><span class="kt">Any</span><span class="p">}()</span>
+<span class="w">    </span><span class="n">α</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">problem</span><span class="o">.</span><span class="n">α</span><span class="p">;</span>
+<span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">problem</span><span class="o">.</span><span class="n">c</span><span class="p">;</span>
+<span class="w">    </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">problem</span><span class="o">.</span><span class="n">bounds</span><span class="p">;</span>
+<span class="w">    </span><span class="n">I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">problem</span><span class="o">.</span><span class="n">I</span><span class="p">;</span>
+<span class="w">    </span><span class="n">xₒ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">problem</span><span class="o">.</span><span class="n">initial</span>
+
+<span class="w">    </span><span class="c"># how many variables do we have?</span>
+<span class="w">    </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">α</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c"># Setup the problem -</span>
+<span class="w">    </span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Model</span><span class="p">(()</span><span class="o">-&gt;</span><span class="n">MadNLP</span><span class="o">.</span><span class="n">Optimizer</span><span class="p">(</span><span class="n">print_level</span><span class="o">=</span><span class="n">MadNLP</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span><span class="w"> </span><span class="n">max_iter</span><span class="o">=</span><span class="mi">500</span><span class="p">))</span>
+<span class="w">    </span><span class="nd">@variable</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">d</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">bounds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">start</span><span class="o">=</span><span class="n">xₒ</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="c"># we have d variables</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c"># set objective function -   </span>
+<span class="w">    </span><span class="nd">@NLobjective</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">Max</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="n">α</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">^</span><span class="n">α</span><span class="p">[</span><span class="mi">2</span><span class="p">]));</span>
+<span class="w">    </span><span class="nd">@constraints</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="k">begin</span>
+<span class="w">            </span><span class="c"># my budget constraint</span>
+<span class="w">            </span><span class="n">transpose</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">I</span>
+<span class="w">        </span><span class="k">end</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="c"># run the optimization -</span>
+<span class="w">    </span><span class="n">optimize!</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c"># populate -</span>
+<span class="w">    </span><span class="n">x_opt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="o">.</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">    </span><span class="n">results</span><span class="p">[</span><span class="s">&quot;argmax&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x_opt</span>
+<span class="w">    </span><span class="n">results</span><span class="p">[</span><span class="s">&quot;budget&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">transpose</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">x_opt</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">results</span><span class="p">[</span><span class="s">&quot;objective_value&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">objective_value</span><span class="p">(</span><span class="n">model</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c"># return -</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">results</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<p>Finally, we’ll put it all together and solve the problem. We build the problem object using the <code class="docutils literal notranslate"><span class="pre">build(...)</span></code> function, and then call the <code class="docutils literal notranslate"><span class="pre">solve(...)</span></code> function to estimate the optimal solution:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">runme-cobb-douglas.jl</span><a class="headerlink" href="#id1" title="Permalink to this code">#</a></div>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c"># include the include (load the reqd packages) -</span>
+<span class="linenos"> 2</span><span class="n">include</span><span class="p">(</span><span class="s">&quot;Include.jl&quot;</span><span class="p">)</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c"># initialize -</span>
+<span class="linenos"> 5</span><span class="n">α</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0.55</span><span class="p">,</span><span class="w"> </span><span class="mf">0.45</span><span class="p">];</span><span class="w"> </span><span class="c"># coefficients</span>
+<span class="linenos"> 6</span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0</span><span class="p">];</span><span class="w"> </span><span class="c"># price of x1 and x2</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c"># build my problem object -</span>
+<span class="linenos"> 9</span><span class="n">problem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">MySimpleCobbDouglasChoiceProblem</span><span class="p">,</span><span class="w"> </span><span class="p">(</span>
+<span class="linenos">10</span><span class="w">    </span>
+<span class="linenos">11</span><span class="w">    </span><span class="n">initial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="o">*</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="c"># initial guess</span>
+<span class="linenos">12</span><span class="w">    </span><span class="n">α</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">α</span><span class="p">,</span><span class="w"> </span><span class="c"># coefficients</span>
+<span class="linenos">13</span><span class="w">    </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="c"># price of x1 and x2</span>
+<span class="linenos">14</span><span class="w">    </span><span class="n">I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100.0</span><span class="p">,</span><span class="w"> </span><span class="c"># income</span>
+<span class="linenos">15</span><span class="w">    </span>
+<span class="linenos">16</span><span class="w">    </span><span class="c"># how much of x₁ and x₂ can be we buy?</span>
+<span class="linenos">17</span><span class="w">    </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="linenos">18</span><span class="w">        </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">100.0</span><span class="p">;</span><span class="w"> </span><span class="c"># L U</span>
+<span class="linenos">19</span><span class="w">        </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">100.0</span><span class="p">;</span><span class="w"> </span><span class="c"># L U</span>
+<span class="linenos">20</span><span class="w">    </span><span class="p">]</span>
+<span class="linenos">21</span><span class="p">));</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="c"># call tghe solve function. This will return a dictionary -</span>
+<span class="linenos">24</span><span class="n">solution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">solve</span><span class="p">(</span><span class="n">problem</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>The optimal solution for the consumption of good <span class="math notranslate nohighlight">\(x_{1}\)</span> and <span class="math notranslate nohighlight">\(x_{2}\)</span> subject to the budget constraint is a point of tangency between the indifference curve and the budget constraint (<a class="reference internal" href="#fig-two-dim-bc-cd-soln"><span class="std std-numref">Fig. 7</span></a>):</p>
+<figure class="align-default" id="fig-two-dim-bc-cd-soln">
+<a class="reference internal image-reference" href="../_images/Fig-Single-Budget-CD-Soln.pdf"><img alt="../_images/Fig-Single-Budget-CD-Soln.pdf" src="../_images/Fig-Single-Budget-CD-Soln.pdf" style="height: 420px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Optimal solution for the two-dimensional goods problem assuming a Cobb-Douglas utility function. Parameters: <span class="math notranslate nohighlight">\(\alpha_{1} = 0.55\)</span>, <span class="math notranslate nohighlight">\(\alpha_{2} = 0.45\)</span>, <span class="math notranslate nohighlight">\(c_{1} = 2\)</span>, <span class="math notranslate nohighlight">\(c_{2} = 4\)</span>, and <span class="math notranslate nohighlight">\(I = 100\)</span>. The optimal combination: <span class="math notranslate nohighlight">\(x_{1}^{*} = 27.5\)</span>, <span class="math notranslate nohighlight">\(x_{2}^{*} = 11.25\)</span>.</span><a class="headerlink" href="#fig-two-dim-bc-cd-soln" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Let’s check the first-order optimality conditions to make sure the solution is optimal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># specify parameters (and solution) from the problem</span>
+<span class="n">α</span><span class="p">,</span><span class="w"> </span><span class="n">c₁</span><span class="p">,</span><span class="w"> </span><span class="n">c₂</span><span class="p">,</span><span class="w"> </span><span class="n">x₁</span><span class="p">,</span><span class="w"> </span><span class="n">x₂</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.55</span><span class="p">,</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4.0</span><span class="p">,</span><span class="w"> </span><span class="mf">27.5</span><span class="p">,</span><span class="w"> </span><span class="mf">11.25</span><span class="p">,</span><span class="w"> </span><span class="mf">100.0</span>
+
+<span class="c"># compute the marginal utility at the optimum -</span>
+<span class="n">Ū₁</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">α</span><span class="o">*</span><span class="p">(</span><span class="n">x₁</span><span class="o">^</span><span class="p">(</span><span class="n">α</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">x₂</span><span class="o">^</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">α</span><span class="p">))</span>
+<span class="n">Ū₂</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">α</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x₁</span><span class="o">^</span><span class="p">(</span><span class="n">α</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">x₂</span><span class="o">^</span><span class="p">(</span><span class="o">-</span><span class="n">α</span><span class="p">))</span>
+
+<span class="c"># compute the Lagrange multiplier -</span>
+<span class="n">λ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ū₁</span><span class="o">/</span><span class="n">c₁</span><span class="p">;</span>
+
+<span class="c"># Compute the first-order conditions -</span>
+<span class="n">E1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ū₁</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">λ</span><span class="o">*</span><span class="n">c₁</span>
+<span class="n">E2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ū₂</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">λ</span><span class="o">*</span><span class="n">c₂</span>
+<span class="n">E3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">c₁</span><span class="o">*</span><span class="n">x₁</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c₂</span><span class="o">*</span><span class="n">x₂</span><span class="p">)</span>
+
+<span class="c"># print -</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;Optimality conditions: </span><span class="si">$</span><span class="p">(</span><span class="n">E1</span><span class="p">)</span><span class="s">, </span><span class="si">$</span><span class="p">(</span><span class="n">E2</span><span class="p">)</span><span class="s">, </span><span class="si">$</span><span class="p">(</span><span class="n">E3</span><span class="p">)</span><span class="s"> with λ = </span><span class="si">$</span><span class="p">(</span><span class="n">λ</span><span class="p">)</span><span class="s">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimality conditions: 0.0, -1.1102230246251565e-16, 0.0 with λ = 0.1839295959087945
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-role-of-income-and-prices">
+<span id="content-references-rational-choice-income-and-prices"></span><h2>The role of income and prices<a class="headerlink" href="#the-role-of-income-and-prices" title="Permalink to this heading">#</a></h2>
+<p>By examining the relationship between income, prices, and utility maximization subject to a budget constraint, we gain valuable insights into consumer behavior, resource allocation, and market dynamics.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
+<p>In this set of lectures, we discussed optimal rational choices and constrained utility maximization. We learned how to solve constrained utility maximization problems using the Lagrangian method and numerical optimization. We also explored how the optimal solution changes as a function of available income and the prices of goods and services.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-references-rational-choice-theory-opt"><span class="std std-ref">Optimal rational choices</span></a> are based on the assumption that individuals have clear preferences ranked by a utility function and can evaluate the costs and benefits associated with each choice. Optimal rational choices involve selecting the option that maximizes the utility, i.e., the satisfaction derived from the decision, while considering constraints such as budgets.</p></li>
+<li><p><a class="reference internal" href="#content-references-rational-choice-income-and-prices"><span class="std std-ref">The role of income and prices</span></a>. Understanding the impact of income and prices on decision-making is crucial in comprehending the rationale behind the actions taken by decision-makers. By studying the correlation between income, prices, and utility maximization within a budget constraint, we can gain valuable insights into consumer behavior, resource allocation, and market dynamics.</p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.9"
+        },
+        kernelOptions: {
+            name: "julia-1.9",
+            path: "./unit-1-simpledecisions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.9'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="indifference-curves.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Marginal Utility, Indifference and Trades</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../unit-2-uncertainty/uncertainty-landing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Decision-making in uncertain situations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Constrained Utility Maximization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-rational-choices">Optimal rational choices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#resource-constraints">Resource constraints</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-goods-apples-and-oranges">Two goods: Apples and Oranges</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-multipliers-and-utility-maximization">Lagrange multipliers and utility maximization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cobb-douglas-utility-maximization-problem">Cobb-Douglas utility maximization problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-utility-maximization-problem">Linear utility maximization problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solving-the-system-of-equations-for-linear-utility-maximization">Solving the system of equations for linear utility maximization</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-solutions-of-utility-maximization-problems">Numerical solutions of utility maximization problems</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-income-and-prices">The role of income and prices</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Varner
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
