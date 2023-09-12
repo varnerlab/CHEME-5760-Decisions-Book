@@ -180,7 +180,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/expected-utility.html">Rational Uncertain Decisions</a></li>
 
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk.html">Risk and Risk Aversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/risk-and-decisions.html">Risk aversion and it’s relationship with decisions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contigencies.html">Contingencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/contingencies-and-utility-max.html">Utility maximization, contingencies and information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../unit-2-uncertainty/games.html">Games and Multiagent Reasoning</a></li>
@@ -456,9 +455,9 @@ document.write(`
 <section id="probability-spaces">
 <span id="content-references-probability"></span><h2>Probability spaces<a class="headerlink" href="#probability-spaces" title="Permalink to this heading">#</a></h2>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_probability">Frequentists</a> argue that probability is the relative frequency or propensity of a particular outcome in the set of all possible outcomes. On the other hand, <a class="reference external" href="https://en.wikipedia.org/wiki/Bayesian_probability">Bayesians</a> argue that probability is a subjective belief. The context of your problem will typically suggest which perspective to use. For example, when you have a shortage of data, a Bayesian approach allows you to use prior knowledge or belief. On the other hand, when in a data-rich environment, a <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_probability">frequentist</a> approach calculates the probability of an event directly from the data, along with confidence intervals on your estimate.</p>
-<p>Whether you prefer the <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_probability">frequentist’s</a> or the <a class="reference external" href="https://en.wikipedia.org/wiki/Bayesian_probability">Bayesian view</a>, there is a more fundamental notion of probability thanks to <a class="reference external" href="https://en.wikipedia.org/wiki/Andrey_Kolmogorov">Andrey Kolmogorov</a>, namely, the probability is a measure of the size of a set (<a class="reference internal" href="#defn-prob-space-kolmogorov">Definition 15</a>):</p>
+<p>Whether you prefer the <a class="reference external" href="https://en.wikipedia.org/wiki/Frequentist_probability">frequentist’s</a> or the <a class="reference external" href="https://en.wikipedia.org/wiki/Bayesian_probability">Bayesian view</a>, there is a more fundamental notion of probability thanks to <a class="reference external" href="https://en.wikipedia.org/wiki/Andrey_Kolmogorov">Andrey Kolmogorov</a>, namely, the probability is a measure of the size of a set (<a class="reference internal" href="#defn-prob-space-kolmogorov">Definition 19</a>):</p>
 <div class="proof definition admonition" id="defn-prob-space-kolmogorov">
-<p class="admonition-title"><span class="caption-number">Definition 15 </span> (Probability space)</p>
+<p class="admonition-title"><span class="caption-number">Definition 19 </span> (Probability space)</p>
 <section class="definition-content" id="proof-content">
 <p>A probability space is described by the tuple of objects <span class="math notranslate nohighlight">\((\Omega,\mathcal{F},P)\)</span>:</p>
 <ul class="simple">
@@ -567,9 +566,9 @@ to a real number on the interval <span class="math notranslate nohighlight">\(\l
 <p>The motivation of conditional probability is to restrict the probability to a subevent happening in the sample space. If B has happened, the probability for A to also happen is P[A∩B]/P[B]. If two events are not influencing each other, then we say that A and B are independent.</p>
 <section id="independence-versus-disjoint">
 <h4>Independence versus Disjoint<a class="headerlink" href="#independence-versus-disjoint" title="Permalink to this heading">#</a></h4>
-<p>Conditional probability deals with situations where two events, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, are related.  However, what if the two events are unrelated, i.e., information about one event says nothing about the second event? In this case, the events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent (<a class="reference internal" href="#defn-independence">Definition 16</a>):</p>
+<p>Conditional probability deals with situations where two events, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, are related.  However, what if the two events are unrelated, i.e., information about one event says nothing about the second event? In this case, the events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are independent (<a class="reference internal" href="#defn-independence">Definition 20</a>):</p>
 <div class="proof definition admonition" id="defn-independence">
-<p class="admonition-title"><span class="caption-number">Definition 16 </span> (Statistical independence of events)</p>
+<p class="admonition-title"><span class="caption-number">Definition 20 </span> (Statistical independence of events)</p>
 <section class="definition-content" id="proof-content">
 <p>Two events A and B are statistically independent if:</p>
 <div class="math notranslate nohighlight">
@@ -612,9 +611,9 @@ Then for <span class="math notranslate nohighlight">\(B\subseteq\Omega\)</span>:
 </div></section>
 <section id="probability-mass-functions">
 <h3>Probability mass functions<a class="headerlink" href="#probability-mass-functions" title="Permalink to this heading">#</a></h3>
-<p>In the case of discrete random variables, for example, dice roles, coin flips etc, the likelihood that <span class="math notranslate nohighlight">\(X=x\)</span> is described by a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">Probability Mass Function (PMF)</a> (<a class="reference internal" href="#defn-pmf">Definition 17</a>):</p>
+<p>In the case of discrete random variables, for example, dice roles, coin flips etc, the likelihood that <span class="math notranslate nohighlight">\(X=x\)</span> is described by a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">Probability Mass Function (PMF)</a> (<a class="reference internal" href="#defn-pmf">Definition 21</a>):</p>
 <div class="proof definition admonition" id="defn-pmf">
-<p class="admonition-title"><span class="caption-number">Definition 17 </span> (Probability Mass Function)</p>
+<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Probability Mass Function)</p>
 <section class="definition-content" id="proof-content">
 <p>The probability mass function (PMF) of a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> is a function that specifies the probability of obtaining <span class="math notranslate nohighlight">\(X = x\)</span>, where <span class="math notranslate nohighlight">\(x\)</span> is a particular event in the set of possible events we’re interested in <span class="math notranslate nohighlight">\(\mathcal{F}\subseteq{X\left(\Omega\right)}\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -628,9 +627,9 @@ Then for <span class="math notranslate nohighlight">\(B\subseteq\Omega\)</span>:
 <section id="bernoulli-random-variable">
 <h4>Bernoulli random variable<a class="headerlink" href="#bernoulli-random-variable" title="Permalink to this heading">#</a></h4>
 <p>A Bernoulli random variable, the simplest random variable, models a coin flip or some other type of binary
-outcome (<a class="reference internal" href="#defn-pmf-bernouli">Definition 18</a>):</p>
+outcome (<a class="reference internal" href="#defn-pmf-bernouli">Definition 22</a>):</p>
 <div class="proof definition admonition" id="defn-pmf-bernouli">
-<p class="admonition-title"><span class="caption-number">Definition 18 </span> (Bernoulli Random Variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Bernoulli Random Variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be a Bernoulli random variable. Then, the probability mass function of <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
@@ -684,9 +683,9 @@ outcome (<a class="reference internal" href="#defn-pmf-bernouli">Definition 18</
 </section>
 <section id="binomial-random-variable">
 <h4>Binomial random variable<a class="headerlink" href="#binomial-random-variable" title="Permalink to this heading">#</a></h4>
-<p>The binomial distribution is the probability of getting exactly <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli trials, e.g., the chance of getting four heads in 6 coin tosses (<a class="reference internal" href="#defn-pmf-binomial">Definition 19</a>):</p>
+<p>The binomial distribution is the probability of getting exactly <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli trials, e.g., the chance of getting four heads in 6 coin tosses (<a class="reference internal" href="#defn-pmf-binomial">Definition 23</a>):</p>
 <div class="proof definition admonition" id="defn-pmf-binomial">
-<p class="admonition-title"><span class="caption-number">Definition 19 </span> (Binomial Random Variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 23 </span> (Binomial Random Variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Suppose we perform repeated Bernoulli trials <span class="math notranslate nohighlight">\(X(\Omega) \in [0,1]^n\)</span>, i.e., <span class="math notranslate nohighlight">\(n\)</span> trials of an independent binary experiment. The probability of getting exactly <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli trials is governed by the binomial probability mass function:</p>
 <div class="math notranslate nohighlight">
@@ -740,9 +739,9 @@ of a successful trial and:</p>
 </section>
 <section id="geometric-random-variable">
 <h4>Geometric random variable<a class="headerlink" href="#geometric-random-variable" title="Permalink to this heading">#</a></h4>
-<p>Geometric random variables are a type of discrete probability distribution that models the number of trials required to obtain the first success in a sequence of independent Bernoulli trials (<a class="reference internal" href="#defn-pmf-geometric">Definition 20</a>):</p>
+<p>Geometric random variables are a type of discrete probability distribution that models the number of trials required to obtain the first success in a sequence of independent Bernoulli trials (<a class="reference internal" href="#defn-pmf-geometric">Definition 24</a>):</p>
 <div class="proof definition admonition" id="defn-pmf-geometric">
-<p class="admonition-title"><span class="caption-number">Definition 20 </span> (Geometric Random Variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Geometric Random Variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be a geometric random variable. The probability mass function for a geometric random variable is given by:</p>
 <div class="math notranslate nohighlight">
@@ -757,9 +756,9 @@ of a successful trial and:</p>
 </div></section>
 <section id="poisson-random-variable">
 <h4>Poisson random variable<a class="headerlink" href="#poisson-random-variable" title="Permalink to this heading">#</a></h4>
-<p>Poisson random variables are a type of discrete probability distribution that models the number of occurrences of an event in a fixed interval of time or space (<a class="reference internal" href="#defn-pmf-poisson">Definition 21</a>):</p>
+<p>Poisson random variables are a type of discrete probability distribution that models the number of occurrences of an event in a fixed interval of time or space (<a class="reference internal" href="#defn-pmf-poisson">Definition 25</a>):</p>
 <div class="proof definition admonition" id="defn-pmf-poisson">
-<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Poisson Random Variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Poisson Random Variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> be a Poisson random variable. The probability mass function for a Poisson random variable is given by:</p>
 <div class="math notranslate nohighlight">
@@ -780,13 +779,13 @@ of a successful trial and:</p>
 <p>Moments of a random variable are a way to summarize its distribution and provide important information about its properties. Specifically, moments are mathematical quantities that describe the shape, center, and spread of a distribution, and they can be used to calculate other statistical measures such as variance and skewness.Let’s look at the first and second moments of a random variable, namely the <a class="reference internal" href="#content-references-random-variable-expectation"><span class="std std-ref">Expectation</span></a> and the <a class="reference internal" href="#content-references-random-variable-variance"><span class="std std-ref">Variance</span></a>.</p>
 <section id="expectation">
 <span id="content-references-random-variable-expectation"></span><h3>Expectation<a class="headerlink" href="#expectation" title="Permalink to this heading">#</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_value">expectation</a> of a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> measures the central tendency of the values of that random variable (<a class="reference internal" href="#defn-discrete-random-variable-expectation">Definition 22</a>):</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_value">expectation</a> of a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> measures the central tendency of the values of that random variable (<a class="reference internal" href="#defn-discrete-random-variable-expectation">Definition 26</a>):</p>
 <div class="proof definition admonition" id="defn-discrete-random-variable-expectation">
-<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Expectation discrete random variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 26 </span> (Expectation discrete random variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> denote a discrete random variable with the probability space <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}, P\right)\)</span>, where <span class="math notranslate nohighlight">\(\Omega\)</span> denotes the sample space, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> denotes the event space, and <span class="math notranslate nohighlight">\(P\)</span> denotes the probability measure. Then, the expected value of the random variable <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-expectation">
-<span class="eqno">(38)<a class="headerlink" href="#equation-eqn-expectation" title="Permalink to this equation">#</a></span>\[\mathbb{E}\left[X\right] = \sum_{x\in\Omega}xp_{X}(x)\]</div>
+<span class="eqno">(36)<a class="headerlink" href="#equation-eqn-expectation" title="Permalink to this equation">#</a></span>\[\mathbb{E}\left[X\right] = \sum_{x\in\Omega}xp_{X}(x)\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> denotes a value for the discrete random variable <span class="math notranslate nohighlight">\(X\)</span>, and <span class="math notranslate nohighlight">\(p_{X}(x)\)</span> denotes the probability of <span class="math notranslate nohighlight">\(X=x\)</span>. The value of <span class="math notranslate nohighlight">\(p_{X}(x)\)</span> is governed by a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">Probability Mass Function (PMF)</a>.</p>
 </section>
 </div><p>The expectation of a discrete random variable has a few interesting properties (<a class="reference internal" href="#obs-expectation-props">Observation 1</a>):</p>
@@ -806,13 +805,13 @@ of a successful trial and:</p>
 <section id="variance">
 <span id="content-references-random-variable-variance"></span><h3>Variance<a class="headerlink" href="#variance" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Variance">variance</a> measures the expected dispersion for
-individual values of a random variable <span class="math notranslate nohighlight">\(X\)</span>, i.e., the average distance that values of <span class="math notranslate nohighlight">\(X\)</span> are spread out from their expected value (<a class="reference internal" href="#defn-discrete-random-variable-variance">Definition 23</a>):</p>
+individual values of a random variable <span class="math notranslate nohighlight">\(X\)</span>, i.e., the average distance that values of <span class="math notranslate nohighlight">\(X\)</span> are spread out from their expected value (<a class="reference internal" href="#defn-discrete-random-variable-variance">Definition 27</a>):</p>
 <div class="proof definition admonition" id="defn-discrete-random-variable-variance">
-<p class="admonition-title"><span class="caption-number">Definition 23 </span> (Variance discrete random variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 27 </span> (Variance discrete random variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> denote a discrete random variable with the probability space <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span>, where <span class="math notranslate nohighlight">\(\Omega\)</span> denotes the sample space, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> denotes the event space, and <span class="math notranslate nohighlight">\(P\)</span> denotes the probability measure. Then, the variance of the random variable <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-variance">
-<span class="eqno">(39)<a class="headerlink" href="#equation-eqn-variance" title="Permalink to this equation">#</a></span>\[\text{Var}(X) = \mathbb{E}\Bigl[(X-\mu)^{2}\Bigr]\]</div>
+<span class="eqno">(37)<a class="headerlink" href="#equation-eqn-variance" title="Permalink to this equation">#</a></span>\[\text{Var}(X) = \mathbb{E}\Bigl[(X-\mu)^{2}\Bigr]\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mu = \mathbb{E}(X)\)</span> denotes the expected value of the random variable <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </section>
 </div><p>The variance of a discrete random variable has a few interesting properties (<a class="reference internal" href="#obs-variances-var">Observation 2</a>):</p>

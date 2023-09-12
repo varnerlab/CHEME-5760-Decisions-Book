@@ -25,7 +25,7 @@ A general bandit problem is a sequential game played between an agent and the en
 ````{prf:definition} Binary Bernoulli bandit problem
 :label: defn-multi-arm-bernoulli-bandit-problem
 A Binary Bernoulli bandit problem is a type of multi-armed bandit problem where each action has a binary reward distribution with an unknown probability of success. In this problem:
-* An agent has a choice between $K$ possible actions $\mathcal{A}=\left\{a_{1},a_{2},\dots,a_{K}\right\}$ where the success or failure of any action $a_{i}\in\mathcal{A}$ is governed by a Bernoulli random variable (see {prf:ref}`defn-pmf-bernouli`). 
+* An agent has a choice between $K$ possible actions $\mathcal{A}=\left\{a_{1},a_{2},\dots,a_{K}\right\}$ where the success or failure of any action $a_{i}\in\mathcal{A}$ is governed by a Bernoulli random variable (see {prf:ref}`defn-pmf-bernouli-random-variable`). 
 * The success probabilities of any action $p_{a_{i}}$, while static over the horizon of the game, are unknown to the agent, but they can be learned by experimentation. 
 * The agent receives a reward of $R_{a_{i}} = 1$ (success) with probability $p_{a_{i}}$, and $R_{a_{i}} = 0$ (failure) otherwise. 
 
