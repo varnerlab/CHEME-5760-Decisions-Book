@@ -1,2 +1,0 @@
-# Risk aversion and it's relationship with decisions
-Risk averison is the tendency of individuals or organizations to prefer a particular outcome over an uncertain one, even if the uncertain outcome has a potentially higher expected value. Understanding risk and risk aversion is crucial for making informed decisions that involve uncertainty and can help individuals and organizations manage and mitigate potential losses.
