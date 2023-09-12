@@ -421,10 +421,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem">Bayes’ theorem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#law-of-total-probability">Law of Total Probability</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-mass-functions">Probability mass functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-random-variable">Bernoulli random variable</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-random-variable">Binomial random variable</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-random-variable">Geometric random variable</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-random-variable">Poisson random variable</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-distribution">Bernoulli distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-distribution">Geometric distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-distribution">Binomial distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-distribution">Poisson distribution</a></li>
 </ul>
 </li>
 </ul>
@@ -611,41 +611,56 @@ Then for <span class="math notranslate nohighlight">\(B\subseteq\Omega\)</span>:
 </div></section>
 <section id="probability-mass-functions">
 <h3>Probability mass functions<a class="headerlink" href="#probability-mass-functions" title="Permalink to this heading">#</a></h3>
-<p>In the case of discrete random variables, for example, dice roles, coin flips etc, the likelihood that <span class="math notranslate nohighlight">\(X=x\)</span> is described by a <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_mass_function">Probability Mass Function (PMF)</a> (<a class="reference internal" href="#defn-pmf">Definition 21</a>):</p>
-<div class="proof definition admonition" id="defn-pmf">
-<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Probability Mass Function)</p>
-<section class="definition-content" id="proof-content">
-<p>The probability mass function (PMF) of a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> is a function that specifies the probability of obtaining <span class="math notranslate nohighlight">\(X = x\)</span>, where <span class="math notranslate nohighlight">\(x\)</span> is a particular event in the set of possible events we’re interested in <span class="math notranslate nohighlight">\(\mathcal{F}\subseteq{X\left(\Omega\right)}\)</span>:</p>
+<p>The probability mass function (PMF) of a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> is a function that specifies the probability of obtaining <span class="math notranslate nohighlight">\(X = x\)</span>, where <span class="math notranslate nohighlight">\(x\)</span>  is a particular event in the set of possible events we’re interested
+in <span class="math notranslate nohighlight">\(\mathcal{F}\subseteq{X\left(\Omega\right)}\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[p_{X}(x) = P\left(X=x\right)\]</div>
+\[
+\begin{equation*}
+p_{X}(x) = P\left(X=x\right)
+\end{equation*}
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> is the event space, and <span class="math notranslate nohighlight">\(\Omega\)</span> is the sample space. A probability mass function must satisfy the condition:</p>
 <div class="math notranslate nohighlight">
-\[\sum_{x\in{X(\Omega)}}p_{X}(x)=1\]</div>
-</section>
-</div><p>Thus, in the context of the <a class="reference external" href="https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Morgenstern_utility_theorem">von Neumann-Morgenstern theorem</a>, the probability mass function is a weight for discrete random variables which model uncertain payoffs.</p>
+\[
+\begin{equation*}
+\sum_{x\in{X(\Omega)}}p_{X}(x)=1
+\end{equation*}
+\]</div>
 <p>In <a class="reference external" href="https://julialang.org">Julia</a>, probability mass (or density) functions can be constructed and sampled using the <a class="reference external" href="https://juliastats.org/Distributions.jl/stable/">Distributions.jl</a> package. Let’s look at a few common probability mass functions.</p>
-<section id="bernoulli-random-variable">
-<h4>Bernoulli random variable<a class="headerlink" href="#bernoulli-random-variable" title="Permalink to this heading">#</a></h4>
-<p>A Bernoulli random variable, the simplest random variable, models a coin flip or some other type of binary
-outcome (<a class="reference internal" href="#defn-pmf-bernouli">Definition 22</a>):</p>
-<div class="proof definition admonition" id="defn-pmf-bernouli">
-<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Bernoulli Random Variable)</p>
+<section id="bernoulli-distribution">
+<h4>Bernoulli distribution<a class="headerlink" href="#bernoulli-distribution" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli random variables</a>, named after the Swiss mathematician <a class="reference external" href="https://en.wikipedia.org/wiki/Jacob_Bernoulli">Jacob Bernoulli</a>, have two states: either <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code> and model binary events such as coin flips, binary bits, true or false, yes or no, present or absent, etc. (<a class="reference internal" href="#defn-pmf-bernouli-random-variable-appendix">Definition 21</a>):</p>
+<div class="proof definition admonition" id="defn-pmf-bernouli-random-variable-appendix">
+<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Bernoulli Random Variable)</p>
 <section class="definition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> be a Bernoulli random variable. Then, the probability mass function of <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
+<p>A Bernoulli random variable <span class="math notranslate nohighlight">\(X\)</span> models a binary outcome: either <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>,
+where <code class="docutils literal notranslate"><span class="pre">1</span></code> occurs with probability <span class="math notranslate nohighlight">\(p\)</span> and <code class="docutils literal notranslate"><span class="pre">0</span></code> occurs with probability <span class="math notranslate nohighlight">\(1-p\)</span>.
+The probability mass function (pmf) of the Bernoulli random variable <span class="math notranslate nohighlight">\(X\)</span> is:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}p_{X}(x) =
-\begin{cases}
-  p &amp; \text{if } x = 1 \\
-  1 - p &amp; \text{if } x = 0
-\end{cases}\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(0&lt;p&lt;1\)</span> is called the Bernoulli parameter. For a Bernoulli random variable <span class="math notranslate nohighlight">\(X(\Omega) \in [0,1]\)</span> the expectation is given by:</p>
+\[\begin{split}
+\begin{equation}
+p_{X}(x) = \begin{cases}
+    p &amp; \text{if } x = 1 \\
+    1 - p &amp; \text{if } x = 0
+  \end{cases}
+\end{equation}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(0&lt;p&lt;1\)</span> is called the Bernoulli parameter. The expectation a Bernoulli random variable equals:</p>
 <div class="math notranslate nohighlight">
-\[\mathbb{E}\left[X\right] = p\]</div>
-<p>while the variance <span class="math notranslate nohighlight">\(\text{Var}(X)\)</span> is given by:</p>
+\[
+\begin{equation}
+\mathbb{E}\left[X\right] = p
+\end{equation}
+\]</div>
+<p>while the variance <span class="math notranslate nohighlight">\(\text{Var}(X)\)</span> equals:</p>
 <div class="math notranslate nohighlight">
-\[\text{Var}\left[X\right] = p(1-p)\]</div>
+\[
+\begin{equation}
+\text{Var}\left[X\right] = p(1-p)
+\end{equation}
+\]</div>
 </section>
-</div><p>Bernoulli random variables, named after the Swiss mathematician <a class="reference external" href="https://en.wikipedia.org/wiki/Jacob_Bernoulli">Jacob Bernoulli</a>, have two states: either <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>. The probability of getting <code class="docutils literal notranslate"><span class="pre">1</span></code> is <span class="math notranslate nohighlight">\(p\)</span>, while the likelihood of getting a value of <code class="docutils literal notranslate"><span class="pre">0</span></code> is <span class="math notranslate nohighlight">\(1 − p\)</span>. Bernoulli random variables model many binary events: coin flips (H or T), binary bits (1 or 0), true or false, yes or no, present or absent, etc.</p>
+</div><p>Example code for a <a class="reference external" href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli random variable</a>:</p>
 <div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># load the distributions package, and some other stuff</span>
 <span class="k">using</span><span class="w"> </span><span class="n">Distributions</span>
 <span class="k">using</span><span class="w"> </span><span class="n">Statistics</span>
@@ -681,27 +696,103 @@ outcome (<a class="reference internal" href="#defn-pmf-bernouli">Definition 22</
 </pre></div>
 </div>
 </section>
-<section id="binomial-random-variable">
-<h4>Binomial random variable<a class="headerlink" href="#binomial-random-variable" title="Permalink to this heading">#</a></h4>
-<p>The binomial distribution is the probability of getting exactly <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli trials, e.g., the chance of getting four heads in 6 coin tosses (<a class="reference internal" href="#defn-pmf-binomial">Definition 23</a>):</p>
-<div class="proof definition admonition" id="defn-pmf-binomial">
+<section id="geometric-distribution">
+<h4>Geometric distribution<a class="headerlink" href="#geometric-distribution" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Geometric_distribution">Geometric random variables</a> model the number of trials required to obtain the first success in a sequence of independent Bernoulli trials (<a class="reference internal" href="#defn-pmf-geometric-random-variable-appendix">Definition 22</a>):</p>
+<div class="proof definition admonition" id="defn-pmf-geometric-random-variable-appendix">
+<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Geometric Random Variable)</p>
+<section class="definition-content" id="proof-content">
+<p>Geometric random variables model the number of trials required  to obtain the first success in a sequence of independent Bernoulli trials.  The probability mass function for a geometric random variable is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation*}
+p_{X}(k) = (1-p)^{(k-1)}p\qquad{k=1,2,\dots}
+\end{equation*}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(p\)</span> denotes the geometric parameter <span class="math notranslate nohighlight">\(0&lt;p&lt;1\)</span>. The expectation of a geometric random variable <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation*}
+\mathbb{E}\left[X\right] = \frac{1}{p}
+\end{equation*}
+\]</div>
+<p>while the variance <span class="math notranslate nohighlight">\(\text{Var}(X)\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{equation*}
+\text{Var}\left[X\right] = \frac{1-p}{p^2}
+\end{equation*}
+\]</div>
+</section>
+</div><p>Example code for a <a class="reference external" href="https://en.wikipedia.org/wiki/Geometric_distribution">Geometric random variables</a>:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># load the distributions package, and some other stuff</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Distributions</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Statistics</span>
+<span class="k">using</span><span class="w"> </span><span class="n">PrettyTables</span>
+
+<span class="c"># Details of Geometric distribution: </span>
+<span class="c"># https://juliastats.org/Distributions.jl/stable/univariate/#Distributions.Geometric</span>
+
+<span class="c"># setup constants -</span>
+<span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.64</span><span class="p">;</span>
+<span class="n">number_of_samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+
+<span class="w"> </span><span class="c"># build a Geometric distribution</span>
+<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Geometric</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+
+<span class="c"># sample (check expectation, and variance)</span>
+<span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">number_of_samples</span><span class="p">);</span>
+
+<span class="c"># build a table -</span>
+<span class="n">data_for_table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">2</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="n">table_header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;E(X)&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Var(X)&quot;</span><span class="p">]</span>
+
+<span class="c"># row 1: model</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;model&quot;</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">succprob</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+
+<span class="c"># row 2: samples</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;samples&quot;</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
+<span class="n">pretty_table</span><span class="p">(</span><span class="n">data_for_table</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="n">table_header</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="binomial-distribution">
+<h4>Binomial distribution<a class="headerlink" href="#binomial-distribution" title="Permalink to this heading">#</a></h4>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_distribution">binomial distribution</a> is the probability of getting <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli trials, e.g., the chance of getting four heads in six coin tosses (<a class="reference internal" href="#defn-pmf-binomial-random-variable-appendix">Definition 23</a>):</p>
+<div class="proof definition admonition" id="defn-pmf-binomial-random-variable-appendix">
 <p class="admonition-title"><span class="caption-number">Definition 23 </span> (Binomial Random Variable)</p>
 <section class="definition-content" id="proof-content">
-<p>Suppose we perform repeated Bernoulli trials <span class="math notranslate nohighlight">\(X(\Omega) \in [0,1]^n\)</span>, i.e., <span class="math notranslate nohighlight">\(n\)</span> trials of an independent binary experiment. The probability of getting exactly <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli trials is governed by the binomial probability mass function:</p>
+<p>The binomial distribution, the probability of <span class="math notranslate nohighlight">\(k\)</span> successes in <span class="math notranslate nohighlight">\(n\)</span> independent Bernoulli trials, has the
+probability mass function:</p>
 <div class="math notranslate nohighlight">
-\[p_{X}(k) = \binom{n}{k}p^{k}\left(1-p\right)^{n-k}\qquad{k=0,1,\dots,n}\]</div>
+\[
+\begin{equation*}
+p_{X}(k) = \binom{n}{k}p^{k}\left(1-p\right)^{n-k}\qquad{k=0,1,\dots,n}
+\end{equation*}
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(k\)</span> denotes the number of successes in <span class="math notranslate nohighlight">\(n\)</span> independent experiments, the binomial parameter <span class="math notranslate nohighlight">\(0&lt;p&lt;1\)</span> is the probability
 of a successful trial and:</p>
 <div class="math notranslate nohighlight">
-\[\binom{n}{k} = \frac{n!}{k!\left(n-k\right)!}\]</div>
-<p>is the binomial coefficient. The expectation of a binomial random variable is given by:</p>
+\[
+\begin{equation*}
+\binom{n}{k} = \frac{n!}{k!\left(n-k\right)!}
+\end{equation*}
+\]</div>
+<p>is the binomial coefficient. The expectation and variance of a binomial random variable is given by:</p>
 <div class="math notranslate nohighlight">
-\[\mathbb{E}\left[X\right] = np\]</div>
-<p>while the variance <span class="math notranslate nohighlight">\(\text{Var}(X)\)</span> is given by:</p>
-<div class="math notranslate nohighlight">
-\[\text{Var}\left[X\right] = np(1-p)\]</div>
+\[\begin{split}
+\begin{eqnarray*}
+\mathbb{E}\left[X\right] &amp;=&amp; np\\
+\text{Var}\left[X\right] &amp;=&amp; np(1-p)
+\end{eqnarray*}
+\end{split}\]</div>
 </section>
-</div><div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># load the distributions package, and some other stuff</span>
+</div><p>Example code for a <a class="reference external" href="https://en.wikipedia.org/wiki/Binomial_distribution">binomial random variable</a>:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># load the distributions package, and some other stuff</span>
 <span class="k">using</span><span class="w"> </span><span class="n">Distributions</span>
 <span class="k">using</span><span class="w"> </span><span class="n">Statistics</span>
 <span class="k">using</span><span class="w"> </span><span class="n">PrettyTables</span>
@@ -737,40 +828,67 @@ of a successful trial and:</p>
 </pre></div>
 </div>
 </section>
-<section id="geometric-random-variable">
-<h4>Geometric random variable<a class="headerlink" href="#geometric-random-variable" title="Permalink to this heading">#</a></h4>
-<p>Geometric random variables are a type of discrete probability distribution that models the number of trials required to obtain the first success in a sequence of independent Bernoulli trials (<a class="reference internal" href="#defn-pmf-geometric">Definition 24</a>):</p>
-<div class="proof definition admonition" id="defn-pmf-geometric">
-<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Geometric Random Variable)</p>
+<section id="poisson-distribution">
+<h4>Poisson distribution<a class="headerlink" href="#poisson-distribution" title="Permalink to this heading">#</a></h4>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson random variables</a> are a type of discrete probability distribution that models the number of occurrences of an event in a fixed interval of time or space (<a class="reference internal" href="#defn-pmf-poisson-random-variable-appendix">Definition 24</a>):</p>
+<div class="proof definition admonition" id="defn-pmf-poisson-random-variable-appendix">
+<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Poisson Random Variable)</p>
 <section class="definition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> be a geometric random variable. The probability mass function for a geometric random variable is given by:</p>
+<p>Poisson random variables model the number of occurrences of an event in a fixed interval of time or space.
+The probability mass function for a Poisson random variable is given by:</p>
 <div class="math notranslate nohighlight">
-\[p_{X}(k) = (1-p)^{(k-1)}p\qquad{k=1,2,\dots}\]</div>
-<p>where <span class="math notranslate nohighlight">\(p\)</span> denotes the geometric parameter <span class="math notranslate nohighlight">\(0&lt;p&lt;1\)</span>. The expectation of a geometric random variable <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
-<div class="math notranslate nohighlight">
-\[\mathbb{E}\left[X\right] = \frac{1}{p}\]</div>
-<p>while the variance <span class="math notranslate nohighlight">\(\text{Var}(X)\)</span> is given by:</p>
-<div class="math notranslate nohighlight">
-\[\text{Var}\left[X\right] = \frac{1-p}{p^2}\]</div>
-</section>
-</div></section>
-<section id="poisson-random-variable">
-<h4>Poisson random variable<a class="headerlink" href="#poisson-random-variable" title="Permalink to this heading">#</a></h4>
-<p>Poisson random variables are a type of discrete probability distribution that models the number of occurrences of an event in a fixed interval of time or space (<a class="reference internal" href="#defn-pmf-poisson">Definition 25</a>):</p>
-<div class="proof definition admonition" id="defn-pmf-poisson">
-<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Poisson Random Variable)</p>
-<section class="definition-content" id="proof-content">
-<p>Let <span class="math notranslate nohighlight">\(X\)</span> be a Poisson random variable. The probability mass function for a Poisson random variable is given by:</p>
-<div class="math notranslate nohighlight">
-\[p_{X}(x) = \frac{\lambda^{x}}{x!}\exp\left(-\lambda\right)\]</div>
+\[
+\begin{equation*}
+p_{X}(x) = \frac{\lambda^{x}}{x!}\exp\left(-\lambda\right)
+\end{equation*}
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(\lambda&gt;0\)</span> denotes the Poisson parameter, and <span class="math notranslate nohighlight">\(!\)</span> denotes the factorial function. The expectation of a Poisson random variable <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
-\[\mathbb{E}\left[X\right] = \lambda\]</div>
+\[
+\begin{equation*}
+\mathbb{E}\left[X\right] = \lambda
+\end{equation*}
+\]</div>
 <p>while the variance <span class="math notranslate nohighlight">\(\text{Var}(X)\)</span> is given by:</p>
 <div class="math notranslate nohighlight">
-\[\text{Var}\left[X\right] = \lambda\]</div>
+\[
+\begin{equation*}
+\text{Var}\left[X\right] = \lambda
+\end{equation*}
+\]</div>
 </section>
-</div><p>Poisson random variables estimate how likely something will happen <span class="math notranslate nohighlight">\(x\)</span> number of times in a fixed interval, e.g., the number of car crashes in a city of a given size or the number of cheeseburgers sold at a fast-food chain on a Friday night.</p>
+</div><p>Example code for a <a class="reference external" href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson random variable</a>:</p>
+<div class="highlight-julia notranslate"><div class="highlight"><pre><span></span><span class="c"># load the distributions package, and some other stuff</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Distributions</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Statistics</span>
+<span class="k">using</span><span class="w"> </span><span class="n">PrettyTables</span>
+
+<span class="c"># Details of Poisson distribution:</span>
+<span class="c"># https://juliastats.org/Distributions.jl/stable/univariate/#Distributions.Poisson</span>
+
+<span class="c"># build a Poisson distribution</span>
+<span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Poisson</span><span class="p">(</span><span class="n">λ</span><span class="p">)</span>
+
+<span class="c"># sample (check expectation, and variance)</span>
+<span class="n">samples</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">number_of_samples</span><span class="p">);</span>
+
+<span class="c"># build a table -</span>
+<span class="n">data_for_table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Array</span><span class="p">{</span><span class="kt">Any</span><span class="p">,</span><span class="mi">2</span><span class="p">}(</span><span class="nb">undef</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="n">table_header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;E(X)&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Var(X)&quot;</span><span class="p">]</span>
+
+<span class="c"># row 1: model</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;model&quot;</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>
+
+<span class="c"># row 2: samples</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;samples&quot;</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
+<span class="n">data_for_table</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">(</span><span class="n">samples</span><span class="p">);</span>
+<span class="n">pretty_table</span><span class="p">(</span><span class="n">data_for_table</span><span class="p">,</span><span class="w"> </span><span class="n">header</span><span class="o">=</span><span class="n">table_header</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Poisson random variables estimate how likely something will happen <span class="math notranslate nohighlight">\(x\)</span> number of times in a fixed interval, e.g., the number of car crashes in a city of a given size or the number of cheeseburgers sold at a fast-food chain on a Friday night.</p>
 </section>
 </section>
 </section>
@@ -779,9 +897,9 @@ of a successful trial and:</p>
 <p>Moments of a random variable are a way to summarize its distribution and provide important information about its properties. Specifically, moments are mathematical quantities that describe the shape, center, and spread of a distribution, and they can be used to calculate other statistical measures such as variance and skewness.Let’s look at the first and second moments of a random variable, namely the <a class="reference internal" href="#content-references-random-variable-expectation"><span class="std std-ref">Expectation</span></a> and the <a class="reference internal" href="#content-references-random-variable-variance"><span class="std std-ref">Variance</span></a>.</p>
 <section id="expectation">
 <span id="content-references-random-variable-expectation"></span><h3>Expectation<a class="headerlink" href="#expectation" title="Permalink to this heading">#</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_value">expectation</a> of a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> measures the central tendency of the values of that random variable (<a class="reference internal" href="#defn-discrete-random-variable-expectation">Definition 26</a>):</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Expected_value">expectation</a> of a discrete random variable <span class="math notranslate nohighlight">\(X\)</span> measures the central tendency of the values of that random variable (<a class="reference internal" href="#defn-discrete-random-variable-expectation">Definition 25</a>):</p>
 <div class="proof definition admonition" id="defn-discrete-random-variable-expectation">
-<p class="admonition-title"><span class="caption-number">Definition 26 </span> (Expectation discrete random variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Expectation discrete random variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> denote a discrete random variable with the probability space <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F}, P\right)\)</span>, where <span class="math notranslate nohighlight">\(\Omega\)</span> denotes the sample space, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> denotes the event space, and <span class="math notranslate nohighlight">\(P\)</span> denotes the probability measure. Then, the expected value of the random variable <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-expectation">
@@ -805,9 +923,9 @@ of a successful trial and:</p>
 <section id="variance">
 <span id="content-references-random-variable-variance"></span><h3>Variance<a class="headerlink" href="#variance" title="Permalink to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Variance">variance</a> measures the expected dispersion for
-individual values of a random variable <span class="math notranslate nohighlight">\(X\)</span>, i.e., the average distance that values of <span class="math notranslate nohighlight">\(X\)</span> are spread out from their expected value (<a class="reference internal" href="#defn-discrete-random-variable-variance">Definition 27</a>):</p>
+individual values of a random variable <span class="math notranslate nohighlight">\(X\)</span>, i.e., the average distance that values of <span class="math notranslate nohighlight">\(X\)</span> are spread out from their expected value (<a class="reference internal" href="#defn-discrete-random-variable-variance">Definition 26</a>):</p>
 <div class="proof definition admonition" id="defn-discrete-random-variable-variance">
-<p class="admonition-title"><span class="caption-number">Definition 27 </span> (Variance discrete random variable)</p>
+<p class="admonition-title"><span class="caption-number">Definition 26 </span> (Variance discrete random variable)</p>
 <section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(X\)</span> denote a discrete random variable with the probability space <span class="math notranslate nohighlight">\(\left(\Omega,\mathcal{F},P\right)\)</span>, where <span class="math notranslate nohighlight">\(\Omega\)</span> denotes the sample space, <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> denotes the event space, and <span class="math notranslate nohighlight">\(P\)</span> denotes the probability measure. Then, the variance of the random variable <span class="math notranslate nohighlight">\(X\)</span> is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eqn-variance">
@@ -908,10 +1026,10 @@ individual values of a random variable <span class="math notranslate nohighlight
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bayes-theorem">Bayes’ theorem</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#law-of-total-probability">Law of Total Probability</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-mass-functions">Probability mass functions</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-random-variable">Bernoulli random variable</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-random-variable">Binomial random variable</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-random-variable">Geometric random variable</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-random-variable">Poisson random variable</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bernoulli-distribution">Bernoulli distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-distribution">Geometric distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-distribution">Binomial distribution</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-distribution">Poisson distribution</a></li>
 </ul>
 </li>
 </ul>

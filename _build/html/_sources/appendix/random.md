@@ -141,55 +141,63 @@ $$P(B) = \sum_{i=1}^{n}P\left(B\,\vert{A_{i}}\right)P\left(A_{i}\right)$$
 ````
 
 ### Probability mass functions
-In the case of discrete random variables, for example, dice roles, coin flips etc, the likelihood that $X=x$ is described by a [Probability Mass Function (PMF)](https://en.wikipedia.org/wiki/Probability_mass_function) ({prf:ref}`defn-pmf`):
+The probability mass function (PMF) of a discrete random variable $X$ is a function that specifies the probability of obtaining $X = x$, where $x$  is a particular event in the set of possible events we're interested 
+in $\mathcal{F}\subseteq{X\left(\Omega\right)}$:
 
-````{prf:definition} Probability Mass Function
-:label: defn-pmf
-
-The probability mass function (PMF) of a discrete random variable $X$ is a function that specifies the probability of obtaining $X = x$, where $x$ is a particular event in the set of possible events we're interested in $\mathcal{F}\subseteq{X\left(\Omega\right)}$:
-
-$$p_{X}(x) = P\left(X=x\right)$$
+$$
+\begin{equation*}
+p_{X}(x) = P\left(X=x\right)
+\end{equation*}
+$$
 
 where $\mathcal{F}$ is the event space, and $\Omega$ is the sample space. A probability mass function must satisfy the condition: 
 
-$$\sum_{x\in{X(\Omega)}}p_{X}(x)=1$$
-````
-
-Thus, in the context of the [von Neumann-Morgenstern theorem](https://en.wikipedia.org/wiki/Von_Neumann–Morgenstern_utility_theorem), the probability mass function is a weight for discrete random variables which model uncertain payoffs. 
+$$
+\begin{equation*}
+\sum_{x\in{X(\Omega)}}p_{X}(x)=1
+\end{equation*}
+$$
 
 In [Julia](https://julialang.org), probability mass (or density) functions can be constructed and sampled using the [Distributions.jl](https://juliastats.org/Distributions.jl/stable/) package. Let's look at a few common probability mass functions.
 
-#### Bernoulli random variable
-A Bernoulli random variable, the simplest random variable, models a coin flip or some other type of binary
-outcome ({prf:ref}`defn-pmf-bernouli`):
+
+#### Bernoulli distribution
+[Bernoulli random variables](https://en.wikipedia.org/wiki/Bernoulli_distribution), named after the Swiss mathematician [Jacob Bernoulli](https://en.wikipedia.org/wiki/Jacob_Bernoulli), have two states: either `1` or `0` and model binary events such as coin flips, binary bits, true or false, yes or no, present or absent, etc. ({prf:ref}`defn-pmf-bernouli-random-variable-appendix`):
 
 ````{prf:definition} Bernoulli Random Variable
-:label: defn-pmf-bernouli
+:label: defn-pmf-bernouli-random-variable-appendix
 
-Let $X$ be a Bernoulli random variable. Then, the probability mass function of $X$ is given by:
+A Bernoulli random variable $X$ models a binary outcome: either `1` or `0`, 
+where `1` occurs with probability $p$ and `0` occurs with probability $1-p$. 
+The probability mass function (pmf) of the Bernoulli random variable $X$ is:
 
-```{math}
-p_{X}(x) =
-\begin{cases}
-  p & \text{if } x = 1 \\
-  1 - p & \text{if } x = 0
-\end{cases}
-```
+$$
+\begin{equation}
+p_{X}(x) = \begin{cases}
+    p & \text{if } x = 1 \\
+    1 - p & \text{if } x = 0
+  \end{cases}
+\end{equation}
+$$
 
-where $0<p<1$ is called the Bernoulli parameter. For a Bernoulli random variable $X(\Omega) \in [0,1]$ the expectation is given by:
+where $0<p<1$ is called the Bernoulli parameter. The expectation a Bernoulli random variable equals:
 
-```{math}
+$$
+\begin{equation}
 \mathbb{E}\left[X\right] = p
-```
+\end{equation}
+$$
 
-while the variance $\text{Var}(X)$ is given by:
+while the variance $\text{Var}(X)$ equals:
 
-```{math}
+$$
+\begin{equation}
 \text{Var}\left[X\right] = p(1-p)
-```
+\end{equation}
+$$
 ````
 
-Bernoulli random variables, named after the Swiss mathematician [Jacob Bernoulli](https://en.wikipedia.org/wiki/Jacob_Bernoulli), have two states: either `1` or `0`. The probability of getting `1` is $p$, while the likelihood of getting a value of `0` is $1 − p$. Bernoulli random variables model many binary events: coin flips (H or T), binary bits (1 or 0), true or false, yes or no, present or absent, etc.
+Example code for a [Bernoulli random variable](https://en.wikipedia.org/wiki/Bernoulli_distribution):
 
 ```julia
 # load the distributions package, and some other stuff
@@ -226,33 +234,113 @@ data_for_table[2,3] = var(samples);
 pretty_table(data_for_table, header=table_header);
 ```
 
-#### Binomial random variable
-The binomial distribution is the probability of getting exactly $k$ successes in $n$ independent Bernoulli trials, e.g., the chance of getting four heads in 6 coin tosses ({prf:ref}`defn-pmf-binomial`):
+#### Geometric distribution
+[Geometric random variables](https://en.wikipedia.org/wiki/Geometric_distribution) model the number of trials required to obtain the first success in a sequence of independent Bernoulli trials ({prf:ref}`defn-pmf-geometric-random-variable-appendix`):
+
+````{prf:definition} Geometric Random Variable
+:label: defn-pmf-geometric-random-variable-appendix
+
+Geometric random variables model the number of trials required  to obtain the first success in a sequence of independent Bernoulli trials.  The probability mass function for a geometric random variable is given by:
+
+$$
+\begin{equation*}
+p_{X}(k) = (1-p)^{(k-1)}p\qquad{k=1,2,\dots}
+\end{equation*}
+$$
+
+where $p$ denotes the geometric parameter $0<p<1$. The expectation of a geometric random variable $X$ is given by:
+
+$$
+\begin{equation*}
+\mathbb{E}\left[X\right] = \frac{1}{p}
+\end{equation*}
+$$
+
+while the variance $\text{Var}(X)$ is given by:
+
+$$
+\begin{equation*}
+\text{Var}\left[X\right] = \frac{1-p}{p^2}
+\end{equation*}
+$$
+
+````
+
+Example code for a [Geometric random variables](https://en.wikipedia.org/wiki/Geometric_distribution):
+
+```julia
+# load the distributions package, and some other stuff
+using Distributions
+using Statistics
+using PrettyTables
+
+# Details of Geometric distribution: 
+# https://juliastats.org/Distributions.jl/stable/univariate/#Distributions.Geometric
+
+# setup constants -
+p = 0.64;
+number_of_samples = 100;
+
+ # build a Geometric distribution
+d = Geometric(p)
+
+# sample (check expectation, and variance)
+samples = rand(d, number_of_samples);
+
+# build a table -
+data_for_table = Array{Any,2}(undef, 2, 3)
+table_header = ["", "E(X)", "Var(X)"]
+
+# row 1: model
+data_for_table[1,1] = "model"
+data_for_table[1,2] = succprob(d);
+data_for_table[1,3] = var(d);
+
+# row 2: samples
+data_for_table[2,1] = "samples"
+data_for_table[2,2] = mean(samples);
+data_for_table[2,3] = var(samples);
+pretty_table(data_for_table, header=table_header);
+```
+
+#### Binomial distribution
+The [binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution) is the probability of getting $k$ successes in $n$ independent Bernoulli trials, e.g., the chance of getting four heads in six coin tosses ({prf:ref}`defn-pmf-binomial-random-variable-appendix`):
+
 
 ````{prf:definition} Binomial Random Variable
-:label: defn-pmf-binomial
+:label: defn-pmf-binomial-random-variable-appendix
 
-Suppose we perform repeated Bernoulli trials $X(\Omega) \in [0,1]^n$, i.e., $n$ trials of an independent binary experiment. The probability of getting exactly $k$ successes in $n$ independent Bernoulli trials is governed by the binomial probability mass function:
+The binomial distribution, the probability of $k$ successes in $n$ independent Bernoulli trials, has the 
+probability mass function:
 
-$$p_{X}(k) = \binom{n}{k}p^{k}\left(1-p\right)^{n-k}\qquad{k=0,1,\dots,n}$$
+$$
+\begin{equation*}
+p_{X}(k) = \binom{n}{k}p^{k}\left(1-p\right)^{n-k}\qquad{k=0,1,\dots,n}
+\end{equation*}
+$$
 
 where $k$ denotes the number of successes in $n$ independent experiments, the binomial parameter $0<p<1$ is the probability 
 of a successful trial and:
 
-$$\binom{n}{k} = \frac{n!}{k!\left(n-k\right)!}$$
+$$
+\begin{equation*}
+\binom{n}{k} = \frac{n!}{k!\left(n-k\right)!}
+\end{equation*}
+$$
 
-is the binomial coefficient. The expectation of a binomial random variable is given by:
+is the binomial coefficient. The expectation and variance of a binomial random variable is given by:
 
-```{math}
-\mathbb{E}\left[X\right] = np
-```
+$$
+\begin{eqnarray*}
+\mathbb{E}\left[X\right] &=& np\\
+\text{Var}\left[X\right] &=& np(1-p)
+\end{eqnarray*}
+$$
 
-while the variance $\text{Var}(X)$ is given by:
-
-```{math}
-\text{Var}\left[X\right] = np(1-p)
-```
 ````
+
+Example code for a [binomial random variable](https://en.wikipedia.org/wiki/Binomial_distribution):
+
 
 ```julia
 # load the distributions package, and some other stuff
@@ -290,53 +378,72 @@ data_for_table[2,3] = var(samples);
 pretty_table(data_for_table, header=table_header);
 ```
 
-#### Geometric random variable
-Geometric random variables are a type of discrete probability distribution that models the number of trials required to obtain the first success in a sequence of independent Bernoulli trials ({prf:ref}`defn-pmf-geometric`):
+#### Poisson distribution
+[Poisson random variables](https://en.wikipedia.org/wiki/Poisson_distribution) are a type of discrete probability distribution that models the number of occurrences of an event in a fixed interval of time or space ({prf:ref}`defn-pmf-poisson-random-variable-appendix`):
 
-````{prf:definition} Geometric Random Variable
-:label: defn-pmf-geometric
-
-Let $X$ be a geometric random variable. The probability mass function for a geometric random variable is given by:
-
-$$p_{X}(k) = (1-p)^{(k-1)}p\qquad{k=1,2,\dots}$$
-
-where $p$ denotes the geometric parameter $0<p<1$. The expectation of a geometric random variable $X$ is given by:
-
-```{math}
-\mathbb{E}\left[X\right] = \frac{1}{p}
-```
-
-while the variance $\text{Var}(X)$ is given by:
-
-```{math}
-\text{Var}\left[X\right] = \frac{1-p}{p^2}
-```
-````
-
-#### Poisson random variable
-Poisson random variables are a type of discrete probability distribution that models the number of occurrences of an event in a fixed interval of time or space ({prf:ref}`defn-pmf-poisson`): 
 
 ````{prf:definition} Poisson Random Variable
-:label: defn-pmf-poisson
+:label: defn-pmf-poisson-random-variable-appendix
 
-Let $X$ be a Poisson random variable. The probability mass function for a Poisson random variable is given by:
+Poisson random variables model the number of occurrences of an event in a fixed interval of time or space.
+The probability mass function for a Poisson random variable is given by:
 
-```{math}
+$$
+\begin{equation*}
 p_{X}(x) = \frac{\lambda^{x}}{x!}\exp\left(-\lambda\right)
-```
+\end{equation*}
+$$
 
 where $\lambda>0$ denotes the Poisson parameter, and $!$ denotes the factorial function. The expectation of a Poisson random variable $X$ is given by:
 
-```{math}
+$$
+\begin{equation*}
 \mathbb{E}\left[X\right] = \lambda
-```
+\end{equation*}
+$$
 
 while the variance $\text{Var}(X)$ is given by:
 
-```{math}
+$$
+\begin{equation*}
 \text{Var}\left[X\right] = \lambda
-```
+\end{equation*}
+$$
 ````
+
+Example code for a [Poisson random variable](https://en.wikipedia.org/wiki/Poisson_distribution):
+
+```julia
+
+# load the distributions package, and some other stuff
+using Distributions
+using Statistics
+using PrettyTables
+
+# Details of Poisson distribution:
+# https://juliastats.org/Distributions.jl/stable/univariate/#Distributions.Poisson
+
+# build a Poisson distribution
+d = Poisson(λ)
+
+# sample (check expectation, and variance)
+samples = rand(d, number_of_samples);
+
+# build a table -
+data_for_table = Array{Any,2}(undef, 2, 3)
+table_header = ["", "E(X)", "Var(X)"]
+
+# row 1: model
+data_for_table[1,1] = "model"
+data_for_table[1,2] = mean(d);
+data_for_table[1,3] = var(d);
+
+# row 2: samples
+data_for_table[2,1] = "samples"
+data_for_table[2,2] = mean(samples);
+data_for_table[2,3] = var(samples);
+pretty_table(data_for_table, header=table_header);
+```
 
 Poisson random variables estimate how likely something will happen $x$ number of times in a fixed interval, e.g., the number of car crashes in a city of a given size or the number of cheeseburgers sold at a fast-food chain on a Friday night.
 
