@@ -441,6 +441,8 @@ data_for_table[2,3] = var(samples);
 pretty_table(data_for_table, header=table_header);
 ```
 
+Poisson random variables estimate how likely something will happen $x$ number of times in a fixed interval, e.g., the number of car crashes in a city of a given size or the number of cheeseburgers sold at a fast-food chain on a Friday night.
+
 ---
 
 # Summary
