@@ -128,8 +128,7 @@ P_stationary = iterate(P, counter;  maxcount = 10, ϵ = 0.001)
 ````
 
 ### Sampling the stationary distribution
-Once the stationary distribution $\pi$ of the Markov chain has been estimated, we can use it to generate samples from that chain. 
-For example, the stationary distribution for the two-state Markov chain in {prf:ref}`example-dicrete-mchain` is given by:
+Once the stationary distribution $\pi$ of the Markov chain has been estimated, we can use it to generate samples from that chain. For example, the stationary distribution for the two-state Markov chain in {prf:ref}`example-dicrete-mchain` is given by:
 
 ```{math}
 \pi = (0.857,0.143)
